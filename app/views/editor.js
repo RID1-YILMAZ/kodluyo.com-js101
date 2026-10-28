@@ -142,14 +142,22 @@ Views.Terminal = function (options={},panel=null) {
   return panel;
 }
 
+Views.HighlightLanguage = function (options) {
+  var language = String((options && options.language) || "python").toLowerCase();
+  if (language == "js" || language == "javascript" || language == "node" || language == "nodejs") return "javascript";
+  if (language == "py" || language == "python") return "python";
+  return language;
+}
+
 Views.Editor = function (options={},panel=null,code="") {
   if(panel==null) panel = Views.Panel(options);
 
+  let language = HelloWorld.Languages.find(options.language);
   panel.elements.editor=<div class="panel panel-editor"></div>
     panel.elements.editorTitle=<div class="panel-title" style='position:relative'></div>
       _=<div style='position: absolute;bottom: 0;left: 0;right: 0;height: 0;border-bottom: 1px solid;opacity: .1;z-index:-1;'></div>
-      panel.elements.editorIcon=<img class="panel-title-icon" src="./source/images/py.svg"></img>
-      panel.elements.editorTitle=<div>Python</div>
+      panel.elements.editorIcon=<img class="panel-title-icon" src="./source/images/{language.ext}.svg"></img>
+      panel.elements.editorTitle=<div>{language.title}</div>
       panel.elements.editorFiles=<div style="flex:1;display:flex;"></div>
         for(let path in panel.options.part.files){
           let file = panel.options.part.files[path];
@@ -203,15 +211,16 @@ Views.Editor = function (options={},panel=null,code="") {
 Views.Content = function (options={},panel=null,text="") {
   if(panel==null) panel = Views.Panel(options);
 
+  let contentLanguage = Views.HighlightLanguage(options);
   panel.elements.content = <div class="panel panel-content panel-padding"></div>
     panel.elements.content.innerHTML = marked.parse(text);
   panel.elements.body.appendChild(panel.elements.content);
   panel.elements.content.querySelectorAll("code").forEach((block) => {
-    if(block.className=="") block.className = "language-python";
+    if(block.className=="") block.className = "language-"+contentLanguage;
     hljs.highlightElement(block);
   });
   panel.elements.content.querySelectorAll("code-view").forEach((block) => {
-    if(!block.getAttribute("language")) block.setAttribute("language","python");
+    if(!block.getAttribute("language")) block.setAttribute("language",contentLanguage);
     let scrollAble = document.createElement("div");
     scrollAble.className = "code-view-scrollable";
     scrollAble.innerHTML = block.innerHTML.trim();
@@ -225,15 +234,16 @@ Views.Content = function (options={},panel=null,text="") {
 }
 
 Views.ContentPart = function (text,panel) {
+  let contentLanguage = Views.HighlightLanguage(panel.options);
   let part=<div style="background:#888;transition:1s"></div>
   part.innerHTML = marked.parse(text);
   panel.elements.content.appendChild(part);
   part.querySelectorAll("code").forEach((block) => {
-    if(block.className=="") block.className = "language-python";
+    if(block.className=="") block.className = "language-"+contentLanguage;
     hljs.highlightElement(block);
   });
   part.querySelectorAll("code-view").forEach((block) => {
-    if(!block.getAttribute("language")) block.setAttribute("language","python");
+    if(!block.getAttribute("language")) block.setAttribute("language",contentLanguage);
     let scrollAble = document.createElement("div");
     scrollAble.className = "code-view-scrollable";
     scrollAble.innerHTML = block.innerHTML.trim();

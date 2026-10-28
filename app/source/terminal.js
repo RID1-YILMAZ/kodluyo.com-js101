@@ -137,6 +137,39 @@ HelloWorld.Terminal = function (panel,parent,language=null) {
 
 
 
+/**
+ * Ders dosyasindaki "language" degerini sadelestirir.
+ * "py" ve "python" ayni motora, "js"/"javascript"/"node" ayni motora gider.
+ */
+HelloWorld.NormalizeLanguage = function (language) {
+  language = String(language || "python").toLowerCase();
+  if (language == "js" || language == "javascript" || language == "node" || language == "nodejs") return "javascript";
+  if (language == "py" || language == "python" || language == "python3") return "python";
+  return language;
+}
+
+/** Calistirilacak ana dosyanin adi. */
+HelloWorld.EntryFile = function (language) {
+  return HelloWorld.NormalizeLanguage(language) == "javascript" ? "main.js" : "main.py";
+}
+
+/**
+ * Editordeki tum dosyalari Program()'a gonderilecek bicime cevirir.
+ * Coklu dosya derslerinde (ornegin require / fs) butun dosyalar gonderilir.
+ */
+HelloWorld.SourceFiles = function (panel) {
+  let files = {};
+  if (panel.editors) {
+    for (let path in panel.editors) {
+      if (panel.editors[path]) files[path] = panel.editors[path].getValue();
+    }
+  }
+  if (Object.keys(files).length == 0 && panel.editor) {
+    files[HelloWorld.EntryFile(panel.options.language)] = panel.editor.getValue();
+  }
+  return files;
+}
+
 HelloWorld.Terminal = function(panel,parent,language){
   let element = document.createElement("pre")
   parent.appendChild(element)
@@ -184,8 +217,8 @@ HelloWorld.Terminal = function(panel,parent,language){
     loadingCircle?.classList.remove("run-animation")
     loadingCircle?.classList.add("loading-animation")
     panel.terminal.clear()
-    panel.program = Program({
-      "main.py" : panel.editor.getValue()
+    panel.program = Program(HelloWorld.SourceFiles(panel), {
+      language: panel.options.language
     })
     panel.program.onData = function(data){
       panel.terminal.write(data);
@@ -252,7 +285,9 @@ HelloWorld.Terminal = function(panel,parent,language){
       console.log(command)
 
       
-      let program = Program(command.files)
+      let program = Program(command.files, {
+        language: panel.options.language
+      })
 
       program.onEnd = function(response){
         console.log("%cOutput: ","color:blue");

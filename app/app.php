@@ -185,6 +185,10 @@ function slugify($text) {
   <script>
     
     function Program(files,options){
+      options = options || {}
+      let language = (options.language=="javascript" || options.language=="js" || options.language=="node" || options.language=="nodejs") ? "javascript" : "python"
+      let runnerUrl = language=="javascript" ? "api-javascript.html" : "api-python-skulpt.html"
+
       let program = {
         response: "",
         onData  : function(e){console.log("PROGRAM::onData(" +JSON.stringify(e)+")")} ,
@@ -192,15 +196,17 @@ function slugify($text) {
         onEnd   : function(e){console.log("PROGRAM::onEnd("  +JSON.stringify(e)+")")} ,
       }
 
-      let iframe = Program.iframe
-      if(!Program.iframe){
-        iframe = Program.iframe = document.createElement("iframe")
-        iframe.src="api-python-skulpt.html"
+      Program.frames = Program.frames || {}
+      let iframe = Program.frames[language]
+      if(!iframe){
+        iframe = Program.frames[language] = document.createElement("iframe")
+        iframe.src = runnerUrl
         iframe.onload = function(e){
           iframe.contentWindow.postMessage(JSON.stringify(files), "*");
         }
         document.body.append(iframe)
         iframe.style.display = "none";
+        if(language=="javascript") iframe.setAttribute("sandbox","allow-scripts")
         //iframe.setAttribute("style",`opacity:none`)
         
         
