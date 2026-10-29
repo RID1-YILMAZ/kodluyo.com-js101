@@ -158,6 +158,7 @@ function slugify($text) {
   </style>
 
   <script src="./views/pager.js"></script>
+  <script src="./source/program.js"></script>
 </head>
 
 <body theme="dark">
