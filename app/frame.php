@@ -74,6 +74,8 @@ $content = file_get_contents($content);
   <script src="../source/editor.js"></script>
   <script src="../source/terminal.js"></script>
   <script src="../source/script.js"></script>
+  <!-- Sayfa yonlendirici: ders/kurs icerigini render eder (Pager) -->
+  <script src="../views/pager.js"></script>
 
 
 

@@ -33,17 +33,34 @@ Sunucu tarafındaki PHP **yalnızca** ders dosyasını okumak ve "sıradaki ders
 derleme/yorumlama tamamen istemcide yapılır. Bu sayede site sunucusuz (statik olarak) da
 yayınlanabilir — bkz. [GitHub Pages demosu](#-github-pages-demosu).
 
+Anasayfa, kodluyo.com'un yeni arayüzüyle (cam efektli sabit menü, tam ekran bölümler,
+gradyan başlıklar) uyumludur ve `@python101`, `@javascript101`, `@editor`, `@terminal`
+bölümlerini içerir. Kurs/ders ekranı ise mevcut koyu temalı uygulama kabuğunu kullanır.
+
 ## ✨ Özellikler
 
 - 🎮 **Oyunlaştırma** — her ders bir görev; çözünce `★` kazanılır ve ilerleme `localStorage`'da saklanır.
 - 🧠 **Monaco editörü** — VS Code'un editörü; satır numaraları, sözdizimi renklendirme, otomatik tamamlama.
-- 💻 **xterm.js terminali** — gerçek terminal görünümü, renkli çıktı, yazdırma/indirme.
+- 💻 **terminal paneli** — gerçek terminal görünümü, renkli çıktı, `F8` ile anında çalıştırma.
 - 🔒 **Düzenlenebilir bloklar** — ders dosyası hangi satırların yazılabilir olduğunu `<<< ❓ >>>` ile belirler;
   öğrenci yalnızca istenen yeri düzenler (Monaco `constrained-editor-plugin`).
 - 📦 **Çoklu dosya desteği** — `main.js` + `selam.js` gibi birden fazla dosyayla Node.js örnekleri.
 - 🖱️ **Kodsuz dersler** — bazı dersler (ör. `1001-merhaba-dünya-terminal`) editör yerine yalnızca
   terminal kullanır; kullanıcı komutu kendisi yazar.
 - 📱 **Tek sayfa, tek bağımlılık yok** — kurulum, hesap veya API anahtarı gerekmez.
+
+## 🖥️ Online editör
+
+Her iki dil için kurulum gerektirmeyen bir kod editörü vardır:
+
+| Adres | Dil | Çalıştırıcı |
+|---|---|---|
+| `/app/editor/?lang=python` | Python 3 | Skulpt |
+| `/app/editor/?lang=javascript` | JavaScript / Node.js | mini Node.js ortamı |
+
+Aynı sayfa `?lang=` parametresine göre dil seçer; editör kodu `F8` (veya ▶) ile çalıştırır,
+çıktıyı aynı ekrandaki terminal panelinde gösterir. PHP tarafında `/app/editor/python.php` ve
+`/app/editor/javascript.php` adresleri bu sayfaya yönlendirir.
 
 ## 📚 Kurslar
 
@@ -83,7 +100,8 @@ döngüler ve fonksiyonlara kadar ilerler. Arayüz dili gibi içerik dili de Tü
 │   ├── views/                  # panel, ders listesi, tema
 │   ├── library/                # monaco, xterm, marked, dion, jQuery, highlight.js…
 │   ├── @python101/             # 25 ders (Dion formatında .md)
-│   └── @javascript101/         # 32 ders (Dion formatında .md)
+│   ├── @javascript101/         # 32 ders (Dion formatında .md)
+│   └── editor/                 # online editör (online.html + python.md + javascript.md)
 ├── tools/                      # ders doğrulama ve statik site üreticisi
 ├── python101.png               # kurs kapak görseli
 ├── javascript101.svg           # kurs kapak görseli
@@ -121,7 +139,7 @@ zaten tarayıcıda çalıştığı için site tamamen sunucusuz çalışır.
 `tools/build-pages.js`, uygulamayı PHP'siz çalışan statik bir siteye dönüştürür:
 
 - her ders için `/app/@kurs/<ders>/index.html` üretir (ders içeriği sayfaya gömülür),
-- kurs listelerini ve anasayfayı kopyalar,
+- kurs listelerini, anasayfayı ve `/app/editor/` online editörünü üretir,
 - `app/library`, `app/views`, `app/source` ve iki çalıştırıcıyı olduğu gibi taşır,
 - GitHub Pages'in Jekyll işlemesini kapatmak için `.nojekyll` ekler,
 - üretilen tüm sayfalarda yerel bağlantıların/varlıkların var olduğunu doğrular.
@@ -200,6 +218,25 @@ node tools/verify-lessons.js --structure-only                     # yalnızca ş
 Araç (1) Dion şemasını, (2) her örneği gerçek runner ile çalıştırıp `Terminal` çıktısıyla
 karşılaştırmayı, (3) her testi `tools/solutions/*.json` cevaplarıyla doldurup beklenen
 çıktıya karşı denetlemeyi yapar. Hedef: **0 hata**.
+
+## 🩺 Düzeltilen çalışma zamanı sorunları
+
+Statik (GitHub Pages) sürümde **editörün açılmamasına** yol açan hatalar giderildi:
+
+1. **`Pager is not defined`** — ders kabuğu `views/pager.js` dosyasını yüklemiyordu; sayfa boş
+   kalıyordu. `app/frame.php`'ye eklendi.
+2. **Test geçince ders ilerlemiyordu** — `HelloWorld.KeyboardSound` ses aygıtı olmayan/autoplay
+   engelli ortamlarda tanımsız kalıyor, `TEBRİKLER` yazıldıktan sonra `nextPart()` çağrılmıyordu.
+   Ses motoru güvenli bir yedeğe alındı; ses yüklenemese de ders ilerler.
+3. **Monaco `postMessage` çakışması** — yeni Monaco sürümleri `window.postMessage` ile nesne
+   yolluyor; `JSON.parse` hata fırlatıyordu. Mesaj işleyici artık yalnızca string/JSON işliyor.
+
+Ayrıca eksik görsel/font kaynaklarından kaynaklanan 404'ler temizlendi ve `terminal.html`
+içindeki jQuery 4 uyumsuzluğu (jQuery 3.7.1'e sabitlendi) düzeltildi.
+
+Bu düzeltmeler gerçek bir tarayıcıda (headless Chromium) uçtan uca doğrulandı: ders açılışı,
+kodu çalıştırma, testin geçmesi ve bir sonraki bölüme geçiş; ayrıca iki online editörün
+`F8` çıktısı.
 
 ## 🧩 Yeni ders ekleme
 

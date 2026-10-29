@@ -194,7 +194,11 @@ function slugify($text) {
       }
       
       window.onmessage = function(event) {
-        let response = JSON.parse(event.data)
+        // Monaco kendi zamanlayicisi icin nesne yollar; yalnizca string JSON isle.
+        if (typeof event.data !== "string") return;
+        let response;
+        try { response = JSON.parse(event.data) } catch (e) { return }
+        if (!response || typeof response !== "object") return;
         if(response.onData)
           program.onData(response.onData)
         if(response.onEnd){

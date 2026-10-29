@@ -216,7 +216,13 @@ function slugify($text) {
       }
       
       window.onmessage = function(event) {
-        let response = JSON.parse(event.data)
+        // Monaco (VS Code) kendi zamanlayicisi icin window.postMessage ile NESNE
+        // yollar (orn. {vscodeScheduleAsyncWork:true}). Bunlari JSON.parse etmek
+        // hata firlatir; yalnizca string ve gecerli JSON mesajlarini isle.
+        if (typeof event.data !== "string") return;
+        let response;
+        try { response = JSON.parse(event.data) } catch (e) { return }
+        if (!response || typeof response !== "object") return;
         if(response.onData !== undefined){
           program.onData(response.onData)
         }

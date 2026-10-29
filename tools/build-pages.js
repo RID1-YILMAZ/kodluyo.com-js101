@@ -38,7 +38,12 @@ const OUT = outArg > -1
 
 const ASSET_DIRS = ['library', 'views', 'source'];
 const ASSET_FILES = ['skulpt.js', 'api-javascript.html', 'api-python-skulpt.html'];
-const ROOT_FILES = ['python101.png', 'javascript101.svg'];
+const ROOT_FILES = ['python101.png', 'javascript101.svg', 'terminal.html', 'todo.html'];
+
+// Online editor: PHP yalnizca dili query'den alip dosyayi okuyordu.
+// Statik surumde ayni sayfa iki dile de hizmet eder (app/editor/online.html).
+const EDITOR_DIR = path.join(APP, 'editor');
+const EDITOR_ASSETS = ['online.html', 'python.md', 'javascript.md'];
 
 const pages = [];
 
@@ -167,6 +172,15 @@ for (const file of ROOT_FILES) {
   copy(path.join(ROOT, file), path.join(OUT, file));
 }
 
+// Online editor (/app/editor/): online.html dizin indeksi olarak da yayinlanir.
+const editorPages = [];
+for (const file of EDITOR_ASSETS) {
+  copy(path.join(EDITOR_DIR, file), path.join(OUT, 'app', 'editor', file));
+}
+const editorHtml = fs.readFileSync(path.join(EDITOR_DIR, 'online.html'), 'utf8');
+write(path.join('app', 'editor', 'index.html'), editorHtml, path.join(OUT, 'app'));
+editorPages.push('app/editor/index.html');
+
 // 2) anasayfa (kok index.html zaten statik; yalnizca baglantilar duzeltilir)
 let landing = fs.readFileSync(path.join(ROOT, 'index.html'), 'utf8');
 landing = landing.replace(/href="\.\/app\/(@[^"\/]+)"/g, 'href="./app/$1/"');
@@ -243,24 +257,38 @@ const appIndex = `<!DOCTYPE html>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>kodluyo.com — Kurslar</title>
 <style>
-  body { margin:0; min-height:100vh; display:grid; place-items:center; background:#1A1B1A; color:#DDD;
+  body { margin:0; min-height:100vh; display:grid; place-items:center; background:#141414; color:#DDD;
          font-family:'Ubuntu Mono', ui-monospace, monospace; }
-  main { width:min(720px, 92vw); padding:2em 0; }
-  h1 { font-size:1.6em; margin:0 0 .25em; }
+  main { width:min(760px, 92vw); padding:3em 0; }
+  h1 { font-size:1.8em; margin:0 0 .25em;
+       background:linear-gradient(45deg,#0048ff 20%,#37d9ff);
+       -webkit-background-clip:text; background-clip:text; color:transparent; }
   p.lead { color:#888; margin:0 0 2em; }
+  h2 { font-size:.95em; letter-spacing:.06em; text-transform:uppercase; color:#666; margin:0 0 .75em; }
   a.course { display:flex; justify-content:space-between; align-items:center; gap:1em; padding:1em 1.25em;
              margin-bottom:.75em; color:inherit; text-decoration:none; border-radius:10px;
              box-shadow:inset 0 0 0 1px #333; transition:.2s; }
-  a.course:hover { box-shadow:inset 0 0 0 1px #FC0; background:#0003; }
-  a.course span { color:#FC0; font-size:.85em; white-space:nowrap; }
+  a.course:hover { box-shadow:inset 0 0 0 1px #37d9ff; background:#0003; transform:translateY(-1px); }
+  a.course span { color:#37d9ff; font-size:.85em; white-space:nowrap; }
   a.home { color:#888; font-size:.85em; }
+  .tools { display:flex; flex-wrap:wrap; gap:.75em; margin:2em 0 1.5em; }
+  .tools a { padding:.6em 1.2em; border-radius:1000px; text-decoration:none; color:#fff; font-weight:700;
+             background:linear-gradient(45deg,#0048ff,#37d9ff); }
+  .tools a.ghost { background:transparent; box-shadow:inset 0 0 0 1px #666; color:#DDD; }
+  .tools a.ghost:hover { box-shadow:inset 0 0 0 1px #37d9ff; }
 </style>
 </head>
 <body>
 <main>
   <h1>⌨️ kodluyo.com</h1>
   <p class="lead">Bir kurs seçin — kurulum yok, tarayıcıda çalışır.</p>
+  <h2>Kurslar</h2>
 ${cards}
+  <div class="tools">
+    <a href="./editor/?lang=python">online python editörü</a>
+    <a href="./editor/?lang=javascript">online javascript editörü</a>
+    <a class="ghost" href="../terminal.html">terminal</a>
+  </div>
   <p><a class="home" href="../">← Anasayfa</a></p>
 </main>
 </body>
