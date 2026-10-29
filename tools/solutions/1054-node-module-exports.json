@@ -25,8 +25,8 @@
       "hesap.js": ["module.exports = { ikiKat: ikiKat }"]
     },
     "6": {
-      "main.js": ["\"./selam.js\""],
-      "selam.js": ["require.main === module"]
+      "main.js": ["\"./selam.js\"", "require.main === module"],
+      "selam.js": ["==="]
     },
     "7": {
       "main.js": ["dil"],

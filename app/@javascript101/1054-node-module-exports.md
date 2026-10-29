@@ -393,15 +393,18 @@ yarı var mı? true
 - text
 # 🚦 require.main === module
 
-Bir dosya hem başka dosyadan ``require`` edilebilir hem de doğrudan çalıştırılabilir.
-``require.main === module`` kontrolü "bu dosya doğrudan mı çalıştırıldı?" sorusunu
-sorar. Doğrudan çalıştırıldığında ``true`` olur ve dosya kendi deneme kodunu çalıştırır;
-``require`` ile çağrıldığında ise bu blok atlanır.
+``require.main`` programı başlatan **ana modülü** gösterir; ``require.main.id`` bu
+modülün adıdır. ``module`` ise o an çalışan dosyanın modülüdür. Bu yüzden
+``require.main === module`` yalnızca doğrudan çalıştırılan dosyada ``true``, başka
+dosyadan ``require`` edilen modülde ``false`` olur. Bu kontrolü kullanan bir modül,
+hem kütüphane olarak hem de tek başına çalışabilir.
 
 <code-view name="main.js" language="javascript">
 // main.js
 const { selamVer } = require("./selam.js");
 
+console.log("main.js ana modül mü?", require.main === module);
+console.log("Ana modülün adı:", require.main.id);
 selamVer("Ada");
 </code-view>
 
@@ -413,23 +416,32 @@ function selamVer(ad) {
 
 module.exports = { selamVer };
 
-// Bu dosya doğrudan çalıştırılırsa da çalışsın
+console.log("selam.js ana modül mü?", require.main === module);
+
+// Bu dosya doğrudan çalıştırılırsa da selam versin
 if (require.main === module) {
   selamVer("Dünya");
 }
 </code-view>
 
 <code-view name="Terminal" language="bash">
+selam.js ana modül mü? false
+main.js ana modül mü? true
+Ana modülün adı: main.js
 Merhaba Ada
 </code-view>
 
 # 🎯 7. Görev
 
-Modülü doğrudan çalıştırma kontrolünü ekler misin?
+Ana modül kontrolünü ekleyen programı tamamlar mısın? Çıktıda ``main.js`` için
+``true``, ``selam.js`` için ``false`` görünmeli.
 
 - files/main.js/.block
 const { selamVer } = require(<<< ❓ >>>);
 
+// ana modül kontrolünü yapar mısın?
+console.log("main.js ana modül mü?", <<< ❓ >>>);
+console.log("Ana modülün adı:", require.main.id);
 selamVer("Ada");
 ---------------------
 - files/selam.js/.block
@@ -439,12 +451,17 @@ function selamVer(ad) {
 
 module.exports = { selamVer };
 
-// Bu dosya doğrudan çalıştırılırsa da çalışsın
-if (<<< ❓ >>>) {
+console.log("selam.js ana modül mü?", require.main <<< ❓ >>> module);
+
+// Bu dosya doğrudan çalıştırılırsa da selam versin
+if (require.main === module) {
   selamVer("Dünya");
 }
 ---------------------
 - tests/0/output
+selam.js ana modül mü? false
+main.js ana modül mü? true
+Ana modülün adı: main.js
 Merhaba Ada
 
 ---------------------

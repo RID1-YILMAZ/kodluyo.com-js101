@@ -203,6 +203,120 @@
     return "/" + normalizePath(path);
   }
 
+  // -- path modulu icin Node uyumlu yardimcilar ---------------------- //
+  // normalizePath sanal dosya sistemi icin bastaki "/" isaretini atar.
+  // path modulu ise Node.js gibi davranmali: mutlak yollari korur,
+  // bos yolu "." olarak dondurur.
+  function nodeNormalize(path) {
+    path = String(path == null ? "" : path).replace(/\\/g, "/");
+    if (path === "") return ".";
+    var absolute = path.charAt(0) === "/";
+    var parts = path.split("/");
+    var output = [];
+    for (var index = 0; index < parts.length; index++) {
+      var part = parts[index];
+      if (part === "" || part === ".") continue;
+      if (part === "..") {
+        if (output.length > 0 && output[output.length - 1] !== "..") output.pop();
+        else if (!absolute) output.push("..");
+        continue;
+      }
+      output.push(part);
+    }
+    var result = output.join("/");
+    if (absolute) result = "/" + result;
+    if (result === "") return absolute ? "/" : ".";
+    return result;
+  }
+
+  function nodeJoin() {
+    var parts = [];
+    for (var index = 0; index < arguments.length; index++) {
+      var value = arguments[index];
+      if (value !== undefined && value !== null && value !== "") parts.push(String(value));
+    }
+    return nodeNormalize(parts.join("/"));
+  }
+
+  function nodeDirname(path) {
+    var value = String(path == null ? "" : path).replace(/\\/g, "/");
+    value = value.replace(/\/+$/, "");
+    if (value === "") return ".";
+    var index = value.lastIndexOf("/");
+    if (index === -1) return ".";
+    if (index === 0) return "/";
+    var directory = value.substring(0, index).replace(/\/+$/, "");
+    return directory === "" ? "/" : directory;
+  }
+
+  function nodeBasename(path, extension) {
+    var value = String(path == null ? "" : path).replace(/\\/g, "/");
+    value = value.replace(/\/+$/, "");
+    var name = value.substring(value.lastIndexOf("/") + 1);
+    if (extension && name !== extension && name.slice(-extension.length) === extension) {
+      name = name.slice(0, name.length - extension.length);
+    }
+    return name;
+  }
+
+  function nodeExtname(path) {
+    var name = nodeBasename(path);
+    var index = name.lastIndexOf(".");
+    if (index <= 0) return "";
+    return name.substring(index);
+  }
+
+  function nodeResolve() {
+    var resolved = "";
+    var index;
+    for (index = arguments.length - 1; index >= 0; index--) {
+      var value = String(arguments[index] == null ? "" : arguments[index]);
+      if (value === "") continue;
+      resolved = value + "/" + resolved;
+      if (value.charAt(0) === "/") break;
+    }
+    if (resolved === "") return "/app";
+    if (resolved.charAt(0) !== "/") resolved = "/app/" + resolved;
+    return nodeNormalize(resolved);
+  }
+
+  function nodeRelative(from, to) {
+    var fromParts = nodeResolve(from).split("/").filter(function (part) { return part !== ""; });
+    var toParts = nodeResolve(to).split("/").filter(function (part) { return part !== ""; });
+    var common = 0;
+    while (common < fromParts.length && common < toParts.length &&
+      fromParts[common] === toParts[common]) {
+      common++;
+    }
+    var output = [];
+    for (var index = common; index < fromParts.length; index++) output.push("..");
+    for (var target = common; target < toParts.length; target++) output.push(toParts[target]);
+    return output.join("/");
+  }
+
+  function nodeIsAbsolute(path) {
+    return String(path == null ? "" : path).replace(/\\/g, "/").charAt(0) === "/";
+  }
+
+  function nodeParse(path) {
+    path = String(path == null ? "" : path);
+    var root = nodeIsAbsolute(path) ? "/" : "";
+    var dir = nodeDirname(path);
+    var base = nodeBasename(path);
+    var ext = nodeExtname(path);
+    var name = ext ? base.substring(0, base.length - ext.length) : base;
+    if (dir === ".") dir = "";
+    return { root: root, dir: dir, base: base, ext: ext, name: name };
+  }
+
+  function nodeFormat(object) {
+    object = object || {};
+    var dir = object.dir || object.root || "";
+    var base = object.base || ((object.name || "") + (object.ext || ""));
+    if (!dir) return base;
+    return dir === "/" ? "/" + base : dir + "/" + base;
+  }
+
   // ------------------------------------------------------------------
   // Calistirma motoru
   // ------------------------------------------------------------------
@@ -235,6 +349,8 @@
     var startedAt = Date.now();
     var timerIds = {};
     var nextTimerId = 1;
+    // Node.js'te require.main ana (giris) modulu gosterir.
+    var mainModule = null;
 
     var onData = typeof options.onData === "function" ? options.onData : null;
     var onEnd = typeof options.onEnd === "function" ? options.onEnd : null;
@@ -517,12 +633,16 @@
     var pathModule = {
       sep: "/",
       delimiter: ":",
-      normalize: normalizePath,
-      join: joinPath,
-      resolve: resolvePath,
-      basename: basenamePath,
-      dirname: function (path) { return dirnamePath(path); },
-      extname: extnamePath
+      normalize: nodeNormalize,
+      join: nodeJoin,
+      resolve: nodeResolve,
+      basename: nodeBasename,
+      dirname: nodeDirname,
+      extname: nodeExtname,
+      relative: nodeRelative,
+      parse: nodeParse,
+      format: nodeFormat,
+      isAbsolute: nodeIsAbsolute
     };
 
     var osModule = {
@@ -757,6 +877,7 @@
 
       var module = { exports: {}, id: key, filename: "/app/" + key, loaded: false };
       moduleCache[key] = module;
+      if (key === entry) mainModule = module;
 
       var directory = dirnamePath(key);
       var wrapper = new Function(
@@ -767,9 +888,19 @@
         files[key] + "\n//# sourceURL=" + key
       );
 
+      var moduleRequire = function (childRequest) {
+        return loadModule(childRequest, directory);
+      };
+      moduleRequire.main = mainModule;
+      moduleRequire.resolve = function (request) {
+        var resolved = resolveRequest(request, directory);
+        if (resolved === null) throw new Error("Cannot find module '" + request + "'");
+        return resolved;
+      };
+
       wrapper(
         module.exports,
-        function (childRequest) { return loadModule(childRequest, directory); },
+        moduleRequire,
         module,
         "/app/" + key,
         "/app" + (directory ? "/" + directory : ""),

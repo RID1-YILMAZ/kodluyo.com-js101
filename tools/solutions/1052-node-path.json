@@ -7,8 +7,10 @@
     "4": { "main.js": ["extname"] },
     "5": { "main.js": ["path.sep"] },
     "6": { "main.js": ["\"veri.txt\""] },
-    "7": { "main.js": ["extname"] },
-    "8": { "main.js": ["path.basename(hedef)"] },
-    "9": { "main.js": ["\"javascript\""] }
+    "7": { "main.js": ["name"] },
+    "8": { "main.js": ["path.relative"] },
+    "9": { "main.js": ["isAbsolute"] },
+    "10": { "main.js": ["format"] },
+    "11": { "main.js": ["\"javascript\""] }
   }
 }

@@ -215,7 +215,11 @@ aşağıdaki ortam garanti edilir** (gerçek Node.js'in tamamı yok):
 - `console.log`, `console.error`, `console.warn`, `console.info` — çıktı terminale gider.
 - `require` ile çekirdek modüller: `path`, `path/posix`, `fs`, `fs/promises`, `os`,
   `util`, `events`, `buffer` ve **göreli dosyalar** (`./hesap.js`, `./veri.json`).
-- `module.exports`, `exports`, `require.main`, `module.id`, `__filename`, `__dirname`.
+- `path` fonksiyonları: `join`, `resolve`, `normalize`, `dirname`, `basename`,
+  `extname`, `relative`, `parse`, `format`, `isAbsolute`, `sep` (Node.js ile uyumlu;
+  mutlak yollarda baştaki `/` korunur).
+- `module.exports`, `exports`, `require.main` (giriş dosyasında `true`, require edilen
+  modülde `false`), `module.id`, `__filename`, `__dirname`.
 - `process` (`argv`, `env`, `platform`, `arch`, `version`, `versions`, `cwd`,
   `exit`, `stdout.write`, …), `Buffer`, `setTimeout/setInterval/clearTimeout`
   (asenkron derslerde kullanma; basit tut).
