@@ -30,12 +30,16 @@ console.log("Çalışma klasörü:", process.cwd());
 Çalışma klasörünü terminale yazdıran programı yazar mısın?
 
 - files/main.js/.block
-// çalışma klasörünü bulur musun?
+// Görev: process.cwd() ile programın çalıştığı klasörü terminale yazdır.
+// Boşluğa process metodunun adını yaz: cwd; çalışma klasörünü metin olarak döndürür.
+// Beklenen çıktı:
+// Çalışma klasörü: /app
 console.log("Çalışma klasörü:", process.<<< ❓ >>>());
 ---------------------
 - tests/0/output
 Çalışma klasörü: /app
 
+- tests/0/require = "cwd"
 ---------------------
 - parts/1:
 - text
@@ -61,7 +65,11 @@ Mimari: x64
 İşletim sistemini ve mimariyi yazdıran programı tamamlar mısın?
 
 - files/main.js/.block
-// işletim sistemini yazar mısın?
+// Görev: process.platform ile işletim sistemini, process.arch ile mimariyi yazdır.
+// Boşluğa platform yaz; işletim sistemi "linux", mimari ise "x64" olarak yazılır.
+// Beklenen çıktı:
+// İşletim sistemi: linux
+// Mimari: x64
 console.log("İşletim sistemi:", process.<<< ❓ >>>);
 console.log("Mimari:", process.arch);
 ---------------------
@@ -69,6 +77,7 @@ console.log("Mimari:", process.arch);
 İşletim sistemi: linux
 Mimari: x64
 
+- tests/0/require = "platform"
 ---------------------
 - parts/2:
 - text
@@ -93,14 +102,19 @@ Sadece numara: 20.11.0
 ``v`` harfi olmadan Node.js sürüm numarasını yazdıran programı tamamlar mısın?
 
 - files/main.js/.block
+// Görev: process.versions.node ile Node.js sürümünü "v" harfi olmadan yazdır.
+// Boşluğa node yaz; process.version "v20.11.0", process.versions.node ise "20.11.0" verir.
+// Beklenen çıktı:
+// Node sürümü: v20.11.0
+// Sadece numara: 20.11.0
 console.log("Node sürümü:", process.version);
-// sadece numarayı yazar mısın?
 console.log("Sadece numara:", process.versions.<<< ❓ >>>);
 ---------------------
 - tests/0/output
 Node sürümü: v20.11.0
 Sadece numara: 20.11.0
 
+- tests/0/require = "node"
 ---------------------
 - parts/3:
 - text
@@ -126,8 +140,12 @@ dosya yolu: /app/main.js
 Çalıştırılan dosyanın yolunu ``argv`` içinden yazdıran programı tamamlar mısın?
 
 - files/main.js/.block
+// Görev: process.argv dizisinden çalıştırılan dosyanın yolunu yazdır.
+// Boşluğa 1 yaz; argv[0] node programının yolu, argv[1] ise çalışan dosyanın yoludur.
+// Beklenen çıktı:
+// node yolu: /usr/local/bin/node
+// dosya yolu: /app/main.js
 console.log("node yolu:", process.argv[0]);
-// dosya yolunu yazar mısın?
 console.log("dosya yolu:", process.argv[<<< ❓ >>>]);
 ---------------------
 - tests/0/output
@@ -160,7 +178,11 @@ Argümanlar: []
 Ek argümanları ``argv`` içinden ayıran programı tamamlar mısın?
 
 - files/main.js/.block
-// sadece ek argümanları alır mısın?
+// Görev: process.argv.slice(2) ile yalnızca ek argümanları alıp yazdır.
+// Boşluğa process.argv.slice(2) yaz; ilk iki eleman node ve dosya yoludur, atılır.
+// Beklenen çıktı:
+// Argüman sayısı: 0
+// Argümanlar: []
 let argümanlar = <<< ❓ >>>;
 
 console.log("Argüman sayısı:", argümanlar.length);
@@ -170,6 +192,7 @@ console.log("Argümanlar:", argümanlar);
 Argüman sayısı: 0
 Argümanlar: []
 
+- tests/0/require = "process.argv.slice(2)"
 ---------------------
 - parts/5:
 - text
@@ -197,7 +220,11 @@ Ortam: development
 Kullanıcı adını ortam değişkenlerinden okuyan programı tamamlar mısın?
 
 - files/main.js/.block
-// kullanıcı adını yazar mısın?
+// Görev: process.env.USER ile kullanıcı adını, process.env.NODE_ENV ile ortamı yazdır.
+// Boşluğa USER yaz; ortam değişkeni adları büyük harfle yazılır ve env nesnesinden okunur.
+// Beklenen çıktı:
+// Kullanıcı: kodluyo
+// Ortam: development
 console.log("Kullanıcı:", process.env.<<< ❓ >>>);
 console.log("Ortam:", process.env.NODE_ENV);
 ---------------------
@@ -205,6 +232,7 @@ console.log("Ortam:", process.env.NODE_ENV);
 Kullanıcı: kodluyo
 Ortam: development
 
+- tests/0/require = "USER"
 ---------------------
 - parts/6:
 - text
@@ -232,7 +260,10 @@ Geliştirme modundayız, detaylı loglar açık.
 Ortam moduna göre farklı mesaj yazan programı tamamlar mısın?
 
 - files/main.js/.block
-// ortam modunu kontrol eder misin?
+// Görev: process.env.NODE_ENV değeri "development" ise geliştirme mesajını yazdır.
+// Boşluğa process.env.NODE_ENV yaz; değer "development" metniyle === ile karşılaştırılır.
+// Beklenen çıktı:
+// Geliştirme modundayız, detaylı loglar açık.
 if (<<< ❓ >>> === "development") {
   console.log("Geliştirme modundayız, detaylı loglar açık.");
 } else {
@@ -242,6 +273,7 @@ if (<<< ❓ >>> === "development") {
 - tests/0/output
 Geliştirme modundayız, detaylı loglar açık.
 
+- tests/0/require = "process.env.NODE_ENV"
 ---------------------
 - parts/7:
 - text
@@ -267,7 +299,11 @@ Bitti
 Aynı satıra parça parça yazan programı tamamlar mısın?
 
 - files/main.js/.block
-// satır sonu olmadan yazar mısın?
+// Görev: process.stdout.write() ile satır sonu eklemeden "Yükleniyor..." yazdır.
+// Boşluğa METİN olarak "Yükleniyor..." yaz (çift tırnak kullan); bu fonksiyon satır sonu eklemez.
+// Beklenen çıktı:
+// Yükleniyor... tamam
+// Bitti
 process.stdout.write(<<< ❓ >>>);
 process.stdout.write(" tamam\n");
 console.log("Bitti");
@@ -276,6 +312,7 @@ console.log("Bitti");
 Yükleniyor... tamam
 Bitti
 
+- tests/0/require = "\"Yükleniyor...\""
 ---------------------
 - parts/8:
 - text
@@ -307,10 +344,14 @@ Hata: dosya bulunamadı.
 Dosya yoksa çıkış kodunu ``1`` yapan programı tamamlar mısın?
 
 - files/main.js/.block
+// Görev: Dosya yoksa process.exitCode değerini 1 yapıp hata mesajını yazdır.
+// Boşluğa sayı olarak 1 yaz; 0 başarı, sıfırdan farklı bir değer ise hata demektir.
+// Beklenen çıktı:
+// Hata: dosya bulunamadı.
+// Çıkış kodu: 1
 let dosyaVar = false;
 
 if (!dosyaVar) {
-  // hata kodunu ayarlar mısın?
   process.exitCode = <<< ❓ >>>;
   console.log("Hata: dosya bulunamadı.");
 }
@@ -351,8 +392,15 @@ Kullanıcı: kodluyo
 Sistem kartını yazdıran programı tamamlar mısın?
 
 - files/main.js/.block
+// Görev: Sistem bilgilerini tek bir kartta toplayıp console.log() ile yazdır.
+// Boşluğa arch yaz; process.arch mimariyi (x64) verir, platform ise işletim sistemini verir.
+// Beklenen çıktı:
+// === Sistem Kartı ===
+// Platform: linux | Mimari: x64
+// Node: 20.11.0
+// Klasör: /app
+// Kullanıcı: kodluyo
 console.log("=== Sistem Kartı ===");
-// mimariyi ekler misin?
 console.log("Platform:", process.platform, "| Mimari:", process.<<< ❓ >>>);
 console.log("Node:", process.versions.node);
 console.log("Klasör:", process.cwd());
@@ -365,4 +413,5 @@ Node: 20.11.0
 Klasör: /app
 Kullanıcı: kodluyo
 
+- tests/0/require = "arch"
 ---------------------

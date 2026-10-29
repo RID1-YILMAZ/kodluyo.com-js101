@@ -30,13 +30,20 @@ Birinci satırda ``true``, ikinci satırda ``false`` çıkacak şekilde karşıl
 operatörlerini yerleştirir misin?
 
 - files/main.js/.block
-// birinci satır true, ikinci satır false olmalı
+// Görev: Birinci satır true, ikinci satır false çıksın diye karşılaştırma operatörlerini yaz.
+// Birinci boşluğa == (gevşek eşitlik), ikinci boşluğa === (katı eşitlik) yaz.
+// Beklenen çıktı:
+// true
+// false
 console.log(1 <<< ❓ >>> "1");
 console.log(1 <<< ❓ >>> "1");
 ---------------------
 - tests/0/output
 true
 false
+
+- tests/0/require/0 = "\u003d\u003d"
+- tests/0/require/1 = "\u003d\u003d\u003d"
 
 ---------------------
 - parts/1:
@@ -65,7 +72,12 @@ false
 misin?
 
 - files/main.js/.block
-// ilk iki satır true, üçüncü satır false olmalı
+// Görev: İlk iki satır true, üçüncü satır false olacak şekilde operatörleri yaz.
+// Birinci ve ikinci boşluğa ==, üçüncü boşluğa === operatörünü yaz.
+// Beklenen çıktı:
+// true
+// true
+// false
 console.log(0 <<< ❓ >>> false);
 console.log(null <<< ❓ >>> undefined);
 console.log(null <<< ❓ >>> undefined);
@@ -74,6 +86,10 @@ console.log(null <<< ❓ >>> undefined);
 true
 true
 false
+
+- tests/0/require/0 = "\u003d\u003d"
+- tests/0/require/1 = "\u003d\u003d"
+- tests/0/require/2 = "\u003d\u003d\u003d"
 
 ---------------------
 - parts/2:
@@ -103,7 +119,11 @@ true
 mısın? Çıktı sırasıyla ``true`` ve ``false`` olmalı.
 
 - files/main.js/.block
-// hem sayı hem metin ile katı eşitlik kontrolü yapar mısın?
+// Görev: yaş değişkenini hem sayı hem metinle === (katı eşitlik) ile karşılaştır.
+// İki boşluğa da === operatörünü yaz: yaş === 30 ve yaş === "30".
+// Beklenen çıktı:
+// true
+// false
 let yaş = 30;
 console.log(yaş <<< ❓ >>> 30);
 console.log(yaş <<< ❓ >>> "30");
@@ -112,15 +132,23 @@ console.log(yaş <<< ❓ >>> "30");
 true
 false
 
+- tests/0/require = "\u003d\u003d\u003d"
+
 ---------------------
 - tests/1/files/main.js/.block
-// hem sayı hem metin ile katı eşitlik kontrolü yapar mısın?
+// Görev: yaş değişkenini 45 sayısı ve "45" metni ile === kullanarak karşılaştır.
+// İkinci test aynı kuralı farklı değerle denetler: === (katı eşitlik) operatörü.
+// Beklenen çıktı:
+// true
+// false
 let yaş = 45;
 console.log(yaş <<< ❓ >>> 45);
 console.log(yaş <<< ❓ >>> "45");
 - tests/1/output
 true
 false
+
+- tests/1/require = "\u003d\u003d\u003d"
 
 ---------------------
 - parts/3:
@@ -149,13 +177,20 @@ true
 olduğunu yazdıran programı yazar mısın?
 
 - files/main.js/.block
-// NaN kendine eşit midir?
+// Görev: NaN'ın kendine === ile eşit olmadığını, Object.is ile eşit olduğunu yazdır.
+// İlk boşluğa ===, ikinci boşluğa Object.is yaz: Object.is(NaN, NaN) true döner.
+// Beklenen çıktı:
+// false
+// true
 console.log(NaN <<< ❓ >>> NaN);
 console.log(<<< ❓ >>>(NaN, NaN));
 ---------------------
 - tests/0/output
 false
 true
+
+- tests/0/require/0 = "\u003d\u003d\u003d"
+- tests/0/require/1 = "Object.is"
 
 ---------------------
 - parts/4:
@@ -185,7 +220,12 @@ true
 mısın?
 
 - files/main.js/.block
-// sonuç gerçekten NaN mı?
+// Görev: 0 / 0 sonucunun NaN olup olmadığını Number.isNaN ve Object.is ile denetle.
+// Birinci boşluğa sonuç, ikinci boşluğa NaN yaz; sonuç değişkende tutulur.
+// Beklenen çıktı:
+// NaN
+// true
+// true
 let sonuç = 0 / 0;
 console.log(sonuç);
 console.log(Number.isNaN(<<< ❓ >>>));
@@ -224,7 +264,12 @@ false
 ``0`` ile ``-0`` arasındaki farkı gösteren programı yazar mısın?
 
 - files/main.js/.block
-// === eşit der, Object.is ayırt eder
+// Görev: 0 ile -0 arasındaki farkı göster: === true, Object.is false, 1 / -0 -Infinity.
+// Birinci boşluğa ===, ikinci boşluğa eksiSıfır yaz; son satır sabittir.
+// Beklenen çıktı:
+// true
+// false
+// -Infinity
 let eksiSıfır = -0;
 console.log(0 <<< ❓ >>> eksiSıfır);
 console.log(Object.is(0, <<< ❓ >>>));
@@ -234,6 +279,9 @@ console.log(1 / eksiSıfır);
 true
 false
 &minus;Infinity
+
+- tests/0/require/0 = "\u003d\u003d\u003d"
+- tests/0/require/1 = "eksiSıfır"
 
 ---------------------
 - parts/6:
@@ -263,7 +311,11 @@ Aynı içerikli iki ayrı dizinin eşit olmadığını, aynı diziye bakan iki d
 olduğunu yazdıran programı yazar mısın?
 
 - files/main.js/.block
-// aynı içerik eşit olmak zorunda mı?
+// Görev: Aynı içerikli iki ayrı dizinin eşit olmadığını === ile göster.
+// İki boşluğa da === yaz: a === b false, a === c true döner.
+// Beklenen çıktı:
+// false
+// true
 let a = [1, 2, 3];
 let b = [1, 2, 3];
 let c = a;
@@ -274,9 +326,15 @@ console.log(a <<< ❓ >>> c);
 false
 true
 
+- tests/0/require = "\u003d\u003d\u003d"
+
 ---------------------
 - tests/1/files/main.js/.block
-// aynı içerik eşit olmak zorunda mı?
+// Görev: Aynı içerikli iki ayrı metin dizisinin eşit olmadığını === ile göster.
+// İkinci test aynı kuralı farklı dizilerle denetler: === (katı eşitlik).
+// Beklenen çıktı:
+// false
+// true
 let a = ["elma", "armut"];
 let b = ["elma", "armut"];
 let c = a;
@@ -285,6 +343,8 @@ console.log(a <<< ❓ >>> c);
 - tests/1/output
 false
 true
+
+- tests/1/require = "\u003d\u003d\u003d"
 
 ---------------------
 - parts/7:
@@ -315,7 +375,12 @@ true
 ``JSON.stringify`` ile karşılaştırılınca eşit olduğunu yazdıran programı yazar mısın?
 
 - files/main.js/.block
-// içeriği karşılaştırmak için metne çevirir misin?
+// Görev: İki ayrı nesnenin eşit olmadığını === ile, içerik eşitliğini JSON.stringify ile göster.
+// İlk iki boşluğa ===, üçüncü boşluğa JSON.stringify yaz.
+// Beklenen çıktı:
+// false
+// true
+// true
 let kullanıcı1 = { ad: "Ayşe" };
 let kullanıcı2 = { ad: "Ayşe" };
 console.log(kullanıcı1 <<< ❓ >>> kullanıcı2);
@@ -326,6 +391,10 @@ console.log(<<< ❓ >>>(kullanıcı1) === JSON.stringify(kullanıcı2));
 false
 true
 true
+
+- tests/0/require/0 = "\u003d\u003d\u003d"
+- tests/0/require/1 = "\u003d\u003d\u003d"
+- tests/0/require/2 = "JSON.stringify"
 
 ---------------------
 - parts/8:
@@ -354,7 +423,11 @@ Metin olarak gelen ``formYaş`` değerini önce olduğu gibi, sonra sayıya çev
 ile karşılaştıran programı yazar mısın?
 
 - files/main.js/.block
-// metin hâli eşit değil, sayıya çevirince eşit
+// Görev: Metin olarak gelen formYaş'ı önce olduğu gibi, sonra Number() ile karşılaştır.
+// İki boşluğa da === operatörünü yaz: formYaş === sınır ve Number(formYaş) === sınır.
+// Beklenen çıktı:
+// false
+// true
 let formYaş = "18";
 let sınır = 18;
 console.log(formYaş <<< ❓ >>> sınır);
@@ -364,9 +437,15 @@ console.log(Number(formYaş) <<< ❓ >>> sınır);
 false
 true
 
+- tests/0/require = "\u003d\u003d\u003d"
+
 ---------------------
 - tests/1/files/main.js/.block
-// metin hâli eşit değil, sayıya çevirince eşit
+// Görev: formYaş metnini 24 sayısı ile === kullanarak karşılaştır.
+// İkinci test aynı kuralı farklı değerle denetler: === ve Number() dönüşümü.
+// Beklenen çıktı:
+// false
+// true
 let formYaş = "24";
 let sınır = 24;
 console.log(formYaş <<< ❓ >>> sınır);
@@ -374,6 +453,8 @@ console.log(Number(formYaş) <<< ❓ >>> sınır);
 - tests/1/output
 false
 true
+
+- tests/1/require = "\u003d\u003d\u003d"
 
 ---------------------
 - parts/9:
@@ -411,7 +492,15 @@ Altı satırın tamamını doğru yazdıracak şekilde operatörleri ve fonksiyo
 tamamlar mısın?
 
 - files/main.js/.block
-// altı soruyu da doğru cevaplar mısın?
+// Görev: Altı satırı da doğru cevapla: NaN, referans eşitliği, -0 ve === / Object.is farkı.
+// Boşluklara sırasıyla ===, Object.is, ===, ===, Object.is ve === yaz.
+// Beklenen çıktı:
+// false
+// true
+// false
+// true
+// false
+// false
 let n = NaN;
 let dizi1 = [1, 2];
 let dizi2 = [1, 2];
@@ -429,5 +518,8 @@ false
 true
 false
 false
+
+- tests/0/require/0 = "\u003d\u003d\u003d"
+- tests/0/require/1 = "Object.is"
 
 ---------------------

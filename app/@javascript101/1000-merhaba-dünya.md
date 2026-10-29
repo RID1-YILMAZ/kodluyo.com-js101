@@ -26,7 +26,10 @@ Merhaba Dünya
 Terminale ``Merhaba Dünya`` yazdıran programı yazar mısın?
 
 - files/main.js/.block
-// ekrana merhaba dünya yazar mısın?
+// Görev: Terminale "Merhaba Dünya" yazdır.
+// console.log() parantezinin içine metni ÇİFT TIRNAK ile yaz.
+// Beklenen çıktı:
+// Merhaba Dünya
 console.log("<<< ❓ >>>");
 ---------------------
 - tests/0/output
@@ -56,7 +59,11 @@ Tek tırnakla yazdım.
 İkinci satırı **tek tırnak** kullanarak ``Dünya`` yazdıran programı yazar mısın?
 
 - files/main.js/.block
-// ikinci satırı tek tırnakla yazdırır mısın?
+// Görev: İkinci satır terminale "Dünya" yazdırsın.
+// İlk satır çift tırnak kullanıyor; ikinci satırda TEK TIRNAK kullan: 'Dünya'
+// Beklenen çıktı:
+// Merhaba
+// Dünya
 console.log("Merhaba");
 console.log(<<< ❓ >>>);
 ---------------------
@@ -87,7 +94,11 @@ console.log(3.14);
 Terminale önce ``2024``, altına da ``3.14`` yazdıran programı yazar mısın?
 
 - files/main.js/.block
-// bu yılı ve pi sayısını yazdırır mısın?
+// Görev: Önce bu yılı (2024), sonra pi sayısını (3.14) yazdır.
+// Sayılar tırnak içine YAZILMAZ; doğrudan console.log() parantezine yazılır.
+// Beklenen çıktı:
+// 2024
+// 3.14
 console.log(<<< ❓ >>>);
 console.log(3.14);
 ---------------------
@@ -119,7 +130,10 @@ Ayşe
 yazar mısın?
 
 - files/main.js/.block
-// ad değişkenine Mehmet değerini verir misin?
+// Görev: ad değişkenine "Mehmet" değerini ver ve ekrana yazdır.
+// Değişkene metin verirken değeri çift tırnak içinde yaz: "Mehmet"
+// Beklenen çıktı:
+// Mehmet
 let ad = <<< ❓ >>>;
 console.log(ad);
 ---------------------
@@ -149,7 +163,10 @@ Yaş: 20
 Terminale ``Yaş: 20`` yazdıran programı yazar mısın?
 
 - files/main.js/.block
-// yaş değişkenini metne ekler misin?
+// Görev: Ekrana "Yaş: 20" yazdır.
+// Cümlenin sonuna + operatörü ile yaş değişkenini ekle.
+// Beklenen çıktı:
+// Yaş: 20
 let yaş = 20;
 console.log("Yaş: " + <<< ❓ >>>);
 ---------------------
@@ -180,7 +197,10 @@ console.log("3" + 4);
 ``5`` ile ``6`` sayılarını **toplayıp** terminale ``11`` yazdıran programı yazar mısın?
 
 - files/main.js/.block
-// iki sayıyı toplar mısın?
+// Görev: 5 ile 6 sayılarını TOPLAYIP ekrana 11 yazdır.
+// Toplamak için + operatörünü yaz; sayıları tırnak içine ALMA.
+// Beklenen çıktı:
+// 11
 console.log(5 <<< ❓ >>> 6);
 ---------------------
 - tests/0/output
@@ -188,7 +208,10 @@ console.log(5 <<< ❓ >>> 6);
 
 ---------------------
 - tests/1/files/main.js/.block
-// iki sayıyı toplar mısın?
+// Görev: 12 ile 8 sayılarını TOPLAYIP ekrana 20 yazdır.
+// İkinci test farklı sayılarla aynı kuralı denetler: + operatörü.
+// Beklenen çıktı:
+// 20
 console.log(12 <<< ❓ >>> 8);
 - tests/1/output
 20
@@ -217,7 +240,11 @@ Benim adım Ayşe, yaşım 20.
 ``Benim adım Ayşe, yaşım 20.`` cümlesini yazdıran programı yazar mısın?
 
 - files/main.js/.block
-// cümleyi değişkenlerle birleştirir misin?
+// Görev: Ekrana "Benim adım Ayşe, yaşım 20." cümlesini yazdır.
+// Cümleyi parça parça kur: metinler ve değişkenler + ile birleşir.
+// Boşlukları metinlerin içine kendimiz yazarız.
+// Beklenen çıktı:
+// Benim adım Ayşe, yaşım 20.
 let ad = "Ayşe";
 let yaş = 20;
 console.log("Benim adım " + ad + ", yaşım " + <<< ❓ >>> + ".");
@@ -249,7 +276,10 @@ Merhaba Dünya
 İkinci satırda ``Merhaba Dünya`` yazacak şekilde araya bir boşluk ekler misin?
 
 - files/main.js/.block
-// araya tek bir boşluk koyar mısın?
+// Görev: İki metni birleştirirken araya BİR BOŞLUK koyup "Merhaba Dünya" yazdır.
+// + operatörü kendiliğinden boşluk eklemez; boşluğu metin olarak sen yaz.
+// Beklenen çıktı:
+// Merhaba Dünya
 console.log("Merhaba" + <<< ❓ >>> + "Dünya");
 ---------------------
 - tests/0/output
@@ -281,7 +311,12 @@ console.log("2) Kahve");
 Menünün ikinci satırına ``1) Çay`` yazdıran programı yazar mısın?
 
 - files/main.js/.block
-// menüye çay satırını ekler misin?
+// Görev: Menünün ikinci satırına "1) Çay" yazdıran kodu ekle.
+// Her console.log() çağrısı kendi satırına yazar; satır sırası kodun sırasıyla aynıdır.
+// Beklenen çıktı:
+// === Menü ===
+// 1) Çay
+// 2) Kahve
 console.log("=== Menü ===");
 <<< ❓ >>>
 console.log("2) Kahve");
@@ -314,11 +349,16 @@ Selam!
 En üste bir yorum satırı yazıp terminale ``Selam!`` yazdıran programı yazar mısın?
 
 - files/main.js/.block
+// Görev: En üste bir YORUM satırı yaz, altına da ekrana "Selam!" yazdıran kodu ekle.
+// Yorum satırları // ile başlar ve çalışmaz; ekrana yazmak için console.log("Selam!") kullan.
+// Beklenen çıktı:
+// Selam!
 <<< ❓ >>>
-console.log("Selam!"); // satır sonu da yorum olabilir
 ---------------------
 - tests/0/output
 Selam!
+
+- tests/0/require = "//"
 
 ---------------------
 - parts/10:
@@ -344,7 +384,10 @@ Kalem fiyatı: 15 TL
 ``Kalem fiyatı: 15 TL`` yazdıran programı yazar mısın?
 
 - files/main.js/.block
-// ürünün adını cümlenin başına ekler misin?
+// Görev: Ekrana "Kalem fiyatı: 15 TL" yazdır.
+// Cümlenin başına ürün değişkenini + ile ekle; boşlukları metinlerin içine yaz.
+// Beklenen çıktı:
+// Kalem fiyatı: 15 TL
 let ürün = "Kalem";
 let fiyat = 15;
 console.log(<<< ❓ >>> + " fiyatı: " + fiyat + " TL");

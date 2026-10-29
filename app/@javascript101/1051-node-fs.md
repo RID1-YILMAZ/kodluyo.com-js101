@@ -38,9 +38,12 @@ Merhaba dünya
 ``veri.txt`` dosyasını okuyup içeriğini terminale yazdıran programı yazar mısın?
 
 - files/main.js/.block
+// Görev: veri.txt dosyasını okuyup içeriğini terminale yazdır.
+// fs.readFileSync("veri.txt", "utf8") dosyayı metin olarak okur; trim() baş ve sondaki boşlukları siler.
+// Beklenen çıktı:
+// Merhaba dünya
 const fs = require("fs");
 
-// veri.txt dosyasını okur musun?
 let metin = fs.readFileSync(<<< ❓ >>>, "utf8");
 console.log(metin.trim());
 ---------------------
@@ -54,9 +57,12 @@ Merhaba dünya
 
 ---------------------
 - tests/1/files/main.js/.block
+// Görev: veri.txt dosyasını okuyup içeriğini terminale yazdır.
+// İkinci test farklı veriyle aynı kuralı denetler: fs.readFileSync(yol, "utf8") ile okunur.
+// Beklenen çıktı:
+// Sabah oldu
 const fs = require("fs");
 
-// veri.txt dosyasını okur musun?
 let metin = fs.readFileSync(<<< ❓ >>>, "utf8");
 console.log(metin.trim());
 - tests/1/files/veri.txt
@@ -100,10 +106,14 @@ console.log("İlk satır:", satırlar[0]);
 programı yazar mısın?
 
 - files/main.js/.block
+// Görev: notlar.txt dosyasını satırlara bölüp satır sayısını ve ilk satırı yazdır.
+// Metni split("\n") metodu satırlara böler; satır sayısı length ile bulunur, ilk satır [0] ile seçilir.
+// Beklenen çıktı:
+// 3 satır var.
+// İlk satır: ilk satır
 const fs = require("fs");
 
 let metin = fs.readFileSync("notlar.txt", "utf8");
-// metni satırlara böler misin?
 let satırlar = metin.trim().<<< ❓ >>>("\n");
 console.log(satırlar.length, "satır var.");
 console.log("İlk satır:", satırlar[0]);
@@ -123,10 +133,14 @@ ikinci satır
 
 ---------------------
 - tests/1/files/main.js/.block
+// Görev: notlar.txt dosyasını satırlara bölüp satır sayısını ve ilk satırı yazdır.
+// İkinci test farklı veriyle aynı kuralı denetler: split("\n") ve length.
+// Beklenen çıktı:
+// 2 satır var.
+// İlk satır: elma
 const fs = require("fs");
 
 let metin = fs.readFileSync("notlar.txt", "utf8");
-// metni satırlara böler misin?
 let satırlar = metin.trim().<<< ❓ >>>("\n");
 console.log(satırlar.length, "satır var.");
 console.log("İlk satır:", satırlar[0]);
@@ -162,9 +176,12 @@ Merhaba dosya!
 ``çıktı.txt`` dosyasına ``Merhaba dosya!`` yazan ve geri okuyan programı yazar mısın?
 
 - files/main.js/.block
+// Görev: çıktı.txt dosyasına "Merhaba dosya!" yaz ve geri oku.
+// fs.writeFileSync("çıktı.txt", "Merhaba dosya!") metni çift tırnak içinde yazar; readFileSync geri okur.
+// Beklenen çıktı:
+// Merhaba dosya!
 const fs = require("fs");
 
-// dosyaya "Merhaba dosya!" yazar mısın?
 fs.writeFileSync("çıktı.txt", <<< ❓ >>>);
 console.log(fs.readFileSync("çıktı.txt", "utf8"));
 ---------------------
@@ -198,10 +215,14 @@ Yarın path öğreneceğim.
 ``günlük.txt`` dosyasına ikinci satırı ekleyen programı yazar mısın?
 
 - files/main.js/.block
+// Görev: günlük.txt dosyasının sonuna ikinci satırı ekle.
+// fs.appendFileSync dosyanın sonuna ekler, eski içeriği silmez; satır sonuna \n koymayı unutma.
+// Beklenen çıktı:
+// Bugün fs öğrendim.
+// Yarın path öğreneceğim.
 const fs = require("fs");
 
 fs.writeFileSync("günlük.txt", "Bugün fs öğrendim.\n");
-// dosyanın sonuna yeni satır ekler misin?
 fs.<<< ❓ >>>("günlük.txt", "Yarın path öğreneceğim.\n");
 console.log(fs.readFileSync("günlük.txt", "utf8").trim());
 ---------------------
@@ -211,10 +232,14 @@ Yarın path öğreneceğim.
 
 ---------------------
 - tests/1/files/main.js/.block
+// Görev: günlük.txt dosyasının sonuna ikinci satırı ekle.
+// İkinci test farklı metinlerle aynı kuralı denetler: fs.appendFileSync dosyanın sonuna ekler.
+// Beklenen çıktı:
+// Bugün path öğrendim.
+// Yarın process gelecek.
 const fs = require("fs");
 
 fs.writeFileSync("günlük.txt", "Bugün path öğrendim.\n");
-// dosyanın sonuna yeni satır ekler misin?
 fs.<<< ❓ >>>("günlük.txt", "Yarın process gelecek.\n");
 console.log(fs.readFileSync("günlük.txt", "utf8").trim());
 - tests/1/output
@@ -249,17 +274,42 @@ false
 ``ayar.txt`` dosyasının var olup olmadığını yazdıran programı yazar mısın?
 
 - files/main.js/.block
+// Görev: ayar.txt dosyasının var olup olmadığını yazdır.
+// fs.existsSync("ayar.txt") dosya varsa true, yoksa false döndürür.
+// Beklenen çıktı:
+// true
+// false
 const fs = require("fs");
 
 fs.writeFileSync("ayar.txt", "tema=koyu");
 
-// ayar.txt var mı diye kontrol eder misin?
 console.log(<<< ❓ >>>);
 console.log(fs.existsSync("yok.txt"));
 ---------------------
 - tests/0/output
 true
 false
+
+- tests/0/require = "existsSync(\"ayar.txt\")"
+
+---------------------
+- tests/1/files/main.js/.block
+// Görev: olmayan ayar.txt dosyasının var olup olmadığını yazdır.
+// İkinci test ters değerlerle aynı kuralı denetler: var olan dosya true, olmayan false döner.
+// Beklenen çıktı:
+// false
+// true
+const fs = require("fs");
+
+fs.writeFileSync("yok.txt", "tema=acik");
+
+console.log(<<< ❓ >>>);
+console.log(fs.existsSync("yok.txt"));
+- tests/1/output
+false
+true
+
+- tests/1/require = "existsSync(\"ayar.txt\")"
 
 ---------------------
 - parts/5:
@@ -291,11 +341,14 @@ Dosya var: kayıtlı
 Dosya varsa içeriğini, yoksa uyarı yazan programı tamamlar mısın?
 
 - files/main.js/.block
+// Görev: dosya varsa içeriğini, yoksa uyarı yazdır.
+// if koşulunda fs.existsSync("not.txt") kullan; true ise dosya readFileSync ile okunur.
+// Beklenen çıktı:
+// Dosya var: kayıtlı
 const fs = require("fs");
 
 fs.writeFileSync("not.txt", "kayıtlı");
 
-// dosya varsa oku, yoksa uyarır mısın?
 if (<<< ❓ >>>) {
   console.log("Dosya var:", fs.readFileSync("not.txt", "utf8"));
 } else {
@@ -304,6 +357,8 @@ if (<<< ❓ >>>) {
 ---------------------
 - tests/0/output
 Dosya var: kayıtlı
+
+- tests/0/require = "existsSync(\"not.txt\")"
 
 ---------------------
 - parts/6:
@@ -334,13 +389,16 @@ console.log(fs.readdirSync("notlar").sort());
 ``notlar`` klasöründeki dosyaları listeleyen programı yazar mısın?
 
 - files/main.js/.block
+// Görev: notlar klasöründeki dosyaları listele.
+// fs.readdirSync("notlar") klasördeki adları dizi olarak verir; sort() alfabetik sıralar.
+// Beklenen çıktı:
+// [ 'bir.txt', 'iki.txt' ]
 const fs = require("fs");
 
 fs.mkdirSync("notlar");
 fs.writeFileSync("notlar/bir.txt", "bir");
 fs.writeFileSync("notlar/iki.txt", "iki");
 
-// klasördeki dosyaları listeler misin?
 console.log(fs.<<< ❓ >>>("notlar").sort());
 ---------------------
 - tests/0/output
@@ -348,13 +406,16 @@ console.log(fs.<<< ❓ >>>("notlar").sort());
 
 ---------------------
 - tests/1/files/main.js/.block
+// Görev: notlar klasöründeki dosyaları listele.
+// İkinci test farklı dosya adlarıyla aynı kuralı denetler: fs.readdirSync ve sort().
+// Beklenen çıktı:
+// [ 'armut.txt', 'elma.txt' ]
 const fs = require("fs");
 
 fs.mkdirSync("notlar");
 fs.writeFileSync("notlar/elma.txt", "elma");
 fs.writeFileSync("notlar/armut.txt", "armut");
 
-// klasördeki dosyaları listeler misin?
 console.log(fs.<<< ❓ >>>("notlar").sort());
 - tests/1/output
 [ 'armut.txt', 'elma.txt' ]
@@ -388,12 +449,16 @@ Dosya mı? true
 ``rapor.txt`` dosyasının boyutunu bayt olarak yazdıran programı yazar mısın?
 
 - files/main.js/.block
+// Görev: rapor.txt dosyasının boyutunu bayt olarak yazdır.
+// fs.statSync("rapor.txt") nesnesinin size alanı boyutu bayt cinsinden verir; isFile() dosya olup olmadığını söyler.
+// Beklenen çıktı:
+// Boyut: 13 bayt
+// Dosya mı? true
 const fs = require("fs");
 
 fs.writeFileSync("rapor.txt", "Merhaba dünya");
 
 let bilgi = fs.statSync("rapor.txt");
-// dosyanın boyutunu okur musun?
 console.log("Boyut:", bilgi.<<< ❓ >>>, "bayt");
 console.log("Dosya mı?", bilgi.isFile());
 ---------------------
@@ -403,12 +468,16 @@ Dosya mı? true
 
 ---------------------
 - tests/1/files/main.js/.block
+// Görev: rapor.txt dosyasının boyutunu bayt olarak yazdır.
+// İkinci test farklı metinle aynı kuralı denetler: statSync nesnesinin size alanı.
+// Beklenen çıktı:
+// Boyut: 14 bayt
+// Dosya mı? true
 const fs = require("fs");
 
 fs.writeFileSync("rapor.txt", "Merhaba dünya!");
 
 let bilgi = fs.statSync("rapor.txt");
-// dosyanın boyutunu okur musun?
 console.log("Boyut:", bilgi.<<< ❓ >>>, "bayt");
 console.log("Dosya mı?", bilgi.isFile());
 - tests/1/output
@@ -444,12 +513,16 @@ Sonra: false
 ``geçici.txt`` dosyasını silen programı yazar mısın?
 
 - files/main.js/.block
+// Görev: geçici.txt dosyasını sil.
+// fs.unlinkSync("geçici.txt") dosyayı siler; existsSync ile silmeden önce ve sonra kontrol edilir.
+// Beklenen çıktı:
+// Önce: true
+// Sonra: false
 const fs = require("fs");
 
 fs.writeFileSync("geçici.txt", "sil beni");
 console.log("Önce:", fs.existsSync("geçici.txt"));
 
-// dosyayı siler misin?
 fs.<<< ❓ >>>("geçici.txt");
 console.log("Sonra:", fs.existsSync("geçici.txt"));
 ---------------------
@@ -484,10 +557,13 @@ Yedek: yedeklenecek metin
 ``kaynak.txt`` dosyasını ``yedek.txt`` olarak kopyalayan programı yazar mısın?
 
 - files/main.js/.block
+// Görev: kaynak.txt dosyasını yedek.txt olarak kopyala.
+// fs.copyFileSync("kaynak.txt", "yedek.txt") ilk parametre kaynak, ikinci parametre hedeftir.
+// Beklenen çıktı:
+// Yedek: yedeklenecek metin
 const fs = require("fs");
 
 fs.writeFileSync("kaynak.txt", "yedeklenecek metin");
-// kaynak.txt dosyasını yedek.txt olarak kopyalar mısın?
 fs.copyFileSync(<<< ❓ >>>, "yedek.txt");
 
 console.log("Yedek:", fs.readFileSync("yedek.txt", "utf8"));
@@ -523,17 +599,22 @@ Dosya bulunamadı: ENOENT
 Olmayan bir dosyayı okumaya çalışıp hatayı yakalayan programı tamamlar mısın?
 
 - files/main.js/.block
+// Görev: olmayan dosyayı okumaya çalışıp hatayı catch ile yakala.
+// catch bloğunda hatanın kodu hata.code alanındadır; dosya yoksa ENOENT olur.
+// Beklenen çıktı:
+// Dosya bulunamadı: ENOENT
 const fs = require("fs");
 
 try {
   console.log(fs.readFileSync("olmayan.txt", "utf8"));
 } catch (hata) {
-  // hatanın kodunu yazar mısın?
   console.log("Dosya bulunamadı:", <<< ❓ >>>);
 }
 ---------------------
 - tests/0/output
 Dosya bulunamadı: ENOENT
+
+- tests/0/require = "hata.code"
 
 ---------------------
 - parts/11:
@@ -567,10 +648,13 @@ MERHABA DÜNYA
 yazar mısın?
 
 - files/main.js/.block
+// Görev: veri.txt içeriğini büyük harfe çevirip büyük.txt dosyasına yaz.
+// Metni toUpperCase() metodu büyük harfe çevirir; sonuç writeFileSync ile yeni dosyaya yazılır.
+// Beklenen çıktı:
+// MERHABA DÜNYA
 const fs = require("fs");
 
 let metin = fs.readFileSync("veri.txt", "utf8").trim();
-// metni büyük harfe çevirip yeni dosyaya yazar mısın?
 fs.writeFileSync("büyük.txt", metin.<<< ❓ >>>());
 
 console.log(fs.readFileSync("büyük.txt", "utf8"));
@@ -585,10 +669,13 @@ MERHABA DÜNYA
 
 ---------------------
 - tests/1/files/main.js/.block
+// Görev: veri.txt içeriğini büyük harfe çevirip büyük.txt dosyasına yaz.
+// İkinci test farklı metinle aynı kuralı denetler: toUpperCase() ve writeFileSync.
+// Beklenen çıktı:
+// GÜNAYDIN DÜNYA
 const fs = require("fs");
 
 let metin = fs.readFileSync("veri.txt", "utf8").trim();
-// metni büyük harfe çevirip yeni dosyaya yazar mısın?
 fs.writeFileSync("büyük.txt", metin.<<< ❓ >>>());
 
 console.log(fs.readFileSync("büyük.txt", "utf8"));

@@ -32,7 +32,12 @@ kiraz
 0 ve 2 indexlerini kullan.
 
 - files/main.js/.block
-// ilk ve son elemanın indexi kaç?
+// Görev: meyveler dizisinin ilk ve son elemanını index kullanarak yazdır.
+// Index 0'dan başlar: ilk eleman meyveler[0], üç elemanlı dizide son eleman meyveler[2].
+// Beklenen çıktı:
+// [ 'elma', 'armut', 'kiraz' ]
+// elma
+// kiraz
 const meyveler = ["elma", "armut", "kiraz"];
 console.log(meyveler);
 console.log(meyveler[<<< ❓ >>>]);
@@ -68,7 +73,11 @@ console.log(notlar[notlar.length - 1]);
 ``notlar`` dizisinin uzunluğunu ve son notunu yazdıran programı yazar mısın?
 
 - files/main.js/.block
-// uzunluktan 1 çıkarıp son elemanı bulur musun?
+// Görev: notlar dizisinin uzunluğunu ve son elemanını yazdır.
+// Son elemanın indexi notlar.length - 1'dir; boşluğa eksi (-) işareti yaz.
+// Beklenen çıktı:
+// 3
+// 70
 const notlar = [90, 85, 70];
 console.log(notlar.length);
 console.log(notlar[notlar.length <<< ❓ >>> 1]);
@@ -107,7 +116,12 @@ Kuyruğun sonuna ``"mehmet"`` ekleyen, sonra sondaki elemanı çıkaran program�
 mısın?
 
 - files/main.js/.block
-// sona ekle, sonra sondan çıkar
+// Görev: kuyruğun sonuna "mehmet" ekle, sonra sondaki elemanı çıkar.
+// .push(değer) sona ekler, .pop() sondaki elemanı çıkarıp döndürür; boşluklara sırayla push ve pop yaz.
+// Beklenen çıktı:
+// [ 'ali', 'ayşe', 'mehmet' ]
+// mehmet
+// [ 'ali', 'ayşe' ]
 const kuyruk = ["ali", "ayşe"];
 kuyruk.<<< ❓ >>>("mehmet");
 console.log(kuyruk);
@@ -148,7 +162,12 @@ ali
 Sıranın başına ``"ali"`` ekleyen, sonra baştaki elemanı çıkaran programı yazar mısın?
 
 - files/main.js/.block
-// başa ekle, sonra baştan çıkar
+// Görev: sıranın başına "ali" ekle, sonra baştaki elemanı çıkar.
+// .unshift(değer) başa ekler, .shift() baştaki elemanı çıkarıp döndürür; boşluklara unshift ve shift yaz.
+// Beklenen çıktı:
+// [ 'ali', 'ayşe', 'mehmet' ]
+// ali
+// [ 'ayşe', 'mehmet' ]
 const sıra = ["ayşe", "mehmet"];
 sıra.<<< ❓ >>>("ali");
 console.log(sıra);
@@ -184,7 +203,10 @@ console.log(notlar);
 ``notlar`` dizisinin ikinci elemanını ``65`` yapan programı yazar mısın?
 
 - files/main.js/.block
-// ikinci elemanı 65 yapar mısın?
+// Görev: notlar dizisinin ikinci elemanını 65 yap.
+// Index 1 ikinci elemandır: notlar[1] = 65 yaz. 65 sayıdır, tırnak kullanma.
+// Beklenen çıktı:
+// [ 50, 65, 70 ]
 const notlar = [50, 60, 70];
 notlar[1] = <<< ❓ >>>;
 console.log(notlar);
@@ -220,7 +242,12 @@ true
 bulunamadığı için ``-1`` yazacak.
 
 - files/main.js/.block
-// 15 dizide var mı, kaçıncı indexte?
+// Görev: 15 dizide var mı ve kaçıncı indexte olduğunu yazdır.
+// .indexOf(15) değerin indexini verir; [4, 8, 15, 16] dizisinde 15 ikinci indexte (2).
+// Beklenen çıktı:
+// true
+// 2
+// -1
 const sayılar = [4, 8, 15, 16];
 console.log(sayılar.includes(15));
 console.log(sayılar.indexOf(<<< ❓ >>>));
@@ -259,7 +286,12 @@ J - S
 ``" - "`` metniyle birleştir.
 
 - files/main.js/.block
-// elemanları " - " ile birleştirir misin?
+// Görev: harfler dizisini " - " metniyle birleştirip J - S yazdır.
+// .join(" - ") elemanların arasına verilen metni koyar; boşluğa çift tırnakla " - " yaz.
+// Beklenen çıktı:
+// JS
+// J - S
+// 1+2+3
 const harfler = ["J", "S"];
 console.log(harfler.join(""));
 console.log(harfler.join(<<< ❓ >>>));
@@ -297,7 +329,12 @@ console.log(sayılar.slice(-2));
 ``sayılar`` dizisinden ``[20, 30]`` bölümünü alan programı yazar mısın?
 
 - files/main.js/.block
-// 1. index dahil, 3. index hariç
+// Görev: sayılar dizisinden [20, 30] bölümünü slice ile al.
+// slice(1, 3) 1. index dahil, 3. index hariç kopyalar; boşluğa 1 yaz.
+// Beklenen çıktı:
+// [ 20, 30 ]
+// [ 30, 40, 50 ]
+// [ 40, 50 ]
 const sayılar = [10, 20, 30, 40, 50];
 console.log(sayılar.slice(<<< ❓ >>>, 3));
 console.log(sayılar.slice(2));
@@ -335,7 +372,12 @@ console.log(a);
 ``a`` ve ``b`` dizilerini birleştirip ``[1, 2, 3, 4]`` yazdıran programı yazar mısın?
 
 - files/main.js/.block
-// iki diziyi birleştirir misin?
+// Görev: a ve b dizilerini .concat() metoduyla birleştirip yazdır.
+// a.concat(b) iki diziyi birleştirip YENİ bir dizi döndürür; a dizisi değişmez.
+// Beklenen çıktı:
+// [ 1, 2, 3, 4 ]
+// [ 1, 2, 5, 6, 7 ]
+// [ 1, 2 ]
 const a = [1, 2];
 const b = [3, 4];
 console.log(a.<<< ❓ >>>(b));
@@ -376,7 +418,13 @@ mehmet
 İkinci grubun ilk elemanını (``mehmet``) yazdıran programı yazar mısın?
 
 - files/main.js/.block
-// ikinci grubun ilk elemanı hangi indexte?
+// Görev: sınıf dizisindeki ikinci grubun ilk elemanını (mehmet) yazdır.
+// İç içe dizide indexleri art arda yaz: sınıf[1][0]. Boşluğa 0 yaz.
+// Beklenen çıktı:
+// [ [ 'ali', 'ayşe' ], [ 'mehmet', 'zeynep' ] ]
+// mehmet
+// 2
+// 2
 const sınıf = [["ali", "ayşe"], ["mehmet", "zeynep"]];
 console.log(sınıf);
 console.log(sınıf[1][<<< ❓ >>>]);
@@ -417,7 +465,12 @@ Alışveriş listesine ``"yumurta"`` ekleyip listeyi ``ekmek, süt, yumurta`` bi
 yazdıran programı yazar mısın?
 
 - files/main.js/.block
-// listeye yumurta ekler misin?
+// Görev: Alışveriş listesine "yumurta" ekleyip listeyi tek satırda yazdır.
+// .push("yumurta") sona ekler; join(", ") elemanları virgül ve boşlukla birleştirir.
+// Beklenen çıktı:
+// ekmek, süt, yumurta
+// true
+// 3
 const liste = ["ekmek", "süt"];
 liste.<<< ❓ >>>("yumurta");
 console.log(liste.join(", "));

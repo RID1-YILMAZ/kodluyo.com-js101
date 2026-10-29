@@ -25,7 +25,11 @@ Merhaba Dünya
 Terminale ``Merhaba Dünya`` yazdıran programı yazar mısın? İki değeri ayrı ayrı ver.
 
 - files/main.js/.block
-// iki değeri virgülle ayırır mısın?
+// Görev: Terminale "Merhaba Dünya" yazdır.
+// console.log() içine iki ayrı değer yaz ve aralarına VİRGÜL koy: "Merhaba", "Dünya".
+// İkinci değeri ÇİFT TIRNAK içinde yaz; aradaki boşluğu console.log() kendisi ekler.
+// Beklenen çıktı:
+// Merhaba Dünya
 console.log("Merhaba", <<< ❓ >>>);
 ---------------------
 - tests/0/output
@@ -53,7 +57,11 @@ bir iki üç
 Terminale ``bir iki üç`` yazdıran programı yazar mısın?
 
 - files/main.js/.block
-// üç değeri virgülle yazdırır mısın?
+// Görev: Terminale "bir iki üç" yazdır.
+// Üç değeri VİRGÜLLE ayır ve üçünü de ÇİFT TIRNAK içinde yaz: "bir", "iki", "üç".
+// Virgül değerlerin arasına kendiliğinden bir boşluk koyar; ayrıca boşluk yazma.
+// Beklenen çıktı:
+// bir iki üç
 console.log(<<< ❓ >>>, "iki", "üç");
 ---------------------
 - tests/0/output
@@ -81,7 +89,11 @@ Kedi 4 ayaklıdır.
 ``Kedi 4 ayaklıdır.`` yazdıran programı yazar mısın?
 
 - files/main.js/.block
-// kedinin ayak sayısını yazdırır mısın?
+// Görev: Terminale "Kedi 4 ayaklıdır." yazdır.
+// Kedinin ayak sayısını TIRNAKSIZ yaz: 4 (tırnak içine alırsan metin olur).
+// console.log() değerleri virgülle ayırır ve aralarına bir boşluk koyar.
+// Beklenen çıktı:
+// Kedi 4 ayaklıdır.
 console.log("Kedi", <<< ❓ >>>, "ayaklıdır.");
 ---------------------
 - tests/0/output
@@ -108,7 +120,11 @@ console.log("2 + 3 =", 2 + 3);
 ``2 + 3 = 5`` yazdıran programı yazar mısın?
 
 - files/main.js/.block
-// toplama işlemini console.log içinde yapar mısın?
+// Görev: Terminale "2 + 3 = 5" yazdır.
+// Toplama işlemini console.log() içinde yap: 2 + 3
+// + operatörünü yaz; sayıları tırnaksız kullan ki gerçekten toplama yapılsın.
+// Beklenen çıktı:
+// 2 + 3 = 5
 console.log("2 + 3 =", 2 <<< ❓ >>> 3);
 ---------------------
 - tests/0/output
@@ -116,7 +132,11 @@ console.log("2 + 3 =", 2 <<< ❓ >>> 3);
 
 ---------------------
 - tests/1/files/main.js/.block
-// toplama işlemini console.log içinde yapar mısın?
+// Görev: Terminale "10 + 5 = 15" yazdır.
+// İkinci test aynı kuralı farklı sayılarla denetler: toplama için + operatörü.
+// console.log() içinde 10 + 5 hesabını yap ve sonucu yazdır.
+// Beklenen çıktı:
+// 10 + 5 = 15
 console.log("10 + 5 =", 10 <<< ❓ >>> 5);
 - tests/1/output
 10 + 5 = 15
@@ -144,12 +164,18 @@ Fiyat: 45 TL
 ``Fiyat: 45 TL`` yazdıran programı yazar mısın?
 
 - files/main.js/.block
-// fiyat değişkenini yazdırır mısın?
+// Görev: Terminale "Fiyat: 45 TL" yazdır.
+// Değerlerin arasına fiyat DEĞİŞKENİNİ tırnaksız yaz; böylece adı değil 45 değeri yazdırılır.
+// console.log("Fiyat:", fiyat, "TL") değerleri tek boşlukla ayırır.
+// Beklenen çıktı:
+// Fiyat: 45 TL
 let fiyat = 45;
 console.log("Fiyat:", <<< ❓ >>>, "TL");
 ---------------------
 - tests/0/output
 Fiyat: 45 TL
+
+- tests/0/require = "fiyat"
 
 ---------------------
 - parts/5:
@@ -177,7 +203,12 @@ Merhaba Ayşe
 mısın?
 
 - files/main.js/.block
-// aynı cümleyi iki yöntemle yazdırır mısın?
+// Görev: İki satırda da "Merhaba Ali" yazdır.
+// İlk satırda virgül yöntemini kullan: console.log("Merhaba", ad)
+// İkinci satır + ile birleştirme yapıyor; ad değişkeni "Ali" değerini taşır.
+// Beklenen çıktı:
+// Merhaba Ali
+// Merhaba Ali
 let ad = "Ali";
 console.log("Merhaba", <<< ❓ >>>);
 console.log("Merhaba " + ad);
@@ -185,6 +216,8 @@ console.log("Merhaba " + ad);
 - tests/0/output
 Merhaba Ali
 Merhaba Ali
+
+- tests/0/require = "ad"
 
 ---------------------
 - parts/6:
@@ -207,7 +240,11 @@ console.log(5, "+", 3, "=", 5 + 3);
 ``5 + 3 = 8`` yazdıran programı yazar mısın?
 
 - files/main.js/.block
-// sonucu console.log içinde hesaplar mısın?
+// Görev: Terminale "5 + 3 = 8" yazdır.
+// Beş değeri virgülle ver; son değerde toplamayı console.log() içinde yap: 5 + 3
+// + operatörünü yaz; sayıları tırnaksız kullan.
+// Beklenen çıktı:
+// 5 + 3 = 8
 console.log(5, "+", 3, "=", 5 <<< ❓ >>> 3);
 ---------------------
 - tests/0/output
@@ -215,7 +252,11 @@ console.log(5, "+", 3, "=", 5 <<< ❓ >>> 3);
 
 ---------------------
 - tests/1/files/main.js/.block
-// sonucu console.log içinde hesaplar mısın?
+// Görev: Terminale "12 + 8 = 20" yazdır.
+// İkinci test aynı kuralı farklı sayılarla denetler: virgülle verilen değerler + hesap.
+// Son değerde 12 + 8 toplamasını console.log() içinde yap.
+// Beklenen çıktı:
+// 12 + 8 = 20
 console.log(12, "+", 8, "=", 12 <<< ❓ >>> 8);
 - tests/1/output
 12 + 8 = 20
@@ -245,7 +286,12 @@ Alt satır
 İki satırın arasına boş bir satır koyan programı yazar mısın?
 
 - files/main.js/.block
-// araya boş bir satır koyar mısın?
+// Görev: İki satırın arasına BOŞ bir satır koy.
+// Bunun için değersiz bir console.log() çağrısı yaz: console.log();
+// Parantez içine hiçbir şey yazma; terminale sadece boş satır basılır.
+// Beklenen çıktı:
+// Üst satır
+// Alt satır
 console.log("Üst satır");
 <<< ❓ >>>
 console.log("Alt satır");
@@ -276,7 +322,11 @@ Ayşe 20 yaşındadır.
 ``Mehmet 20 yaşındadır.`` yazdıran programı yazar mısın?
 
 - files/main.js/.block
-// %s yerine adı yazdırır mısın?
+// Görev: Terminale "Mehmet 20 yaşındadır." yazdır.
+// %s yer tutucusunun yerine adı ÇİFT TIRNAK içinde metin olarak ver: "Mehmet"
+// %d yer tutucusu 20 sayısını alır; bu yöntem uzun cümlelerde daha okunaklıdır.
+// Beklenen çıktı:
+// Mehmet 20 yaşındadır.
 console.log("%s %d yaşındadır.", <<< ❓ >>>, 20);
 ---------------------
 - tests/0/output
@@ -306,7 +356,11 @@ Kalem 3 adet 36 TL
 ``Kalem 3 adet 36 TL`` yazdıran programı yazar mısın?
 
 - files/main.js/.block
-// toplam tutarı hesaplar mısın?
+// Görev: Terminale "Kalem 3 adet 36 TL" yazdır.
+// Toplam tutarı console.log() içinde hesapla: fiyat * adet
+// * operatörünü yaz; değişken adlarını tırnaksız kullan.
+// Beklenen çıktı:
+// Kalem 3 adet 36 TL
 let ürün = "Kalem";
 let adet = 3;
 let fiyat = 12;
@@ -317,7 +371,11 @@ Kalem 3 adet 36 TL
 
 ---------------------
 - tests/1/files/main.js/.block
-// toplam tutarı hesaplar mısın?
+// Görev: Terminale "Defter 4 adet 100 TL" yazdır.
+// İkinci test aynı kuralı farklı değerlerle denetler: toplam için fiyat * adet.
+// Ürün defter, adet 4, fiyat 25; sonucu console.log() içinde hesapla.
+// Beklenen çıktı:
+// Defter 4 adet 100 TL
 let ürün = "Defter";
 let adet = 4;
 let fiyat = 25;
@@ -348,7 +406,11 @@ Ad: Zeynep | Yaş: 22 | Seneye: 23
 ``Ad: Zeynep | Yaş: 22 | Seneye: 23`` yazdıran programı yazar mısın?
 
 - files/main.js/.block
-// seneye kaç yaşında olacağını hesaplar mısın?
+// Görev: Terminale "Ad: Zeynep | Yaş: 22 | Seneye: 23" yazdır.
+// Seneye kaç yaşında olacağını console.log() içinde hesapla: yaş + 1
+// + operatörünü yaz; dikey çizgi ve boşluklar metinlerin içinde hazır.
+// Beklenen çıktı:
+// Ad: Zeynep | Yaş: 22 | Seneye: 23
 let ad = "Zeynep";
 let yaş = 22;
 console.log("Ad:", ad, "| Yaş:", yaş, "| Seneye:", yaş <<< ❓ >>> 1);
@@ -358,7 +420,11 @@ Ad: Zeynep | Yaş: 22 | Seneye: 23
 
 ---------------------
 - tests/1/files/main.js/.block
-// seneye kaç yaşında olacağını hesaplar mısın?
+// Görev: Terminale "Ad: Mert | Yaş: 35 | Seneye: 36" yazdır.
+// İkinci test aynı kuralı farklı değerlerle denetler: seneye yaş + 1 hesabı.
+// Mert 35 yaşında; seneye kaç yaşında olacağını + operatörü ile hesapla.
+// Beklenen çıktı:
+// Ad: Mert | Yaş: 35 | Seneye: 36
 let ad = "Mert";
 let yaş = 35;
 console.log("Ad:", ad, "| Yaş:", yaş, "| Seneye:", yaş <<< ❓ >>> 1);

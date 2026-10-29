@@ -32,14 +32,18 @@ ders/main.js
 ``ders`` klasörü ile ``main.js`` dosyasını birleştiren programı yazar mısın?
 
 - files/main.js/.block
+// Görev: path.join() ile "ders" klasörü ile "main.js" dosyasını birleştirip "ders/main.js" yazdır.
+// Boşluğa METİN olarak "main.js" yaz (çift tırnak kullan); path.join parçaları / ile birleştirir.
+// Beklenen çıktı:
+// ders/main.js
 const path = require("path");
 
-// iki parçayı birleştirir misin?
 console.log(path.join("ders", <<< ❓ >>>));
 ---------------------
 - tests/0/output
 ders/main.js
 
+- tests/0/require = "\"main.js\""
 ---------------------
 - parts/1:
 - text
@@ -67,14 +71,18 @@ app/veri.txt
 yazar mısın?
 
 - files/main.js/.block
+// Görev: path.join() içinde ".." kullanarak bir üst klasöre çıkıp "app/veri.txt" yazdır.
+// Boşluğa METİN olarak ".." yaz (çift tırnak kullan); join ".." parçasını hesaplayıp yolu kısaltır.
+// Beklenen çıktı:
+// app/veri.txt
 const path = require("path");
 
-// bir üst klasöre çıkar mısın?
 console.log(path.join("app", "ders", <<< ❓ >>>, "veri.txt"));
 ---------------------
 - tests/0/output
 app/veri.txt
 
+- tests/0/require = "\"..\""
 ---------------------
 - parts/2:
 - text
@@ -102,17 +110,22 @@ notlar
 Yoldan dosya adını ve uzantısız adını yazdıran programı tamamlar mısın?
 
 - files/main.js/.block
+// Görev: path.basename() ile önce "notlar.txt", sonra uzantısız "notlar" yazdır.
+// Boşluğa METİN olarak ".txt" yaz (çift tırnak kullan); basename bu uzantıyı addan siler.
+// Beklenen çıktı:
+// notlar.txt
+// notlar
 const path = require("path");
 
 let yol = "/app/ders/notlar.txt";
 console.log(path.basename(yol));
-// uzantıyı siler misin?
 console.log(path.basename(yol, <<< ❓ >>>));
 ---------------------
 - tests/0/output
 notlar.txt
 notlar
 
+- tests/0/require = "\".txt\""
 ---------------------
 - parts/3:
 - text
@@ -140,10 +153,14 @@ main.js
 Yolun klasör kısmını yazdıran programı yazar mısın?
 
 - files/main.js/.block
+// Görev: path.dirname() ile "/app/ders/src/main.js" yolunun klasör kısmını yazdır.
+// Boşluğa path metodunun adını yaz: dirname; dosya adını atar, klasör yolunu verir.
+// Beklenen çıktı:
+// /app/ders/src
+// main.js
 const path = require("path");
 
 let yol = "/app/ders/src/main.js";
-// klasör yolunu bulur musun?
 console.log(path.<<< ❓ >>>(yol));
 console.log(path.basename(yol));
 ---------------------
@@ -151,18 +168,21 @@ console.log(path.basename(yol));
 /app/ders/src
 main.js
 
+- tests/0/require = "dirname"
 ---------------------
 - tests/1/files/main.js/.block
+// Görev: İkinci testte de aynı kural geçerli: "/app/veri.txt" yolunun klasör kısmını yazdır.
+// Boşluğa yine dirname yaz; dosya adı atılır ve "/app" ile "veri.txt" yazılır.
 const path = require("path");
 
 let yol = "/app/veri.txt";
-// klasör yolunu bulur musun?
 console.log(path.<<< ❓ >>>(yol));
 console.log(path.basename(yol));
 - tests/1/output
 /app
 veri.txt
 
+- tests/1/require = "dirname"
 ---------------------
 - parts/4:
 - text
@@ -191,9 +211,13 @@ Uzantı var mı? false
 ``notlar.txt`` dosyasının uzantısını yazdıran programı yazar mısın?
 
 - files/main.js/.block
+// Görev: path.extname() ile "notlar.txt" dosyasının uzantısını ".txt" olarak yazdır.
+// Boşluğa path metodunun adını yaz: extname; uzantıyı NOKTA ile birlikte döndürür.
+// Beklenen çıktı:
+// Uzantı: .txt
+// Uzantı var mı? false
 const path = require("path");
 
-// uzantıyı bulur musun?
 console.log("Uzantı:", path.<<< ❓ >>>("notlar.txt"));
 console.log("Uzantı var mı?", path.extname("README") !== "");
 ---------------------
@@ -201,17 +225,20 @@ console.log("Uzantı var mı?", path.extname("README") !== "");
 Uzantı: .txt
 Uzantı var mı? false
 
+- tests/0/require = "extname"
 ---------------------
 - tests/1/files/main.js/.block
+// Görev: İkinci testte de extname kullanıp "resim.jpeg" uzantısını ".jpeg" olarak yazdır.
+// Boşluğa yine extname yaz; uzantısı olmayan "README" için kontrol false döner.
 const path = require("path");
 
-// uzantıyı bulur musun?
 console.log("Uzantı:", path.<<< ❓ >>>("resim.jpeg"));
 console.log("Uzantı var mı?", path.extname("README") !== "");
 - tests/1/output
 Uzantı: .jpeg
 Uzantı var mı? false
 
+- tests/1/require = "extname"
 ---------------------
 - parts/5:
 - text
@@ -241,16 +268,21 @@ app/main.js
 Sistemin ayırıcısını kullanarak ``app/main.js`` yazan programı yazar mısın?
 
 - files/main.js/.block
+// Görev: path.sep ayırıcısını kullanarak "app/main.js" metnini yazdır.
+// Boşluğa path.sep yaz; "/" işaretini elle yazma, ayırıcıyı sistemden al.
+// Beklenen çıktı:
+// Ayırıcı: /
+// app/main.js
 const path = require("path");
 
 console.log("Ayırıcı:", path.sep);
-// ayırıcıyı kullanır mısın?
 console.log("app" + <<< ❓ >>> + "main.js");
 ---------------------
 - tests/0/output
 Ayırıcı: /
 app/main.js
 
+- tests/0/require = "path.sep"
 ---------------------
 - parts/6:
 - text
@@ -279,14 +311,18 @@ console.log(path.resolve("/app", "ders", "main.js"));
 yazar mısın?
 
 - files/main.js/.block
+// Görev: path.resolve() ile çalışma klasöründen "veri.txt" dosyasının mutlak yolunu yazdır.
+// Boşluğa METİN olarak "veri.txt" yaz (çift tırnak kullan); başlangıç noktası process.cwd() olur.
+// Beklenen çıktı:
+// /app/veri.txt
 const path = require("path");
 
-// mutlak yolu üretir misin?
 console.log(path.resolve(process.cwd(), <<< ❓ >>>));
 ---------------------
 - tests/0/output
 /app/veri.txt
 
+- tests/0/require = "\"veri.txt\""
 ---------------------
 - parts/7:
 - text
@@ -321,12 +357,17 @@ Yolu ``path.parse`` ile parçalayıp uzantısız dosya adını yazdıran program
 mısın?
 
 - files/main.js/.block
+// Görev: path.parse() ile "/app/ders/notlar.txt" yolunu parçalayıp uzantısız dosya adını yazdır.
+// Boşluğa parse nesnesinin uzantısız ad alanını yaz: name (base değil, ext değil).
+// Beklenen çıktı:
+// { root: '/', dir: '/app/ders', base: 'notlar.txt', ext: '.txt', name: 'notlar' }
+// Dosya adı: notlar
+// Uzantı: .txt
 const path = require("path");
 
 let parçalar = path.parse("/app/ders/notlar.txt");
 
 console.log(parçalar);
-// uzantısız dosya adını yazar mısın?
 console.log("Dosya adı:", parçalar.<<< ❓ >>>);
 console.log("Uzantı:", parçalar.ext);
 ---------------------
@@ -335,14 +376,16 @@ console.log("Uzantı:", parçalar.ext);
 Dosya adı: notlar
 Uzantı: .txt
 
+- tests/0/require = "name"
 ---------------------
 - tests/1/files/main.js/.block
+// Görev: İkinci testte de path.parse() kullanıp "/app/belge/rapor.pdf" için uzantısız adı yazdır.
+// Boşluğa yine name yaz; base "rapor.pdf" olurdu, name ise "rapor" değerini verir.
 const path = require("path");
 
 let parçalar = path.parse("/app/belge/rapor.pdf");
 
 console.log(parçalar);
-// uzantısız dosya adını yazar mısın?
 console.log("Dosya adı:", parçalar.<<< ❓ >>>);
 console.log("Uzantı:", parçalar.ext);
 - tests/1/output
@@ -350,6 +393,7 @@ console.log("Uzantı:", parçalar.ext);
 Dosya adı: rapor
 Uzantı: .pdf
 
+- tests/1/require = "name"
 ---------------------
 - parts/8:
 - text
@@ -380,9 +424,13 @@ src
 tamamlar mısın?
 
 - files/main.js/.block
+// Görev: path.relative() ile "/app/ders/src" klasöründen "/app/ders/veri.txt" dosyasına göreli yolu yazdır.
+// Boşluğa path.relative yaz; iki yol arasındaki farkı ".." parçalarıyla hesaplar.
+// Beklenen çıktı:
+// ../veri.txt
+// ../../veri.txt
 const path = require("path");
 
-// iki yol arasındaki göreli yolu bulur musun?
 console.log(<<< ❓ >>>("/app/ders/src", "/app/ders/veri.txt"));
 console.log(path.relative("/app/ders/src", "/app/veri.txt"));
 ---------------------
@@ -390,17 +438,20 @@ console.log(path.relative("/app/ders/src", "/app/veri.txt"));
 ../veri.txt
 ../../veri.txt
 
+- tests/0/require = "path.relative"
 ---------------------
 - tests/1/files/main.js/.block
+// Görev: İkinci testte de path.relative kullanıp iki yol arasındaki farkı yazdır.
+// Boşluğa yine path.relative yaz; alt klasör için yalnızca klasör adı, üst klasör için ".." çıkar.
 const path = require("path");
 
-// iki yol arasındaki göreli yolu bulur musun?
 console.log(<<< ❓ >>>("/app/belge", "/app/belge/resim.png"));
 console.log(path.relative("/app/belge", "/app"));
 - tests/1/output
 resim.png
 ..
 
+- tests/1/require = "path.relative"
 ---------------------
 - parts/9:
 - text
@@ -429,9 +480,13 @@ false
 Verilen yolun mutlak olup olmadığını yazdıran programı tamamlar mısın?
 
 - files/main.js/.block
+// Görev: path.isAbsolute() ile verilen iki yolun mutlak olup olmadığını yazdır.
+// Boşluğa path metodunun adını yaz: isAbsolute; "/" ile başlayan yol true, diğeri false döner.
+// Beklenen çıktı:
+// true
+// false
 const path = require("path");
 
-// mutlak yol mu diye kontrol eder misin?
 console.log(path.<<< ❓ >>>("/app/veri.txt"));
 console.log(path.isAbsolute("veri.txt"));
 ---------------------
@@ -439,17 +494,20 @@ console.log(path.isAbsolute("veri.txt"));
 true
 false
 
+- tests/0/require = "isAbsolute"
 ---------------------
 - tests/1/files/main.js/.block
+// Görev: İkinci testte de isAbsolute ile mutlak yol kontrolünü yapıp sonucu yazdır.
+// Boşluğa yine isAbsolute yaz; "/app/rapor.txt" true, "rapor.txt" false döndürür.
 const path = require("path");
 
-// mutlak yol mu diye kontrol eder misin?
 console.log(path.<<< ❓ >>>("/app/rapor.txt"));
 console.log(path.isAbsolute("rapor.txt"));
 - tests/1/output
 true
 false
 
+- tests/1/require = "isAbsolute"
 ---------------------
 - parts/10:
 - text
@@ -479,10 +537,14 @@ console.log(path.format({ dir: "/app/belge", name: "rapor", ext: ".pdf" }));
 Parçalardan yeniden yol üreten programı tamamlar mısın?
 
 - files/main.js/.block
+// Görev: path.format() ile dir, name ve ext alanlarından yolu yeniden kurup yazdır.
+// Boşluğa path metodunun adını yaz: format; parse'ın tersini yapar ve tek yol metni üretir.
+// Beklenen çıktı:
+// /app/ders/notlar.txt
+// /app/belge/rapor.pdf
 const path = require("path");
 
 let parçalar = { dir: "/app/ders", name: "notlar", ext: ".txt" };
-// nesneyi yeniden yola çevirir misin?
 console.log(path.<<< ❓ >>>(parçalar));
 
 console.log(path.format({ dir: "/app/belge", name: "rapor", ext: ".pdf" }));
@@ -491,6 +553,7 @@ console.log(path.format({ dir: "/app/belge", name: "rapor", ext: ".pdf" }));
 /app/ders/notlar.txt
 /app/belge/rapor.pdf
 
+- tests/0/require = "format"
 ---------------------
 - parts/11:
 - text
@@ -528,9 +591,16 @@ Mutlak mı? true
 mısın?
 
 - files/main.js/.block
+// Görev: path.join() ile "/app/dersler/javascript/index.html" yolunu kurup path.parse() ile parçala.
+// Boşluğa METİN olarak "javascript" yaz (çift tırnak kullan); eksik parça yolu bozar.
+// Beklenen çıktı:
+// Yol: /app/dersler/javascript/index.html
+// Klasör: /app/dersler/javascript
+// Dosya: index.html
+// Uzantı: .html
+// Mutlak mı? true
 const path = require("path");
 
-// klasör adını ekler misin?
 let yol = path.join("/app", "dersler", <<< ❓ >>>, "index.html");
 let parçalar = path.parse(yol);
 
@@ -547,4 +617,5 @@ Dosya: index.html
 Uzantı: .html
 Mutlak mı? true
 
+- tests/0/require = "\"javascript\""
 ---------------------

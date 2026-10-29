@@ -37,7 +37,19 @@ for (let i = 0; i < 10; i++) {
 ``0``dan ``9``a kadar olan sayıları alt alta yazdıran programı yazar mısın?
 
 - files/main.js/.block
-// 0'dan 9'a kadar yazdırır mısın?
+// Görev: 0'dan 9'a kadar olan sayıları alt alta yazdır.
+// for koşulunda küçüktür operatörünü kullan: i < 10
+// Beklenen çıktı:
+// 0
+// 1
+// 2
+// 3
+// 4
+// 5
+// 6
+// 7
+// 8
+// 9
 for (let i = 0; i <<< ❓ >>> 10; i++) {
   console.log(i);
 }
@@ -56,7 +68,14 @@ for (let i = 0; i <<< ❓ >>> 10; i++) {
 
 ---------------------
 - tests/1/files/main.js/.block
-// 0'dan 4'e kadar yazdırır mısın?
+// Görev: 0'dan 4'e kadar olan sayıları alt alta yazdır.
+// İkinci test aynı kuralı farklı sınırla denetler: i < 5
+// Beklenen çıktı:
+// 0
+// 1
+// 2
+// 3
+// 4
 for (let i = 0; i <<< ❓ >>> 5; i++) {
   console.log(i);
 }
@@ -96,7 +115,15 @@ Kalkış!
 ``5``ten ``1``e kadar geriye sayan ve sonunda ``Kalkış!`` yazan programı yazar mısın?
 
 - files/main.js/.block
-// geriye doğru sayan koşulu tamamlar mısın?
+// Görev: 5'ten 1'e kadar geriye say ve sonunda "Kalkış!" yazdır.
+// for koşulunda büyük veya eşit operatörünü kullan: i >= 1
+// Beklenen çıktı:
+// 5
+// 4
+// 3
+// 2
+// 1
+// Kalkış!
 for (let i = 5; i <<< ❓ >>> 1; i--) {
   console.log(i);
 }
@@ -112,7 +139,13 @@ Kalkış!
 
 ---------------------
 - tests/1/files/main.js/.block
-// geriye doğru sayan koşulu tamamlar mısın?
+// Görev: 3'ten 1'e kadar geriye say ve sonunda "Kalkış!" yazdır.
+// İkinci test aynı kuralı farklı başlangıçla denetler: i >= 1
+// Beklenen çıktı:
+// 3
+// 2
+// 1
+// Kalkış!
 for (let i = 3; i <<< ❓ >>> 1; i--) {
   console.log(i);
 }
@@ -151,8 +184,19 @@ for (let i = 0; i <= 10; i += 2) {
 ``0``dan ``10``a kadar **ikişer ikişer** sayan programı yazar mısın?
 
 - files/main.js/.block
-// ikişer ikişer artırır mısın?
-for (let i = 0; i <= 10; i <<< ❓ >>> 2) {
+// Görev: 0'dan 10'a kadar ikişer ikişer sayıp alt alta yazdır.
+// Artış kısmına toplama ataması yaz: i += 2
+// Döngü en fazla 10 tur atar; yanlış bir artış yazsan bile program kilitlenmez.
+// Beklenen çıktı:
+// 0
+// 2
+// 4
+// 6
+// 8
+// 10
+let tur = 0;
+for (let i = 0; i <= 10 && tur < 10; i <<< ❓ >>> 2) {
+  tur++;
   console.log(i);
 }
 ---------------------
@@ -166,8 +210,17 @@ for (let i = 0; i <= 10; i <<< ❓ >>> 2) {
 
 ---------------------
 - tests/1/files/main.js/.block
-// üçer üçer artırır mısın?
-for (let i = 0; i <= 10; i <<< ❓ >>> 3) {
+// Görev: 0'dan 9'a kadar üçer üçer sayıp alt alta yazdır.
+// İkinci test artış adımını farklı sayıyla denetler: i += 3
+// Döngü en fazla 10 tur atar; yanlış bir artış yazsan bile program kilitlenmez.
+// Beklenen çıktı:
+// 0
+// 3
+// 6
+// 9
+let tur = 0;
+for (let i = 0; i <= 10 && tur < 10; i <<< ❓ >>> 3) {
+  tur++;
   console.log(i);
 }
 - tests/1/output
@@ -204,7 +257,10 @@ Toplam: 50
 mısın?
 
 - files/main.js/.block
-// her elemanı toplam kutusuna ekler misin?
+// Görev: [5, 10, 15, 20] dizisinin elemanlarını toplayıp "Toplam: 50" yazdır.
+// Döngü gövdesinde toplam değişkenine ekleme ataması yap: toplam += sayılar[i]
+// Beklenen çıktı:
+// Toplam: 50
 let sayılar = [5, 10, 15, 20];
 let toplam = 0;
 for (let i = 0; i < sayılar.length; i++) {
@@ -217,7 +273,10 @@ Toplam: 50
 
 ---------------------
 - tests/1/files/main.js/.block
-// her elemanı toplam kutusuna ekler misin?
+// Görev: [2, 4, 6] dizisinin elemanlarını toplayıp "Toplam: 12" yazdır.
+// İkinci test aynı kuralı farklı diziyle denetler: toplam += sayılar[i]
+// Beklenen çıktı:
+// Toplam: 12
 let sayılar = [2, 4, 6];
 let toplam = 0;
 for (let i = 0; i < sayılar.length; i++) {
@@ -255,7 +314,10 @@ Ortalama: 88.75
 programı yazar mısın?
 
 - files/main.js/.block
-// ortalamayı bulmak için toplamı neye bölersin?
+// Görev: [80, 85, 90, 100] notlarının ortalamasını "Ortalama: 88.75" olarak yazdır.
+// Ortalamayı bulmak için toplamı eleman sayısına böl: toplam / notlar.length
+// Beklenen çıktı:
+// Ortalama: 88.75
 let notlar = [80, 85, 90, 100];
 let toplam = 0;
 for (let i = 0; i < notlar.length; i++) {
@@ -269,7 +331,10 @@ Ortalama: 88.75
 
 ---------------------
 - tests/1/files/main.js/.block
-// ortalamayı bulmak için toplamı neye bölersin?
+// Görev: [80, 90, 100] notlarının ortalamasını "Ortalama: 90" olarak yazdır.
+// İkinci test aynı kuralı farklı dizinin uzunluğuyla denetler: toplam / notlar.length
+// Beklenen çıktı:
+// Ortalama: 90
 let notlar = [80, 90, 100];
 let toplam = 0;
 for (let i = 0; i < notlar.length; i++) {
@@ -307,7 +372,12 @@ vişne
 Dizideki meyveleri alt alta yazdıran ``for...of`` döngüsünü kurar mısın?
 
 - files/main.js/.block
-// dizinin elemanlarını gezen döngüyü tamamlar mısın?
+// Görev: meyveler dizisindeki elemanları alt alta yazdır.
+// Dizinin elemanlarını gezmek için for...of kullan: for (const meyve of meyveler)
+// Beklenen çıktı:
+// elma
+// vişne
+// çilek
 let meyveler = ["elma", "vişne", "çilek"];
 for (const meyve <<< ❓ >>> meyveler) {
   console.log(meyve);
@@ -320,7 +390,13 @@ vişne
 
 ---------------------
 - tests/1/files/main.js/.block
-// dizinin elemanlarını gezen döngüyü tamamlar mısın?
+// Görev: meyveler dizisindeki elemanları alt alta yazdır.
+// İkinci test farklı diziyle aynı kuralı denetler: for (const meyve of meyveler)
+// Beklenen çıktı:
+// muz
+// kavun
+// kiraz
+// nar
 let meyveler = ["muz", "kavun", "kiraz", "nar"];
 for (const meyve <<< ❓ >>> meyveler) {
   console.log(meyve);
@@ -357,7 +433,12 @@ d
 ``"kod"`` kelimesinin harflerini alt alta yazdıran programı yazar mısın?
 
 - files/main.js/.block
-// sıradaki harfi yazdırır mısın?
+// Görev: "kod" kelimesinin harflerini alt alta yazdır.
+// for...of döngüsünde sıradaki harfi taşıyan değişkeni console.log içine yaz: harf
+// Beklenen çıktı:
+// k
+// o
+// d
 let kelime = "kod";
 for (const harf of kelime) {
   console.log(<<< ❓ >>>);
@@ -370,7 +451,12 @@ d
 
 ---------------------
 - tests/1/files/main.js/.block
-// sıradaki harfi yazdırır mısın?
+// Görev: "kal" kelimesinin harflerini alt alta yazdır.
+// İkinci test farklı kelimeyle aynı kuralı denetler: console.log(harf)
+// Beklenen çıktı:
+// k
+// a
+// l
 let kelime = "kal";
 for (const harf of kelime) {
   console.log(<<< ❓ >>>);
@@ -407,7 +493,12 @@ yaş: 30
 Nesnenin anahtarlarını ve değerlerini alt alta yazdıran programı yazar mısın?
 
 - files/main.js/.block
-// anahtarları gezen döngüyü tamamlar mısın?
+// Görev: kişi nesnesinin anahtarlarını ve değerlerini alt alta yazdır.
+// Anahtarları gezmek için for...in kullan: for (const anahtar in kişi)
+// Beklenen çıktı:
+// ad: Ayşe
+// yaş: 30
+// şehir: İzmir
 let kişi = { ad: "Ayşe", yaş: 30, şehir: "İzmir" };
 for (const anahtar <<< ❓ >>> kişi) {
   console.log(anahtar + ":", kişi[anahtar]);
@@ -420,7 +511,11 @@ yaş: 30
 
 ---------------------
 - tests/1/files/main.js/.block
-// anahtarları gezen döngüyü tamamlar mısın?
+// Görev: kişi nesnesinin anahtarlarını ve değerlerini alt alta yazdır.
+// İkinci test farklı nesneyle aynı kuralı denetler: for (const anahtar in kişi)
+// Beklenen çıktı:
+// ad: Mehmet
+// meslek: öğretmen
 let kişi = { ad: "Mehmet", meslek: "öğretmen" };
 for (const anahtar <<< ❓ >>> kişi) {
   console.log(anahtar + ":", kişi[anahtar]);
@@ -460,7 +555,13 @@ yeşil bayrak
 Bütün renk-nesne kombinasyonlarını alt alta yazdıran iç içe döngüyü kurar mısın?
 
 - files/main.js/.block
-// içteki döngünün başını yazar mısın?
+// Görev: Bütün renk-nesne kombinasyonlarını alt alta yazdır.
+// İçteki döngüyü de for...of ile kur: for (const nesne of nesneler)
+// Beklenen çıktı:
+// kırmızı elma
+// kırmızı bayrak
+// yeşil elma
+// yeşil bayrak
 let renkler = ["kırmızı", "yeşil"];
 let nesneler = ["elma", "bayrak"];
 for (const renk of renkler) {
@@ -477,7 +578,15 @@ yeşil bayrak
 
 ---------------------
 - tests/1/files/main.js/.block
-// içteki döngünün başını yazar mısın?
+// Görev: Bütün renk-nesne kombinasyonlarını alt alta yazdır.
+// İkinci test üç renkle aynı iç içe döngü kuralını denetler: for (const nesne of nesneler)
+// Beklenen çıktı:
+// kırmızı elma
+// kırmızı bayrak
+// yeşil elma
+// yeşil bayrak
+// beyaz elma
+// beyaz bayrak
 let renkler = ["kırmızı", "yeşil", "beyaz"];
 let nesneler = ["elma", "bayrak"];
 for (const renk of renkler) {
@@ -522,7 +631,11 @@ for (const sayı of sayılar) {
 ``10``dan büyük bir sayı görünce döngüden çıkan programı yazar mısın?
 
 - files/main.js/.block
-// 10'dan büyük sayıda döngüyü bitirir misin?
+// Görev: 10'dan büyük bir sayı görünce döngüden çık.
+// if gövdesine break anahtar kelimesini yaz: break;
+// Beklenen çıktı:
+// 3
+// 7
 let sayılar = [3, 7, 12, 5, 9];
 for (const sayı of sayılar) {
   if (sayı > 10) {
@@ -537,7 +650,11 @@ for (const sayı of sayılar) {
 
 ---------------------
 - tests/1/files/main.js/.block
-// 10'dan büyük sayıda döngüyü bitirir misin?
+// Görev: 10'dan büyük bir sayı görünce döngüden çık.
+// İkinci test diziyi değiştirerek aynı kuralı denetler: break;
+// Beklenen çıktı:
+// 1
+// 2
 let sayılar = [1, 2, 20, 4];
 for (const sayı of sayılar) {
   if (sayı > 10) {
@@ -579,7 +696,13 @@ for (let i = 1; i <= 5; i++) {
 ``3`` hariç ``1``den ``5``e kadar olan sayıları yazdıran programı yazar mısın?
 
 - files/main.js/.block
-// 3'ü atlayıp devam eder misin?
+// Görev: 3 hariç 1'den 5'e kadar olan sayıları alt alta yazdır.
+// if gövdesine continue anahtar kelimesini yaz: continue;
+// Beklenen çıktı:
+// 1
+// 2
+// 4
+// 5
 for (let i = 1; i <= 5; i++) {
   if (i === 3) {
     <<< ❓ >>>;
@@ -595,7 +718,13 @@ for (let i = 1; i <= 5; i++) {
 
 ---------------------
 - tests/1/files/main.js/.block
-// 4'ü atlayıp devam eder misin?
+// Görev: 4 hariç 1'den 5'e kadar olan sayıları alt alta yazdır.
+// İkinci test atlanacak sayıyı değiştirerek aynı kuralı denetler: continue;
+// Beklenen çıktı:
+// 1
+// 2
+// 3
+// 5
 for (let i = 1; i <= 5; i++) {
   if (i === 4) {
     <<< ❓ >>>;

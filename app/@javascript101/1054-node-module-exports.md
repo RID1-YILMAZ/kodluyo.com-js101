@@ -41,21 +41,27 @@ Merhaba Ada
 ``selam.js`` modülünü ``main.js`` içinden çağıran programı tamamlar mısın?
 
 - files/main.js/.block
+// Görev: selam.js modülünü require() ile çağırıp selamVer("Ada") çıktısını yazdır.
+// Boşluğa METİN olarak "./selam.js" yaz; dosya yolu ./ ile başlar ve .js uzantısı yazılır.
+// Beklenen çıktı:
+// Merhaba Ada
 const { selamVer } = require(<<< ❓ >>>);
 
 selamVer("Ada");
 ---------------------
 - files/selam.js/.block
+// Görev: selamVer fonksiyonunu exports.selamVer ile dışa aktar.
+// Boşluğa fonksiyonun adını yaz: selamVer; burada kısa exports nesnesi kullanılıyor.
 function selamVer(ad) {
   console.log("Merhaba", ad);
 }
 
-// fonksiyonu dışa aktarır mısın?
 exports.selamVer = <<< ❓ >>>;
 ---------------------
 - tests/0/output
 Merhaba Ada
 
+- tests/0/require = "\"./selam.js\""
 ---------------------
 - parts/1:
 - text
@@ -97,15 +103,20 @@ Topla: 7
 İki fonksiyonu dışa aktarıp kullanan programı tamamlar mısın?
 
 - files/main.js/.block
+// Görev: hesap.js modülünün topla ve çıkar fonksiyonlarını çağırıp sonuçları yazdır.
+// Boşluğa hesap nesnesinin metodunu yaz: çıkar; nokta ile erişilir ve sonuç 6 olur.
+// Beklenen çıktı:
+// Topla: 7
+// Çıkar: 6
 const hesap = require("./hesap.js");
 
 console.log("Topla:", hesap.topla(3, 4));
-// çıkarma fonksiyonunu çağırır mısın?
 console.log("Çıkar:", hesap.<<< ❓ >>>(10, 4));
 ---------------------
 - files/hesap.js/.block
+// Görev: topla fonksiyonunu tamamla: iki sayıyı + operatörü ile topla.
+// Boşluğa return değerini yaz: a + b; çıkarma fonksiyonu zaten hazır.
 function topla(a, b) {
-  // iki sayıyı toplar mısın?
   return <<< ❓ >>>;
 }
 
@@ -120,17 +131,20 @@ exports.çıkar = çıkar;
 Topla: 7
 Çıkar: 6
 
+- tests/0/require = "a + b"
 ---------------------
 - tests/1/files/main.js/.block
+// Görev: İkinci testte de aynı modülü farklı sayılarla kullan: topla(12, 8), çıkar(9, 4).
+// Boşluğa yine çıkar yaz; topla sonucu 20, çıkarma sonucu 5 olarak yazılır.
 const hesap = require("./hesap.js");
 
 console.log("Topla:", hesap.topla(12, 8));
-// çıkarma fonksiyonunu çağırır mısın?
 console.log("Çıkar:", hesap.<<< ❓ >>>(9, 4));
 - tests/1/output
 Topla: 20
 Çıkar: 5
 
+- tests/1/require = "çıkar"
 ---------------------
 - parts/2:
 - text
@@ -175,12 +189,19 @@ module.exports = {
 Modülü tek bir nesne olarak dışa aktaran programı tamamlar mısın?
 
 - files/main.js/.block
+// Görev: hesap.js modülünü require() ile çağırıp topla ve çarp fonksiyonlarını kullan.
+// Boşluğa METİN olarak "./hesap.js" yaz; dosya yolu ./ ile başlar, .js uzantısı yazılır.
+// Beklenen çıktı:
+// 5
+// 6
 const hesap = require(<<< ❓ >>>);
 
 console.log(hesap.topla(2, 3));
 console.log(hesap.çarp(2, 3));
 ---------------------
 - files/hesap.js/.block
+// Görev: module.exports = { ... } ile topla ve çarp fonksiyonlarını tek nesnede dışa aktar.
+// Boşluğa topla fonksiyonunun adını yaz: topla; kısa yazım topla: topla anlamına gelir.
 function topla(a, b) {
   return a + b;
 }
@@ -198,6 +219,7 @@ module.exports = {
 5
 6
 
+- tests/0/require = "\"./hesap.js\""
 ---------------------
 - parts/3:
 - text
@@ -230,27 +252,36 @@ Kare: 36
 Tek bir fonksiyonu dışa aktaran modülü tamamlar mısın?
 
 - files/main.js/.block
+// Görev: kare.js modülünü require() ile çağırıp kare fonksiyonunu kullan.
+// Boşluğa METİN olarak "./kare.js" yaz; modül tek bir fonksiyon dışa aktarıyor.
+// Beklenen çıktı:
+// Kare: 36
 const kare = require(<<< ❓ >>>);
 
 console.log("Kare:", kare(6));
 ---------------------
 - files/kare.js/.block
+// Görev: sayının karesini döndüren fonksiyonu module.exports ile dışa aktar.
+// Boşluğa return değerini yaz: sayı * sayı; aynı sayıyı kendisiyle çarpar.
 module.exports = function (sayı) {
-  // sayının karesini alır mısın?
   return <<< ❓ >>>;
 };
 ---------------------
 - tests/0/output
 Kare: 36
 
+- tests/0/require = "sayı * sayı"
 ---------------------
 - tests/1/files/main.js/.block
+// Görev: İkinci testte de kare.js modülünü çağır; bu kez kare(9) çalıştırılır.
+// Boşluğa yine METİN olarak "./kare.js" yaz; çıktı "Kare: 81" olur.
 const kare = require(<<< ❓ >>>);
 
 console.log("Kare:", kare(9));
 - tests/1/output
 Kare: 81
 
+- tests/1/require = "\"./kare.js\""
 ---------------------
 - parts/4:
 - text
@@ -296,8 +327,14 @@ Aynı modül mü? true
 Aynı modülü ikinci kez çağırıp sayacı artıran programı tamamlar mısın?
 
 - files/main.js/.block
+// Görev: Aynı modülü require() ile ikinci kez çağır ve sayaç değerlerini yazdır.
+// Boşluğa require("./sayac.js") yaz; modül önbellekten gelir ve dosya yeniden çalışmaz.
+// Beklenen çıktı:
+// sayac.js yüklendi
+// 1
+// 2
+// Aynı modül mü? true
 const sayac = require("./sayac.js");
-// aynı modülü bir kez daha çağırır mısın?
 const sayac2 = <<< ❓ >>>;
 
 console.log(sayac.artır());
@@ -305,13 +342,14 @@ console.log(sayac.artır());
 console.log("Aynı modül mü?", sayac === sayac2);
 ---------------------
 - files/sayac.js/.block
+// Görev: Modülün sayaç fonksiyonunu tamamla: her çağrıda sayıyı bir artır.
+// Boşluğa return değerini yaz: ++sayı; önce artırır, sonra yeni değeri döndürür.
 console.log("sayac.js yüklendi");
 
 let sayı = 0;
 
 module.exports = {
   artır: function () {
-    // sayacı bir artırır mısın?
     return <<< ❓ >>>;
   }
 };
@@ -322,6 +360,7 @@ sayac.js yüklendi
 2
 Aynı modül mü? true
 
+- tests/0/require = "require(\"./sayac.js\")"
 ---------------------
 - parts/5:
 - text
@@ -365,18 +404,23 @@ yarı var mı? true
 Modülün yalnızca ``ikiKat`` fonksiyonunu taşımasını sağlar mısın?
 
 - files/main.js/.block
+// Görev: module.exports = { ... } ile yalnızca ikiKat fonksiyonunu taşıyan modülü kullan.
+// Boşluğa === yaz; hesap.yarı tanımsız olduğu için karşılaştırma true döner.
+// Beklenen çıktı:
+// [ 'ikiKat' ]
+// yarı var mı? true
 const hesap = require("./hesap.js");
 
 console.log(Object.keys(hesap));
-// yarı fonksiyonu görünmüyor mu?
 console.log("yarı var mı?", hesap.yarı <<< ❓ >>> undefined);
 ---------------------
 - files/hesap.js/.block
+// Görev: module.exports'a yalnızca ikiKat fonksiyonunu içeren YENİ bir nesne ata.
+// Boşluğa module.exports = { ikiKat: ikiKat } yaz; böylece exports bağlantısı kopar.
 function ikiKat(n) {
   return n * 2;
 }
 
-// tüm modülü ikiKat içeren nesne yapar mısın?
 <<< ❓ >>>;
 
 // Dikkat: module.exports yukarıda değişti, bu satır işe yaramaz.
@@ -437,14 +481,22 @@ Ana modül kontrolünü ekleyen programı tamamlar mısın? Çıktıda ``main.js
 ``true``, ``selam.js`` için ``false`` görünmeli.
 
 - files/main.js/.block
+// Görev: require.main === module kontrolüyle dosyanın ana modül olup olmadığını yazdır.
+// Boşluğa METİN olarak "./selam.js", ikinci boşluğa require.main === module yaz.
+// Beklenen çıktı:
+// selam.js ana modül mü? false
+// main.js ana modül mü? true
+// Ana modülün adı: main.js
+// Merhaba Ada
 const { selamVer } = require(<<< ❓ >>>);
 
-// ana modül kontrolünü yapar mısın?
 console.log("main.js ana modül mü?", <<< ❓ >>>);
 console.log("Ana modülün adı:", require.main.id);
 selamVer("Ada");
 ---------------------
 - files/selam.js/.block
+// Görev: selam.js içinde require.main === module kontrolünü tamamla.
+// Boşluğa === yaz; require edilen modülde bu kontrol false döner, modül yine çalışır.
 function selamVer(ad) {
   console.log("Merhaba", ad);
 }
@@ -464,6 +516,7 @@ main.js ana modül mü? true
 Ana modülün adı: main.js
 Merhaba Ada
 
+- tests/0/require = "require.main"
 ---------------------
 - parts/7:
 - text
@@ -499,20 +552,26 @@ Sürüm: 2
 Ayar nesnesini dışa aktarıp kullanan programı tamamlar mısın?
 
 - files/main.js/.block
+// Görev: ayar.js modülünün dışa aktardığı dil ve sürüm değerlerini yazdır.
+// Boşluğa ayar nesnesinin alan adını yaz: dil; değer "Türkçe" olarak okunur.
+// Beklenen çıktı:
+// Dil: Türkçe
+// Sürüm: 2
 const ayar = require("./ayar.js");
 
-// dil bilgisini okur musun?
 console.log("Dil:", ayar.<<< ❓ >>>);
 console.log("Sürüm:", ayar.sürüm);
 ---------------------
 - files/ayar.js/.block
-// tüm ayarları dışa aktarır mısın?
+// Görev: dil ve sürüm ayarlarını içeren nesneyi module.exports ile dışa aktar.
+// Boşluğa nesneyi yaz: { dil: "Türkçe", sürüm: 2 }; main.js değerleri nokta ile okur.
 module.exports = <<< ❓ >>>;
 ---------------------
 - tests/0/output
 Dil: Türkçe
 Sürüm: 2
 
+- tests/0/require = "\"Türkçe\""
 ---------------------
 - parts/8:
 - text
@@ -559,15 +618,20 @@ Sonuç: 20
 Alt modülü kullanarak sayının dört katını hesaplayan programı tamamlar mısın?
 
 - files/main.js/.block
+// Görev: hesap.js modülünü require() ile çağırıp dörtKat fonksiyonunu kullan.
+// Boşluğa METİN olarak "./hesap.js" yaz; hesap.js de kendi içinde util.js modülünü kullanır.
+// Beklenen çıktı:
+// Sonuç: 20
 const { dörtKat } = require(<<< ❓ >>>);
 
 console.log("Sonuç:", dörtKat(5));
 ---------------------
 - files/hesap.js/.block
+// Görev: util.js modülündeki ikiKat fonksiyonunu kullanarak sayının dört katını hesapla.
+// Boşluğa ikiKat(n) yaz; sonucu bir kez daha 2 ile çarpınca dört katı bulunur.
 const { ikiKat } = require("./util.js");
 
 function dörtKat(n) {
-  // önce iki katını al, sonra bir kez daha iki katına çıkar
   return <<< ❓ >>> * 2;
 }
 
@@ -589,8 +653,11 @@ module.exports = { ikiKat };
 - tests/0/output
 Sonuç: 20
 
+- tests/0/require = "ikiKat(n)"
 ---------------------
 - tests/1/files/main.js/.block
+// Görev: İkinci testte de hesap.js modülünü çağır; bu kez dörtKat(3) çalıştırılır.
+// Boşluğa yine METİN olarak "./hesap.js" yaz; çıktı "Sonuç: 12" olur.
 const { dörtKat } = require(<<< ❓ >>>);
 
 console.log("Sonuç:", dörtKat(3));
@@ -603,6 +670,7 @@ module.exports = { ikiKat };
 - tests/1/output
 Sonuç: 12
 
+- tests/1/require = "\"./hesap.js\""
 ---------------------
 - parts/9:
 - text
@@ -643,13 +711,19 @@ Küp: 8
 İki fonksiyonu dışa aktaran matematik modülünü tamamlar mısın?
 
 - files/main.js/.block
+// Görev: matematik.js modülünden kare ve küp fonksiyonlarını alıp sonuçları yazdır.
+// Boşluğa küp fonksiyonunun adını yaz: küp; küp(2) sonucu 8 olur.
+// Beklenen çıktı:
+// Kare: 16
+// Küp: 8
 const { kare, küp } = require("./matematik.js");
 
 console.log("Kare:", kare(4));
-// küp fonksiyonunu çağırır mısın?
 console.log("Küp:", <<< ❓ >>>(2));
 ---------------------
 - files/matematik.js/.block
+// Görev: kare ve küp fonksiyonlarını tek nesnede module.exports ile dışa aktar.
+// Boşluğa fonksiyonun adını yaz: küp; kısa yazım küp: küp anlamına gelir.
 function kare(n) {
   return n * n;
 }
@@ -664,4 +738,5 @@ module.exports = { kare, <<< ❓ >>> };
 Kare: 16
 Küp: 8
 
+- tests/0/require = "küp"
 ---------------------

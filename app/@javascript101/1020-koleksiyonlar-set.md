@@ -28,7 +28,10 @@ Set(3) { 1, 2, 3 }
 programı yazar mısın? Terminale ``Set(3) { 1, 2, 3 }`` yazmalı.
 
 - files/main.js/.block
-// diziden bir küme oluştur
+// Görev: [1, 2, 2, 3, 3] dizisinden küme oluşturup tekrar eden sayıları ayıkla.
+// Küme için new Set(dizi) yaz; Set her değeri yalnızca bir kez tutar, tekrarlar gider.
+// Beklenen çıktı:
+// Set(3) { 1, 2, 3 }
 let sayılar = <<< ❓ >>>([1, 2, 2, 3, 3]);
 console.log(sayılar);
 ---------------------
@@ -37,7 +40,10 @@ Set(3) { 1, 2, 3 }
 
 ---------------------
 - tests/1/files/main.js/.block
-// diziden bir küme oluştur
+// Görev: [4, 4, 5, 6, 6] dizisinden küme oluşturup tekrar eden sayıları ayıkla.
+// İkinci test aynı kuralı farklı sayılarla denetler: boşluğa yine new Set yaz.
+// Beklenen çıktı:
+// Set(3) { 4, 5, 6 }
 let sayılar = <<< ❓ >>>([4, 4, 5, 6, 6]);
 console.log(sayılar);
 - tests/1/output
@@ -68,7 +74,10 @@ Boş bir kümeye ``"elma"`` ve ``"armut"`` elemanlarını ekleyip
 ``Set(2) { 'elma', 'armut' }`` yazdıran programı yazar mısın?
 
 - files/main.js/.block
-// kümeye iki meyve ekle
+// Görev: Boş bir kümeye "elma" ve "armut" elemanlarını ekle.
+// Eleman eklemek için .add() metodunu kullan: meyveler.add("elma"). Metinleri ÇİFT TIRNAK ile yaz.
+// Beklenen çıktı:
+// Set(2) { 'elma', 'armut' }
 let meyveler = new Set();
 meyveler.<<< ❓ >>>("elma");
 meyveler.<<< ❓ >>>("armut");
@@ -79,7 +88,10 @@ Set(2) { 'elma', 'armut' }
 
 ---------------------
 - tests/1/files/main.js/.block
-// kümeye iki meyve ekle
+// Görev: Boş bir kümeye "kiraz" ve "muz" elemanlarını ekle.
+// İkinci test aynı kuralı farklı meyvelerle denetler: iki boşluğa da add yaz.
+// Beklenen çıktı:
+// Set(2) { 'kiraz', 'muz' }
 let meyveler = new Set();
 meyveler.<<< ❓ >>>("kiraz");
 meyveler.<<< ❓ >>>("muz");
@@ -112,7 +124,11 @@ false
 programı yazar mısın?
 
 - files/main.js/.block
-// kümede bu değerler var mı?
+// Görev: [1, 2, 3] kümesinde 2 ve 5 değerlerinin olup olmadığını alt alta yazdır.
+// Kontrol için .has(2) ve .has(5) yaz: varsa true, yoksa false döndürür. delete DEĞİL.
+// Beklenen çıktı:
+// true
+// false
 let sayılar = new Set([1, 2, 3]);
 console.log(sayılar.<<< ❓ >>>(2));
 console.log(sayılar.<<< ❓ >>>(5));
@@ -121,15 +137,23 @@ console.log(sayılar.<<< ❓ >>>(5));
 true
 false
 
+- tests/0/require = "has"
+
 ---------------------
 - tests/1/files/main.js/.block
-// kümede bu değerler var mı?
+// Görev: [4, 5, 6] kümesinde 5 ve 1 değerlerinin olup olmadığını alt alta yazdır.
+// İkinci test aynı kuralı farklı değerlerle denetler: iki boşluğa da has yaz.
+// Beklenen çıktı:
+// true
+// false
 let sayılar = new Set([4, 5, 6]);
 console.log(sayılar.<<< ❓ >>>(5));
 console.log(sayılar.<<< ❓ >>>(1));
 - tests/1/output
 true
 false
+
+- tests/1/require = "has"
 
 ---------------------
 - parts/3:
@@ -156,7 +180,10 @@ Set(2) { 1, 3 }
 biçiminde yazdıran programı yazar mısın?
 
 - files/main.js/.block
-// kümeden 2 sayısını sil
+// Görev: [1, 2, 3] kümesinden 2 değerini silip kalan elemanları yazdır.
+// Silmek için .delete(2) metodunu kullan; silme sonrası kümede 1 ve 3 kalır.
+// Beklenen çıktı:
+// Set(2) { 1, 3 }
 let sayılar = new Set([1, 2, 3]);
 sayılar.<<< ❓ >>>(2);
 console.log(sayılar);
@@ -166,7 +193,10 @@ Set(2) { 1, 3 }
 
 ---------------------
 - tests/1/files/main.js/.block
-// kümeden 2 sayısını sil
+// Görev: [4, 5, 6] kümesinden 5 değerini silip kalan elemanları yazdır.
+// İkinci test aynı kuralı farklı değerlerle denetler: boşluğa yine delete yaz.
+// Beklenen çıktı:
+// Set(2) { 4, 6 }
 let sayılar = new Set([4, 5, 6]);
 sayılar.<<< ❓ >>>(5);
 console.log(sayılar);
@@ -196,7 +226,10 @@ console.log(harfler.size);
 yazar mısın?
 
 - files/main.js/.block
-// kümenin eleman sayısını bul
+// Görev: ["a", "b", "c"] kümesinin eleman sayısını yazdır.
+// .size bir ÖZELLİKTİR, metot değildir: parantez koymadan harfler.size yaz.
+// Beklenen çıktı:
+// 3
 let harfler = new Set(["a", "b", "c"]);
 console.log(harfler.<<< ❓ >>>);
 ---------------------
@@ -205,7 +238,10 @@ console.log(harfler.<<< ❓ >>>);
 
 ---------------------
 - tests/1/files/main.js/.block
-// kümenin eleman sayısını bul
+// Görev: ["x", "y"] kümesinin eleman sayısını yazdır.
+// İkinci test aynı kuralı farklı elemanlarla denetler: boşluğa yine size yaz.
+// Beklenen çıktı:
+// 2
 let harfler = new Set(["x", "y"]);
 console.log(harfler.<<< ❓ >>>);
 - tests/1/output
@@ -236,7 +272,10 @@ console.log(benzersiz);
 ``[ 1, 2, 3, 4 ]`` yazdıran programı yazar mısın?
 
 - files/main.js/.block
-// diziyi benzersiz elemanlara indir
+// Görev: [1, 2, 2, 3, 3, 3, 4] dizisindeki tekrarları silip benzersiz bir dizi üret.
+// [...new Set(sayılar)] yaz: yayma (...) operatörü kümeyi yeniden diziye açar.
+// Beklenen çıktı:
+// [ 1, 2, 3, 4 ]
 let sayılar = [1, 2, 2, 3, 3, 3, 4];
 let benzersiz = <<< ❓ >>>;
 console.log(benzersiz);
@@ -246,7 +285,10 @@ console.log(benzersiz);
 
 ---------------------
 - tests/1/files/main.js/.block
-// diziyi benzersiz elemanlara indir
+// Görev: [5, 5, 6, 7, 7, 8] dizisindeki tekrarları silip benzersiz bir dizi üret.
+// İkinci test aynı kuralı farklı sayılarla denetler: boşluğa yine [...new Set(...)] yaz.
+// Beklenen çıktı:
+// [ 5, 6, 7, 8 ]
 let sayılar = [5, 5, 6, 7, 7, 8];
 let benzersiz = <<< ❓ >>>;
 console.log(benzersiz);
@@ -280,7 +322,12 @@ kırmızı
 programı yazar mısın?
 
 - files/main.js/.block
-// for-of ile kümenin elemanlarını gez
+// Görev: ["mavi", "yeşil", "kırmızı"] kümesinin elemanlarını alt alta yazdır.
+// Döngü başlığı for (const renk of renkler) biçimindedir; boşluğa of yaz (in değil).
+// Beklenen çıktı:
+// mavi
+// yeşil
+// kırmızı
 let renkler = new Set(["mavi", "yeşil", "kırmızı"]);
 for (const renk <<< ❓ >>> renkler) {
   console.log(renk);
@@ -293,7 +340,11 @@ kırmızı
 
 ---------------------
 - tests/1/files/main.js/.block
-// for-of ile kümenin elemanlarını gez
+// Görev: ["sarı", "mor"] kümesinin elemanlarını alt alta yazdır.
+// İkinci test aynı kuralı farklı renklerle denetler: boşluğa yine of yaz.
+// Beklenen çıktı:
+// sarı
+// mor
 let renkler = new Set(["sarı", "mor"]);
 for (const renk <<< ❓ >>> renkler) {
   console.log(renk);
@@ -330,7 +381,12 @@ sayılar.forEach((sayı) => {
 yazdıran programı yazar mısın?
 
 - files/main.js/.block
-// her elemanın iki katını yazdır
+// Görev: [1, 2, 3] kümesinin her elemanının iki katını alt alta yazdır.
+// sayılar.forEach((sayı) => { ... }) yaz: ok fonksiyonu her turda bir elemanı alır.
+// Beklenen çıktı:
+// 2
+// 4
+// 6
 let sayılar = new Set([1, 2, 3]);
 sayılar.<<< ❓ >>>((sayı) => {
   console.log(sayı * 2);
@@ -343,7 +399,11 @@ sayılar.<<< ❓ >>>((sayı) => {
 
 ---------------------
 - tests/1/files/main.js/.block
-// her elemanın iki katını yazdır
+// Görev: [5, 6] kümesinin her elemanının iki katını alt alta yazdır.
+// İkinci test aynı kuralı farklı sayılarla denetler: boşluğa yine forEach yaz.
+// Beklenen çıktı:
+// 10
+// 12
 let sayılar = new Set([5, 6]);
 sayılar.<<< ❓ >>>((sayı) => {
   console.log(sayı * 2);
@@ -378,7 +438,10 @@ Set(3) { 'elma', 'armut', 'muz' }
 mısın?
 
 - files/main.js/.block
-// iki kümenin birleşimini oluştur
+// Görev: a ve b kümelerinin birleşimini yeni bir küme olarak yazdır.
+// new Set([...a, ...b]) yaz: iki kümenin elemanlarını yayma (...) ile tek kümeye topla.
+// Beklenen çıktı:
+// Set(3) { 'elma', 'armut', 'muz' }
 let a = new Set(["elma", "armut"]);
 let b = new Set(["armut", "muz"]);
 let birleşim = <<< ❓ >>>;
@@ -389,7 +452,10 @@ Set(3) { 'elma', 'armut', 'muz' }
 
 ---------------------
 - tests/1/files/main.js/.block
-// iki kümenin birleşimini oluştur
+// Görev: a ve b kümelerinin birleşimini yeni bir küme olarak yazdır.
+// İkinci test aynı kuralı farklı meyvelerle denetler: boşluğa yine new Set([...a, ...b]) yaz.
+// Beklenen çıktı:
+// Set(3) { 'kiraz', 'muz', 'çilek' }
 let a = new Set(["kiraz", "muz"]);
 let b = new Set(["muz", "çilek"]);
 let birleşim = <<< ❓ >>>;
@@ -423,7 +489,10 @@ Set(1) { 3 }
 yazar mısın?
 
 - files/main.js/.block
-// iki kümenin ortak elemanlarını bul
+// Görev: a ve b kümelerinin ortak elemanlarından yeni bir küme oluştur (kesişim).
+// [...a].filter((x) => b.has(x)) yaz: filter yalnızca iki kümede de olanları seçer.
+// Beklenen çıktı:
+// Set(1) { 3 }
 let a = new Set([1, 2, 3]);
 let b = new Set([3, 4, 5]);
 let kesişim = new Set([...a].<<< ❓ >>>((x) => b.has(x)));
@@ -434,7 +503,10 @@ Set(1) { 3 }
 
 ---------------------
 - tests/1/files/main.js/.block
-// iki kümenin ortak elemanlarını bul
+// Görev: a ve b kümelerinin ortak elemanlarından yeni bir küme oluştur (kesişim).
+// İkinci test aynı kuralı farklı sayılarla denetler: boşluğa yine filter yaz.
+// Beklenen çıktı:
+// Set(2) { 2, 3 }
 let a = new Set([1, 2, 3]);
 let b = new Set([2, 3, 4]);
 let kesişim = new Set([...a].<<< ❓ >>>((x) => b.has(x)));

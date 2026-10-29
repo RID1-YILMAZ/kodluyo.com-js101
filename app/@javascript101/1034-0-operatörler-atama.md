@@ -33,7 +33,11 @@ Merhaba Dünya
 ``15`` ve ``Merhaba Dünya`` yazdıran programı yazar mısın?
 
 - files/main.js/.block
-// puanı 5 artır, metnin sonuna devamını ekle
+// Görev: += (ekleyerek atama) operatörüyle puanı 5 artır ve metne " Dünya" ekle.
+// İki boşluğa da += operatörünü yaz: puan += 5 ve mesaj += " Dünya".
+// Beklenen çıktı:
+// 15
+// Merhaba Dünya
 let puan = 10;
 puan <<< ❓ >>> 5;
 console.log(puan);
@@ -46,9 +50,15 @@ console.log(mesaj);
 15
 Merhaba Dünya
 
+- tests/0/require = "+\u003d"
+
 ---------------------
 - tests/1/files/main.js/.block
-// puanı 5 artır, metnin sonuna devamını ekle
+// Görev: += ile puanı 5 artır ve mesaj metninin sonuna " Dünya" ekle.
+// İkinci test aynı kuralı farklı başlangıç değeriyle denetler: += operatörü.
+// Beklenen çıktı:
+// 25
+// Merhaba Dünya
 let puan = 20;
 puan <<< ❓ >>> 5;
 console.log(puan);
@@ -59,6 +69,8 @@ console.log(mesaj);
 - tests/1/output
 25
 Merhaba Dünya
+
+- tests/1/require = "+\u003d"
 
 ---------------------
 - parts/1:
@@ -83,7 +95,10 @@ console.log(bakiye);
 100 liradan 30 lira harcanınca terminale ``70`` yazdıran programı yazar mısın?
 
 - files/main.js/.block
-// bakiyeden 30 lira düşer misin?
+// Görev: -= (çıkararak atama) operatörüyle bakiyeden 30 lira düş.
+// Boşluğa -= operatörünü yaz: bakiye -= 30.
+// Beklenen çıktı:
+// 70
 let bakiye = 100;
 bakiye <<< ❓ >>> 30;
 console.log(bakiye);
@@ -91,14 +106,21 @@ console.log(bakiye);
 - tests/0/output
 70
 
+- tests/0/require = "-\u003d"
+
 ---------------------
 - tests/1/files/main.js/.block
-// bakiyeden 30 lira düşer misin?
+// Görev: -= operatörüyle 50 liradan 30 lira düş.
+// İkinci test aynı kuralı farklı başlangıç değeriyle denetler: -= operatörü.
+// Beklenen çıktı:
+// 20
 let bakiye = 50;
 bakiye <<< ❓ >>> 30;
 console.log(bakiye);
 - tests/1/output
 20
+
+- tests/1/require = "-\u003d"
 
 ---------------------
 - parts/2:
@@ -124,7 +146,10 @@ Tanesi 20 lira olan üründen 3 tane alınınca terminale ``60`` yazdıran progr
 mısın?
 
 - files/main.js/.block
-// fiyatı 3 ile çarpar mısın?
+// Görev: *= (çarparak atama) operatörüyle 20 lirayı 3 ile çarp.
+// Boşluğa *= operatörünü yaz: fiyat *= 3.
+// Beklenen çıktı:
+// 60
 let fiyat = 20;
 fiyat <<< ❓ >>> 3;
 console.log(fiyat);
@@ -132,14 +157,21 @@ console.log(fiyat);
 - tests/0/output
 60
 
+- tests/0/require = "*\u003d"
+
 ---------------------
 - tests/1/files/main.js/.block
-// fiyatı 3 ile çarpar mısın?
+// Görev: *= operatörüyle 15 lirayı 3 ile çarp.
+// İkinci test aynı kuralı farklı başlangıç değeriyle denetler: *= operatörü.
+// Beklenen çıktı:
+// 45
 let fiyat = 15;
 fiyat <<< ❓ >>> 3;
 console.log(fiyat);
 - tests/1/output
 45
+
+- tests/1/require = "*\u003d"
 
 ---------------------
 - parts/3:
@@ -164,7 +196,10 @@ console.log(para);
 100 lirayı 4 kişiye paylaştırınca terminale ``25`` yazdıran programı yazar mısın?
 
 - files/main.js/.block
-// parayı 4 kişiye böler misin?
+// Görev: /= (bölerek atama) operatörüyle 100 lirayı 4 kişiye böl.
+// Boşluğa /= operatörünü yaz: para /= 4.
+// Beklenen çıktı:
+// 25
 let para = 100;
 para <<< ❓ >>> 4;
 console.log(para);
@@ -172,14 +207,21 @@ console.log(para);
 - tests/0/output
 25
 
+- tests/0/require = "/\u003d"
+
 ---------------------
 - tests/1/files/main.js/.block
-// parayı 4 kişiye böler misin?
+// Görev: /= operatörüyle 90 lirayı 4 kişiye böl; sonuç ondalıklı çıkar.
+// İkinci test aynı kuralı farklı başlangıç değeriyle denetler: /= operatörü.
+// Beklenen çıktı:
+// 22.5
 let para = 90;
 para <<< ❓ >>> 4;
 console.log(para);
 - tests/1/output
 22.5
+
+- tests/1/require = "/\u003d"
 
 ---------------------
 - parts/4:
@@ -205,7 +247,10 @@ console.log(şeker);
 mısın?
 
 - files/main.js/.block
-// bölümden kalanı değişkende bırakır mısın?
+// Görev: %= (kalanı atama) operatörüyle 17 şekerin 5'e bölümünden kalanı bul.
+// Boşluğa %= operatörünü yaz: şeker %= 5.
+// Beklenen çıktı:
+// 2
 let şeker = 17;
 şeker <<< ❓ >>> 5;
 console.log(şeker);
@@ -213,14 +258,21 @@ console.log(şeker);
 - tests/0/output
 2
 
+- tests/0/require = "%\u003d"
+
 ---------------------
 - tests/1/files/main.js/.block
-// bölümden kalanı değişkende bırakır mısın?
+// Görev: %= operatörüyle 23 şekerin 5'e bölümünden kalanı bul.
+// İkinci test aynı kuralı farklı başlangıç değeriyle denetler: %= operatörü.
+// Beklenen çıktı:
+// 3
 let şeker = 23;
 şeker <<< ❓ >>> 5;
 console.log(şeker);
 - tests/1/output
 3
+
+- tests/1/require = "%\u003d"
 
 ---------------------
 - parts/5:
@@ -245,7 +297,10 @@ console.log(sayı);
 ``2`` sayısını 3. kuvvete yükseltip terminale ``8`` yazdıran programı yazar mısın?
 
 - files/main.js/.block
-// sayıyı 3. kuvvete yükseltir misin?
+// Görev: **= (kuvvetini atama) operatörüyle 2 sayısını 3. kuvvete yükselt.
+// Boşluğa **= operatörünü yaz: sayı **= 3.
+// Beklenen çıktı:
+// 8
 let sayı = 2;
 sayı <<< ❓ >>> 3;
 console.log(sayı);
@@ -253,14 +308,21 @@ console.log(sayı);
 - tests/0/output
 8
 
+- tests/0/require = "**\u003d"
+
 ---------------------
 - tests/1/files/main.js/.block
-// sayıyı 3. kuvvete yükseltir misin?
+// Görev: **= operatörüyle 3 sayısını 3. kuvvete yükselt.
+// İkinci test aynı kuralı farklı başlangıç değeriyle denetler: **= operatörü.
+// Beklenen çıktı:
+// 27
 let sayı = 3;
 sayı <<< ❓ >>> 3;
 console.log(sayı);
 - tests/1/output
 27
+
+- tests/1/require = "**\u003d"
 
 ---------------------
 - parts/6:
@@ -291,7 +353,13 @@ console.log(sayaç);
 ``5``, ``6``, ``5`` ve ``5`` yazdıran programı yazar mısın?
 
 - files/main.js/.block
-// ++ ile artır, -- ile azalt
+// Görev: Sayaç için ++ ve -- operatörlerini doğru yere yaz.
+// Birinci boşluğa ++ (sonra), ikinci boşluğa -- (önce) yaz: sayaç++ ve --sayaç.
+// Beklenen çıktı:
+// 5
+// 6
+// 5
+// 5
 let sayaç = 5;
 console.log(sayaç<<< ❓ >>>);
 console.log(sayaç);
@@ -304,9 +372,18 @@ console.log(sayaç);
 5
 5
 
+- tests/0/require/0 = "++"
+- tests/0/require/1 = "--"
+
 ---------------------
 - tests/1/files/main.js/.block
-// ++ ile artır, -- ile azalt
+// Görev: 9'dan başlayan sayaçta ++ ve -- operatörlerini doğru yere yaz.
+// İkinci test aynı kuralı farklı başlangıç değeriyle denetler: ++ ve --.
+// Beklenen çıktı:
+// 9
+// 10
+// 9
+// 9
 let sayaç = 9;
 console.log(sayaç<<< ❓ >>>);
 console.log(sayaç);
@@ -317,6 +394,9 @@ console.log(sayaç);
 10
 9
 9
+
+- tests/1/require/0 = "++"
+- tests/1/require/1 = "--"
 
 ---------------------
 - parts/7:
@@ -352,7 +432,12 @@ Misafir
 ``Misafir``, ``18`` ve ``0`` yazdıran programı yazar mısın?
 
 - files/main.js/.block
-// ad boşsa varsayılan ver, sıfırı ise koru
+// Görev: ad boşsa ||= ile "Misafir" ver, sıfırı ise ??= ile koru.
+// Boşluklara sırasıyla ||=, ??= ve ??= operatörlerini yaz.
+// Beklenen çıktı:
+// Misafir
+// 18
+// 0
 let ad = "";
 ad <<< ❓ >>> "Misafir";
 console.log(ad);
@@ -370,9 +455,17 @@ Misafir
 18
 0
 
+- tests/0/require/0 = "||\u003d"
+- tests/0/require/1 = "??\u003d"
+
 ---------------------
 - tests/1/files/main.js/.block
-// ad boşsa varsayılan ver, sıfırı ise koru
+// Görev: dolu adı ||= ile koru, null yaşı ??= ile doldur, sıfırı ??= ile koru.
+// İkinci test aynı kuralı farklı değerlerle denetler: ||= ve ??=.
+// Beklenen çıktı:
+// Ali
+// 18
+// 0
 let ad = "Ali";
 ad <<< ❓ >>> "Misafir";
 console.log(ad);
@@ -388,6 +481,9 @@ console.log(sıfır);
 Ali
 18
 0
+
+- tests/1/require/0 = "||\u003d"
+- tests/1/require/1 = "??\u003d"
 
 ---------------------
 - parts/8:
@@ -418,7 +514,11 @@ console.log(tükenmiş);
 ``10`` ve ``0`` yazdıran programı yazar mısın?
 
 - files/main.js/.block
-// stok varsa iki katına çıkar
+// Görev: stok doğruysa &&= ile iki katına çıkar, yanlışsa hiç dokunma.
+// Boşluklara &&= operatörünü yaz: stok &&= stok * 2 ve tükenmiş &&= 42.
+// Beklenen çıktı:
+// 10
+// 0
 let stok = 5;
 stok <<< ❓ >>> stok * 2;
 console.log(stok);
@@ -431,9 +531,15 @@ console.log(tükenmiş);
 10
 0
 
+- tests/0/require = "&&\u003d"
+
 ---------------------
 - tests/1/files/main.js/.block
-// stok varsa iki katına çıkar
+// Görev: stok 3 iken &&= ile iki katına çıkar, tükenmiş 0 iken dokunma.
+// İkinci test aynı kuralı farklı stok değeriyle denetler: &&= operatörü.
+// Beklenen çıktı:
+// 6
+// 0
 let stok = 3;
 stok <<< ❓ >>> stok * 2;
 console.log(stok);
@@ -444,6 +550,8 @@ console.log(tükenmiş);
 - tests/1/output
 6
 0
+
+- tests/1/require = "&&\u003d"
 
 ---------------------
 - parts/9:
@@ -472,7 +580,10 @@ console.log(sayaç);
 ``4`` yazdıran programı yazar mısın? Cevabı verecek operatörleri sırayla tamamla.
 
 - files/main.js/.block
-// 10 ekle, 4 çıkar, 2 ile çarp, 3'e böl
+// Görev: Sırayla += 10, -= 4, *= 2 ve /= 3 uygulayıp sayacı 4 yap.
+// Dört boşluğa sırasıyla +=, -=, *= ve /= operatörlerini yaz.
+// Beklenen çıktı:
+// 4
 let sayaç = 0;
 sayaç <<< ❓ >>> 10;
 sayaç <<< ❓ >>> 4;
@@ -483,9 +594,17 @@ console.log(sayaç);
 - tests/0/output
 4
 
+- tests/0/require/0 = "+\u003d"
+- tests/0/require/1 = "-\u003d"
+- tests/0/require/2 = "*\u003d"
+- tests/0/require/3 = "/\u003d"
+
 ---------------------
 - tests/1/files/main.js/.block
-// 10 ekle, 4 çıkar, 2 ile çarp, 3'e böl
+// Görev: 6'dan başlayıp += 10, -= 4, *= 2 ve /= 3 uygulayarak 8 elde et.
+// İkinci test aynı kuralı farklı başlangıç değeriyle denetler: dört atama operatörü.
+// Beklenen çıktı:
+// 8
 let sayaç = 6;
 sayaç <<< ❓ >>> 10;
 sayaç <<< ❓ >>> 4;
@@ -494,5 +613,10 @@ sayaç <<< ❓ >>> 3;
 console.log(sayaç);
 - tests/1/output
 8
+
+- tests/1/require/0 = "+\u003d"
+- tests/1/require/1 = "-\u003d"
+- tests/1/require/2 = "*\u003d"
+- tests/1/require/3 = "/\u003d"
 
 ---------------------

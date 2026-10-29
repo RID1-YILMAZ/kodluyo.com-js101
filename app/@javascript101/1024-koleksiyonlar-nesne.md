@@ -28,7 +28,11 @@ console.log(kitap);
 ``{ ad: 'Suç ve Ceza', yil: 1866 }`` yazdıran programı yazar mısın?
 
 - files/main.js/.block
-// ad ve yil bilgilerini taşıyan nesneyi tanımlar mısın?
+// Görev: ad ve yil bilgilerini taşıyan kitap nesnesini tanımlayıp yazdır.
+// Nesne süslü parantez { } içinde anahtar: değer çiftleriyle yazılır.
+// Metin değerleri çift tırnak içine alınır: ad için "Suç ve Ceza", yil için 1866.
+// Beklenen çıktı:
+// { ad: 'Suç ve Ceza', yil: 1866 }
 const kitap = <<< ❓ >>>;
 console.log(kitap);
 ---------------------
@@ -61,6 +65,12 @@ Yıl: 1998
 yazdıran programı yazar mısın?
 
 - files/main.js/.block
+// Görev: araba nesnesinin marka ve yil değerlerini nokta ile okuyup yazdır.
+// Nokta (dot) yazımı nesne.anahtar biçimindedir: araba.marka ve araba.yil.
+// İki boşluğa da anahtar adını yaz: önce marka, sonra yil.
+// Beklenen çıktı:
+// Marka: Tofaş
+// Yıl: 1998
 const araba = { marka: "Tofaş", yil: 1998 };
 console.log("Marka:", araba.<<< ❓ >>>);
 console.log("Yıl:", araba.<<< ❓ >>>);
@@ -96,6 +106,12 @@ Ad: Kalem
 ürün adını yazdıran programı yazar mısın?
 
 - files/main.js/.block
+// Görev: alan değişkenine "fiyat" verip fiyatı ve ürün adını yazdır.
+// Köşeli parantez yazımı ürün[alan] değişkenle, ürün["ad"] metin anahtarla okur.
+// alan değişkenine çift tırnaklı "fiyat" metnini yaz; ikinci boşluğa "ad" anahtarını yaz.
+// Beklenen çıktı:
+// Fiyat: 15
+// Ad: Kalem
 const ürün = { ad: "Kalem", fiyat: 15 };
 const alan = <<< ❓ >>>;
 console.log("Fiyat:", ürün[alan]);
@@ -131,6 +147,12 @@ Ayşe
 yazar mısın?
 
 - files/main.js/.block
+// Görev: okul nesnesindeki müdürün adını ve göreve başladığı yılı yazdır.
+// İç içe nesnede zincirleme erişim kullanılır: okul.müdür.ad ve okul.müdür.yil.
+// İki boşluğa da aynı anahtar adını yaz: müdür.
+// Beklenen çıktı:
+// Ayşe
+// 2010
 const okul = { ad: "Atatürk Lisesi", müdür: { ad: "Ayşe", yil: 2010 } };
 console.log(okul.<<< ❓ >>>.ad);
 console.log(okul.<<< ❓ >>>.yil);
@@ -167,6 +189,13 @@ console.log(Object.entries(ayarlar));
 anahtar-değer çiftlerini yazdıran programı yazar mısın?
 
 - files/main.js/.block
+// Görev: ayarlar nesnesinin anahtarlarını, değerlerini ve çiftlerini yazdır.
+// Object.keys() anahtarları, Object.values() değerleri, Object.entries() çiftleri verir.
+// Üç boşluğa sırayla keys, values ve entries metot adlarını yaz.
+// Beklenen çıktı:
+// [ 'tema', 'dil', 'bildirim' ]
+// [ 'koyu', 'tr', true ]
+// [ [ 'tema', 'koyu' ], [ 'dil', 'tr' ], [ 'bildirim', true ] ]
 const ayarlar = { tema: "koyu", dil: "tr", bildirim: true };
 console.log(Object.<<< ❓ >>>(ayarlar));
 console.log(Object.<<< ❓ >>>(ayarlar));
@@ -204,6 +233,12 @@ undefined
 değerini yazdıran programı yazar mısın?
 
 - files/main.js/.block
+// Görev: sepet nesnesinden armut özelliğini silip kalanı ve silinen değeri yazdır.
+// delete anahtar kelimesi nesne.özellik yazımındaki özelliği siler.
+// Boşluğa silinecek anahtar adını yaz: armut. Silinen değeri okumak undefined verir.
+// Beklenen çıktı:
+// { elma: 3, uzum: 2 }
+// undefined
 const sepet = { elma: 3, armut: 5, uzum: 2 };
 delete sepet.<<< ❓ >>>;
 console.log(sepet);
@@ -238,6 +273,11 @@ console.log(güncel);
 yazdıran programı yazar mısın?
 
 - files/main.js/.block
+// Görev: temel nesnesini spread ile kopyalayıp fiyatı 20, stok 50 yapan güncel nesneyi yazdır.
+// Spread yazımı üç nokta ... ile başlar: ...temel tüm özellikleri kopyalar.
+// Sonra yazılan fiyat: 20 değeri eski fiyatı ezer.
+// Beklenen çıktı:
+// { ad: 'Kalem', fiyat: 20, stok: 50 }
 const temel = { ad: "Kalem", fiyat: 15 };
 const güncel = { <<< ❓ >>>temel, fiyat: 20, stok: 50 };
 console.log(güncel);
@@ -247,6 +287,10 @@ console.log(güncel);
 
 ---------------------
 - tests/1/files/main.js/.block
+// Görev: temel nesnesini spread ile kopyalayıp fiyatı 45, stok 10 yapan güncel nesneyi yazdır.
+// İkinci test farklı veriyle aynı kuralı denetler: ...temel kopyalar, fiyat: 45 ezer.
+// Beklenen çıktı:
+// { ad: 'Defter', fiyat: 45, stok: 10 }
 const temel = { ad: "Defter", fiyat: 30 };
 const güncel = { <<< ❓ >>>temel, fiyat: 45, stok: 10 };
 console.log(güncel);
@@ -281,6 +325,11 @@ Map(2) { 'Ali' => 90, 'Ayşe' => 85 }
 programı yazar mısın?
 
 - files/main.js/.block
+// Görev: puanlar haritasına Ayşe'nin 85 puanını ekleyip Ayşe'nin puanını yazdır.
+// new Map() haritayı oluşturur; set(anahtar, değer) çift ekler, get(anahtar) değeri okur.
+// Boşluğa çift ekleyen metodun adını yaz: set.
+// Beklenen çıktı:
+// 85
 const puanlar = new Map();
 puanlar.set("Ali", 90);
 puanlar.<<< ❓ >>>("Ayşe", 85);
@@ -318,6 +367,13 @@ true
 boyutu yazdıran programı yazar mısın?
 
 - files/main.js/.block
+// Görev: Ali anahtarının varlığını, haritanın boyutunu ve Ali silindikten sonraki boyutu yazdır.
+// has("Ali") true ya da false verir; size çift sayısını verir; delete("Ali") anahtarı siler.
+// Üç boşluğa sırayla has, size ve delete yaz.
+// Beklenen çıktı:
+// true
+// 2
+// 1
 const puanlar = new Map([["Ali", 90], ["Ayşe", 85]]);
 console.log(puanlar.<<< ❓ >>>("Ali"));
 console.log(puanlar.<<< ❓ >>>);
@@ -359,6 +415,13 @@ Haritada iki ayrı anahtar olduğunu göstermek için ``Object.keys()`` sonucunu
 boyutunu ve iki değeri yazdıran programı yazar mısın?
 
 - files/main.js/.block
+// Görev: haritada iki ayrı anahtar olduğunu gösterip değerleri yazdır.
+// Map anahtarı her tür olabilir; 1 sayısı ile "1" metni ayrı iki anahtardır.
+// Object.keys() bir Map için boş dizi döndürür; çift sayısı size ile okunur.
+// Beklenen çıktı:
+// []
+// 2
+// sayı metin
 const harita = new Map();
 harita.set(1, "sayı");
 harita.set("1", "metin");
@@ -397,6 +460,11 @@ Kahve - 120 TL
 ``2 depoda`` yazdıran programı yazar mısın?
 
 - files/main.js/.block
+// Görev: ürünün fiyatını nesneden, depo sayısını Map'ten okuyup yazdır.
+// Nesnede değer ürün.fiyat nokta yazımıyla, Map'te çift sayısı stok.size ile okunur.
+// Beklenen çıktı:
+// Kahve - 120 TL
+// 2 depoda
 const ürün = { ad: "Kahve", fiyat: 120 };
 const stok = new Map([["İstanbul", 5], ["İzmir", 3]]);
 console.log(ürün.ad, "-", ürün.<<< ❓ >>>, "TL");

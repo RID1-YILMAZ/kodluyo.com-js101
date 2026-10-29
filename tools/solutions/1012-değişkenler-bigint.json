@@ -9,6 +9,6 @@
     "6": { "main.js": [">"] },
     "7": { "main.js": ["Number.MAX_SAFE_INTEGER", "9007199254740993"] },
     "8": { "main.js": ["BigInt"] },
-    "9": { "main.js": ["String"] }
+    "9": { "main.js": ["String(büyük)"] }
   }
 }

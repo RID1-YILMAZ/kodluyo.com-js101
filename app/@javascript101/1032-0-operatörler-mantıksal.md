@@ -28,7 +28,11 @@ true
 ``yaş`` 18'den büyük **ve** ehliyeti varsa terminale ``true`` yazdıran programı yazar mısın?
 
 - files/main.js/.block
-// iki koşulu "ve" ile birleştirir misin?
+// Görev: yaş 18'den büyük ve ehliyeti varsa true yazdır.
+// İki koşulu "ve" anlamıyla && operatörüyle birleştir: yaş >= 18 && ehliyet.
+// && iki taraf da doğruysa true, değilse false verir.
+// Beklenen çıktı:
+// true
 let yaş = 20;
 let ehliyet = true;
 console.log(yaş >= 18 <<< ❓ >>> ehliyet);
@@ -38,7 +42,10 @@ true
 
 ---------------------
 - tests/1/files/main.js/.block
-// iki koşulu "ve" ile birleştirir misin?
+// Görev: yaş 18'den büyük ve ehliyeti varsa true yazdır.
+// İkinci testte yaş 15 olduğu için && sonucu false çıkar.
+// Beklenen çıktı:
+// false
 let yaş = 15;
 let ehliyet = true;
 console.log(yaş >= 18 <<< ❓ >>> ehliyet);
@@ -68,7 +75,11 @@ true
 Çay **veya** kahve varsa ``true`` yazdıran programı yazar mısın?
 
 - files/main.js/.block
-// iki koşulu "veya" ile birleştirir misin?
+// Görev: çay veya kahve varsa true yazdır.
+// İki koşulu "veya" anlamıyla || operatörüyle birleştir: çay || kahve.
+// || iki koşuldan en az biri doğruysa true verir.
+// Beklenen çıktı:
+// true
 let çay = false;
 let kahve = true;
 console.log(çay <<< ❓ >>> kahve);
@@ -78,7 +89,10 @@ true
 
 ---------------------
 - tests/1/files/main.js/.block
-// iki koşulu "veya" ile birleştirir misin?
+// Görev: çay veya kahve varsa true yazdır.
+// İkinci testte ikisi de yoktur; bu yüzden || sonucu false olur.
+// Beklenen çıktı:
+// false
 let çay = false;
 let kahve = false;
 console.log(çay <<< ❓ >>> kahve);
@@ -110,7 +124,12 @@ false
 mısın?
 
 - files/main.js/.block
-// değeri tersine çevirir misin?
+// Görev: açık değişkenini tersine çevir ve "merhaba" metninin tersini yazdır.
+// Değil operatörü ! bir değeri tersine çevirir: !açık false verir.
+// Boş olmayan her metin doğru sayıldığı için !"merhaba" false verir.
+// Beklenen çıktı:
+// false
+// false
 let açık = true;
 console.log(<<< ❓ >>>açık);
 console.log(<<< ❓ >>>"merhaba");
@@ -121,7 +140,11 @@ false
 
 ---------------------
 - tests/1/files/main.js/.block
-// değeri tersine çevirir misin?
+// Görev: açık değişkenini tersine çevir ve "merhaba" metninin tersini yazdır.
+// İkinci testte açık false olduğu için !açık true verir.
+// Beklenen çıktı:
+// true
+// false
 let açık = false;
 console.log(<<< ❓ >>>açık);
 console.log(<<< ❓ >>>"merhaba");
@@ -155,7 +178,12 @@ Kullanıcı yokken programın hata vermemesini sağlayıp ``null`` ve ``Veli`` y
 programı yazar mısın?
 
 - files/main.js/.block
-// kısa devre ile güvenli erişim sağlar mısın?
+// Görev: kullanıcı yokken programın hata vermemesini sağlayıp null ve Veli yazdır.
+// && soldaki değer yanlışsa sağa hiç bakmaz; bu özelliğe kısa devre denir.
+// kullanıcı null olduğu için kullanıcı && kullanıcı.ad null döner.
+// Beklenen çıktı:
+// null
+// Veli
 let kullanıcı = null;
 console.log(kullanıcı <<< ❓ >>> kullanıcı.ad);
 console.log("Ali" <<< ❓ >>> "Veli");
@@ -166,7 +194,11 @@ Veli
 
 ---------------------
 - tests/1/files/main.js/.block
-// kısa devre ile güvenli erişim sağlar mısın?
+// Görev: kullanıcı varken adını ve "Ali" && "Veli" sonucunu yazdır.
+// İkinci testte kullanıcı dolu olduğu için kullanıcı && kullanıcı.ad Ayşe verir.
+// Beklenen çıktı:
+// Ayşe
+// Veli
 let kullanıcı = { ad: "Ayşe" };
 console.log(kullanıcı <<< ❓ >>> kullanıcı.ad);
 console.log("Ali" <<< ❓ >>> "Veli");
@@ -201,7 +233,13 @@ b
 kullanman gerekiyor.
 
 - files/main.js/.block
-// mantıksal operatörler değeri olduğu gibi döndürür
+// Görev: a, 0 ve b değerlerini yazdır; mantıksal operatörleri sırayla kullan.
+// || ilk doğru değeri, && ilk yanlış değeri döndürür; sonuç true/false olmak zorunda değil.
+// "a" || "b" a verir; 0 && "b" 0 verir; 1 && "b" b verir.
+// Beklenen çıktı:
+// a
+// 0
+// b
 console.log("a" <<< ❓ >>> "b");
 console.log(0 <<< ❓ >>> "b");
 console.log(1 <<< ❓ >>> "b");
@@ -213,7 +251,12 @@ b
 
 ---------------------
 - tests/1/files/main.js/.block
-// mantıksal operatörler değeri olduğu gibi döndürür
+// Görev: kalem, 0 ve silgi değerlerini yazdır; mantıksal operatörleri sırayla kullan.
+// "kalem" || "silgi" kalem verir; 0 && "silgi" 0 verir; 7 && "silgi" silgi verir.
+// Beklenen çıktı:
+// kalem
+// 0
+// silgi
 console.log("kalem" <<< ❓ >>> "silgi");
 console.log(0 <<< ❓ >>> "silgi");
 console.log(7 <<< ❓ >>> "silgi");
@@ -246,7 +289,12 @@ true true true
 İki satır ``false true`` ve ``true false`` yazdıran programı yazar mısın?
 
 - files/main.js/.block
-// 0 sayısı yanlış, 1 sayısı doğrudur
+// Görev: iki satırda "false true" ve "true false" yazdır.
+// Boolean() değerin doğru mu yanlış mı sayıldığını gösterir; 0 yanlış, 1 doğrudur.
+// "0" metni boş olmadığı için doğru sayılır; "" metni ise yanlıştır.
+// Beklenen çıktı:
+// false true
+// true false
 console.log(Boolean(<<< ❓ >>>), Boolean("0"));
 console.log(Boolean(<<< ❓ >>>), Boolean(""));
 ---------------------
@@ -277,7 +325,11 @@ Merhaba Misafir
 Adı girilmemişse ``Merhaba Misafir`` yazdıran programı yazar mısın?
 
 - files/main.js/.block
-// ad boşsa yedek değer verir misin?
+// Görev: adı girilmemişse "Merhaba Misafir" yazdır.
+// || sol taraf yanlışsa sağdaki yedek değeri verir: kullanıcıAdı || "Misafir".
+// kullanıcıAdı boş metin olduğu için yanlış sayılır ve Misafir gelir.
+// Beklenen çıktı:
+// Merhaba Misafir
 let kullanıcıAdı = "";
 let ad = kullanıcıAdı <<< ❓ >>> "Misafir";
 console.log("Merhaba", ad);
@@ -287,7 +339,10 @@ Merhaba Misafir
 
 ---------------------
 - tests/1/files/main.js/.block
-// ad boşsa yedek değer verir misin?
+// Görev: adı girilmişse o adla "Merhaba Ayşe" yazdır.
+// İkinci testte kullanıcıAdı dolu olduğu için || sağ tarafa hiç bakmaz.
+// Beklenen çıktı:
+// Merhaba Ayşe
 let kullanıcıAdı = "Ayşe";
 let ad = kullanıcıAdı <<< ❓ >>> "Misafir";
 console.log("Merhaba", ad);
@@ -321,7 +376,13 @@ varsayılan
 ``varsayılan``, ``varsayılan`` ve ``0`` yazdıran programı yazar mısın?
 
 - files/main.js/.block
-// sadece null ve undefined'da yedek değer verir misin?
+// Görev: varsayılan, varsayılan ve 0 değerlerini yazdır.
+// ?? yalnızca null ve undefined için devreye girer: hiç ?? "varsayılan".
+// tanımsız da undefined olduğu için varsayılan gelir; 0 ?? 99 ise 0 verir.
+// Beklenen çıktı:
+// varsayılan
+// varsayılan
+// 0
 let hiç = null;
 let tanımsız;
 console.log(hiç <<< ❓ >>> "varsayılan");
@@ -361,7 +422,13 @@ boş
 ``0``, ``5`` ve ``boş`` yazdıran programı yazar mısın?
 
 - files/main.js/.block
-// ?? geçerli değerleri korur, || onları da ezer
+// Görev: 0, 5 ve boş değerlerini yazdır; ?? ile || arasındaki farkı göster.
+// ?? geçerli değerleri korur: 0 ?? 5 sonucu 0 olur.
+// || yanlış değerleri de ezer: 0 || 5 sonucu 5, "" || "boş" sonucu boş olur.
+// Beklenen çıktı:
+// 0
+// 5
+// boş
 let sıfır = 0;
 console.log(sıfır <<< ❓ >>> 5);
 console.log(sıfır <<< ❓ >>> 5);
@@ -376,7 +443,12 @@ boş
 
 ---------------------
 - tests/1/files/main.js/.block
-// ?? geçerli değerleri korur, || onları da ezer
+// Görev: 0, 8 ve boş değerlerini yazdır; ?? ile || arasındaki farkı göster.
+// İkinci test farklı sayıyla aynı kuralı denetler: 0 ?? 8 sonucu 0, 0 || 8 sonucu 8 olur.
+// Beklenen çıktı:
+// 0
+// 8
+// boş
 let sıfır = 0;
 console.log(sıfır <<< ❓ >>> 8);
 console.log(sıfır <<< ❓ >>> 8);
@@ -413,7 +485,12 @@ Bilinmiyor
 ``Ali`` ve ``Bilinmiyor`` yazdıran programı yazar mısın?
 
 - files/main.js/.block
-// eksik soyad için varsayılan değer verir misin?
+// Görev: Ali ve Bilinmiyor yazdır.
+// Nesnede olmayan özelliğin değeri undefined olur; ?? ile varsayılan değer verilir.
+// kullanıcı.ad ?? "Bilinmiyor" Ali verir; kullanıcı.soyad ?? "Bilinmiyor" Bilinmiyor verir.
+// Beklenen çıktı:
+// Ali
+// Bilinmiyor
 let kullanıcı = { ad: "Ali" };
 console.log(kullanıcı.ad <<< ❓ >>> "Bilinmiyor");
 console.log(kullanıcı.soyad <<< ❓ >>> "Bilinmiyor");
@@ -422,9 +499,15 @@ console.log(kullanıcı.soyad <<< ❓ >>> "Bilinmiyor");
 Ali
 Bilinmiyor
 
+- tests/0/require = "??"
+
 ---------------------
 - tests/1/files/main.js/.block
-// eksik soyad için varsayılan değer verir misin?
+// Görev: Zeynep ve Kaya yazdır.
+// İkinci testte soyad da dolu olduğu için ?? sağ tarafa hiç bakmaz.
+// Beklenen çıktı:
+// Zeynep
+// Kaya
 let kullanıcı = { ad: "Zeynep", soyad: "Kaya" };
 console.log(kullanıcı.ad <<< ❓ >>> "Bilinmiyor");
 console.log(kullanıcı.soyad <<< ❓ >>> "Bilinmiyor");
@@ -457,7 +540,13 @@ boolean
 ``true``, ``false`` ve ``boolean`` yazdıran programı yazar mısın?
 
 - files/main.js/.block
-// değeri boolean'a çevirir misin?
+// Görev: true, false ve boolean yazdır.
+// !! ile değer bozulmadan yalnızca türü boolean olur: !!"0" true, !!0 false.
+// typeof !!"merhaba" sonucu boolean çıkar.
+// Beklenen çıktı:
+// true
+// false
+// boolean
 console.log(<<< ❓ >>>"0");
 console.log(<<< ❓ >>>0);
 console.log(typeof <<< ❓ >>>"merhaba");
@@ -492,7 +581,11 @@ Misafir 0
 ``Misafir 0`` yazdıran programı yazar mısın?
 
 - files/main.js/.block
-// ad boşsa "Misafir", yaş yoksa 18 olsun
+// Görev: Misafir 0 yazdır.
+// ad boş metin olduğu için || ile "Misafir" yedeği gelir.
+// yaş 0 olduğu için ?? onu geçerli sayar ve korur: 0 ?? 18 sonucu 0 olur.
+// Beklenen çıktı:
+// Misafir 0
 let kullanıcı = { ad: "", yaş: 0 };
 let ad = kullanıcı.ad <<< ❓ >>> "Misafir";
 let yaş = kullanıcı.yaş <<< ❓ >>> 18;
@@ -503,7 +596,10 @@ Misafir 0
 
 ---------------------
 - tests/1/files/main.js/.block
-// ad boşsa "Misafir", yaş yoksa 18 olsun
+// Görev: Ali 18 yazdır.
+// İkinci testte ad dolu olduğu için || sağa bakmaz; yaş null olduğu için ?? 18 verir.
+// Beklenen çıktı:
+// Ali 18
 let kullanıcı = { ad: "Ali", yaş: null };
 let ad = kullanıcı.ad <<< ❓ >>> "Misafir";
 let yaş = kullanıcı.yaş <<< ❓ >>> 18;

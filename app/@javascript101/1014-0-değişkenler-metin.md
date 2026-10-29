@@ -28,7 +28,10 @@ Atatürk
 yazar mısın?
 
 - files/main.js/.block
-// isim değişkenine "Atatürk" metnini ver
+// Görev: isim değişkenine "Atatürk" metnini verip ekrana Atatürk yazdır.
+// Metni çift tırnak içinde yaz: "Atatürk"; console.log(isim) tırnaksız olur.
+// Beklenen çıktı:
+// Atatürk
 let isim = <<< ❓ >>>;
 console.log(isim);
 ---------------------
@@ -59,7 +62,10 @@ kodluyo ile JavaScript öğreniyorum.
 ``kodluyo ile JavaScript öğreniyorum.`` yazdıran programı yazar mısın?
 
 - files/main.js/.block
-// uygulama değişkenine 'kodluyo' metnini ver
+// Görev: uygulama değişkenine tek tırnakla 'kodluyo' metnini ver.
+// console.log(uygulama, "...") iki değeri araya bir boşluk koyarak yazar.
+// Beklenen çıktı:
+// kodluyo ile JavaScript öğreniyorum.
 const uygulama = <<< ❓ >>>;
 console.log(uygulama, "ile JavaScript öğreniyorum.");
 ---------------------
@@ -89,7 +95,10 @@ console.log(metin.length);
 olarak yazdıran programı yazar mısın?
 
 - files/main.js/.block
-// metnin uzunluğunu bulur musun?
+// Görev: "JavaScript" metninin kaç karakter olduğunu (10) yazdır.
+// .length bir özelliktir; parantez koymadan metin.length biçiminde yazılır.
+// Beklenen çıktı:
+// 10
 let metin = "JavaScript";
 console.log(metin.<<< ❓ >>>);
 ---------------------
@@ -121,7 +130,11 @@ o
 ``kelime`` metninin ilk harfini ve son harfini alt alta yazdıran programı yazar mısın?
 
 - files/main.js/.block
-// ilk harfi ve son harfi alır mısın?
+// Görev: "kodluyo" metninin ilk harfini (k) ve son harfini (o) alt alta yazdır.
+// Köşeli parantez içine index yaz: ilk harf 0, son harf 6 (saymaya 0'dan başlanır).
+// Beklenen çıktı:
+// k
+// o
 let kelime = "kodluyo";
 console.log(kelime[<<< ❓ >>>]);
 console.log(kelime[<<< ❓ >>>]);
@@ -132,7 +145,11 @@ o
 
 ---------------------
 - tests/1/files/main.js/.block
-// ilk harfi ve son harfi alır mısın?
+// Görev: "yazılım" metninin ilk harfini (y) ve son harfini (m) alt alta yazdır.
+// İkinci test farklı kelimeyle aynı kuralı denetler: 0 ve 6 index'leri.
+// Beklenen çıktı:
+// y
+// m
 let kelime = "yazılım";
 console.log(kelime[<<< ❓ >>>]);
 console.log(kelime[<<< ❓ >>>]);
@@ -165,7 +182,11 @@ javascript
 yazar mısın?
 
 - files/main.js/.block
-// harfleri büyütür ve küçültür müsün?
+// Görev: "kodluyo" metnini büyük harfe, "JAVASCRIPT" metnini küçük harfe çevir.
+// Büyütmek için toUpperCase(), küçültmek için toLowerCase() metotlarını kullan.
+// Beklenen çıktı:
+// KODLUYO
+// javascript
 let uygulama = "kodluyo";
 console.log(uygulama.<<< ❓ >>>());
 console.log("JAVASCRIPT".<<< ❓ >>>());
@@ -176,7 +197,11 @@ javascript
 
 ---------------------
 - tests/1/files/main.js/.block
-// harfleri büyütür ve küçültür müsün?
+// Görev: "kitap" metnini büyük harfe, "KALEM" metnini küçük harfe çevir.
+// İkinci test farklı metinlerle aynı kuralı denetler: toUpperCase, toLowerCase.
+// Beklenen çıktı:
+// KITAP
+// kalem
 let uygulama = "kitap";
 console.log(uygulama.<<< ❓ >>>());
 console.log("KALEM".<<< ❓ >>>());
@@ -209,7 +234,11 @@ false
 yazdıran programı yazar mısın?
 
 - files/main.js/.block
-// metnin içinde bu kelimeler var mı?
+// Görev: cümle içinde "keyifli" ve "Python" kelimelerinin olup olmadığını yazdır.
+// .includes() metodu aradığı metin varsa true, yoksa false döndürür.
+// Beklenen çıktı:
+// true
+// false
 let cümle = "JavaScript öğrenmek çok keyifli";
 console.log(cümle.<<< ❓ >>>("keyifli"));
 console.log(cümle.<<< ❓ >>>("Python"));
@@ -243,7 +272,11 @@ Script
 programı yazar mısın?
 
 - files/main.js/.block
-// metni iki parçaya ayırır mısın?
+// Görev: "JavaScript101" metninden "Java" ve "Script" parçalarını alt alta yazdır.
+// .slice(başlangıç, bitiş) kullan: başlangıç dahil, bitiş dahil değildir.
+// Beklenen çıktı:
+// Java
+// Script
 let metin = "JavaScript101";
 console.log(metin.<<< ❓ >>>(0, 4));
 console.log(metin.<<< ❓ >>>(4, 10));
@@ -254,7 +287,11 @@ Script
 
 ---------------------
 - tests/1/files/main.js/.block
-// metni iki parçaya ayırır mısın?
+// Görev: "kodluyo2024" metninden "kodl" ve "uyo202" parçalarını yazdır.
+// İkinci test farklı metinle aynı kuralı denetler: slice(0, 4) ve slice(4, 10).
+// Beklenen çıktı:
+// kodl
+// uyo202
 let metin = "kodluyo2024";
 console.log(metin.<<< ❓ >>>(0, 4));
 console.log(metin.<<< ❓ >>>(4, 10));
@@ -285,7 +322,10 @@ Ankara
 yazdıran programı yazar mısın?
 
 - files/main.js/.block
-// baştaki ve sondaki boşlukları siler misin?
+// Görev: "   Ankara   " metninin başındaki ve sonundaki boşlukları silip yazdır.
+// .trim() metodu yalnızca baş ve sondaki boşlukları siler, ortadakine dokunmaz.
+// Beklenen çıktı:
+// Ankara
 let metin = "   Ankara   ";
 console.log(metin.<<< ❓ >>>());
 ---------------------
@@ -294,7 +334,10 @@ Ankara
 
 ---------------------
 - tests/1/files/main.js/.block
-// baştaki ve sondaki boşlukları siler misin?
+// Görev: "   İzmir   " metninin başındaki ve sonundaki boşlukları silip yazdır.
+// İkinci test farklı şehirle aynı kuralı denetler: .trim() metodu.
+// Beklenen çıktı:
+// İzmir
 let metin = "   İzmir   ";
 console.log(metin.<<< ❓ >>>());
 - tests/1/output
@@ -323,7 +366,10 @@ console.log(cümle.replace("Ankara", "İstanbul"));
 yazdıran programı yazar mısın?
 
 - files/main.js/.block
-// Ankara yerine İstanbul yazar mısın?
+// Görev: cümle içindeki "Ankara" kelimesini "İstanbul" ile değiştir.
+// .replace("Ankara", "İstanbul") yalnızca ilk eşleşmeyi değiştirir.
+// Beklenen çıktı:
+// İstanbul Türkiye'nin başkentidir.
 let cümle = "Ankara Türkiye'nin başkentidir.";
 console.log(cümle.<<< ❓ >>>("Ankara", "İstanbul"));
 ---------------------
@@ -332,7 +378,10 @@ console.log(cümle.<<< ❓ >>>("Ankara", "İstanbul"));
 
 ---------------------
 - tests/1/files/main.js/.block
-// Ankara yerine İstanbul yazar mısın?
+// Görev: cümle içindeki "Ankara" kelimesini "İstanbul" ile değiştir.
+// İkinci test farklı cümleyle aynı kuralı denetler: .replace() metodu.
+// Beklenen çıktı:
+// İstanbul Türkiye'nin en kalabalık şehridir.
 let cümle = "Ankara Türkiye'nin en kalabalık şehridir.";
 console.log(cümle.<<< ❓ >>>("Ankara", "İstanbul"));
 - tests/1/output
@@ -361,7 +410,10 @@ console.log(iller.split(","));
 yazar mısın?
 
 - files/main.js/.block
-// metni virgülden ayırır mısın?
+// Görev: "Ankara,İstanbul,İzmir" metnini virgülden ayırıp dizi olarak yazdır.
+// .split(",") metni virgüllerden böler ve bir dizi döndürür.
+// Beklenen çıktı:
+// [ 'Ankara', 'İstanbul', 'İzmir' ]
 let iller = "Ankara,İstanbul,İzmir";
 console.log(iller.<<< ❓ >>>(","));
 ---------------------
@@ -370,7 +422,10 @@ console.log(iller.<<< ❓ >>>(","));
 
 ---------------------
 - tests/1/files/main.js/.block
-// metni virgülden ayırır mısın?
+// Görev: "Bursa,Antalya" metnini virgülden ayırıp dizi olarak yazdır.
+// İkinci test farklı listeyle aynı kuralı denetler: .split(",") metodu.
+// Beklenen çıktı:
+// [ 'Bursa', 'Antalya' ]
 let iller = "Bursa,Antalya";
 console.log(iller.<<< ❓ >>>(","));
 - tests/1/output
@@ -400,7 +455,10 @@ Mustafa Kemal
 ``Mustafa Kemal`` yazdıran programı yazar mısın?
 
 - files/main.js/.block
-// ad ve soyad arasına boşluk koyarak birleştir
+// Görev: ad ve soyad değişkenlerini araya bir boşluk koyarak "Mustafa Kemal" yap.
+// İki boşluğa da + operatörünü yaz; araya " " metni eklenir.
+// Beklenen çıktı:
+// Mustafa Kemal
 let ad = "Mustafa";
 let soyad = "Kemal";
 console.log(ad <<< ❓ >>> " " <<< ❓ >>> soyad);
@@ -410,7 +468,10 @@ Mustafa Kemal
 
 ---------------------
 - tests/1/files/main.js/.block
-// ad ve soyad arasına boşluk koyarak birleştir
+// Görev: ad ve soyad değişkenlerini araya bir boşluk koyarak "Aziz Sancar" yap.
+// İkinci test farklı isimlerle aynı kuralı denetler: + operatörü ve " " metni.
+// Beklenen çıktı:
+// Aziz Sancar
 let ad = "Aziz";
 let soyad = "Sancar";
 console.log(ad <<< ❓ >>> " " <<< ❓ >>> soyad);
@@ -442,7 +503,10 @@ KODLUYO (7 harf)
 ``KODLUYO (7 harf)`` biçiminde yazdıran programı yazar mısın?
 
 - files/main.js/.block
-// önce boşlukları sil, sonra büyük harfe çevir
+// Görev: "  kodluyo  " metnini temizleyip büyük harfe çevir ve harf sayısını yazdır.
+// Sırasıyla .trim(), .toUpperCase() ve .length kullan; çıktı KODLUYO (7 harf) olur.
+// Beklenen çıktı:
+// KODLUYO (7 harf)
 let ad = "  kodluyo  ";
 let temiz = ad.<<< ❓ >>>();
 let büyük = temiz.<<< ❓ >>>();
@@ -453,7 +517,10 @@ KODLUYO (7 harf)
 
 ---------------------
 - tests/1/files/main.js/.block
-// önce boşlukları sil, sonra büyük harfe çevir
+// Görev: "  javascript  " metnini temizleyip büyük harfe çevir ve harf sayısını yazdır.
+// İkinci test farklı metinle aynı kuralı denetler: trim(), toUpperCase(), length.
+// Beklenen çıktı:
+// JAVASCRIPT (10 harf)
 let ad = "  javascript  ";
 let temiz = ad.<<< ❓ >>>();
 let büyük = temiz.<<< ❓ >>>();

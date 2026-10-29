@@ -9,7 +9,7 @@
     "6": { "main.js": ["yaş"] },
     "7": { "main.js": ["\" \""] },
     "8": { "main.js": ["console.log(\"1) Çay\");"] },
-    "9": { "main.js": ["// Ekrana selam yazdırıyoruz."] },
+    "9": { "main.js": ["// Ekrana selam yazdırıyorum.\nconsole.log(\"Selam!\");"] },
     "10": { "main.js": ["ürün"] }
   }
 }

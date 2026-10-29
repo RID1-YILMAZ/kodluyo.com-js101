@@ -26,7 +26,11 @@ console.log(yıl);
 Terminale ``2023`` yazdıran programı yazar mısın? ``yıl`` değişkenine ``2023`` değerini ver.
 
 - files/main.js/.block
-// yıl değişkenini 2023 yapar mısın?
+// Görev: Terminale 2023 yazdır.
+// yıl değişkenine 2023 değerini ver; sayıyı TIRNAKSIZ yaz.
+// let anahtar kelimesi değişken tanımlar; sağındaki değer değişkenin içine konur.
+// Beklenen çıktı:
+// 2023
 let yıl = <<< ❓ >>>;
 console.log(yıl);
 ---------------------
@@ -57,7 +61,11 @@ console.log(sayaç);
 ``sayaç`` değişkenine önce ``1``, sonra ``2``, en son ``3`` değerini veren programı yazar mısın?
 
 - files/main.js/.block
-// sayaç değişkenini en son 3 yapan programı yazar mısın?
+// Görev: sayaç değişkenine önce 1, sonra 2, en son 3 değerini ver.
+// Boşluğa en son atanacak değeri yaz: 3 (tırnaksız sayı).
+// Program yukarıdan aşağıya çalışır; bu yüzden en son atanan değer geçerli olur.
+// Beklenen çıktı:
+// 3
 let sayaç = 1;
 sayaç = <<< ❓ >>>;
 console.log(sayaç);
@@ -87,7 +95,11 @@ Bir günde 24 saat vardır.
 ``Bir günde 24 saat vardır.`` yazdıran programı yazar mısın?
 
 - files/main.js/.block
-// bir günde kaç saat vardır?
+// Görev: Terminale "Bir günde 24 saat vardır." yazdır.
+// const birGün değişkenine 24 değerini tırnaksız yaz.
+// const ile tanımlanan değişkene sonradan yeni değer atanamaz.
+// Beklenen çıktı:
+// Bir günde 24 saat vardır.
 const birGün = <<< ❓ >>>;
 console.log("Bir günde", birGün, "saat vardır.");
 ---------------------
@@ -116,7 +128,11 @@ Toplam meyve: 8
 ``elma`` ve ``armut`` sayılarını toplayıp ``Toplam meyve: 8`` yazdıran programı yazar mısın?
 
 - files/main.js/.block
-// iki sayıyı toplar mısın?
+// Görev: elma ve armut sayılarını toplayıp "Toplam meyve: 8" yazdır.
+// İki değişkeni + operatörü ile topla: elma + armut
+// console.log() değerleri virgülle ayırır; önce hesap yapılır, sonra sonuç yazılır.
+// Beklenen çıktı:
+// Toplam meyve: 8
 let elma = 3;
 let armut = 5;
 console.log("Toplam meyve:", elma <<< ❓ >>> armut);
@@ -126,7 +142,11 @@ Toplam meyve: 8
 
 ---------------------
 - tests/1/files/main.js/.block
-// iki sayıyı toplar mısın?
+// Görev: elma ve armut sayılarını toplayıp "Toplam meyve: 17" yazdır.
+// İkinci test aynı kuralı farklı sayılarla denetler: toplama için + operatörü.
+// elma 10, armut 7; sonucu console.log() içinde + ile hesapla.
+// Beklenen çıktı:
+// Toplam meyve: 17
 let elma = 10;
 let armut = 7;
 console.log("Toplam meyve:", elma <<< ❓ >>> armut);
@@ -155,7 +175,11 @@ console.log(sıcaklık);
 Hava sıcaklığı ``5`` iken ``12`` derece düşerse terminale ``-7`` yazdıran programı yazar mısın?
 
 - files/main.js/.block
-// sıcaklığı 12 derece düşürür müsün?
+// Görev: Hava 5 dereceyken 12 derece düşünce terminale -7 yazdır.
+// sıcaklık = sıcaklık - 12 yaz; - operatörü çıkarma yapar.
+// Sonuç sıfırdan küçükse negatif sayı elde ederiz.
+// Beklenen çıktı:
+// -7
 let sıcaklık = 5;
 sıcaklık = sıcaklık <<< ❓ >>> 12;
 console.log(sıcaklık);
@@ -165,7 +189,11 @@ console.log(sıcaklık);
 
 ---------------------
 - tests/1/files/main.js/.block
-// sıcaklığı 12 derece düşürür müsün?
+// Görev: Hava 20 dereceyken 12 derece düşünce terminale 8 yazdır.
+// İkinci test aynı kuralı farklı sayılarla denetler: çıkarma için - operatörü.
+// sıcaklık = sıcaklık - 12 yaz; sonuç pozitif kalır.
+// Beklenen çıktı:
+// 8
 let sıcaklık = 20;
 sıcaklık = sıcaklık <<< ❓ >>> 12;
 console.log(sıcaklık);
@@ -194,7 +222,11 @@ console.log(kutu * kalem, "kalem vardır.");
 4 kutuda, her kutuda 6 kalem varsa ``24 kalem vardır.`` yazdıran programı yazar mısın?
 
 - files/main.js/.block
-// kutu sayısı ile kalem sayısını çarpar mısın?
+// Görev: 4 kutuda, her kutuda 6 kalem varken "24 kalem vardır." yazdır.
+// kutu ile kalem değişkenlerini * operatörü ile çarp.
+// console.log() sonucu ve metni virgülle ayırıp tek satıra yazar.
+// Beklenen çıktı:
+// 24 kalem vardır.
 let kutu = 4;
 let kalem = 6;
 console.log(kutu <<< ❓ >>> kalem, "kalem vardır.");
@@ -204,7 +236,11 @@ console.log(kutu <<< ❓ >>> kalem, "kalem vardır.");
 
 ---------------------
 - tests/1/files/main.js/.block
-// kutu sayısı ile kalem sayısını çarpar mısın?
+// Görev: 7 kutuda, her kutuda 8 kalem varken "56 kalem vardır." yazdır.
+// İkinci test aynı kuralı farklı sayılarla denetler: çarpma için * operatörü.
+// kutu * kalem ifadesini console.log() içinde kullan.
+// Beklenen çıktı:
+// 56 kalem vardır.
 let kutu = 7;
 let kalem = 8;
 console.log(kutu <<< ❓ >>> kalem, "kalem vardır.");
@@ -233,7 +269,11 @@ Kişi başına 25 lira düşer.
 100 lirayı 4 kişiye eşit paylaştırıp ``Kişi başına 25 lira düşer.`` yazdıran programı yazar mısın?
 
 - files/main.js/.block
-// parayı kişi sayısına böler misin?
+// Görev: 100 lirayı 4 kişiye eşit paylaştırıp "Kişi başına 25 lira düşer." yazdır.
+// para değişkenini kişi sayısına / operatörü ile böl: para / kişi
+// Tam bölünen sayılarda sonuç yine tam sayı olur.
+// Beklenen çıktı:
+// Kişi başına 25 lira düşer.
 let para = 100;
 let kişi = 4;
 console.log("Kişi başına", para <<< ❓ >>> kişi, "lira düşer.");
@@ -243,7 +283,11 @@ Kişi başına 25 lira düşer.
 
 ---------------------
 - tests/1/files/main.js/.block
-// parayı kişi sayısına böler misin?
+// Görev: 120 lirayı 6 kişiye eşit paylaştırıp "Kişi başına 20 lira düşer." yazdır.
+// İkinci test aynı kuralı farklı sayılarla denetler: bölme için / operatörü.
+// para / kişi ifadesini console.log() içinde kullan.
+// Beklenen çıktı:
+// Kişi başına 20 lira düşer.
 let para = 120;
 let kişi = 6;
 console.log("Kişi başına", para <<< ❓ >>> kişi, "lira düşer.");
@@ -274,7 +318,11 @@ console.log(şeker % çocuk, "şeker artar.");
 17 şekeri 5 çocuğa eşit paylaştırınca ``2 şeker artar.`` yazdıran programı yazar mısın?
 
 - files/main.js/.block
-// bölümden kalanı bulur musun?
+// Görev: 17 şekeri 5 çocuğa paylaştırınca "2 şeker artar." yazdır.
+// Kalanı bulmak için % (mod) operatörünü yaz: şeker % çocuk
+// 17 içinde 3 tane 5 vardır ve 2 artar.
+// Beklenen çıktı:
+// 2 şeker artar.
 let şeker = 17;
 let çocuk = 5;
 console.log(şeker <<< ❓ >>> çocuk, "şeker artar.");
@@ -284,7 +332,11 @@ console.log(şeker <<< ❓ >>> çocuk, "şeker artar.");
 
 ---------------------
 - tests/1/files/main.js/.block
-// bölümden kalanı bulur musun?
+// Görev: 23 şekeri 5 çocuğa paylaştırınca "3 şeker artar." yazdır.
+// İkinci test aynı kuralı farklı sayılarla denetler: kalan için % operatörü.
+// şeker % çocuk ifadesini console.log() içinde kullan.
+// Beklenen çıktı:
+// 3 şeker artar.
 let şeker = 23;
 let çocuk = 5;
 console.log(şeker <<< ❓ >>> çocuk, "şeker artar.");
@@ -313,7 +365,11 @@ Karenin alanı: 9
 Bir kenarı ``3`` olan karenin alanını ``Karenin alanı: 9`` şeklinde yazdıran programı yazar mısın?
 
 - files/main.js/.block
-// kenar uzunluğunun karesini alır mısın?
+// Görev: Kenarı 3 olan karenin alanını "Karenin alanı: 9" şeklinde yazdır.
+// kenar ** 2 yaz; ** operatörü kuvvet alır (3 ** 2 = 3 * 3).
+// Karenin alanı kenar çarpı kenardır.
+// Beklenen çıktı:
+// Karenin alanı: 9
 let kenar = 3;
 console.log("Karenin alanı:", kenar <<< ❓ >>> 2);
 ---------------------
@@ -322,7 +378,11 @@ Karenin alanı: 9
 
 ---------------------
 - tests/1/files/main.js/.block
-// kenar uzunluğunun karesini alır mısın?
+// Görev: Kenarı 5 olan karenin alanını "Karenin alanı: 25" şeklinde yazdır.
+// İkinci test aynı kuralı farklı sayıyla denetler: kuvvet için ** operatörü.
+// kenar ** 2 ifadesini console.log() içinde kullan.
+// Beklenen çıktı:
+// Karenin alanı: 25
 let kenar = 5;
 console.log("Karenin alanı:", kenar <<< ❓ >>> 2);
 - tests/1/output
@@ -351,12 +411,18 @@ Türkiye'nin nüfusunu ``84_000_000`` olarak tanımlayıp terminale ``84000000``
 programı yazar mısın?
 
 - files/main.js/.block
-// nüfusu okunaklı biçimde tanımlar mısın?
+// Görev: Türkiye'nin nüfusunu 84_000_000 olarak tanımlayıp terminale 84000000 yazdır.
+// Sayıyı _ ile gruplayarak yaz: 84_000_000
+// _ işareti sayının değerini değiştirmez, sadece okunmasını kolaylaştırır.
+// Beklenen çıktı:
+// 84000000
 let nüfus = <<< ❓ >>>;
 console.log(nüfus);
 ---------------------
 - tests/0/output
 84000000
+
+- tests/0/require = "_"
 
 ---------------------
 - parts/10:
@@ -385,7 +451,13 @@ false
 sayıyı yazdıran programı yazar mısın?
 
 - files/main.js/.block
-// 42 tam sayı mı, 3.14 tam sayı mı?
+// Görev: 42 ve 3.14 değerlerinin tam sayı olup olmadığını, ardından güvenli en büyük tam sayıyı yazdır.
+// Birinci boşluğa 42, ikinci boşluğa 3.14 yaz (ikisi de tırnaksız sayı).
+// Number.isInteger() tam sayıysa true, değilse false döner.
+// Beklenen çıktı:
+// true
+// false
+// 9007199254740991
 console.log(Number.isInteger(<<< ❓ >>>));
 console.log(Number.isInteger(<<< ❓ >>>));
 console.log(Number.MAX_SAFE_INTEGER);
@@ -419,7 +491,11 @@ console.log(sayı + 8);
 yazar mısın?
 
 - files/main.js/.block
-// metni sayıya çevirir misin?
+// Görev: "42" metnini sayıya çevirip 8 ile topla; terminale 50 yazdır.
+// Number() fonksiyonunu yaz: Number(metin)
+// Metin sayıya çevrilince + ile toplama yapılır; çevrilmezse birleştirme olur.
+// Beklenen çıktı:
+// 50
 let metin = "42";
 let sayı = <<< ❓ >>>(metin);
 console.log(sayı + 8);
@@ -427,9 +503,15 @@ console.log(sayı + 8);
 - tests/0/output
 50
 
+- tests/0/require = "Number"
+
 ---------------------
 - tests/1/files/main.js/.block
-// metni sayıya çevirir misin?
+// Görev: "100" metnini sayıya çevirip 8 ile topla; terminale 108 yazdır.
+// İkinci test aynı kuralı farklı metinle denetler: Number() fonksiyonu.
+// Number(metin) ifadesini kullan; ardından 8 ile topla.
+// Beklenen çıktı:
+// 108
 let metin = "100";
 let sayı = <<< ❓ >>>(metin);
 console.log(sayı + 8);
@@ -460,7 +542,11 @@ Toplam: 750 TL
 3 adet ürünün tanesi 250 lira ise ``Toplam: 750 TL`` yazdıran programı yazar mısın?
 
 - files/main.js/.block
-// toplam tutarı hesaplar mısın?
+// Görev: 3 adet ürünün tanesi 250 lira ise "Toplam: 750 TL" yazdır.
+// toplam değişkeninde fiyat ile adet değişkenlerini * operatörü ile çarp.
+// console.log() "Toplam:" metnini, sonucu ve "TL" metnini virgülle ayırır.
+// Beklenen çıktı:
+// Toplam: 750 TL
 let fiyat = 250;
 let adet = 3;
 let toplam = fiyat <<< ❓ >>> adet;
@@ -471,7 +557,11 @@ Toplam: 750 TL
 
 ---------------------
 - tests/1/files/main.js/.block
-// toplam tutarı hesaplar mısın?
+// Görev: 5 adet ürünün tanesi 120 lira ise "Toplam: 600 TL" yazdır.
+// İkinci test aynı kuralı farklı değerlerle denetler: toplam için fiyat * adet.
+// fiyat 120, adet 5; sonucu * operatörü ile hesapla.
+// Beklenen çıktı:
+// Toplam: 600 TL
 let fiyat = 120;
 let adet = 5;
 let toplam = fiyat <<< ❓ >>> adet;

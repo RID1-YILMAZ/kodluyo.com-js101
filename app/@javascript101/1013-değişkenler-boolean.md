@@ -30,7 +30,11 @@ Terminale ``Yağmur var mı? true`` ve ``Hava açık mı? false`` yazdıran prog
 mısın? Değerleri tırnak içine almadan yaz.
 
 - files/main.js/.block
-// yağmur var, hava açık değil
+// Görev: yağmurVar değişkenine true, ikinci satırın boşluğuna false yaz.
+// Boolean değerler tırnak içine YAZILMAZ; tırnak içine yazılırsa metin olur.
+// Beklenen çıktı:
+// Yağmur var mı? true
+// Hava açık mı? false
 let yağmurVar = <<< ❓ >>>;
 console.log("Yağmur var mı?", yağmurVar);
 console.log("Hava açık mı?", <<< ❓ >>>);
@@ -65,7 +69,11 @@ true
 aynı kalacak.
 
 - files/main.js/.block
-// yaş 18'den büyük mü?
+// Görev: yaş (20) değerinin 18'den büyük olup olmadığını yazdır.
+// Boşluğa büyüktür operatörünü (>) yaz; karşılaştırma sonucu boolean olur.
+// Beklenen çıktı:
+// true
+// true
 let yaş = 20;
 console.log(yaş <<< ❓ >>> 18);
 console.log(yaş === 20);
@@ -76,7 +84,11 @@ true
 
 ---------------------
 - tests/1/files/main.js/.block
-// yaş 18'den büyük mü?
+// Görev: yaş (15) değerinin 18'den büyük olup olmadığını yazdır.
+// İkinci test farklı yaşla aynı kuralı denetler: > operatörü.
+// Beklenen çıktı:
+// false
+// false
 let yaş = 15;
 console.log(yaş <<< ❓ >>> 18);
 console.log(yaş === 20);
@@ -110,7 +122,11 @@ Yağmur yağdığında ``Dışarı çıkayım mı? false`` yazdıran programı y
 operatörünü kullanacaksın.
 
 - files/main.js/.block
-// tersini alır mısın?
+// Görev: yağmurVar true iken "Dışarı çıkayım mı? false" yazdır.
+// console.log() içinde değerin tersini almak için ! (değil) operatörünü kullan.
+// Beklenen çıktı:
+// Yağmur var mı? true
+// Dışarı çıkayım mı? false
 let yağmurVar = true;
 console.log("Yağmur var mı?", yağmurVar);
 console.log("Dışarı çıkayım mı?", <<< ❓ >>>yağmurVar);
@@ -121,7 +137,11 @@ Dışarı çıkayım mı? false
 
 ---------------------
 - tests/1/files/main.js/.block
-// tersini alır mısın?
+// Görev: yağmurVar false iken "Dışarı çıkayım mı? true" yazdır.
+// İkinci test farklı değerle aynı kuralı denetler: ! operatörü.
+// Beklenen çıktı:
+// Yağmur var mı? false
+// Dışarı çıkayım mı? true
 let yağmurVar = false;
 console.log("Yağmur var mı?", yağmurVar);
 console.log("Dışarı çıkayım mı?", <<< ❓ >>>yağmurVar);
@@ -153,7 +173,11 @@ true
 ``0`` için ``false``, ``1`` için ``true`` yazdıran programı yazar mısın?
 
 - files/main.js/.block
-// 0 ve 1 değerlerini boolean'a çevirir misin?
+// Görev: 0 değeri için false, 1 değeri için true yazdır.
+// Boolean() fonksiyonunun parantezine sırasıyla 0 ve 1 yaz; sayılar tırnaksız olur.
+// Beklenen çıktı:
+// 0 -> false
+// 1 -> true
 console.log("0 ->", Boolean(<<< ❓ >>>));
 console.log("1 ->", Boolean(<<< ❓ >>>));
 ---------------------
@@ -185,7 +209,11 @@ true
 Boş metin için ``false``, ``"a"`` için ``true`` yazdıran programı yazar mısın?
 
 - files/main.js/.block
-// boş metin ve dolu metin
+// Görev: Boş metin için false, "a" metni için true yazdır.
+// Boolean() parantezine sırasıyla "" (boş metin) ve "a" yaz; metinler tırnak içinde.
+// Beklenen çıktı:
+// Boş metin -> false
+// Dolu metin -> true
 console.log("Boş metin ->", Boolean(<<< ❓ >>>));
 console.log("Dolu metin ->", Boolean(<<< ❓ >>>));
 ---------------------
@@ -219,7 +247,11 @@ Boş metnin ``false``, ``"0"`` metninin ise ``true`` olduğunu gösteren program
 mısın?
 
 - files/main.js/.block
-// boş metin falsy, "0" metni truthy
+// Görev: Boş metnin false, "0" metninin true olduğunu göster.
+// Boolean() parantezine sırasıyla "" ve "0" yaz; metinleri tek tırnakla da yazabilirsin.
+// Beklenen çıktı:
+// boş metin -> false
+// "0" metni -> true
 console.log('boş metin ->', Boolean(<<< ❓ >>>));
 console.log('"0" metni ->', Boolean(<<< ❓ >>>));
 ---------------------
@@ -252,7 +284,10 @@ Yaşı ``20`` olan ve ehliyeti bulunan kişi için ``Araba kullanabilir mi? true
 programı yazar mısın?
 
 - files/main.js/.block
-// iki koşulu "ve" ile birleştirir misin?
+// Görev: yaş 20 ve ehliyetVar true iken "Araba kullanabilir mi? true" yazdır.
+// İki koşulu "ve" bağlacı (&&) ile birleştir; iki koşul da doğruysa true olur.
+// Beklenen çıktı:
+// Araba kullanabilir mi? true
 let yaş = 20;
 let ehliyetVar = true;
 console.log("Araba kullanabilir mi?", yaş >= 18 <<< ❓ >>> ehliyetVar);
@@ -262,7 +297,10 @@ Araba kullanabilir mi? true
 
 ---------------------
 - tests/1/files/main.js/.block
-// iki koşulu "ve" ile birleştirir misin?
+// Görev: yaş 20 ama ehliyetVar false iken "Araba kullanabilir mi? false" yazdır.
+// İkinci test ehliyetsiz durumla aynı kuralı denetler: ve bağlacı (&&).
+// Beklenen çıktı:
+// Araba kullanabilir mi? false
 let yaş = 20;
 let ehliyetVar = false;
 console.log("Araba kullanabilir mi?", yaş >= 18 <<< ❓ >>> ehliyetVar);
@@ -292,7 +330,10 @@ Kullanıcı adı boş olduğunda ``Merhaba misafir`` yazdıran programı yazar m
 operatörünü kullanacaksın.
 
 - files/main.js/.block
-// boşsa yedek değeri kullanır mısın?
+// Görev: kullanıcıAdı boşken "Merhaba misafir" yazdır.
+// Boşluğa "veya" operatörünü (||) yaz; sol taraf falsy ise sağdaki yedek değer gelir.
+// Beklenen çıktı:
+// Merhaba misafir
 let kullanıcıAdı = "";
 console.log("Merhaba", kullanıcıAdı <<< ❓ >>> "misafir");
 ---------------------
@@ -301,7 +342,10 @@ Merhaba misafir
 
 ---------------------
 - tests/1/files/main.js/.block
-// boş değilse kendi değerini kullanır mısın?
+// Görev: kullanıcıAdı "ayşe" iken "Merhaba ayşe" yazdır.
+// İkinci test dolu değerle aynı kuralı denetler: veya operatörü (||).
+// Beklenen çıktı:
+// Merhaba ayşe
 let kullanıcıAdı = "ayşe";
 console.log("Merhaba", kullanıcıAdı <<< ❓ >>> "misafir");
 - tests/1/output
@@ -334,7 +378,11 @@ Birinci satırda "ve", ikinci satırda "veya" kullanıp ``false`` ve ``true`` ya
 programı yazar mısın?
 
 - files/main.js/.block
-// önce "ve", sonra "veya" kullanır mısın?
+// Görev: Birinci satırda "ve" (&&), ikinci satırda "veya" (||) kullanıp yazdır.
+// stok 5, fiyat 0: stok > 0 && fiyat > 0 false, stok > 0 || fiyat > 0 true verir.
+// Beklenen çıktı:
+// false
+// true
 let stok = 5;
 let fiyat = 0;
 console.log(stok > 0 <<< ❓ >>> fiyat > 0);
@@ -371,7 +419,12 @@ string
 yazdıran programı yazar mısın?
 
 - files/main.js/.block
-// türleri yazar mısın?
+// Görev: true ve 5 > 3 ifadelerinin türünü, "true" metninin türünü yazdır.
+// İlk iki boşluğa sırasıyla true ve 5 > 3 yaz; typeof boolean, boolean, string verir.
+// Beklenen çıktı:
+// boolean
+// boolean
+// string
 console.log(typeof <<< ❓ >>>);
 console.log(typeof (<<< ❓ >>>));
 console.log(typeof "true");
@@ -407,7 +460,11 @@ Eksik var mı? true
 yazdıran programı yazar mısın?
 
 - files/main.js/.block
-// iki durumu "ve" ile birleştirir misin?
+// Görev: uzunŞifre true, sayıVar false iken iki durumu "ve" ile birleştirip yazdır.
+// Boşluğa ve bağlacını (&&) yaz; ikinci satır !(&&) ile sonucun tersini alır.
+// Beklenen çıktı:
+// Şifre güçlü mü? false
+// Eksik var mı? true
 let uzunŞifre = true;
 let sayıVar = false;
 console.log("Şifre güçlü mü?", uzunŞifre <<< ❓ >>> sayıVar);
@@ -419,7 +476,11 @@ Eksik var mı? true
 
 ---------------------
 - tests/1/files/main.js/.block
-// iki durumu "ve" ile birleştirir misin?
+// Görev: uzunŞifre ve sayıVar ikisi de true iken şifrenin güçlü olduğunu yazdır.
+// İkinci test iki durum da doğruyken aynı kuralı denetler: ve bağlacı (&&).
+// Beklenen çıktı:
+// Şifre güçlü mü? true
+// Eksik var mı? false
 let uzunŞifre = true;
 let sayıVar = true;
 console.log("Şifre güçlü mü?", uzunŞifre <<< ❓ >>> sayıVar);

@@ -29,7 +29,10 @@ Hava çok sıcak.
 Sıcaklık ``25``'ten büyükse ``Hava çok sıcak.`` yazdıran programı yazar mısın?
 
 - files/main.js/.block
-// sıcaklık 25'ten büyük mü?
+// Görev: Sıcaklık 25'ten büyükse ekrana "Hava çok sıcak." yazdır.
+// if parantezinde büyüktür operatörünü kullan: sıcaklık > 25
+// Beklenen çıktı:
+// Hava çok sıcak.
 let sıcaklık = 30;
 if (sıcaklık <<< ❓ >>> 25) {
   console.log("Hava çok sıcak.");
@@ -37,6 +40,8 @@ if (sıcaklık <<< ❓ >>> 25) {
 ---------------------
 - tests/0/output
 Hava çok sıcak.
+
+- tests/0/require = ">"
 
 ---------------------
 - parts/1:
@@ -65,7 +70,10 @@ Tek sayı
 Sayı çift ise ``Çift sayı``, değilse ``Tek sayı`` yazdıran programı tamamlar mısın?
 
 - files/main.js/.block
-// bölümden kalan 0 mı?
+// Görev: Sayı çift ise "Çift sayı", değilse "Tek sayı" yazdır.
+// Mod operatörünün sonucunu eşittir operatörüyle karşılaştır: sayı % 2 === 0
+// Beklenen çıktı:
+// Tek sayı
 let sayı = 7;
 if (sayı % 2 <<< ❓ >>> 0) {
   console.log("Çift sayı");
@@ -78,7 +86,10 @@ Tek sayı
 
 ---------------------
 - tests/1/files/main.js/.block
-// bölümden kalan 0 mı?
+// Görev: Sayı çift ise "Çift sayı", değilse "Tek sayı" yazdır.
+// İkinci test çift sayıyla aynı kuralı denetler: sayı % 2 === 0
+// Beklenen çıktı:
+// Çift sayı
 let sayı = 8;
 if (sayı % 2 <<< ❓ >>> 0) {
   console.log("Çift sayı");
@@ -118,7 +129,10 @@ if (not >= 90) {
 koşulları tamamlar mısın?
 
 - files/main.js/.block
-// büyük eşitlik operatörünü kullanır mısın?
+// Görev: 90 ve üzeri "Pekiyi", 70 ve üzeri "İyi", kalanlar "Orta" yazsın.
+// İki koşulda da büyük veya eşit operatörünü kullan: not >= 90 ve not >= 70
+// Beklenen çıktı:
+// İyi
 let not = 75;
 if (not <<< ❓ >>> 90) {
   console.log("Pekiyi");
@@ -133,7 +147,10 @@ if (not <<< ❓ >>> 90) {
 
 ---------------------
 - tests/1/files/main.js/.block
-// büyük eşitlik operatörünü kullanır mısın?
+// Görev: 90 ve üzeri "Pekiyi", 70 ve üzeri "İyi", kalanlar "Orta" yazsın.
+// İkinci test 95 puanla ilk koşulun tuttuğunu denetler: not >= 90
+// Beklenen çıktı:
+// Pekiyi
 let not = 95;
 if (not <<< ❓ >>> 90) {
   console.log("Pekiyi");
@@ -172,7 +189,10 @@ Yaş ``18`` ve üzeri **ve** ehliyeti varsa ``Araba kullanabilirsin.`` yazdıran
 tamamlar mısın?
 
 - files/main.js/.block
-// iki şartı da kontrol eder misin?
+// Görev: Yaş 18 ve üzeri VE ehliyeti varsa "Araba kullanabilirsin." yazdır.
+// İki koşulu ve operatörüyle birleştir: yaş >= 18 && ehliyet
+// Beklenen çıktı:
+// Araba kullanabilirsin.
 let yaş = 25;
 let ehliyet = true;
 if (yaş <<< ❓ >>> 18 <<< ❓ >>> ehliyet) {
@@ -181,6 +201,8 @@ if (yaş <<< ❓ >>> 18 <<< ❓ >>> ehliyet) {
 ---------------------
 - tests/0/output
 Araba kullanabilirsin.
+
+- tests/0/require = "&&"
 
 ---------------------
 - parts/4:
@@ -215,7 +237,10 @@ Puan ``80`` ve üzeriyse içeri girsin; içeride ``üye`` ise ``İndirim kazand�
 Eksik iki yeri tamamlar mısın?
 
 - files/main.js/.block
-// dış koşul puan, iç koşul üyelik
+// Görev: Puan 80 ve üzeriyse içeri gir; üye ise "İndirim kazandın!" yazdır.
+// Dış koşulda büyük veya eşit operatörünü kullan (puan >= 80); iç koşula üye değişkenini yaz.
+// Beklenen çıktı:
+// İndirim kazandın!
 let puan = 85;
 let üye = true;
 if (puan <<< ❓ >>> 80) {
@@ -256,7 +281,10 @@ Yetişkin
 tamamlar mısın?
 
 - files/main.js/.block
-// soru işareti ve iki nokta üst üste nereye gelir?
+// Görev: Yaş 18 ve üzeriyse "Yetişkin", değilse "Çocuk" değerini üret.
+// Üçlü operatörün iki işaretini yaz: koşul ? doğruysa : yanlışsa
+// Beklenen çıktı:
+// Yetişkin
 let yaş = 20;
 let durum = yaş >= 18 <<< ❓ >>> "Yetişkin" <<< ❓ >>> "Çocuk";
 console.log(durum);
@@ -264,14 +292,23 @@ console.log(durum);
 - tests/0/output
 Yetişkin
 
+- tests/0/require/0 = "?"
+- tests/0/require/1 = ":"
+
 ---------------------
 - tests/1/files/main.js/.block
-// soru işareti ve iki nokta üst üste nereye gelir?
+// Görev: Yaş 18 ve üzeriyse "Yetişkin", değilse "Çocuk" değerini üret.
+// İkinci test 15 yaşla üçlü operatörün yanlış dalını denetler: ? ve :
+// Beklenen çıktı:
+// Çocuk
 let yaş = 15;
 let durum = yaş >= 18 <<< ❓ >>> "Yetişkin" <<< ❓ >>> "Çocuk";
 console.log(durum);
 - tests/1/output
 Çocuk
+
+- tests/1/require/0 = "?"
+- tests/1/require/1 = ":"
 
 ---------------------
 - parts/6:
@@ -296,7 +333,10 @@ Tek
 yazar mısın?
 
 - files/main.js/.block
-// kalan sıfıra eşit mi?
+// Görev: console.log içindeki üçlü operatörle tek sayı için "Tek" yazdır.
+// Mod sonucunu eşittir operatörüyle sıfıra karşılaştır: sayı % 2 === 0
+// Beklenen çıktı:
+// Tek
 let sayı = 7;
 console.log(sayı % 2 <<< ❓ >>> 0 ? "Çift" : "Tek");
 ---------------------
@@ -305,7 +345,10 @@ Tek
 
 ---------------------
 - tests/1/files/main.js/.block
-// kalan sıfıra eşit mi?
+// Görev: console.log içindeki üçlü operatörle çift sayı için "Çift" yazdır.
+// İkinci test çift sayıyı denetler; karşılaştırma yine sayı % 2 === 0
+// Beklenen çıktı:
+// Çift
 let sayı = 10;
 console.log(sayı % 2 <<< ❓ >>> 0 ? "Çift" : "Tek");
 - tests/1/output
@@ -343,7 +386,10 @@ switch (gün) {
 ``gün`` ``3`` olduğunda ``Çarşamba`` yazdıran switch yapısını tamamlar mısın?
 
 - files/main.js/.block
-// case'in sonunda ne olmalı?
+// Görev: gün 3 olduğunda "Çarşamba" yazdıran switch yapısını tamamla.
+// Değer eşleştirmesi için case, case'den çıkmak için break anahtar kelimesini yaz.
+// Beklenen çıktı:
+// Çarşamba
 let gün = 3;
 switch (gün) {
   <<< ❓ >>> 3:
@@ -389,7 +435,10 @@ Rengi bilinmiyor
 yerleştirir misin?
 
 - files/main.js/.block
-// eşleşme olmazsa hangi blok çalışır?
+// Görev: karpuz hiçbir case'e uymadığı için "Rengi bilinmiyor" yazsın.
+// İlk eşleşme için case, eşleşme olmazsa çalışacak blok için default yaz.
+// Beklenen çıktı:
+// Rengi bilinmiyor
 let meyve = "karpuz";
 switch (meyve) {
   <<< ❓ >>> "elma":
@@ -430,7 +479,10 @@ Mesaj boş.
 ``mesaj`` boş metin olduğu için ``Mesaj boş.`` yazdıran programı yazar mısın?
 
 - files/main.js/.block
-// boş metni falsy yapan nedir?
+// Görev: mesaj boş metin olduğu için "Mesaj boş." yazsın.
+// Boş metni çift tırnakla yaz: mesaj = ""
+// Beklenen çıktı:
+// Mesaj boş.
 let mesaj = <<< ❓ >>>;
 if (mesaj) {
   console.log("Mesaj dolu.");
@@ -440,6 +492,8 @@ if (mesaj) {
 ---------------------
 - tests/0/output
 Mesaj boş.
+
+- tests/0/require = "\"\""
 
 ---------------------
 - parts/10:
@@ -468,7 +522,12 @@ Sırasıyla ``0`` sayısı, ``"0"`` metni ve boş dizi için ``Boolean()`` sonuc
 programı tamamlar mısın?
 
 - files/main.js/.block
-// sayı mı, metin mi, dizi mi?
+// Görev: Sırasıyla 0 sayısı, "0" metni ve boş dizi için Boolean() sonucunu yazdır.
+// console.log(Boolean(...)) içine önce 0, sonra "0" metnini, sonra [] yaz.
+// Beklenen çıktı:
+// false
+// true
+// true
 console.log(Boolean(<<< ❓ >>>));
 console.log(Boolean(<<< ❓ >>>));
 console.log(Boolean(<<< ❓ >>>));
@@ -508,7 +567,10 @@ Mükemmel!
 ``92`` puanla ``Mükemmel!`` yazdıran programı tamamlar mısın?
 
 - files/main.js/.block
-// üçlü operatör ve switch bir arada
+// Görev: 92 puanla "Mükemmel!" yazdır: üçlü operatörle harf bul, switch ile yazdır.
+// Üçlü operatörde ? ve : kullan; switch içinde "A" değeri için case yaz.
+// Beklenen çıktı:
+// Mükemmel!
 let puan = 92;
 let harf = puan >= 90 <<< ❓ >>> "A" <<< ❓ >>> "B";
 switch (harf) {
@@ -521,5 +583,7 @@ switch (harf) {
 ---------------------
 - tests/0/output
 Mükemmel!
+
+- tests/0/require = "?"
 
 ---------------------

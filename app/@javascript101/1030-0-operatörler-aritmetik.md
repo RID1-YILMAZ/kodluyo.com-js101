@@ -29,7 +29,10 @@ Meyve sayısı: 13
 mısın?
 
 - files/main.js/.block
-// iki meyve sayısını toplar mısın?
+// Görev: armut ve elma sayılarını toplayıp "Meyve sayısı: 13" yazdır.
+// Toplama için + operatörünü kullan: armut + elma.
+// Beklenen çıktı:
+// Meyve sayısı: 13
 let armut = 8;
 let elma = 5;
 console.log("Meyve sayısı:", armut <<< ❓ >>> elma);
@@ -39,7 +42,10 @@ Meyve sayısı: 13
 
 ---------------------
 - tests/1/files/main.js/.block
-// iki meyve sayısını toplar mısın?
+// Görev: armut ve elma sayılarını toplayıp "Meyve sayısı: 15" yazdır.
+// İkinci test farklı sayılarla aynı kuralı denetler: toplama için + operatörü.
+// Beklenen çıktı:
+// Meyve sayısı: 15
 let armut = 12;
 let elma = 3;
 console.log("Meyve sayısı:", armut <<< ❓ >>> elma);
@@ -70,7 +76,11 @@ Bakiye: &minus;35
 mısın?
 
 - files/main.js/.block
-// harcamayı bakiyeden düşer misin?
+// Görev: 45 lira bakiyeden 80 lira harcayınca kalan bakiyeyi yazdır.
+// Çıkarma için - operatörünü kullan: bakiye - 80.
+// Sonuç sıfırdan küçük olduğu için negatif çıkar.
+// Beklenen çıktı:
+// Bakiye: -35
 let bakiye = 45;
 bakiye = bakiye <<< ❓ >>> 80;
 console.log("Bakiye:", bakiye);
@@ -80,7 +90,10 @@ Bakiye: &minus;35
 
 ---------------------
 - tests/1/files/main.js/.block
-// harcamayı bakiyeden düşer misin?
+// Görev: 100 lira bakiyeden 80 lira harcayınca kalan bakiyeyi yazdır.
+// İkinci test farklı sayılarla aynı kuralı denetler: çıkarma için - operatörü.
+// Beklenen çıktı:
+// Bakiye: 20
 let bakiye = 100;
 bakiye = bakiye <<< ❓ >>> 80;
 console.log("Bakiye:", bakiye);
@@ -111,7 +124,10 @@ console.log(kutu * kalem, "kalem");
 6 kutunun her birinde 12 kalem varsa ``72 kalem`` yazdıran programı yazar mısın?
 
 - files/main.js/.block
-// kutu sayısı ile kalem sayısını çarpar mısın?
+// Görev: 6 kutunun her birinde 12 kalem varsa toplam kalemi yazdır.
+// Çarpma için * operatörünü kullan: kutu * kalem.
+// Beklenen çıktı:
+// 72 kalem
 let kutu = 6;
 let kalem = 12;
 console.log(kutu <<< ❓ >>> kalem, "kalem");
@@ -121,7 +137,10 @@ console.log(kutu <<< ❓ >>> kalem, "kalem");
 
 ---------------------
 - tests/1/files/main.js/.block
-// kutu sayısı ile kalem sayısını çarpar mısın?
+// Görev: 4 kutunun her birinde 9 kalem varsa toplam kalemi yazdır.
+// İkinci test farklı sayılarla aynı kuralı denetler: çarpma için * operatörü.
+// Beklenen çıktı:
+// 36 kalem
 let kutu = 4;
 let kalem = 9;
 console.log(kutu <<< ❓ >>> kalem, "kalem");
@@ -152,7 +171,11 @@ Kişi başına 3.5 pasta
 mısın?
 
 - files/main.js/.block
-// pastayı kişi sayısına böler misin?
+// Görev: 7 pastayı 2 kişiye eşit paylaştırıp kişi başına düşeni yazdır.
+// Bölme için / operatörünü kullan: pasta / kişi.
+// Sonuç tam sayı olmak zorunda değildir; ondalık kısım da yazılır.
+// Beklenen çıktı:
+// Kişi başına 3.5 pasta
 let pasta = 7;
 let kişi = 2;
 console.log("Kişi başına", pasta <<< ❓ >>> kişi, "pasta");
@@ -162,7 +185,10 @@ Kişi başına 3.5 pasta
 
 ---------------------
 - tests/1/files/main.js/.block
-// pastayı kişi sayısına böler misin?
+// Görev: 9 pastayı 4 kişiye eşit paylaştırıp kişi başına düşeni yazdır.
+// İkinci test farklı sayılarla aynı kuralı denetler: bölme için / operatörü.
+// Beklenen çıktı:
+// Kişi başına 2.25 pasta
 let pasta = 9;
 let kişi = 4;
 console.log("Kişi başına", pasta <<< ❓ >>> kişi, "pasta");
@@ -193,7 +219,10 @@ console.log(şeker % çocuk, "şeker artar");
 23 şekeri 5 çocuğa eşit paylaştırınca ``3 şeker artar`` yazdıran programı yazar mısın?
 
 - files/main.js/.block
-// bölümden kalanı bulur musun?
+// Görev: 23 şekeri 5 çocuğa eşit paylaştırınca artan şekeri yazdır.
+// Kalanı bulmak için % operatörünü kullan: şeker % çocuk.
+// Beklenen çıktı:
+// 3 şeker artar
 let şeker = 23;
 let çocuk = 5;
 console.log(şeker <<< ❓ >>> çocuk, "şeker artar");
@@ -203,7 +232,10 @@ console.log(şeker <<< ❓ >>> çocuk, "şeker artar");
 
 ---------------------
 - tests/1/files/main.js/.block
-// bölümden kalanı bulur musun?
+// Görev: 17 şekeri 4 çocuğa eşit paylaştırınca artan şekeri yazdır.
+// İkinci test farklı sayılarla aynı kuralı denetler: kalan için % operatörü.
+// Beklenen çıktı:
+// 1 şeker artar
 let şeker = 17;
 let çocuk = 4;
 console.log(şeker <<< ❓ >>> çocuk, "şeker artar");
@@ -234,7 +266,11 @@ Sonuç: 1024
 2'nin 10. kuvvetini hesaplayıp ``Sonuç: 1024`` yazdıran programı yazar mısın?
 
 - files/main.js/.block
-// taban sayısının kuvvetini alır mısın?
+// Görev: 2'nin 10. kuvvetini hesaplayıp yazdır.
+// Üs almak için ** operatörünü kullan: taban ** kuvvet.
+// Üs operatörü çarpmayla karıştırılmamalı; işaret iki kez yazılır.
+// Beklenen çıktı:
+// Sonuç: 1024
 let taban = 2;
 let kuvvet = 10;
 console.log("Sonuç:", taban <<< ❓ >>> kuvvet);
@@ -244,7 +280,10 @@ Sonuç: 1024
 
 ---------------------
 - tests/1/files/main.js/.block
-// taban sayısının kuvvetini alır mısın?
+// Görev: 3'ün 4. kuvvetini hesaplayıp yazdır.
+// İkinci test farklı sayılarla aynı kuralı denetler: üs için ** operatörü.
+// Beklenen çıktı:
+// Sonuç: 81
 let taban = 3;
 let kuvvet = 4;
 console.log("Sonuç:", taban <<< ❓ >>> kuvvet);
@@ -280,7 +319,11 @@ Sayaç: 6
 önce ``Sayaç: 7`` sonra ``Sayaç: 6`` yazmalı.
 
 - files/main.js/.block
-// önce iki kez artır, sonra bir kez azalt
+// Görev: 5'ten başlayıp sayacı iki kez artır, bir kez azalt ve her adımı yazdır.
+// Artırmak için ++ operatörünü, azaltmak için -- operatörünü kullan.
+// Beklenen çıktı:
+// Sayaç: 7
+// Sayaç: 6
 let sayaç = 5;
 sayaç<<< ❓ >>>;
 sayaç<<< ❓ >>>;
@@ -292,9 +335,16 @@ console.log("Sayaç:", sayaç);
 Sayaç: 7
 Sayaç: 6
 
+- tests/0/require/0 = "++"
+- tests/0/require/1 = "--"
+
 ---------------------
 - tests/1/files/main.js/.block
-// önce iki kez artır, sonra bir kez azalt
+// Görev: 10'dan başlayıp sayacı iki kez artır, bir kez azalt ve her adımı yazdır.
+// İkinci test farklı başlangıçla aynı kuralı denetler: ++ ve -- operatörleri.
+// Beklenen çıktı:
+// Sayaç: 12
+// Sayaç: 11
 let sayaç = 10;
 sayaç<<< ❓ >>>;
 sayaç<<< ❓ >>>;
@@ -304,6 +354,9 @@ console.log("Sayaç:", sayaç);
 - tests/1/output
 Sayaç: 12
 Sayaç: 11
+
+- tests/1/require/0 = "++"
+- tests/1/require/1 = "--"
 
 ---------------------
 - parts/7:
@@ -329,7 +382,12 @@ console.log(10 - 6 / 2);
 İşlem önceliğine uyarak iki satırda ``14`` ve ``7`` yazdıran programı yazar mısın?
 
 - files/main.js/.block
-// önce çarpma ve bölme yapılır
+// Görev: işlem önceliğine uyarak 14 ve 7 sonuçlarını yazdır.
+// Birinci satır için + ve * kullan: 2 + 3 * 4 önce çarpar ve 14 verir.
+// İkinci satır için - ve / kullan: 10 - 6 / 2 önce böler ve 7 verir.
+// Beklenen çıktı:
+// 14
+// 7
 console.log(2 <<< ❓ >>> 3 <<< ❓ >>> 4);
 console.log(10 <<< ❓ >>> 6 <<< ❓ >>> 2);
 ---------------------
@@ -339,7 +397,12 @@ console.log(10 <<< ❓ >>> 6 <<< ❓ >>> 2);
 
 ---------------------
 - tests/1/files/main.js/.block
-// önce çarpma ve bölme yapılır
+// Görev: işlem önceliğine uyarak 11 ve 18 sonuçlarını yazdır.
+// Birinci satır için + ve * kullan: 5 + 2 * 3 önce çarpar ve 11 verir.
+// İkinci satır için - ve / kullan: 20 - 8 / 4 önce böler ve 18 verir.
+// Beklenen çıktı:
+// 11
+// 18
 console.log(5 <<< ❓ >>> 2 <<< ❓ >>> 3);
 console.log(20 <<< ❓ >>> 8 <<< ❓ >>> 4);
 - tests/1/output
@@ -370,7 +433,12 @@ Parantez kullanarak ``20`` sonucunu, parantezsiz yazarak da ``14`` sonucunu vere
 programı yazar mısın?
 
 - files/main.js/.block
-// parantezle önce toplama yaptırır mısın?
+// Görev: parantez kullanarak 20, parantezsiz yazarak da 14 sonucunu yazdır.
+// Parantez içi her zaman önce yapılır: (2 + 3) * 4 sonucu 20 olur.
+// İkinci satır parantezsizdir; 2 + 3 * 4 önce çarpar ve 14 verir.
+// Beklenen çıktı:
+// 20
+// 14
 console.log(<<< ❓ >>> * 4);
 console.log(2 + 3 * 4);
 ---------------------
@@ -380,7 +448,12 @@ console.log(2 + 3 * 4);
 
 ---------------------
 - tests/1/files/main.js/.block
-// parantezle önce toplama yaptırır mısın?
+// Görev: parantez kullanarak 30, parantezsiz yazarak da 7 sonucunu yazdır.
+// Parantez içi önce yapılır: (2 + 3) * 6 sonucu 30 olur.
+// İkinci satır parantezsizdir; 1 + 2 * 3 önce çarpar ve 7 verir.
+// Beklenen çıktı:
+// 30
+// 7
 console.log(<<< ❓ >>> * 6);
 console.log(1 + 2 * 3);
 - tests/1/output
@@ -412,7 +485,12 @@ console.log("5" - 1);
 yazar mısın?
 
 - files/main.js/.block
-// metinle toplama ve çıkarma farkını göster
+// Görev: "5" metnine + uygulayınca 51, - uygulayınca 4 yazdır.
+// + metin gördüğünde birleştirir: "5" + 1 sonucu 51 olur.
+// - metni sayıya çevirir: "5" - 1 sonucu 4 olur.
+// Beklenen çıktı:
+// 51
+// 4
 console.log("5" <<< ❓ >>> 1);
 console.log("5" <<< ❓ >>> 1);
 ---------------------
@@ -422,6 +500,11 @@ console.log("5" <<< ❓ >>> 1);
 
 ---------------------
 - tests/1/files/main.js/.block
+// Görev: "8" metnine + uygulayınca 82, - uygulayınca 6 yazdır.
+// İkinci test farklı değerle aynı kuralı denetler: "8" + 2 birleştirir, "8" - 2 çıkarır.
+// Beklenen çıktı:
+// 82
+// 6
 console.log("8" <<< ❓ >>> 2);
 console.log("8" <<< ❓ >>> 2);
 - tests/1/output
@@ -458,7 +541,12 @@ Ortalama: 80
 biçiminde yazdıran programı yazar mısın?
 
 - files/main.js/.block
-// üç notun toplamını ve ortalamasını bulur musun?
+// Görev: 80, 90 ve 70 notlarının toplamını ve ortalamasını yazdır.
+// Toplam için + operatörünü art arda kullan; ortalama toplamın 3'e bölümüdür.
+// Boşluklara sırayla + , + ve / yaz.
+// Beklenen çıktı:
+// Toplam: 240
+// Ortalama: 80
 let not1 = 80;
 let not2 = 90;
 let not3 = 70;
@@ -473,7 +561,11 @@ Ortalama: 80
 
 ---------------------
 - tests/1/files/main.js/.block
-// üç notun toplamını ve ortalamasını bulur musun?
+// Görev: 60, 70 ve 80 notlarının toplamını ve ortalamasını yazdır.
+// İkinci test farklı notlarla aynı kuralı denetler: toplam için + , ortalama için /.
+// Beklenen çıktı:
+// Toplam: 210
+// Ortalama: 70
 let not1 = 60;
 let not2 = 70;
 let not3 = 80;
@@ -517,7 +609,13 @@ Tanesi 200 lira olan 3 ürünün ara toplamını, yüzde 20 KDV'sini ve genel to
 hesaplayan programı yazar mısın?
 
 - files/main.js/.block
-// ara toplamı, KDV'yi ve genel toplamı hesaplar mısın?
+// Görev: ara toplamı, yüzde 20 KDV'yi ve genel toplamı hesaplayıp yazdır.
+// Ara toplam fiyat * adet; KDV araToplam * 20 / 100; genel toplam araToplam + kdv.
+// İşlem önceliğine dikkat et: önce çarpma ve bölme yapılır.
+// Beklenen çıktı:
+// Ara toplam: 600
+// KDV: 120
+// Genel toplam: 720
 let fiyat = 200;
 let adet = 3;
 let araToplam = fiyat <<< ❓ >>> adet;
@@ -534,7 +632,12 @@ Genel toplam: 720
 
 ---------------------
 - tests/1/files/main.js/.block
-// ara toplamı, KDV'yi ve genel toplamı hesaplar mısın?
+// Görev: ara toplamı, yüzde 20 KDV'yi ve genel toplamı hesaplayıp yazdır.
+// İkinci test farklı fiyat ve adetle aynı kuralı denetler: * , / ve + operatörleri.
+// Beklenen çıktı:
+// Ara toplam: 300
+// KDV: 60
+// Genel toplam: 360
 let fiyat = 150;
 let adet = 2;
 let araToplam = fiyat <<< ❓ >>> adet;

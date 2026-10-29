@@ -30,7 +30,11 @@ Merhaba dünya!
 tanımla çağrının aynı olması gerekiyor.
 
 - files/main.js/.block
-// fonksiyonun adını yazar mısın?
+// Görev: Çağrıldığında "Merhaba dünya!" yazan selamla fonksiyonunu tanımla.
+// function anahtar kelimesinden sonra fonksiyonun adını yaz: function selamla()
+// Ad, en alttaki selamla() çağrısıyla birebir aynı olmalı.
+// Beklenen çıktı:
+// Merhaba dünya!
 function <<< ❓ >>>() {
   console.log("Merhaba dünya!");
 }
@@ -67,7 +71,12 @@ Merhaba Mehmet!
 Adı parametre olarak alan ``selamla`` fonksiyonunu yazar mısın?
 
 - files/main.js/.block
-// parametre adını yazar mısın?
+// Görev: Adı parametre olarak alan selamla fonksiyonunu tamamla.
+// Parantez içine parametre adını yaz: function selamla(isim)
+// Gövdedeki "Merhaba " + isim + "!" ifadesi bu parametreyi kullanıyor.
+// Beklenen çıktı:
+// Merhaba Ayşe!
+// Merhaba Mehmet!
 function selamla(<<< ❓ >>>) {
   console.log("Merhaba " + isim + "!");
 }
@@ -105,7 +114,11 @@ console.log(topla(10, 20));
 İki sayının toplamını ``return`` ile geri döndüren fonksiyonu yazar mısın?
 
 - files/main.js/.block
-// iki parametreyi toplayıp geri döndürür müsün?
+// Görev: İki sayının toplamını return ile geri döndür.
+// İki parametreyi toplamak için artı operatörünü yaz: return a + b
+// Beklenen çıktı:
+// 8
+// 30
 function topla(a, b) {
   return a <<< ❓ >>> b;
 }
@@ -118,7 +131,11 @@ console.log(topla(10, 20));
 
 ---------------------
 - tests/1/files/main.js/.block
-// iki parametreyi toplayıp geri döndürür müsün?
+// Görev: İki sayının toplamını return ile geri döndür.
+// İkinci test farklı sayılarla aynı kuralı denetler: return a + b
+// Beklenen çıktı:
+// 9
+// 2
 function topla(a, b) {
   return a <<< ❓ >>> b;
 }
@@ -154,7 +171,10 @@ Kare: 36
 Sayının karesini döndüren fonksiyonu yazar mısın?
 
 - files/main.js/.block
-// sayının karesini döndürür müsün?
+// Görev: Sayının karesini return ile geri döndür.
+// x değişkenini kendisiyle çarpmak için çarpma operatörünü yaz: return x * x
+// Beklenen çıktı:
+// Kare: 36
 function kare(x) {
   return x <<< ❓ >>> x;
 }
@@ -166,7 +186,10 @@ Kare: 36
 
 ---------------------
 - tests/1/files/main.js/.block
-// sayının karesini döndürür müsün?
+// Görev: Sayının karesini return ile geri döndür.
+// İkinci test farklı sayıyla aynı kuralı denetler: return x * x
+// Beklenen çıktı:
+// Kare: 81
 function kare(x) {
   return x <<< ❓ >>> x;
 }
@@ -202,7 +225,11 @@ Merhaba Zeynep!
 Değer verilmezse ``"misafir"`` kullanan fonksiyonu yazar mısın?
 
 - files/main.js/.block
-// varsayılan değeri nasıl veririz?
+// Görev: Değer verilmezse "misafir" kullanan selamla fonksiyonunu tamamla.
+// Varsayılan değeri eşittir işaretiyle ver: function selamla(isim = "misafir")
+// Beklenen çıktı:
+// Merhaba misafir!
+// Merhaba Zeynep!
 function selamla(isim <<< ❓ >>> "misafir") {
   console.log("Merhaba " + isim + "!");
 }
@@ -215,7 +242,11 @@ Merhaba Zeynep!
 
 ---------------------
 - tests/1/files/main.js/.block
-// varsayılan değeri nasıl veririz?
+// Görev: Değer verilmezse "konuk" kullanan selamla fonksiyonunu tamamla.
+// İkinci test varsayılan değeri farklı kelimeyle denetler: isim = "konuk"
+// Beklenen çıktı:
+// Merhaba konuk!
+// Merhaba Can!
 function selamla(isim <<< ❓ >>> "konuk") {
   console.log("Merhaba " + isim + "!");
 }
@@ -256,7 +287,12 @@ console.log(topla(4, 5, 6, 7));
 Kaç argüman gelirse gelsin hepsini toplayan fonksiyonu yazar mısın?
 
 - files/main.js/.block
-// rest parametre nasıl yazılır?
+// Görev: Kaç argüman gelirse gelsin hepsini toplayan fonksiyonu tamamla.
+// Rest parametre için üç noktayı yaz: function topla(...sayılar)
+// Gelen bütün değerler sayılar adlı dizide toplanır.
+// Beklenen çıktı:
+// 6
+// 22
 function topla(<<< ❓ >>>sayılar) {
   let toplam = 0;
   for (const sayı of sayılar) {
@@ -273,7 +309,11 @@ console.log(topla(4, 5, 6, 7));
 
 ---------------------
 - tests/1/files/main.js/.block
-// rest parametre nasıl yazılır?
+// Görev: Kaç argüman gelirse gelsin hepsini toplayan fonksiyonu tamamla.
+// İkinci test farklı argüman sayısıyla aynı kuralı denetler: ...sayılar
+// Beklenen çıktı:
+// 30
+// 1
 function topla(<<< ❓ >>>sayılar) {
   let toplam = 0;
   for (const sayı of sayılar) {
@@ -317,7 +357,12 @@ Fonksiyonun içinde aynı isimde bir değişken tanımlayıp kapsamı gösteren 
 mısın?
 
 - files/main.js/.block
-// fonksiyon içinde aynı isimde değişken tanımlar mısın?
+// Görev: Fonksiyonun içinde aynı isimde değişken tanımlayıp kapsamı göster.
+// let ile içeride yeni bir mesaj değişkeni tanımla: let mesaj = "içeride"
+// Böylece fonksiyonun dışındaki mesaj değişkeni ezilmez.
+// Beklenen çıktı:
+// içeride
+// dışarıda
 let mesaj = "dışarıda";
 function göster() {
   let <<< ❓ >>> = "içeride";
@@ -358,7 +403,11 @@ console.log(faktöriyel(5));
 Faktöriyeli özyineleme ile hesaplayan fonksiyonu yazar mısın?
 
 - files/main.js/.block
-// n ile faktöriyel(n - 1) arasındaki işlem nedir?
+// Görev: Faktöriyeli özyineleme ile hesaplayan fonksiyonu tamamla.
+// n ile faktöriyel(n - 1) sonucunu çarpmak için çarpma operatörünü yaz: n * faktöriyel(n - 1)
+// Durdurma koşulu (n <= 1) zaten yazılı olduğu için fonksiyon sonsuza gitmez.
+// Beklenen çıktı:
+// 120
 function faktöriyel(n) {
   if (n <= 1) {
     return 1;
@@ -372,7 +421,10 @@ console.log(faktöriyel(5));
 
 ---------------------
 - tests/1/files/main.js/.block
-// n ile faktöriyel(n - 1) arasındaki işlem nedir?
+// Görev: Faktöriyeli özyineleme ile hesaplayan fonksiyonu tamamla.
+// İkinci test farklı sayıyla aynı kuralı denetler: n * faktöriyel(n - 1)
+// Beklenen çıktı:
+// 24
 function faktöriyel(n) {
   if (n <= 1) {
     return 1;
@@ -413,7 +465,12 @@ Zıpla!
 ``ikiKereYap`` fonksiyonuna ``zıpla`` fonksiyonunu argüman olarak verir misin?
 
 - files/main.js/.block
-// fonksiyonu parantezsiz mi parantezli mi vermeliyiz?
+// Görev: ikiKereYap fonksiyonuna zıpla fonksiyonunu argüman olarak ver.
+// Fonksiyonu PARANTEZSİZ yaz: ikiKereYap(zıpla)
+// Parantezli yazsan fonksiyon hemen çalışır ve sonucu gönderilir.
+// Beklenen çıktı:
+// Zıpla!
+// Zıpla!
 function ikiKereYap(işlem) {
   işlem();
   işlem();
@@ -455,7 +512,10 @@ console.log(uygula(5, karesi));
 Aldığı sayıyı callback'e veren ``uygula`` fonksiyonunu tamamlar mısın?
 
 - files/main.js/.block
-// sayıyı işlem fonksiyonuna verir misin?
+// Görev: Aldığı sayıyı callback fonksiyona veren uygula fonksiyonunu tamamla.
+// işlem fonksiyonuna sayı değişkenini argüman olarak geçir: işlem(sayı)
+// Beklenen çıktı:
+// 25
 function uygula(sayı, işlem) {
   return işlem(<<< ❓ >>>);
 }
@@ -469,7 +529,10 @@ console.log(uygula(5, karesi));
 
 ---------------------
 - tests/1/files/main.js/.block
-// sayıyı işlem fonksiyonuna verir misin?
+// Görev: Aldığı sayıyı callback fonksiyona veren uygula fonksiyonunu tamamla.
+// İkinci test farklı sayıyla aynı kuralı denetler: işlem(sayı)
+// Beklenen çıktı:
+// 36
 function uygula(sayı, işlem) {
   return işlem(<<< ❓ >>>);
 }
@@ -509,7 +572,10 @@ Ortalama: 25
 Dizinin ortalamasını döndüren fonksiyonu yazar mısın?
 
 - files/main.js/.block
-// ortalamayı hesaplayıp döndürür müsün?
+// Görev: Dizinin ortalamasını döndüren ortalamaAl fonksiyonunu tamamla.
+// Toplamı eleman sayısına bölmek için bölme operatörünü yaz: toplam / sayılar.length
+// Beklenen çıktı:
+// Ortalama: 25
 function ortalamaAl(sayılar) {
   let toplam = 0;
   for (const sayı of sayılar) {
@@ -524,7 +590,10 @@ Ortalama: 25
 
 ---------------------
 - tests/1/files/main.js/.block
-// ortalamayı hesaplayıp döndürür müsün?
+// Görev: Dizinin ortalamasını döndüren ortalamaAl fonksiyonunu tamamla.
+// İkinci test farklı diziyle aynı kuralı denetler: toplam / sayılar.length
+// Beklenen çıktı:
+// Ortalama: 10
 function ortalamaAl(sayılar) {
   let toplam = 0;
   for (const sayı of sayılar) {

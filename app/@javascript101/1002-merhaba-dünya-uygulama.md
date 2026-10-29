@@ -28,7 +28,12 @@ Birinci satır
 yazar mısın?
 
 - files/main.js/.block
-// iki metni alt alta yazdırır mısın?
+// Görev: "Birinci satır" ve "İkinci satır" metnini İKİ SATIR olarak yazdır.
+// İki metnin arasına \n kaçış karakterini yaz (ters bölü + n).
+// Tek console.log() çağrısı ile iki satır elde edilir.
+// Beklenen çıktı:
+// Birinci satır
+// İkinci satır
 console.log("Birinci satır<<< ❓ >>>İkinci satır");
 ---------------------
 - tests/0/output
@@ -58,7 +63,11 @@ Ayşe	Yılmaz
 ``Şehir`` ile ``İstanbul`` arasına sekme koyan programı yazar mısın?
 
 - files/main.js/.block
-// araya bir sekme koyar mısın?
+// Görev: "Şehir" ile "İstanbul" arasına SEKME (tab) koy.
+// Sekme için \t kaçış karakterini yaz (ters bölü + t).
+// \t sütunları hizalar; ekranda geniş bir boşluk gibi görünür.
+// Beklenen çıktı:
+// Şehir	İstanbul
 console.log("Şehir<<< ❓ >>>İstanbul");
 ---------------------
 - tests/0/output
@@ -86,7 +95,11 @@ C:\Belgeler\not.txt
 Terminale ``C:\Belgeler\not.txt`` yazdıran programı yazar mısın?
 
 - files/main.js/.block
-// iki ters bölü yazarak yolu düzeltir misin?
+// Görev: Terminale C:\Belgeler\not.txt yazdır.
+// Metinde tek bir ters bölü göstermek için kaçış karakteriyle İKİ KEZ yaz: \\
+// İki boşluğa da aynı cevabı yaz; böylece dosya yolu düzgün görünür.
+// Beklenen çıktı:
+// C:\Belgeler\not.txt
 console.log("C:<<< ❓ >>>Belgeler<<< ❓ >>>not.txt");
 ---------------------
 - tests/0/output
@@ -115,7 +128,11 @@ Terminale ``Öğretmen "Merhaba" dedi.`` yazdıran programı yazar mısın? İç
 kaçış karakteri ile yazmalısın.
 
 - files/main.js/.block
-// iç tırnakları kaçış karakteri ile yazar mısın?
+// Görev: Terminale Öğretmen "Merhaba" dedi. yazdır.
+// Metnin içinde çift tırnak göstermek için \" kaçış karakterini kullan.
+// İki boşluğa da \" yaz; terminalde tırnaklar normal görünür.
+// Beklenen çıktı:
+// Öğretmen "Merhaba" dedi.
 console.log("Öğretmen <<< ❓ >>>Merhaba<<< ❓ >>> dedi.");
 ---------------------
 - tests/0/output
@@ -144,12 +161,18 @@ Merhaba Ayşe!
 ``Merhaba Mehmet!`` yazdıran programı yazar mısın?
 
 - files/main.js/.block
-// şablon metne adı yerleştirir misin?
+// Görev: Terminale "Merhaba Mehmet!" yazdır.
+// Şablon metnin ${} alanına ad DEĞİŞKENİNİ tırnaksız yaz.
+// Şablon metin geri tırnak (backtick) ile yazılır; ${} içindeki değer metne yerleşir.
+// Beklenen çıktı:
+// Merhaba Mehmet!
 let ad = "Mehmet";
 console.log(`Merhaba ${<<< ❓ >>>}!`);
 ---------------------
 - tests/0/output
 Merhaba Mehmet!
+
+- tests/0/require = "ad"
 
 ---------------------
 - parts/5:
@@ -174,7 +197,11 @@ Toplam: 60 TL
 ``Toplam: 60 TL`` yazdıran programı yazar mısın?
 
 - files/main.js/.block
-// toplam tutarı şablon metin içinde hesaplar mısın?
+// Görev: Terminale "Toplam: 60 TL" yazdır.
+// Toplamı ${} içinde hesapla: fiyat * adet
+// * operatörünü yaz; şablon metnin ${} alanı içinde hesap yapılabilir.
+// Beklenen çıktı:
+// Toplam: 60 TL
 let fiyat = 20;
 let adet = 3;
 console.log(`Toplam: ${fiyat <<< ❓ >>> adet} TL`);
@@ -184,7 +211,11 @@ Toplam: 60 TL
 
 ---------------------
 - tests/1/files/main.js/.block
-// toplam tutarı şablon metin içinde hesaplar mısın?
+// Görev: Terminale "Toplam: 60 TL" yazdır.
+// İkinci test aynı kuralı farklı değerlerle denetler: fiyat * adet hesabı.
+// Fiyat 15, adet 4; toplamı ${} içinde * operatörü ile hesapla.
+// Beklenen çıktı:
+// Toplam: 60 TL
 let fiyat = 15;
 let adet = 4;
 console.log(`Toplam: ${fiyat <<< ❓ >>> adet} TL`);
@@ -218,7 +249,13 @@ Atatürk Caddesi 12
 Çok satırlı adrese **ikinci satırı** ekler misin?
 
 - files/main.js/.block
-// adrese sokak satırını ekler misin?
+// Görev: Çok satırlı adrese ikinci satırı ekle.
+// İkinci satır şu olmalı: Atatürk Caddesi 12
+// Şablon metinde satırlar gerçek satır sonlarıyla ayrılır; \n yazmaya gerek yok.
+// Beklenen çıktı:
+// Ayşe Yılmaz
+// Atatürk Caddesi 12
+// İstanbul
 let adres = `Ayşe Yılmaz
 <<< ❓ >>>
 İstanbul`;
@@ -252,13 +289,20 @@ console.log(`${adet} adet ${ürün} aldım.`);
 ``3 adet Kalem aldım.`` yazdıran programı yazar mısın?
 
 - files/main.js/.block
-// kaç adet ve hangi ürün aldığını yazdırır mısın?
+// Görev: Terminale "3 adet Kalem aldım." yazdır.
+// Birinci ${} alanına adet, ikinci ${} alanına ürün değişkenini tırnaksız yaz.
+// Sıraya dikkat: önce adet (3), sonra ürün (Kalem).
+// Beklenen çıktı:
+// 3 adet Kalem aldım.
 let ürün = "Kalem";
 let adet = 3;
 console.log(`${<<< ❓ >>>} adet ${<<< ❓ >>>} aldım.`);
 ---------------------
 - tests/0/output
 3 adet Kalem aldım.
+
+- tests/0/require/0 = "adet"
+- tests/0/require/1 = "ürün"
 
 ---------------------
 - parts/8:
@@ -284,7 +328,12 @@ Ad  : Ayşe Yılmaz
 Kartvizitte adı ve işi **iki ayrı satırda** yazdırır mısın?
 
 - files/main.js/.block
-// satırları birbirinden ayırır mısın?
+// Görev: Kartvizitte adı ve işi İKİ AYRI satırda yazdır.
+// Satırları ayırmak için \n kaçış karakterini yaz (ters bölü + n).
+// Değerler ${} ile yerine yerleşiyor; satır sonu metnin içinde olmalı.
+// Beklenen çıktı:
+// Ad  : Ayşe Yılmaz
+// İş  : Frontend Geliştirici
 let ad = "Ayşe Yılmaz";
 let iş = "Frontend Geliştirici";
 console.log(`Ad  : ${ad}<<< ❓ >>>İş  : ${iş}`);
@@ -320,7 +369,14 @@ Toplam: 100 TL
 Etikette toplam tutarı hesaplayıp ``Toplam: 100 TL`` yazdıran programı yazar mısın?
 
 - files/main.js/.block
-// toplam tutarı şablon metin içinde hesaplar mısın?
+// Görev: Etikette toplam tutarı hesaplayıp "Toplam: 100 TL" yazdır.
+// ${} içinde toplama yap: fiyat + kdv
+// + operatörünü yaz; satırlar \n ile ayrılıyor, değerler ${} ile yerleşiyor.
+// Beklenen çıktı:
+// "Kahve" etiketi
+// Fiyat: 85 TL
+// KDV: 15 TL
+// Toplam: 100 TL
 let ürün = "Kahve";
 let fiyat = 85;
 let kdv = 15;
@@ -331,6 +387,9 @@ console.log(`"${ürün}" etiketi\nFiyat: ${fiyat} TL\nKDV: ${kdv} TL\nToplam: ${
 Fiyat: 85 TL
 KDV: 15 TL
 Toplam: 100 TL
+
+- tests/0/require/0 = "fiyat"
+- tests/0/require/1 = "kdv"
 
 ---------------------
 - parts/10:
@@ -359,7 +418,13 @@ Toplam : 300 TL
 programı yazar mısın?
 
 - files/main.js/.block
-// toplam tutarı hesaplar mısın?
+// Görev: Terminale "Etkinlik : Konser", "Kişi : 4" ve "Toplam : 300 TL" satırlarını yazdır.
+// Toplam tutarı ${} içinde hesapla: bilet * kişi
+// * operatörünü yaz; satırlar \n ile ayrılır.
+// Beklenen çıktı:
+// Etkinlik : Konser
+// Kişi : 4
+// Toplam : 300 TL
 let etkinlik = "Konser";
 let kişi = 4;
 let bilet = 75;
@@ -372,7 +437,13 @@ Toplam : 300 TL
 
 ---------------------
 - tests/1/files/main.js/.block
-// toplam tutarı hesaplar mısın?
+// Görev: Terminale "Etkinlik : Tiyatro", "Kişi : 3" ve "Toplam : 360 TL" satırlarını yazdır.
+// İkinci test aynı kuralı farklı değerlerle denetler: bilet * kişi hesabı.
+// Etkinlik Tiyatro, kişi 3, bilet 120; toplamı ${} içinde * ile hesapla.
+// Beklenen çıktı:
+// Etkinlik : Tiyatro
+// Kişi : 3
+// Toplam : 360 TL
 let etkinlik = "Tiyatro";
 let kişi = 3;
 let bilet = 120;

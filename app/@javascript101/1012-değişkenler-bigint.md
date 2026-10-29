@@ -31,7 +31,11 @@ Terminale önce ``123`` sonra ``bigint`` yazdıran programı yazar mısın? Değ
 ``n`` eklemeyi unutma, yoksa türü ``number`` olur.
 
 - files/main.js/.block
-// sonuna n ekleyerek bigint yapar mısın?
+// Görev: büyükSayı değişkenine 123n bigint değerini ver.
+// Sayının sonuna küçük n harfi yaz; n çıktıda görünmez ama typeof bigint verir.
+// Beklenen çıktı:
+// 123
+// bigint
 let büyükSayı = <<< ❓ >>>;
 console.log(büyükSayı);
 console.log(typeof büyükSayı);
@@ -64,7 +68,11 @@ bigint
 ``10`` için ``number``, ``10n`` için ``bigint`` yazdıran programı yazar mısın?
 
 - files/main.js/.block
-// 10 ve 10n değerlerinin türlerini yazar mısın?
+// Görev: Birinci satırda 10, ikinci satırda 10n değerinin türünü yazdır.
+// İki console.log() satırındaki boşluklara sırasıyla 10 ve 10n yaz; typeof türü verir.
+// Beklenen çıktı:
+// number
+// bigint
 console.log(typeof <<< ❓ >>>);
 console.log(typeof <<< ❓ >>>);
 ---------------------
@@ -95,7 +103,10 @@ Toplam: 3
 ``1n`` ile ``2n`` değerlerini toplayıp ``Toplam: 3`` yazdıran programı yazar mısın?
 
 - files/main.js/.block
-// iki bigint değeri toplar mısın?
+// Görev: elma (1n) ile armut (2n) bigint değerlerini toplayıp "Toplam: 3" yazdır.
+// Boşluğa toplama operatörünü (+) yaz; iki bigint değer + ile toplanır.
+// Beklenen çıktı:
+// Toplam: 3
 let elma = 1n;
 let armut = 2n;
 console.log("Toplam:", elma <<< ❓ >>> armut);
@@ -105,7 +116,10 @@ Toplam: 3
 
 ---------------------
 - tests/1/files/main.js/.block
-// iki bigint değeri toplar mısın?
+// Görev: elma (10n) ile armut (5n) bigint değerlerini toplayıp "Toplam: 15" yazdır.
+// İkinci test farklı sayılarla aynı kuralı denetler: + operatörü.
+// Beklenen çıktı:
+// Toplam: 15
 let elma = 10n;
 let armut = 5n;
 console.log("Toplam:", elma <<< ❓ >>> armut);
@@ -135,7 +149,10 @@ console.log(borç);
 ``5n`` değerinden ``8n`` çıkarıp terminale ``-3`` yazdıran programı yazar mısın?
 
 - files/main.js/.block
-// 8n çıkarır mısın?
+// Görev: borç (5n) değerinden 8n çıkarıp -3 sonucunu yazdır.
+// Boşluğa çıkarma operatörünü (-) yaz; sonuç negatif bir bigint olur.
+// Beklenen çıktı:
+// -3
 let borç = 5n;
 borç = borç <<< ❓ >>> 8n;
 console.log(borç);
@@ -145,7 +162,10 @@ console.log(borç);
 
 ---------------------
 - tests/1/files/main.js/.block
-// 8n çıkarır mısın?
+// Görev: borç (20n) değerinden 8n çıkarıp 12 sonucunu yazdır.
+// İkinci test farklı sayılarla aynı kuralı denetler: - operatörü.
+// Beklenen çıktı:
+// 12
 let borç = 20n;
 borç = borç <<< ❓ >>> 8n;
 console.log(borç);
@@ -175,7 +195,10 @@ Kalem sayısı: 24690
 mısın?
 
 - files/main.js/.block
-// iki bigint değeri çarpar mısın?
+// Görev: kalem (12345n) değerini 2n ile çarpıp "Kalem sayısı: 24690" yazdır.
+// Boşluğa çarpma operatörünü (*) yaz; iki taraf da bigint olmalı: 2n.
+// Beklenen çıktı:
+// Kalem sayısı: 24690
 let kalem = 12345n;
 console.log("Kalem sayısı:", kalem <<< ❓ >>> 2n);
 ---------------------
@@ -184,7 +207,10 @@ Kalem sayısı: 24690
 
 ---------------------
 - tests/1/files/main.js/.block
-// iki bigint değeri çarpar mısın?
+// Görev: kalem (111n) değerini 2n ile çarpıp "Kalem sayısı: 222" yazdır.
+// İkinci test farklı sayılarla aynı kuralı denetler: * operatörü.
+// Beklenen çıktı:
+// Kalem sayısı: 222
 let kalem = 111n;
 console.log("Kalem sayısı:", kalem <<< ❓ >>> 2n);
 - tests/1/output
@@ -214,7 +240,10 @@ Her adımda ikiye katlanan sayının 10 adım sonraki değerini ``10 kat sonra: 
 yazdıran programı yazar mısın?
 
 - files/main.js/.block
-// 2n sayısının 10. kuvvetini alır mısın?
+// Görev: tane (2n) değerinin 10n. kuvvetini alıp "10 kat sonra: 1024" yazdır.
+// Boşluğa üs alma operatörünü (**) yaz; üs de bigint olmalı: 10n.
+// Beklenen çıktı:
+// 10 kat sonra: 1024
 let tane = 2n;
 console.log("10 kat sonra:", tane <<< ❓ >>> 10n);
 ---------------------
@@ -223,7 +252,10 @@ console.log("10 kat sonra:", tane <<< ❓ >>> 10n);
 
 ---------------------
 - tests/1/files/main.js/.block
-// 3n sayısının 10. kuvvetini alır mısın?
+// Görev: tane (3n) değerinin 10n. kuvvetini alıp "10 kat sonra: 59049" yazdır.
+// İkinci test farklı tabanla aynı kuralı denetler: ** operatörü.
+// Beklenen çıktı:
+// 10 kat sonra: 59049
 let tane = 3n;
 console.log("10 kat sonra:", tane <<< ❓ >>> 10n);
 - tests/1/output
@@ -258,7 +290,12 @@ Aynı tür mü? false
 Diğer iki satır aynı kalacak.
 
 - files/main.js/.block
-// 10n, 5n'den büyük mü?
+// Görev: 10n değerinin 5n değerinden büyük olup olmadığını yazdır.
+// Boşluğa büyüktür operatörünü (>) yaz; diğer iki console.log() satırı aynı kalır.
+// Beklenen çıktı:
+// Büyük mü? true
+// Eşit mi? true
+// Aynı tür mü? false
 let a = 10n;
 let b = 5n;
 console.log("Büyük mü?", a <<< ❓ >>> b);
@@ -272,7 +309,12 @@ Aynı tür mü? false
 
 ---------------------
 - tests/1/files/main.js/.block
-// 2n, 5n'den büyük mü?
+// Görev: 2n değerinin 5n değerinden büyük olup olmadığını yazdır.
+// İkinci test farklı sayılarla aynı kuralı denetler: > operatörü.
+// Beklenen çıktı:
+// Büyük mü? false
+// Eşit mi? false
+// Aynı tür mü? false
 let a = 2n;
 let b = 5n;
 console.log("Büyük mü?", a <<< ❓ >>> b);
@@ -310,10 +352,15 @@ Güvenli en büyük tam sayıyı, türünü ve bigint ile sınırın üstündeki
 programı yazar mısın?
 
 - files/main.js/.block
-// güvenli en büyük tam sayıyı yazar mısın?
+// Görev: Güvenli en büyük tam sayıyı, türünü ve sınırın üstünde bir bigint sayı yazdır.
+// İlk boşluğa Number.MAX_SAFE_INTEGER yaz; ikinci boşluğa 9007199254740993 yaz.
+// Beklenen çıktı:
+// 9007199254740991
+// number
+// 9007199254740993
 console.log(<<< ❓ >>>);
 console.log(typeof Number.MAX_SAFE_INTEGER);
-// bigint ile sınırın üstüne çıkar mısın?
+// İkinci boşluğa 9007199254740993 yaz; sonundaki n harfi değeri bigint yapar.
 console.log(<<< ❓ >>>n);
 ---------------------
 - tests/0/output
@@ -348,7 +395,11 @@ bigint
 mısın?
 
 - files/main.js/.block
-// metni bigint'e çevirir misin?
+// Görev: "9007199254740993" metnini BigInt() ile gerçek bir bigint değerine çevir.
+// Boşluğa BigInt fonksiyonunun adını yaz; çıktı 9007199254740993 olur, türü bigint.
+// Beklenen çıktı:
+// 9007199254740993
+// bigint
 let metin = "9007199254740993";
 let sayı = <<< ❓ >>>(metin);
 console.log(sayı);
@@ -360,7 +411,11 @@ bigint
 
 ---------------------
 - tests/1/files/main.js/.block
-// metni bigint'e çevirir misin?
+// Görev: "123456789012345678901234567890" metnini BigInt() ile bigint'e çevir.
+// İkinci test çok daha uzun bir metinle aynı kuralı denetler: BigInt(metin).
+// Beklenen çıktı:
+// 123456789012345678901234567890
+// bigint
 let metin = "123456789012345678901234567890";
 let sayı = <<< ❓ >>>(metin);
 console.log(sayı);
@@ -391,27 +446,39 @@ string
 
 # 🎯 10. Görev
 
-``123n`` değerini metne çevirip ``Metin: 123`` ve ``string`` yazdıran programı yazar
-mısın?
+``123n`` değerini ``String()`` ile metne çevirip ``Metin: 123`` ve ``string`` yazdıran
+programı yazar mısın?
 
 - files/main.js/.block
-// bigint değeri metne çevirir misin?
+// Görev: büyük (123n) bigint değerini String() ile metne çevirip "Metin: 123" yazdır.
+// console.log() içindeki boşluğa String(büyük) yaz; türü de string olur.
+// Beklenen çıktı:
+// Metin: 123
+// string
 let büyük = 123n;
-console.log("Metin:", <<< ❓ >>>(büyük));
+console.log("Metin:", <<< ❓ >>>);
 console.log(typeof String(büyük));
 ---------------------
 - tests/0/output
 Metin: 123
 string
 
+- tests/0/require = "String("
+
 ---------------------
 - tests/1/files/main.js/.block
-// bigint değeri metne çevirir misin?
+// Görev: büyük (42n) bigint değerini String() ile metne çevirip "Metin: 42" yazdır.
+// İkinci test farklı değerle aynı kuralı denetler: String(büyük) fonksiyonu.
+// Beklenen çıktı:
+// Metin: 42
+// string
 let büyük = 42n;
-console.log("Metin:", <<< ❓ >>>(büyük));
+console.log("Metin:", <<< ❓ >>>);
 console.log(typeof String(büyük));
 - tests/1/output
 Metin: 42
 string
+
+- tests/1/require = "String("
 
 ---------------------

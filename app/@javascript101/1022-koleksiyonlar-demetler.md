@@ -29,7 +29,10 @@ console.log(renkler);
 ``renkler`` dizisinin ilk elemanını ``"mavi"`` yapan programı yazar mısın?
 
 - files/main.js/.block
-// ilk rengi "mavi" yapar mısın?
+// Görev: renkler dizisinin ilk elemanını "mavi" yap.
+// Index 0 ilk elemandır: renkler[0] = "mavi" yaz. const dizide eleman güncellenebilir.
+// Beklenen çıktı:
+// [ 'mavi', 'yeşil' ]
 const renkler = ["kırmızı", "yeşil"];
 renkler[0] = <<< ❓ >>>;
 console.log(renkler);
@@ -63,7 +66,11 @@ console.log(sayılar.length);
 ``sayılar`` dizisinin sonuna ``4`` ekleyen programı yazar mısın?
 
 - files/main.js/.block
-// diziye 4 ekler misin?
+// Görev: sayılar dizisinin sonuna 4 ekle.
+// .push(değer) dizinin sonuna eleman ekler: sayılar.push(4). 4 sayıdır, tırnak kullanma.
+// Beklenen çıktı:
+// [ 1, 2, 3, 4 ]
+// 4
 const sayılar = [1, 2, 3];
 sayılar.push(<<< ❓ >>>);
 console.log(sayılar);
@@ -99,7 +106,11 @@ true
 ``[1, 2, 3]`` dizisini dondurup ``true`` yazdıran programı yazar mısın?
 
 - files/main.js/.block
-// diziyi dondurur musun?
+// Görev: [1, 2, 3] dizisini Object.freeze() ile dondur.
+// Object.freeze(dizi) diziyi dondurup aynı diziyi geri döndürür; boşluğa freeze yaz.
+// Beklenen çıktı:
+// [ 1, 2, 3 ]
+// true
 const sayılar = Object.<<< ❓ >>>([1, 2, 3]);
 console.log(sayılar);
 console.log(Object.isFrozen(sayılar));
@@ -135,7 +146,11 @@ false
 mısın?
 
 - files/main.js/.block
-// önce dondurulmuş, sonra serbest dizi
+// Görev: Önce dondurulmuş diziyi, sonra serbest diziyi Object.isFrozen() ile kontrol et.
+// Birinci boşluğa dondurulmuş, ikinci boşluğa serbest yaz; sonuçlar true ve false olur.
+// Beklenen çıktı:
+// true
+// false
 const dondurulmuş = Object.freeze(["a", "b"]);
 const serbest = ["a", "b"];
 console.log(Object.isFrozen(<<< ❓ >>>));
@@ -174,7 +189,11 @@ Donmuş diziye ``4`` eklemeye ve ilk elemanı ``9`` yapmaya çalışan programı
 Terminalde dizinin hiç değişmediğini göreceksin.
 
 - files/main.js/.block
-// boşuna eklemeye ve değiştirmeye çalışır mısın?
+// Görev: Donmuş diziye 4 eklemeye ve ilk elemanı 9 yapmaya çalış.
+// dondurulmuş[3] = 4 ve dondurulmuş[0] = 9 yaz; donmuş dizide bu atamalar yok sayılır.
+// Beklenen çıktı:
+// [ 1, 2, 3 ]
+// 3
 const dondurulmuş = Object.freeze([1, 2, 3]);
 dondurulmuş[3] = <<< ❓ >>>;
 dondurulmuş[0] = <<< ❓ >>>;
@@ -184,6 +203,9 @@ console.log(dondurulmuş.length);
 - tests/0/output
 [ 1, 2, 3 ]
 3
+
+- tests/0/require/0 = "4"
+- tests/0/require/1 = "9"
 
 ---------------------
 - parts/5:
@@ -212,7 +234,11 @@ false
 Donmuş dizinin kopyasını çıkarıp sonuna ``4`` ekleyen programı yazar mısın?
 
 - files/main.js/.block
-// kopyanın sonuna 4 ekler misin?
+// Görev: Donmuş dizinin kopyasını çıkarıp sonuna 4 ekle.
+// const yeni = [...dondurulmuş, 4] yaz: yayma (...) operatörü diziyi kopyalar, aslı bozulmaz.
+// Beklenen çıktı:
+// [ 1, 2, 3, 4, 5 ]
+// false
 const dondurulmuş = Object.freeze([1, 2, 3]);
 const yeni = [<<< ❓ >>>, 4];
 yeni.push(5);
@@ -222,6 +248,8 @@ console.log(Object.isFrozen(yeni));
 - tests/0/output
 [ 1, 2, 3, 4, 5 ]
 false
+
+- tests/0/require = "...dondurulmuş"
 
 ---------------------
 - parts/6:
@@ -252,7 +280,12 @@ Sığ dondurmayı kendi gözünle gör: ``kutu.iç`` dizisine ``3`` ekleyen prog
 mısın? Dışarısı donmuş, içerisi hâlâ serbest olacak.
 
 - files/main.js/.block
-// iç diziye 3 ekler misin? (dışarısı donmuş olsa da)
+// Görev: Donmuş kutunun içindeki kutu.iç dizisine 3 ekle.
+// Object.freeze() sığ dondurur: kutu.iç.push(3) çalışır. Boşluğa push yaz.
+// Beklenen çıktı:
+// [ 1, 2, 3 ]
+// true
+// false
 const kutu = Object.freeze({ iç: [1, 2] });
 kutu.iç.<<< ❓ >>>(3);
 console.log(kutu.iç);
@@ -293,7 +326,12 @@ console.log(dondurulmuş);
 Donmuş dizinin sonuna ``[4, 5]`` ekleyen ve ilk elemanını atlayan programı yazar mısın?
 
 - files/main.js/.block
-// concat ile birleştir, slice ile ilk elemanı atla
+// Görev: Donmuş diziyi concat ile birleştir, slice ile ilk elemanı atlayan kopya çıkar.
+// dondurulmuş.concat([4, 5]) yeni dizi verir; dondurulmuş.slice(1) ilk elemanı atlar.
+// Beklenen çıktı:
+// [ 1, 2, 3, 4, 5 ]
+// [ 2, 3 ]
+// [ 1, 2, 3 ]
 const dondurulmuş = Object.freeze([1, 2, 3]);
 const büyük = dondurulmuş.<<< ❓ >>>([4, 5]);
 const kısmi = dondurulmuş.<<< ❓ >>>(1);
@@ -335,7 +373,12 @@ true
 oluşturan programı yazar mısın?
 
 - files/main.js/.block
-// başlangıç listesini bozmadan yeni sepet yapar mısın?
+// Görev: başlangıç listesini bozmadan "peynir" ürününü de içeren yeni bir sepet oluştur.
+// const sepet = [...başlangıç, "peynir"] yaz: yayma (...) donmuş diziyi kopyalar.
+// Beklenen çıktı:
+// [ 'ekmek', 'süt', 'peynir' ]
+// true
+// 2
 const başlangıç = Object.freeze(["ekmek", "süt"]);
 const sepet = [<<< ❓ >>>, "peynir"];
 console.log(sepet);
@@ -346,5 +389,7 @@ console.log(başlangıç.length);
 [ 'ekmek', 'süt', 'peynir' ]
 true
 2
+
+- tests/0/require = "...başlangıç"
 
 ---------------------

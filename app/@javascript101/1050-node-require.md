@@ -28,7 +28,10 @@ dersler/notlar.txt
 programı yazar mısın? Terminale ``dersler/notlar.txt`` yazmalı.
 
 - files/main.js/.block
-// path çekirdek modülünü yükler misin?
+// Görev: path çekirdek modülünü require ile yükle.
+// Çekirdek modül adı çift tırnak içinde yazılır: require("path")
+// Beklenen çıktı:
+// dersler/notlar.txt
 const path = require(<<< ❓ >>>);
 console.log(path.join("dersler", "notlar.txt"));
 ---------------------
@@ -61,7 +64,11 @@ Yoldan dosya adını alan ve uzantıyı yazdıran programı yazar mısın? Çık
 ve ``.png`` olmalı.
 
 - files/main.js/.block
-// yolun dosya adını veren fonksiyonu tamamlar mısın?
+// Görev: yolun dosya adını veren path metodunu tamamla.
+// Yolun son parçasını (dosya adını) path.basename verir; uzantıyı ise path.extname verir.
+// Beklenen çıktı:
+// notlar.txt
+// .png
 const path = require("path");
 console.log(path.<<< ❓ >>>("/app/ders/notlar.txt"));
 console.log(path.extname("resim.png"));
@@ -72,7 +79,11 @@ notlar.txt
 
 ---------------------
 - tests/1/files/main.js/.block
-// yolun dosya adını veren fonksiyonu tamamlar mısın?
+// Görev: yolun dosya adını veren path metodunu tamamla.
+// İkinci test farklı yolla aynı kuralı denetler: dosya adını path.basename verir.
+// Beklenen çıktı:
+// rapor.pdf
+// .mp3
 const path = require("path");
 console.log(path.<<< ❓ >>>("/app/belge/rapor.pdf"));
 console.log(path.extname("ses.mp3"));
@@ -111,12 +122,16 @@ module.exports = { topla };
 ``5`` olarak yazdırır mısın?
 
 - files/main.js/.block
-// yanındaki hesap.js dosyasını yükler misin?
+// Görev: yanındaki hesap.js dosyasını require ile yükle.
+// Göreli dosya "./" ile çağrılır: require("./hesap.js")
+// Beklenen çıktı:
+// 5
 const { topla } = require(<<< ❓ >>>);
 console.log(topla(2, 3));
 
 - files/hesap.js/.block
-// iki sayıyı toplayan ifadeyi tamamlar mısın?
+// Görev: iki sayıyı toplayan ifadeyi tamamla.
+// topla fonksiyonu a + b döndürsün; sonuç module.exports ile dışa aktarılır.
 function topla(a, b) {
   return <<< ❓ >>>;
 }
@@ -153,12 +168,16 @@ module.exports = (a, b) => a * b;
 ``carp(4, 5)`` sonucunu ``20`` olarak yazdırsın; iki dosyayı da tamamlar mısın?
 
 - files/main.js/.block
-// yanındaki hesap.js dosyasını yükler misin?
+// Görev: yanındaki hesap.js dosyasını require ile yükle.
+// Dosya tek bir fonksiyon dışa aktarıyorsa const carp = require("./hesap.js") yeterlidir.
+// Beklenen çıktı:
+// 20
 const carp = require(<<< ❓ >>>);
 console.log(carp(4, 5));
 
 - files/hesap.js/.block
-// çarpma yapan ok fonksiyonu tamamlar mısın?
+// Görev: çarpma yapan ok fonksiyonu tamamla.
+// module.exports = (a, b) => a * b yaz; dosya doğrudan fonksiyonu dışa aktarır.
 module.exports = (a, b) => <<< ❓ >>>;
 
 - tests/0/output
@@ -198,12 +217,16 @@ module.exports = { topla, cikar };
 ``cikar(10, 4)`` sonucunu ``6`` olarak yazdırsın.
 
 - files/main.js/.block
-// sadece çıkarma fonksiyonunu seçer misin?
+// Görev: yanındaki hesap.js dosyasından yalnızca çıkarma fonksiyonunu seç.
+// Süslü parantezle seçmeli alma: const { cikar } = require("./hesap.js")
+// Beklenen çıktı:
+// 6
 const { <<< ❓ >>> } = require("./hesap.js");
 console.log(cikar(10, 4));
 
 - files/hesap.js/.block
-// iki fonksiyonu birden dışa aktarır mısın?
+// Görev: iki fonksiyonu birden dışa aktar.
+// module.exports = { topla, cikar } yazımı iki fonksiyonu da dışa aktarır.
 function topla(a, b) {
   return a + b;
 }
@@ -251,13 +274,18 @@ exports.carp = function (a, b) {
 tamamını alan ve eksik operatörü tamamlayan programı yazar mısın?
 
 - files/main.js/.block
-// modülün tamamını alıp çarpma fonksiyonunu kullandırır mısın?
+// Görev: modülün tamamını alıp çarpma fonksiyonunu çağır.
+// const hesap = require("./hesap.js") ile nesnenin tamamı alınır: hesap.carp(3, 4)
+// Beklenen çıktı:
+// 7
+// 12
 const hesap = require("./hesap.js");
 console.log(hesap.topla(3, 4));
 console.log(hesap.<<< ❓ >>>(3, 4));
 
 - files/hesap.js/.block
-// çarpma fonksiyonundaki operatörü tamamlar mısın?
+// Görev: çarpma fonksiyonundaki operatörü tamamla.
+// exports.carp içinde a * b döndür; exports.topla = ... yazımı module.exports.topla ile aynıdır.
 exports.topla = function (a, b) {
   return a + b;
 };
@@ -271,7 +299,11 @@ exports.carp = function (a, b) {
 
 ---------------------
 - tests/1/files/main.js/.block
-// modülün tamamını alıp çarpma fonksiyonunu kullandırır mısın?
+// Görev: modülün tamamını alıp çarpma fonksiyonunu çağır.
+// İkinci test farklı sayılarla aynı kuralı denetler: hesap.carp(2, 5)
+// Beklenen çıktı:
+// 30
+// 10
 const hesap = require("./hesap.js");
 console.log(hesap.topla(10, 20));
 console.log(hesap.<<< ❓ >>>(2, 5));
@@ -309,7 +341,11 @@ Ankara
 mısın? Çıktı ``Türkiye`` ve ``Ankara`` olmalı.
 
 - files/main.js/.block
-// json dosyasını yükler misin?
+// Görev: veri.json dosyasını require ile yükle.
+// JSON dosyası require("./veri.json") ile otomatik olarak JSON.parse edilir.
+// Beklenen çıktı:
+// Türkiye
+// Ankara
 const veri = require(<<< ❓ >>>);
 console.log(veri.ad);
 console.log(veri.baskent);
@@ -353,13 +389,18 @@ main.js bitti
 yazsın, ardından ``main.js bitti`` gelsin. İki dosyayı tamamlar mısın?
 
 - files/main.js/.block
-// ikinci require çağrısını tamamlar mısın?
+// Görev: sayac.js dosyasını ikinci kez require et.
+// Aynı dosya iki kez require edilse de Node.js kodu yalnızca bir kez çalıştırır (önbellek).
+// Beklenen çıktı:
+// sayac.js yüklendi
+// main.js bitti
 require("./sayac.js");
 require(<<< ❓ >>>);
 console.log("main.js bitti");
 
 - files/sayac.js/.block
-// yüklendiğini bildiren mesajı tamamlar mısın?
+// Görev: yüklendiğini bildiren mesajı tamamla.
+// console.log("sayac.js yüklendi") yaz; modül önbelleğe alındığı için mesaj bir kez çıkar.
 console.log(<<< ❓ >>>);
 module.exports = "hazır";
 
@@ -403,13 +444,17 @@ Sepetteki elma ve armut değerlerini ``topla`` fonksiyonuna verip ``Toplam: 20 T
 yazdıran programı üç dosyada da tamamlar mısın?
 
 - files/main.js/.block
-// sepetteki değerleri toplama fonksiyonuna verir misin?
+// Görev: sepetteki değerleri topla fonksiyonuna ver.
+// JSON'dan gelen değerler sepet.elma ve sepet.armut alanlarında durur.
+// Beklenen çıktı:
+// Toplam: 20 TL
 const { topla } = require("./hesap.js");
 const sepet = require("./sepet.json");
 console.log("Toplam:", topla(<<< ❓ >>>, <<< ❓ >>>), "TL");
 
 - files/hesap.js/.block
-// toplama ifadesini tamamlar mısın?
+// Görev: toplama ifadesini tamamla.
+// topla fonksiyonu a + b döndürsün; sonuç module.exports ile dışa aktarılır.
 function topla(a, b) {
   return <<< ❓ >>>;
 }
@@ -420,6 +465,9 @@ module.exports = { topla };
 
 - tests/0/output
 Toplam: 20 TL
+
+- tests/0/require/0 = "sepet.elma"
+- tests/0/require/1 = "sepet.armut"
 
 ---------------------
 - parts/9:
@@ -455,13 +503,18 @@ Giriş dosyasının adını ve selam mesajını yazdıran programı tamamlar mı
 ``Çalışan dosya: main.js`` ve ``Merhaba Kodluyo!`` olmalı.
 
 - files/main.js/.block
-// yanındaki mesaj.js dosyasını yükler misin?
+// Görev: yanındaki mesaj.js dosyasını require ile yükle.
+// Göreli dosya require("./mesaj.js") ile çağrılır; selamla seçmeli olarak alınır.
+// Beklenen çıktı:
+// Çalışan dosya: main.js
+// Merhaba Kodluyo!
 const { selamla } = require(<<< ❓ >>>);
 console.log("Çalışan dosya:", module.id);
 console.log(selamla("Kodluyo"));
 
 - files/mesaj.js/.block
-// selam mesajındaki değişkeni tamamlar mısın?
+// Görev: selam mesajındaki değişkeni tamamla.
+// "Merhaba " + ad + "!" ifadesinde ad parametresi kullanılır; sonuç modül olarak dışa aktarılır.
 function selamla(ad) {
   return "Merhaba " + <<< ❓ >>> + "!";
 }
@@ -507,13 +560,17 @@ module.exports = { kdvli };
 tamamlar mısın?
 
 - files/main.js/.block
-// fatura tutarını hesaplama fonksiyonuna verir misin?
+// Görev: fatura tutarını hesaplama fonksiyonuna ver.
+// JSON dosyasındaki ham tutar fatura.tutar alanında durur.
+// Beklenen çıktı:
+// Ödenecek: 120 TL
 const { kdvli } = require("./hesap.js");
 const fatura = require("./fatura.json");
 console.log("Ödenecek:", kdvli(<<< ❓ >>>), "TL");
 
 - files/hesap.js/.block
-// KDV ekleyen operatörü tamamlar mısın?
+// Görev: KDV ekleyen operatörü tamamla.
+// kdvli fonksiyonu tutar * 1.2 döndürsün; böylece %20 KDV eklenmiş olur.
 function kdvli(tutar) {
   return tutar <<< ❓ >>> 1.2;
 }
@@ -524,5 +581,7 @@ module.exports = { kdvli };
 
 - tests/0/output
 Ödenecek: 120 TL
+
+- tests/0/require = "fatura.tutar"
 
 ---------------------

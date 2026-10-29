@@ -28,7 +28,10 @@ console.log(kare(3));
 programı yazar mısın?
 
 - files/main.js/.block
-// x'in karesini döndüren ok fonksiyonunu tamamlar mısın?
+// Görev: x'in karesini döndüren ok fonksiyonunu tamamla.
+// Ok işaretinin (=>) sağına, x'i kendisiyle çarpan ifadeyi yaz: x * x
+// Beklenen çıktı:
+// 9
 const kare = (x) => <<< ❓ >>>;
 console.log(kare(3));
 ---------------------
@@ -37,7 +40,10 @@ console.log(kare(3));
 
 ---------------------
 - tests/1/files/main.js/.block
-// x'in karesini döndüren ok fonksiyonunu tamamlar mısın?
+// Görev: x'in karesini döndüren ok fonksiyonunu tamamla.
+// İkinci test farklı sayıyla aynı kuralı denetler: sağ taraf yine x * x olmalı.
+// Beklenen çıktı:
+// 25
 const kare = (x) => <<< ❓ >>>;
 console.log(kare(5));
 - tests/1/output
@@ -67,7 +73,10 @@ Merhaba Ali
 çalışsın; mesajı ok fonksiyonun içinde oluşturur musun?
 
 - files/main.js/.block
-// selamla fonksiyonunu tamamlar mısın?
+// Görev: selamla ok fonksiyonu verilen adla selam mesajı döndürsün.
+// Çift tırnaklı "Merhaba " metnini + operatörü ile ad parametresine ekle.
+// Beklenen çıktı:
+// Merhaba Ali
 const selamla = ad => <<< ❓ >>>;
 console.log(selamla("Ali"));
 ---------------------
@@ -76,7 +85,10 @@ Merhaba Ali
 
 ---------------------
 - tests/1/files/main.js/.block
-// selamla fonksiyonunu tamamlar mısın?
+// Görev: selamla ok fonksiyonu verilen adla selam mesajı döndürsün.
+// İkinci test farklı adla aynı kuralı denetler: "Merhaba " + ad.
+// Beklenen çıktı:
+// Merhaba Zeynep
 const selamla = ad => <<< ❓ >>>;
 console.log(selamla("Zeynep"));
 - tests/1/output
@@ -106,7 +118,10 @@ Toplam: 7
 versin. ``return`` yazmadan toplamayı yapar mısın?
 
 - files/main.js/.block
-// örtük return ile toplamayı tamamlar mısın?
+// Görev: topla ok fonksiyonu iki sayının toplamını örtük return ile döndürsün.
+// return yazmadan a + b ifadesini ok işaretinin (=>) sağına yaz.
+// Beklenen çıktı:
+// Toplam: 7
 const topla = (a, b) => <<< ❓ >>>;
 console.log("Toplam:", topla(3, 4));
 ---------------------
@@ -115,7 +130,10 @@ Toplam: 7
 
 ---------------------
 - tests/1/files/main.js/.block
-// örtük return ile toplamayı tamamlar mısın?
+// Görev: topla ok fonksiyonu iki sayının toplamını örtük return ile döndürsün.
+// İkinci test farklı sayılarla aynı kuralı denetler: a + b.
+// Beklenen çıktı:
+// Toplam: 30
 const topla = (a, b) => <<< ❓ >>>;
 console.log("Toplam:", topla(10, 20));
 - tests/1/output
@@ -148,7 +166,10 @@ console.log(ortalama(4, 10));
 yazar mısın?
 
 - files/main.js/.block
-// ortalamayı döndüren satırı tamamlar mısın?
+// Görev: ortalama fonksiyonunda toplamı ikiye bölen satırı yaz.
+// Blok gövdede değer döndürmek için return anahtar kelimesini kullan: return toplam / 2
+// Beklenen çıktı:
+// 7
 const ortalama = (a, b) => {
   const toplam = a + b;
   <<< ❓ >>>;
@@ -160,7 +181,10 @@ console.log(ortalama(4, 10));
 
 ---------------------
 - tests/1/files/main.js/.block
-// ortalamayı döndüren satırı tamamlar mısın?
+// Görev: ortalama fonksiyonunda toplamı ikiye bölen satırı yaz.
+// İkinci test farklı sayılarla aynı kuralı denetler: return toplam / 2
+// Beklenen çıktı:
+// 15
 const ortalama = (a, b) => {
   const toplam = a + b;
   <<< ❓ >>>;
@@ -192,7 +216,11 @@ Parametre almayan ``selam`` fonksiyonu ``Merhaba dünya!`` yazsın. Boş parante
 mesajı yerleştirir misin?
 
 - files/main.js/.block
-// parametresiz ok fonksiyonu tamamlar mısın?
+// Görev: parametre almayan selam ok fonksiyonu "Merhaba dünya!" döndürsün.
+// İlk boşluğa boş parametre parantezlerini () yaz; ikinci boşluğa Merhaba dünya!
+// metnini yaz (tırnaklar şablonda hazır). Parametre yoksa da parantez zorunludur.
+// Beklenen çıktı:
+// Merhaba dünya!
 const selam = <<< ❓ >>> => "<<< ❓ >>>";
 console.log(selam());
 ---------------------
@@ -223,7 +251,10 @@ console.log(kisi("Zeynep", 28));
 döndüren kısa gövdeyi tamamlar mısın?
 
 - files/main.js/.block
-// nesne döndüren ok fonksiyonu tamamlar mısın?
+// Görev: kisi ok fonksiyonu { ad: 'Zeynep', yas: 28 } nesnesini döndürsün.
+// Nesneyi parantez içine alarak döndür: ({ ad: ad, yas: yas })
+// Beklenen çıktı:
+// { ad: 'Zeynep', yas: 28 }
 const kisi = (ad, yas) => <<< ❓ >>>;
 console.log(kisi("Zeynep", 28));
 ---------------------
@@ -232,7 +263,10 @@ console.log(kisi("Zeynep", 28));
 
 ---------------------
 - tests/1/files/main.js/.block
-// nesne döndüren ok fonksiyonu tamamlar mısın?
+// Görev: kisi ok fonksiyonu { ad: 'Mert', yas: 35 } nesnesini döndürsün.
+// İkinci test farklı değerlerle aynı kuralı denetler: ({ ad: ad, yas: yas })
+// Beklenen çıktı:
+// { ad: 'Mert', yas: 35 }
 const kisi = (ad, yas) => <<< ❓ >>>;
 console.log(kisi("Mert", 35));
 - tests/1/output
@@ -263,7 +297,10 @@ console.log(ikiKat);
 yazar mısın?
 
 - files/main.js/.block
-// her elemanı ikiye katlayan geri çağrıyı tamamlar mısın?
+// Görev: sayilar dizisindeki her elemanı ikiye katlayan map geri çağrısını yaz.
+// Ok fonksiyonun sağına n * 2 ifadesini yaz; map sonuçlardan yeni bir dizi üretir.
+// Beklenen çıktı:
+// [ 2, 4, 6 ]
 const sayilar = [1, 2, 3];
 const ikiKat = sayilar.map((n) => <<< ❓ >>>);
 console.log(ikiKat);
@@ -273,7 +310,10 @@ console.log(ikiKat);
 
 ---------------------
 - tests/1/files/main.js/.block
-// her elemanı ikiye katlayan geri çağrıyı tamamlar mısın?
+// Görev: sayilar dizisindeki her elemanı ikiye katlayan map geri çağrısını yaz.
+// İkinci test farklı dizilerle aynı kuralı denetler: n * 2
+// Beklenen çıktı:
+// [ 10, 20, 30 ]
 const sayilar = [5, 10, 15];
 const ikiKat = sayilar.map((n) => <<< ❓ >>>);
 console.log(ikiKat);
@@ -305,7 +345,10 @@ Dizideki çift sayıları seçip ``[ 4, 10, 20 ]`` yazdıran programı yazar mı
 karşılaştırma operatörünü yerleştir.
 
 - files/main.js/.block
-// çift sayıları seçen koşulu tamamlar mısın?
+// Görev: yalnızca çift sayıları seçen filter koşulunu tamamla.
+// Elemanın 2'ye bölümünden kalanı (n % 2) 0 ile karşılaştır; katı eşitlik için === kullan.
+// Beklenen çıktı:
+// [ 4, 10, 20 ]
 const sayilar = [4, 7, 10, 13, 20];
 const ciftler = sayilar.filter((n) => n % 2 <<< ❓ >>> 0);
 console.log(ciftler);
@@ -315,7 +358,10 @@ console.log(ciftler);
 
 ---------------------
 - tests/1/files/main.js/.block
-// çift sayıları seçen koşulu tamamlar mısın?
+// Görev: yalnızca çift sayıları seçen filter koşulunu tamamla.
+// İkinci test farklı dizilerle aynı kuralı denetler: kalanı 0 ile katı eşitlikle (===) karşılaştır.
+// Beklenen çıktı:
+// [ 6, 12 ]
 const sayilar = [6, 9, 12, 15];
 const ciftler = sayilar.filter((n) => n % 2 <<< ❓ >>> 0);
 console.log(ciftler);
@@ -346,7 +392,10 @@ console.log(sonuc);
 ``[ 500, 800 ]`` yazmalı.
 
 - files/main.js/.block
-// seçilen fiyatları ikiye katlayan geri çağrıyı tamamlar mısın?
+// Görev: 150'den büyük fiyatları seçip kalanları ikiye katla.
+// map geri çağrısının sağına f * 2 ifadesini yaz; filter önce elemanları süzer.
+// Beklenen çıktı:
+// [ 500, 800 ]
 const fiyatlar = [100, 250, 400];
 const sonuc = fiyatlar.filter((f) => f > 150).map((f) => <<< ❓ >>>);
 console.log(sonuc);
@@ -356,7 +405,10 @@ console.log(sonuc);
 
 ---------------------
 - tests/1/files/main.js/.block
-// seçilen fiyatları ikiye katlayan geri çağrıyı tamamlar mısın?
+// Görev: 150'den büyük fiyatları seçip kalanları ikiye katla.
+// İkinci test farklı fiyatlarla aynı kuralı denetler: f * 2
+// Beklenen çıktı:
+// [ 400, 640 ]
 const fiyatlar = [80, 200, 320];
 const sonuc = fiyatlar.filter((f) => f > 150).map((f) => <<< ❓ >>>);
 console.log(sonuc);
@@ -387,7 +439,10 @@ console.log(toplam);
 ``[10, 20, 30, 40]`` dizisinin toplamını ``100`` olarak yazdıran programı yazar mısın?
 
 - files/main.js/.block
-// biriktiriciye elemanları ekleyen operatörü tamamlar mısın?
+// Görev: dizinin elemanlarını biriktiriciye ekleyen operatörü tamamla.
+// reduce geri çağrısında acc + n yaz; 0 başlangıç değeridir.
+// Beklenen çıktı:
+// 100
 const sayilar = [10, 20, 30, 40];
 const toplam = sayilar.reduce((acc, n) => acc <<< ❓ >>> n, 0);
 console.log(toplam);
@@ -397,7 +452,10 @@ console.log(toplam);
 
 ---------------------
 - tests/1/files/main.js/.block
-// biriktiriciye elemanları ekleyen operatörü tamamlar mısın?
+// Görev: dizinin elemanlarını biriktiriciye ekleyen operatörü tamamla.
+// İkinci test farklı dizilerle aynı kuralı denetler: acc + n
+// Beklenen çıktı:
+// 45
 const sayilar = [5, 15, 25];
 const toplam = sayilar.reduce((acc, n) => acc <<< ❓ >>> n, 0);
 console.log(toplam);
@@ -441,7 +499,12 @@ Yapıcı olarak kullanılamaz: TypeError
 dıştaki fonksiyondan alsın. Boşluğu doldurup programı çalıştırır mısın?
 
 - files/main.js/.block
-// ok fonksiyonun dıştaki this değerini kullanmasını sağlar mısın?
+// Görev: içerideki ok fonksiyon dıştaki this değerini kullanıp "kalem" döndürsün.
+// Ok fonksiyonun sağına this.ad yaz; ok fonksiyonun kendi this değeri yoktur,
+// bu yüzden this değerini doğduğu kapsamdan (dıştaki fonksiyondan) alır.
+// Beklenen çıktı:
+// kalem
+// Yapıcı olarak kullanılamaz: TypeError
 const kutu = {
   ad: "kalem",
   goster: function () {
@@ -460,9 +523,15 @@ try {
 kalem
 Yapıcı olarak kullanılamaz: TypeError
 
+- tests/0/require = "this"
+
 ---------------------
 - tests/1/files/main.js/.block
-// ok fonksiyonun dıştaki this değerini kullanmasını sağlar mısın?
+// Görev: içerideki ok fonksiyon dıştaki this değerini kullanıp "defter" döndürsün.
+// İkinci test farklı veriyle aynı kuralı denetler: cevap yine this.ad olmalı.
+// Beklenen çıktı:
+// defter
+// Yapıcı olarak kullanılamaz: TypeError
 const kutu = {
   ad: "defter",
   goster: function () {
@@ -479,6 +548,8 @@ try {
 - tests/1/output
 defter
 Yapıcı olarak kullanılamaz: TypeError
+
+- tests/1/require = "this"
 
 ---------------------
 - parts/11:
@@ -504,7 +575,10 @@ Ortalama: 90
 yazar mısın?
 
 - files/main.js/.block
-// toplamı hesaplayan operatörü tamamlar mısın?
+// Görev: notlar dizisinin toplamını reduce ile hesaplayan operatörü tamamla.
+// t + n yaz; toplam notlar.length sayısına bölünerek ortalama bulunur.
+// Beklenen çıktı:
+// Ortalama: 90
 const notlar = [80, 90, 100];
 const ortalama = notlar.reduce((t, n) => t <<< ❓ >>> n, 0) / notlar.length;
 console.log("Ortalama:", ortalama);
@@ -514,7 +588,10 @@ Ortalama: 90
 
 ---------------------
 - tests/1/files/main.js/.block
-// toplamı hesaplayan operatörü tamamlar mısın?
+// Görev: notlar dizisinin toplamını reduce ile hesaplayan operatörü tamamla.
+// İkinci test farklı notlarla aynı kuralı denetler: t + n
+// Beklenen çıktı:
+// Ortalama: 70
 const notlar = [60, 70, 80];
 const ortalama = notlar.reduce((t, n) => t <<< ❓ >>> n, 0) / notlar.length;
 console.log("Ortalama:", ortalama);

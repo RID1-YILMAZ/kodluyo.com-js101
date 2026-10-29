@@ -34,7 +34,10 @@ Bir hata yakalandı, program devam ediyor.
 misin?
 
 - files/main.js/.block
-// hatayı yakalayan bloğun anahtar kelimesini tamamlar mısın?
+// Görev: try bloğundaki hatayı yakalayan catch bloğunu tamamla.
+// try/catch ikilisinde hatayı yakalayan anahtar kelime catch'tir; parantezinde hata nesnesi durur.
+// Beklenen çıktı:
+// Bir hata yakalandı, program devam ediyor.
 try {
   const kisi = undefined;
   console.log(kisi.ad);
@@ -78,7 +81,10 @@ Yaş 18'den küçükse program hatayı fırlatsın ve ``catch`` bloğu mesajı y
 ``Hata yakalandı: Yaş 18'den küçük olamaz`` yazdıran programı yazar mısın?
 
 - files/main.js/.block
-// hatayı fırlatan anahtar kelimeyi tamamlar mısın?
+// Görev: yaş 18'den küçükse hata fırlatan ifadeyi tamamla.
+// Kendi hatamızı throw new Error("mesaj") ile fırlatırız; mesaj catch bloğunda okunur.
+// Beklenen çıktı:
+// Hata yakalandı: Yaş 18'den küçük olamaz
 function girisKontrol(yas) {
   if (yas < 18) {
     <<< ❓ >>> new Error("Yaş 18'den küçük olamaz");
@@ -125,7 +131,10 @@ Stok 5'ten az olduğu için hata fırlatılıyor. ``catch`` bloğu ``Sorun: Stok
 yazsın; hatanın mesajına ulaşan alanı doldurur musun?
 
 - files/main.js/.block
-// hatanın açıklamasını veren alanı tamamlar mısın?
+// Görev: hatanın insan tarafından okunan açıklamasını yazdır.
+// catch bloğundaki hata nesnesinin açıklaması hata.message alanında durur.
+// Beklenen çıktı:
+// Sorun: Stok yetersiz
 const stok = 3;
 try {
   if (stok < 5) {
@@ -173,7 +182,11 @@ Birinci ``catch`` ``TypeError``, ikincisi ``Error`` yazsın. Hatanın türünü 
 iki yerde de doldurur musun?
 
 - files/main.js/.block
-// hatanın türünü veren alanı tamamlar mısın?
+// Görev: iki catch bloğunda da hatanın türünü veren alanı tamamla.
+// Hatanın türü hata.name alanındadır: TypeError, Error, RangeError gibi değerleri o verir.
+// Beklenen çıktı:
+// TypeError
+// Error
 try {
   const sayi = "abc";
   sayi.toFixed(2);
@@ -219,7 +232,10 @@ Ali 30
 mısın?
 
 - files/main.js/.block
-// metni nesneye çeviren fonksiyonu tamamlar mısın?
+// Görev: metni nesneye çeviren JSON.parse çağrısını tamamla.
+// JSON.parse(metin) metni JavaScript nesnesine çevirir; bozuk metinde hata fırlatır.
+// Beklenen çıktı:
+// Ali 30
 const metin = '{"ad": "Ali", "yas": 30}';
 try {
   const kisi = <<< ❓ >>>(metin);
@@ -230,6 +246,8 @@ try {
 ---------------------
 - tests/0/output
 Ali 30
+
+- tests/0/require = "JSON.parse"
 
 ---------------------
 - parts/5:
@@ -263,7 +281,11 @@ Geçerli metinde nesneyi, bozuk metinde ``Hata: SyntaxError`` değerini döndür
 ``jsonOku`` fonksiyonunu tamamlar mısın?
 
 - files/main.js/.block
-// bozuk metinde hata adını döndüren satırı tamamlar mısın?
+// Görev: bozuk metinde hatanın adını döndüren satırı tamamla.
+// Çift tırnaklı "Hata: " metnini + operatörü ile hata.name değerine ekle.
+// Beklenen çıktı:
+// { ad: 'Ali' }
+// Hata: SyntaxError
 function jsonOku(metin) {
   try {
     return JSON.parse(metin);
@@ -277,6 +299,8 @@ console.log(jsonOku("{bozuk json}"));
 - tests/0/output
 { ad: 'Ali' }
 Hata: SyntaxError
+
+- tests/0/require = "hata.name"
 
 ---------------------
 - parts/6:
@@ -318,7 +342,13 @@ Her iki çağrıda da ``İşlem bitti`` yazsın; bölme sonucu ``5``, sıfıra b
 ``Hata: Sıfıra bölünemez`` olsun. Her durumda çalışan bloğu tamamlar mısın?
 
 - files/main.js/.block
-// her durumda çalışan bloğu tamamlar mısın?
+// Görev: hata olsa da olmasa da çalışan finally bloğunu tamamla.
+// finally bloğu her durumda çalışır, return değerini değiştirmez; burada "İşlem bitti" yazdırılır.
+// Beklenen çıktı:
+// İşlem bitti
+// 5
+// İşlem bitti
+// Hata: Sıfıra bölünemez
 function bol(a, b) {
   try {
     if (b === 0) {
@@ -378,7 +408,12 @@ Uyarı: Sayı değil
 çeviren fonksiyonu tamamlar mısın?
 
 - files/main.js/.block
-// metni sayıya çeviren fonksiyonu tamamlar mısın?
+// Görev: metni sayıya çeviren Number() çağrısını tamamla.
+// Number(metin) metni sayıya çevirir; Number.isNaN() ile NaN olup olmadığı kontrol edilir.
+// Beklenen çıktı:
+// 42
+// Uyarı: Sayı değil
+// 0
 function sayiyaCevir(metin) {
   try {
     const sayi = <<< ❓ >>>(metin);
@@ -398,6 +433,8 @@ console.log(sayiyaCevir("abc"));
 42
 Uyarı: Sayı değil
 0
+
+- tests/0/require = "Number"
 
 ---------------------
 - parts/8:
@@ -429,7 +466,11 @@ Hata yakalanınca ``Yakalanan hata: Dosya bulunamadı`` yazsın, ardından progr
 biçimde devam etsin. ``catch`` bloğunun içini yazar mısın?
 
 - files/main.js/.block
-// yakalanan hatanın mesajını yazdırır mısın?
+// Görev: catch bloğunda yakalanan hatanın mesajını yazdır.
+// console.log("Yakalanan hata:", hata.message) yaz; ardından program normal devam eder.
+// Beklenen çıktı:
+// Yakalanan hata: Dosya bulunamadı
+// Program devam ediyor.
 try {
   throw new Error("Dosya bulunamadı");
 } catch (hata) {
@@ -440,6 +481,8 @@ console.log("Program devam ediyor.");
 - tests/0/output
 Yakalanan hata: Dosya bulunamadı
 Program devam ediyor.
+
+- tests/0/require = "hata.message"
 
 ---------------------
 - parts/9:
@@ -473,7 +516,11 @@ Atlandı: SyntaxError
 içini doldurup programı çalıştırır mısın?
 
 - files/main.js/.block
-// bozuk kaydı atlayan satırı yazar mısın?
+// Görev: bozuk kaydı atlayan catch satırını yaz.
+// console.log("Atlandı:", hata.name) ile hatanın adını yazdır; diğer kayıtlar okunmaya devam eder.
+// Beklenen çıktı:
+// Okundu: Ali
+// Atlandı: SyntaxError
 const kayitlar = ['{"ad": "Ali"}', "{bozuk}"];
 kayitlar.forEach((metin) => {
   try {
@@ -487,5 +534,7 @@ kayitlar.forEach((metin) => {
 - tests/0/output
 Okundu: Ali
 Atlandı: SyntaxError
+
+- tests/0/require = "hata.name"
 
 ---------------------

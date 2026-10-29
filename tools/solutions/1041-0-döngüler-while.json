@@ -9,7 +9,7 @@
     "6": { "main.js": ["continue"] },
     "7": { "main.js": ["sayı++"] },
     "8": { "main.js": ["+="] },
-    "9": { "main.js": ["10"] },
+    "9": { "main.js": ["Math.floor(sayı / 10)"] },
     "10": { "main.js": ["*="] }
   }
 }

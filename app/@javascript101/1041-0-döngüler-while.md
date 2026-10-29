@@ -36,7 +36,14 @@ while (sayı <= 5) {
 tamamen doldurman gerekiyor.
 
 - files/main.js/.block
-// 1'den 5'e kadar sayan bir while döngüsü kurar mısın?
+// Görev: 1'den 5'e kadar olan sayıları alt alta yazdır.
+// while koşulunda küçük veya eşit operatörünü kullan: sayı <= 5
+// Beklenen çıktı:
+// 1
+// 2
+// 3
+// 4
+// 5
 let sayı = 1;
 while (sayı <<< ❓ >>> 5) {
   console.log(sayı);
@@ -52,7 +59,12 @@ while (sayı <<< ❓ >>> 5) {
 
 ---------------------
 - tests/1/files/main.js/.block
-// 1'den 3'e kadar sayan bir while döngüsü kurar mısın?
+// Görev: 1'den 3'e kadar olan sayıları alt alta yazdır.
+// İkinci test aynı kuralı farklı sınırla denetler: sayı <= 3
+// Beklenen çıktı:
+// 1
+// 2
+// 3
 let sayı = 1;
 while (sayı <<< ❓ >>> 3) {
   console.log(sayı);
@@ -91,7 +103,10 @@ Toplam: 55
 ``1``den ``10``a kadar olan sayıları toplayıp ``Toplam: 55`` yazdıran programı yazar mısın?
 
 - files/main.js/.block
-// her adımda sayıyı toplama ekler misin?
+// Görev: 1'den 10'a kadar olan sayıları toplayıp "Toplam: 55" yazdır.
+// Döngü gövdesinde toplam değişkenine ekleme ataması yap: toplam += sayı
+// Beklenen çıktı:
+// Toplam: 55
 let toplam = 0;
 let sayı = 1;
 while (sayı <= 10) {
@@ -105,7 +120,10 @@ Toplam: 55
 
 ---------------------
 - tests/1/files/main.js/.block
-// her adımda sayıyı toplama ekler misin?
+// Görev: 1'den 5'e kadar olan sayıları toplayıp "Toplam: 15" yazdır.
+// İkinci test aynı kuralı farklı sınırla denetler: toplam += sayı
+// Beklenen çıktı:
+// Toplam: 15
 let toplam = 0;
 let sayı = 1;
 while (sayı <= 5) {
@@ -148,7 +166,15 @@ Bitiş!
 ``5``ten ``1``e kadar geriye sayan, sonra ``Bitiş!`` yazan programı yazar mısın?
 
 - files/main.js/.block
-// sayaç sıfırdan büyük olduğu sürece devam etsin
+// Görev: 5'ten 1'e kadar geriye say ve sonunda "Bitiş!" yazdır.
+// while koşulunda büyüktür operatörünü kullan: sayaç > 0
+// Beklenen çıktı:
+// 5
+// 4
+// 3
+// 2
+// 1
+// Bitiş!
 let sayaç = 5;
 while (sayaç <<< ❓ >>> 0) {
   console.log(sayaç);
@@ -166,7 +192,13 @@ Bitiş!
 
 ---------------------
 - tests/1/files/main.js/.block
-// sayaç sıfırdan büyük olduğu sürece devam etsin
+// Görev: 3'ten 1'e kadar geriye say ve sonunda "Bitiş!" yazdır.
+// İkinci test aynı kuralı farklı başlangıçla denetler: sayaç > 0
+// Beklenen çıktı:
+// 3
+// 2
+// 1
+// Bitiş!
 let sayaç = 3;
 while (sayaç <<< ❓ >>> 0) {
   console.log(sayaç);
@@ -211,7 +243,14 @@ while (sayı < 10) {
 ``1``den ``10``a kadar olan **çift** sayıları alt alta yazdıran programı yazar mısın?
 
 - files/main.js/.block
-// sayının çift olup olmadığını anlar mısın?
+// Görev: 1'den 10'a kadar olan çift sayıları alt alta yazdır.
+// Çift sayı kontrolü için mod operatörünü kullan: sayı % 2 === 0
+// Beklenen çıktı:
+// 2
+// 4
+// 6
+// 8
+// 10
 let sayı = 0;
 while (sayı < 10) {
   sayı++;
@@ -234,7 +273,8 @@ while (sayı < 10) {
 
 ``do...while`` döngüsünde koşul **sonda** kontrol edilir. Bu yüzden kod **en az bir kez**
 çalışır. Aşağıdaki örnekte koşul baştan yanlış olmasına rağmen döngü gövdesi bir kez
-çalıştı ve ekrana bir satır yazdı.
+çalıştı ve ekrana bir satır yazdı. Alıştırmada döngüye bir tur sınırı ekledik; yanlış bir
+operatör yazsan bile program kilitlenmez.
 
 <code-view name="main.js" language="javascript">
 let sayı = 10;
@@ -254,24 +294,38 @@ Koşul yanlış olsa bile döngünün bir kez çalıştığı programı yazar m�
 koşulunu tamamla.
 
 - files/main.js/.block
-// koşul sonda kontrol edilir, döngü en az bir kez çalışır
+// Görev: Koşul yanlış olsa bile do...while döngüsü bir kez çalışsın.
+// while koşulunda küçüktür operatörünü kullan: sayı < 3
+// Koşul sonda kontrol edildiği için döngü en az bir kez çalışır.
+// Döngü en fazla 5 tur atar; yanlış bir operatör yazsan bile program kilitlenmez.
+// Beklenen çıktı:
+// Bir kez çalıştı: 10
 let sayı = 10;
+let tur = 0;
 do {
   console.log("Bir kez çalıştı:", sayı);
   sayı++;
-} while (sayı <<< ❓ >>> 3);
+  tur++;
+} while (sayı <<< ❓ >>> 3 && tur < 5);
 ---------------------
 - tests/0/output
 Bir kez çalıştı: 10
 
 ---------------------
 - tests/1/files/main.js/.block
-// koşul sonda kontrol edilir, döngü en az bir kez çalışır
+// Görev: do...while döngüsü koşul sondayken iki kez çalışsın.
+// while koşulunda küçüktür operatörünü kullan: sayı < 3
+// Döngü en fazla 5 tur atar; yanlış bir operatör yazsan bile program kilitlenmez.
+// Beklenen çıktı:
+// Bir kez çalıştı: 1
+// Bir kez çalıştı: 2
 let sayı = 1;
+let tur = 0;
 do {
   console.log("Bir kez çalıştı:", sayı);
   sayı++;
-} while (sayı <<< ❓ >>> 3);
+  tur++;
+} while (sayı <<< ❓ >>> 3 && tur < 5);
 - tests/1/output
 Bir kez çalıştı: 1
 Bir kez çalıştı: 2
@@ -283,7 +337,8 @@ Bir kez çalıştı: 2
 
 ``break`` döngüyü ortasında durdurur. ``while (true)`` koşulu hep doğru olduğu için tek
 başına sonsuz döngüdür; içeride ``break`` ile çıkmak yaygın bir kalıptır. Aşağıdaki örnek
-``4``e gelince döngüden çıkar.
+``4``e gelince döngüden çıkar. Alıştırmada döngüyü 10 tura sınırladık; böylece ``break``
+yazılmazsa program kilitlenmez, sadece yanlış çıktı verir.
 
 <code-view name="main.js" language="javascript">
 let sayı = 1;
@@ -307,14 +362,20 @@ while (true) {
 ``1``, ``2``, ``3`` yazdıktan sonra ``4``e gelince döngüden çıkan programı yazar mısın?
 
 - files/main.js/.block
-// 4'e gelince döngüyü sonlandırır mısın?
+// Görev: 1, 2, 3 yazdırdıktan sonra 4'e gelince döngüden çık.
+// if gövdesine break anahtar kelimesini yaz: break;
+// Döngü 10 tura sınırlı; break yazılmazsa bile program kilitlenmez.
+// Beklenen çıktı:
+// 1
+// 2
+// 3
 let sayı = 1;
-while (true) {
+while (sayı <= 10) {
+  console.log(sayı);
+  sayı++;
   if (sayı === 4) {
     <<< ❓ >>>;
   }
-  console.log(sayı);
-  sayı++;
 }
 ---------------------
 - tests/0/output
@@ -322,20 +383,29 @@ while (true) {
 2
 3
 
+- tests/0/require = "break"
+
 ---------------------
 - tests/1/files/main.js/.block
-// 3'e gelince döngüyü sonlandırır mısın?
+// Görev: 1 ve 2 yazdırdıktan sonra 3'e gelince döngüden çık.
+// if gövdesine break anahtar kelimesini yaz: break;
+// Döngü 10 tura sınırlı; break yazılmazsa bile program kilitlenmez.
+// Beklenen çıktı:
+// 1
+// 2
 let sayı = 1;
-while (true) {
+while (sayı <= 10) {
+  console.log(sayı);
+  sayı++;
   if (sayı === 3) {
     <<< ❓ >>>;
   }
-  console.log(sayı);
-  sayı++;
 }
 - tests/1/output
 1
 2
+
+- tests/1/require = "break"
 
 ---------------------
 - parts/6:
@@ -370,7 +440,14 @@ while (sayı < 5) {
 ``3`` hariç ``1``den ``5``e kadar olan sayıları yazdıran programı yazar mısın?
 
 - files/main.js/.block
-// 3'e gelince bu adımı atlar mısın?
+// Görev: 3 hariç 1'den 5'e kadar olan sayıları alt alta yazdır.
+// if gövdesine continue anahtar kelimesini yaz: continue;
+// Sayaç zaten if satırından önce artırıldığı için döngü sonsuza gitmez.
+// Beklenen çıktı:
+// 1
+// 2
+// 4
+// 5
 let sayı = 0;
 while (sayı < 5) {
   sayı++;
@@ -388,7 +465,14 @@ while (sayı < 5) {
 
 ---------------------
 - tests/1/files/main.js/.block
-// 4'e gelince bu adımı atlar mısın?
+// Görev: 4 hariç 1'den 5'e kadar olan sayıları alt alta yazdır.
+// if gövdesine continue anahtar kelimesini yaz: continue;
+// İkinci test aynı kuralı farklı adımla denetler.
+// Beklenen çıktı:
+// 1
+// 2
+// 3
+// 5
 let sayı = 0;
 while (sayı < 5) {
   sayı++;
@@ -410,7 +494,8 @@ while (sayı < 5) {
 
 Sayaç satırını yazmayı unutursan koşul hiç değişmez ve döngü **sonsuz** çalışır; program
 kilitlenir. Kural basit: döngü gövdesinde koşulu etkileyen değişkeni mutlaka değiştir.
-Aşağıdaki yorum satırı sana bu hatırlatmayı yapıyor.
+Aşağıdaki yorum satırı sana bu hatırlatmayı yapıyor. Alıştırmada döngüye bir tur sınırı
+koyduk; yine de eksik satırı yazman gerekiyor, yoksa çıktı yanlış olur.
 
 <code-view name="main.js" language="javascript">
 let sayı = 1;
@@ -433,11 +518,20 @@ Döngü bitti.
 Döngünün sonsuza gitmemesi için eksik olan sayaç satırını yazar mısın?
 
 - files/main.js/.block
-// eksik satırı yaz, yoksa döngü sonsuz çalışır!
+// Görev: Döngünün sonsuza gitmemesi için eksik olan sayaç satırını yaz.
+// Sayacı bir artırmak için sayı++ yaz.
+// Döngü en fazla 10 tur atacak şekilde sınırlandı; eksik cevap kilitlenmez.
+// Beklenen çıktı:
+// Sayaç: 1
+// Sayaç: 2
+// Sayaç: 3
+// Döngü bitti.
 let sayı = 1;
-while (sayı <= 3) {
+let tur = 0;
+while (sayı <= 3 && tur < 10) {
+  tur++;
   console.log("Sayaç:", sayı);
-  <<< ❓ >>>; // bu satır olmazsa döngü sonsuz çalışır!
+  <<< ❓ >>>;
 }
 console.log("Döngü bitti.");
 ---------------------
@@ -449,11 +543,19 @@ Döngü bitti.
 
 ---------------------
 - tests/1/files/main.js/.block
-// eksik satırı yaz, yoksa döngü sonsuz çalışır!
+// Görev: Döngünün sonsuza gitmemesi için eksik olan sayaç satırını yaz.
+// Sayacı bir artırmak için sayı++ yaz.
+// İkinci test döngüyü 2'de bitirir; güvenlik sınırı yine 10 turdur.
+// Beklenen çıktı:
+// Sayaç: 1
+// Sayaç: 2
+// Döngü bitti.
 let sayı = 1;
-while (sayı <= 2) {
+let tur = 0;
+while (sayı <= 2 && tur < 10) {
+  tur++;
   console.log("Sayaç:", sayı);
-  <<< ❓ >>>; // bu satır olmazsa döngü sonsuz çalışır!
+  <<< ❓ >>>;
 }
 console.log("Döngü bitti.");
 - tests/1/output
@@ -490,7 +592,10 @@ Toplam: 108
 Dizideki bütün sayıları toplayıp ``Toplam: 108`` yazdıran programı yazar mısın?
 
 - files/main.js/.block
-// her elemanı toplama ekler misin?
+// Görev: Dizideki bütün sayıları toplayıp "Toplam: 108" yazdır.
+// Döngü gövdesinde toplam değişkenine ekleme ataması yap: toplam += sayılar[i]
+// Beklenen çıktı:
+// Toplam: 108
 let sayılar = [4, 8, 15, 16, 23, 42];
 let toplam = 0;
 let i = 0;
@@ -505,7 +610,10 @@ Toplam: 108
 
 ---------------------
 - tests/1/files/main.js/.block
-// her elemanı toplama ekler misin?
+// Görev: Dizideki bütün sayıları toplayıp "Toplam: 6" yazdır.
+// İkinci test aynı kuralı farklı diziyle denetler: toplam += sayılar[i]
+// Beklenen çıktı:
+// Toplam: 6
 let sayılar = [1, 2, 3];
 let toplam = 0;
 let i = 0;
@@ -543,15 +651,21 @@ Basamak toplamı: 10
 # 🎯 10. Görev
 
 ``1234`` sayısının basamaklarını toplayıp ``Basamak toplamı: 10`` yazdıran programı yazar
-mısın?
+mısın? Son basamağı silen satırda ``Math.floor()`` ile ``10``a bölmeyi kullan.
 
 - files/main.js/.block
-// son basamağı silmek için 10'a böler misin?
+// Görev: 1234 sayısının basamaklarını toplayıp "Basamak toplamı: 10" yazdır.
+// Son basamağı silmek için Math.floor() ile sayıyı 10'a böl: Math.floor(sayı / 10)
+// Döngü en fazla 20 tur atar; yanlış bir satır yazsan bile program kilitlenmez.
+// Beklenen çıktı:
+// Basamak toplamı: 10
 let sayı = 1234;
 let toplam = 0;
-while (sayı > 0) {
+let tur = 0;
+while (sayı > 0 && tur < 20) {
+  tur++;
   toplam += sayı % 10;
-  sayı = Math.floor(sayı / <<< ❓ >>>);
+  sayı = <<< ❓ >>>;
 }
 console.log("Basamak toplamı:", toplam);
 ---------------------
@@ -585,7 +699,10 @@ console.log("5! =", faktöriyel);
 ``5``in faktöriyelini hesaplayıp ``5! = 120`` yazdıran programı yazar mısın?
 
 - files/main.js/.block
-// her adımda çarpım kutusunu günceller misin?
+// Görev: 5'in faktöriyelini hesaplayıp "5! = 120" yazdır.
+// Döngü gövdesinde çarpım kutusunu güncelle: faktöriyel *= n
+// Beklenen çıktı:
+// 5! = 120
 let n = 5;
 let faktöriyel = 1;
 while (n > 1) {
@@ -599,7 +716,10 @@ console.log("5! =", faktöriyel);
 
 ---------------------
 - tests/1/files/main.js/.block
-// her adımda çarpım kutusunu günceller misin?
+// Görev: 4'ün faktöriyelini hesaplayıp "4! = 24" yazdır.
+// İkinci test aynı kuralı farklı sayıyla denetler: faktöriyel *= n
+// Beklenen çıktı:
+// 4! = 24
 let n = 4;
 let faktöriyel = 1;
 while (n > 1) {

@@ -29,7 +29,10 @@ Mustafa 7 yaşında.
 yazdıran programı yazar mısın?
 
 - files/main.js/.block
-// şablon metnin içine değişkenleri yerleştir
+// Görev: ad ve yaş değişkenlerini şablon metin içinde kullanıp yazdır.
+// ${...} içine sırasıyla ad ve yaş değişkenlerini yaz; metin ters tırnak içindedir.
+// Beklenen çıktı:
+// Mustafa 7 yaşında.
 let ad = "Mustafa";
 let yaş = 7;
 console.log(`${<<< ❓ >>>} ${<<< ❓ >>>} yaşında.`);
@@ -39,7 +42,10 @@ Mustafa 7 yaşında.
 
 ---------------------
 - tests/1/files/main.js/.block
-// şablon metnin içine değişkenleri yerleştir
+// Görev: ad ve yaş değişkenlerini şablon metin içinde kullanıp yazdır.
+// İkinci test farklı değerlerle aynı kuralı denetler: ${ad} ${yaş} yerleştirmesi.
+// Beklenen çıktı:
+// Fatma 9 yaşında.
 let ad = "Fatma";
 let yaş = 9;
 console.log(`${<<< ❓ >>>} ${<<< ❓ >>>} yaşında.`);
@@ -71,7 +77,10 @@ Toplam: 750 TL
 mısın?
 
 - files/main.js/.block
-// toplam tutarı şablon metin içinde hesapla
+// Görev: fiyat ve adet değişkenlerini çarpıp "Toplam: 750 TL" yazdır.
+// ${...} içinde çarpma işlemini yaz: fiyat * adet; sonuç şablon metne yerleşir.
+// Beklenen çıktı:
+// Toplam: 750 TL
 let fiyat = 250;
 let adet = 3;
 console.log(`Toplam: ${<<< ❓ >>>} TL`);
@@ -81,7 +90,10 @@ Toplam: 750 TL
 
 ---------------------
 - tests/1/files/main.js/.block
-// toplam tutarı şablon metin içinde hesapla
+// Görev: fiyat (120) ve adet (5) değerlerini çarpıp "Toplam: 600 TL" yazdır.
+// İkinci test farklı sayılarla aynı kuralı denetler: ${fiyat * adet} ifadesi.
+// Beklenen çıktı:
+// Toplam: 600 TL
 let fiyat = 120;
 let adet = 5;
 console.log(`Toplam: ${<<< ❓ >>>} TL`);
@@ -113,7 +125,11 @@ dünya!
 programı yazar mısın?
 
 - files/main.js/.block
-// iki satırlı metni ters tırnakla yaz
+// Görev: "Merhaba" ve "dünya!" metnini iki satır halinde ters tırnakla yaz.
+// Ters tırnak (backtick) satır sonlarını korur; kodda Enter ile alt satıra geçilir.
+// Beklenen çıktı:
+// Merhaba
+// dünya!
 let mesaj = `<<< ❓ >>>`;
 console.log(mesaj);
 ---------------------
@@ -147,7 +163,11 @@ true
 yazdıran programı yazar mısın?
 
 - files/main.js/.block
-// dosya adının başlangıcını ve bitişini kontrol et
+// Görev: "rapor.pdf" dosyasının "rapor" ile başlayıp ".pdf" ile bittiğini yazdır.
+// .startsWith() ve .endsWith() metotları true ya da false döndürür.
+// Beklenen çıktı:
+// true
+// true
 let dosya = "rapor.pdf";
 console.log(dosya.<<< ❓ >>>("rapor"));
 console.log(dosya.<<< ❓ >>>(".pdf"));
@@ -158,7 +178,11 @@ true
 
 ---------------------
 - tests/1/files/main.js/.block
-// dosya adının başlangıcını ve bitişini kontrol et
+// Görev: "rapor.docx" dosyasının "rapor" ile başlayıp ".pdf" ile bitmediğini yazdır.
+// İkinci test farklı uzantıyla aynı kuralı denetler: startsWith ve endsWith.
+// Beklenen çıktı:
+// true
+// false
 let dosya = "rapor.docx";
 console.log(dosya.<<< ❓ >>>("rapor"));
 console.log(dosya.<<< ❓ >>>(".pdf"));
@@ -189,7 +213,10 @@ console.log(çizgi.repeat(12));
 yazar mısın?
 
 - files/main.js/.block
-// çizgiyi 12 kez tekrarlar mısın?
+// Görev: "=" karakterini 12 kez tekrar edip ============ yazdır.
+// .repeat(12) metni verilen sayı kadar tekrarlar ve yeni bir metin döndürür.
+// Beklenen çıktı:
+// ============
 let çizgi = "=";
 console.log(çizgi.<<< ❓ >>>(12));
 ---------------------
@@ -198,7 +225,10 @@ console.log(çizgi.<<< ❓ >>>(12));
 
 ---------------------
 - tests/1/files/main.js/.block
-// çizgiyi 10 kez tekrarlar mısın?
+// Görev: "*" karakterini 10 kez tekrar edip ********** yazdır.
+// İkinci test farklı karakter ve sayıyla aynı kuralı denetler: .repeat(10).
+// Beklenen çıktı:
+// **********
 let çizgi = "*";
 console.log(çizgi.<<< ❓ >>>(10));
 - tests/1/output
@@ -226,7 +256,10 @@ console.log(saat.padStart(2, "0") + ":00");
 ``"9"`` metnini ``"0"`` ile baştan doldurup ``09:00`` yazdıran programı yazar mısın?
 
 - files/main.js/.block
-// saat değerini iki haneye tamamla
+// Görev: "9" metnini "0" ile baştan doldurup 09:00 yazdır.
+// .padStart(2, "0") metni iki haneye tamamlar.
+// Beklenen çıktı:
+// 09:00
 let saat = "9";
 console.log(saat.<<< ❓ >>>(2, "0") + ":00");
 ---------------------
@@ -235,7 +268,10 @@ console.log(saat.<<< ❓ >>>(2, "0") + ":00");
 
 ---------------------
 - tests/1/files/main.js/.block
-// saat değerini iki haneye tamamla
+// Görev: "23" metnini iki haneye tamamlayıp 23:00 yazdır.
+// İkinci test zaten iki haneli değerle aynı kuralı denetler: .padStart(2, "0").
+// Beklenen çıktı:
+// 23:00
 let saat = "23";
 console.log(saat.<<< ❓ >>>(2, "0") + ":00");
 - tests/1/output
@@ -267,7 +303,11 @@ o
 yazar mısın?
 
 - files/main.js/.block
-// charAt ile ilk ve son karakteri al
+// Görev: "kodluyo" metninin ilk ve son karakterini .charAt() ile yazdır.
+// .charAt(0) ilk karakteri (k), .charAt(6) son karakteri (o) verir.
+// Beklenen çıktı:
+// k
+// o
 let kelime = "kodluyo";
 console.log(kelime.<<< ❓ >>>(0));
 console.log(kelime.<<< ❓ >>>(6));
@@ -278,7 +318,11 @@ o
 
 ---------------------
 - tests/1/files/main.js/.block
-// charAt ile ilk ve son karakteri al
+// Görev: "yazılım" metninin ilk ve son karakterini .charAt() ile yazdır.
+// İkinci test farklı kelimeyle aynı kuralı denetler: .charAt(0) ve .charAt(6).
+// Beklenen çıktı:
+// y
+// m
 let kelime = "yazılım";
 console.log(kelime.<<< ❓ >>>(0));
 console.log(kelime.<<< ❓ >>>(6));
@@ -310,7 +354,10 @@ JAVASCRIPT 101
 programı yazar mısın?
 
 - files/main.js/.block
-// metotları zincirleyerek kullan
+// Görev: "  JavaScript 101  " metnindeki boşlukları silip büyük harfe çevir.
+// Metotları zincirle: önce .trim(), sonra .toUpperCase(); zincir soldan sağa çalışır.
+// Beklenen çıktı:
+// JAVASCRIPT 101
 let metin = "  JavaScript 101  ";
 console.log(metin.<<< ❓ >>>().<<< ❓ >>>());
 ---------------------
@@ -319,7 +366,10 @@ JAVASCRIPT 101
 
 ---------------------
 - tests/1/files/main.js/.block
-// metotları zincirleyerek kullan
+// Görev: "  node js  " metnindeki boşlukları silip büyük harfe çevir.
+// İkinci test farklı metinle aynı kuralı denetler: trim().toUpperCase() zinciri.
+// Beklenen çıktı:
+// NODE JS
 let metin = "  node js  ";
 console.log(metin.<<< ❓ >>>().<<< ❓ >>>());
 - tests/1/output
@@ -346,26 +396,42 @@ false
 
 # 🎯 9. Görev
 
-``2024`` sayısını metne çevirip ``2024 yılı``, ``false`` değerini de metne çevirip
-``false`` yazdıran programı yazar mısın?
+``yıl`` değişkenindeki ``2024`` sayısını ve ``değer`` değişkenindeki ``false`` değerini
+``String()`` ile metne çevirip ``2024 yılı`` ve ``false`` yazdıran programı yazar mısın?
 
 - files/main.js/.block
-// sayıyı ve boolean değeri metne çevir
-console.log(<<< ❓ >>>(2024) + " yılı");
-console.log(<<< ❓ >>>(false));
+// Görev: 2024 sayısını ve false değerini String() ile metne çevirip yazdır.
+// Boşluklara String(yıl) ve String(değer) yaz; String() değerin türünü metne çevirir.
+// Beklenen çıktı:
+// 2024 yılı
+// false
+let yıl = 2024;
+let değer = false;
+console.log(<<< ❓ >>> + " yılı");
+console.log(<<< ❓ >>>);
 ---------------------
 - tests/0/output
 2024 yılı
 false
 
+- tests/0/require = "String("
+
 ---------------------
 - tests/1/files/main.js/.block
-// sayıyı ve boolean değeri metne çevir
-console.log(<<< ❓ >>>(1919) + " yılı");
-console.log(<<< ❓ >>>(true));
+// Görev: 1919 sayısını ve true değerini String() ile metne çevirip yazdır.
+// İkinci test farklı değerlerle aynı kuralı denetler: String(yıl) ve String(değer).
+// Beklenen çıktı:
+// 1919 yılı
+// true
+let yıl = 1919;
+let değer = true;
+console.log(<<< ❓ >>> + " yılı");
+console.log(<<< ❓ >>>);
 - tests/1/output
 1919 yılı
 true
+
+- tests/1/require = "String("
 
 ---------------------
 - parts/9:
@@ -392,7 +458,11 @@ console.log(Number("3.5") * 2);
 ``2`` ile çarpan programı yazar mısın?
 
 - files/main.js/.block
-// metinleri sayıya çevir
+// Görev: "42" metnini sayıya çevirip 8 ile topla, "3.5" metnini 2 ile çarp.
+// Boşluklara Number fonksiyonunu yaz: Number("42") + 8 = 50, Number("3.5") * 2 = 7.
+// Beklenen çıktı:
+// 50
+// 7
 console.log(<<< ❓ >>>("42") + 8);
 console.log(<<< ❓ >>>("3.5") * 2);
 ---------------------
@@ -402,7 +472,11 @@ console.log(<<< ❓ >>>("3.5") * 2);
 
 ---------------------
 - tests/1/files/main.js/.block
-// metinleri sayıya çevir
+// Görev: "100" metnini sayıya çevirip 8 ile topla, "1.5" metnini 2 ile çarp.
+// İkinci test farklı metinlerle aynı kuralı denetler: Number() fonksiyonu.
+// Beklenen çıktı:
+// 108
+// 3
 console.log(<<< ❓ >>>("100") + 8);
 console.log(<<< ❓ >>>("1.5") * 2);
 - tests/1/output
@@ -433,7 +507,10 @@ KODLUYO hoş geldin!
 ``KODLUYO hoş geldin!`` yazdıran programı yazar mısın?
 
 - files/main.js/.block
-// şablon metin içinde metot kullan
+// Görev: ad değişkenini büyük harfe çevirip şablon metin içinde kullan.
+// ${ad.toUpperCase()} yazarak değeri biçimlendirip cümlenin içine yerleştir.
+// Beklenen çıktı:
+// KODLUYO hoş geldin!
 let ad = "kodluyo";
 console.log(`${ad.<<< ❓ >>>()} hoş geldin!`);
 ---------------------
@@ -442,7 +519,10 @@ KODLUYO hoş geldin!
 
 ---------------------
 - tests/1/files/main.js/.block
-// şablon metin içinde metot kullan
+// Görev: ad değişkenini büyük harfe çevirip şablon metin içinde kullan.
+// İkinci test farklı değerle aynı kuralı denetler: ${ad.toUpperCase()} ifadesi.
+// Beklenen çıktı:
+// JAVASCRIPT hoş geldin!
 let ad = "javascript";
 console.log(`${ad.<<< ❓ >>>()} hoş geldin!`);
 - tests/1/output
@@ -473,7 +553,10 @@ KODLUYO v2
 ``KODLUYO v2`` yazdıran programı yazar mısın?
 
 - files/main.js/.block
-// temizle, büyüt ve sürümle birlikte yaz
+// Görev: "  kodluyo  " metnini temizleyip büyük harfe çevir ve sürümle yazdır.
+// Boşluklara sırasıyla trim ve toUpperCase metotlarını yaz; sonuç KODLUYO v2 olur.
+// Beklenen çıktı:
+// KODLUYO v2
 let ad = "  kodluyo  ";
 let sürüm = 2;
 console.log(`${ad.<<< ❓ >>>().<<< ❓ >>>()} v${sürüm}`);
@@ -483,7 +566,10 @@ KODLUYO v2
 
 ---------------------
 - tests/1/files/main.js/.block
-// temizle, büyüt ve sürümle birlikte yaz
+// Görev: "  javascript  " metnini temizleyip büyük harfe çevir ve sürümle yazdır.
+// İkinci test farklı metin ve sürümle aynı kuralı denetler: trim().toUpperCase().
+// Beklenen çıktı:
+// JAVASCRIPT v3
 let ad = "  javascript  ";
 let sürüm = 3;
 console.log(`${ad.<<< ❓ >>>().<<< ❓ >>>()} v${sürüm}`);

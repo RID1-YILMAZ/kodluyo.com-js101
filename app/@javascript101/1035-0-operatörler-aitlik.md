@@ -30,7 +30,11 @@ false
 yazdıran programı yazar mısın?
 
 - files/main.js/.block
-// anahtarın nesnede olup olmadığını kontrol eder misin?
+// Görev: "ad" ve "maaş" anahtarlarının kişi nesnesinde olup olmadığını in ile sor.
+// İki boşluğa da in operatörünü yaz: "ad" in kişi ve "maaş" in kişi.
+// Beklenen çıktı:
+// true
+// false
 let kişi = { ad: "Ayşe", yaş: 30 };
 console.log("ad" <<< ❓ >>> kişi);
 console.log("maaş" <<< ❓ >>> kişi);
@@ -39,15 +43,23 @@ console.log("maaş" <<< ❓ >>> kişi);
 true
 false
 
+- tests/0/require = "in"
+
 ---------------------
 - tests/1/files/main.js/.block
-// anahtarın nesnede olup olmadığını kontrol eder misin?
+// Görev: "fiyat" ve "stok" anahtarlarını ürün nesnesinde in ile kontrol et.
+// İkinci test aynı kuralı farklı anahtarlarla denetler: in operatörü.
+// Beklenen çıktı:
+// true
+// false
 let ürün = { ad: "Kalem", fiyat: 25 };
 console.log("fiyat" <<< ❓ >>> ürün);
 console.log("stok" <<< ❓ >>> ürün);
 - tests/1/output
 true
 false
+
+- tests/1/require = "in"
 
 ---------------------
 - parts/1:
@@ -78,7 +90,12 @@ true
 aldığı için) var olduğunu yazdıran programı yazar mısın?
 
 - files/main.js/.block
-// üç anahtarı da in ile kontrol eder misin?
+// Görev: "ad", "yazar" ve "toString" anahtarlarını kitap nesnesinde in ile kontrol et.
+// Üç boşluğa da in operatörünü yaz; toString miras alındığı için true döner.
+// Beklenen çıktı:
+// true
+// false
+// true
 let kitap = { ad: "Kürk Mantolu Madonna" };
 console.log("ad" <<< ❓ >>> kitap);
 console.log("yazar" <<< ❓ >>> kitap);
@@ -88,6 +105,8 @@ console.log("toString" <<< ❓ >>> kitap);
 true
 false
 true
+
+- tests/0/require = "in"
 
 ---------------------
 - parts/2:
@@ -115,7 +134,11 @@ false
 mısın?
 
 - files/main.js/.block
-// yalnızca kendi anahtarlarını kontrol eder misin?
+// Görev: Yalnızca nesnenin kendi anahtarlarını Object.hasOwn ile kontrol et.
+// İki boşluğa da Object.hasOwn yaz: Object.hasOwn(kitap, "ad") ve ("toString").
+// Beklenen çıktı:
+// true
+// false
 let kitap = { ad: "Kürk Mantolu Madonna" };
 console.log(<<< ❓ >>>(kitap, "ad"));
 console.log(<<< ❓ >>>(kitap, "toString"));
@@ -124,15 +147,23 @@ console.log(<<< ❓ >>>(kitap, "toString"));
 true
 false
 
+- tests/0/require = "Object.hasOwn"
+
 ---------------------
 - tests/1/files/main.js/.block
-// yalnızca kendi anahtarlarını kontrol eder misin?
+// Görev: öğrenci nesnesinin kendi anahtarlarını Object.hasOwn ile kontrol et.
+// İkinci test aynı kuralı farklı anahtarlarla denetler: Object.hasOwn.
+// Beklenen çıktı:
+// true
+// false
 let öğrenci = { ad: "Mert", sınıf: 9 };
 console.log(<<< ❓ >>>(öğrenci, "sınıf"));
 console.log(<<< ❓ >>>(öğrenci, "not"));
 - tests/1/output
 true
 false
+
+- tests/1/require = "Object.hasOwn"
 
 ---------------------
 - parts/3:
@@ -160,7 +191,11 @@ false
 mısın?
 
 - files/main.js/.block
-// dizide aradığımız değeri bulur musun?
+// Görev: meyveler dizisinde "armut" ve "karpuz" değerlerini includes ile ara.
+// İki boşluğa da includes yaz: meyveler.includes("armut") ve ("karpuz").
+// Beklenen çıktı:
+// true
+// false
 let meyveler = ["elma", "armut", "çilek"];
 console.log(meyveler.<<< ❓ >>>("armut"));
 console.log(meyveler.<<< ❓ >>>("karpuz"));
@@ -169,15 +204,23 @@ console.log(meyveler.<<< ❓ >>>("karpuz"));
 true
 false
 
+- tests/0/require = "includes"
+
 ---------------------
 - tests/1/files/main.js/.block
-// dizide aradığımız değeri bulur musun?
+// Görev: şehirler dizisinde "İzmir" ve "Adana" değerlerini includes ile ara.
+// İkinci test aynı kuralı farklı değerlerle denetler: includes metodu.
+// Beklenen çıktı:
+// true
+// false
 let şehirler = ["Ankara", "İzmir", "Bursa"];
 console.log(şehirler.<<< ❓ >>>("İzmir"));
 console.log(şehirler.<<< ❓ >>>("Adana"));
 - tests/1/output
 true
 false
+
+- tests/1/require = "includes"
 
 ---------------------
 - parts/4:
@@ -205,7 +248,11 @@ false
 yazdıran programı yazar mısın?
 
 - files/main.js/.block
-// metnin içinde bu kelime var mı?
+// Görev: cümle içinde "eğlenceli" ve "sıkıcı" kelimelerini includes ile ara.
+// İki boşluğa da includes yaz: cümle.includes("eğlenceli") ve ("sıkıcı").
+// Beklenen çıktı:
+// true
+// false
 let cümle = "JavaScript çok eğlenceli";
 console.log(cümle.<<< ❓ >>>("eğlenceli"));
 console.log(cümle.<<< ❓ >>>("sıkıcı"));
@@ -214,15 +261,23 @@ console.log(cümle.<<< ❓ >>>("sıkıcı"));
 true
 false
 
+- tests/0/require = "includes"
+
 ---------------------
 - tests/1/files/main.js/.block
-// metnin içinde bu kelime var mı?
+// Görev: cümle içinde "balık" ve "kuş" kelimelerini includes ile ara.
+// İkinci test aynı kuralı farklı kelimelerle denetler: includes metodu.
+// Beklenen çıktı:
+// true
+// false
 let cümle = "Kedi balık sever";
 console.log(cümle.<<< ❓ >>>("balık"));
 console.log(cümle.<<< ❓ >>>("kuş"));
 - tests/1/output
 true
 false
+
+- tests/1/require = "includes"
 
 ---------------------
 - parts/5:
@@ -249,7 +304,11 @@ true
 ``mesaj`` metnini küçük harfe çevirip ``dünya`` kelimesini aratan programı yazar mısın?
 
 - files/main.js/.block
-// aramadan önce metni küçük harfe çevirir misin?
+// Görev: mesaj metnini toLowerCase() ile küçük harfe çevirip "dünya" ara.
+// İkinci satırdaki boşluğa toLowerCase yaz; ilk satır harf duyarlılığı için false verir.
+// Beklenen çıktı:
+// false
+// true
 let mesaj = "Merhaba Dünya";
 console.log(mesaj.includes("dünya"));
 console.log(mesaj.<<< ❓ >>>().includes("dünya"));
@@ -258,15 +317,23 @@ console.log(mesaj.<<< ❓ >>>().includes("dünya"));
 false
 true
 
+- tests/0/require = "toLowerCase"
+
 ---------------------
 - tests/1/files/main.js/.block
-// aramadan önce metni küçük harfe çevirir misin?
+// Görev: "İyi Geceler" metnini toLowerCase() ile küçük harfe çevirip "geceler" ara.
+// İkinci test aynı kuralı farklı metinle denetler: toLowerCase metodu.
+// Beklenen çıktı:
+// false
+// true
 let mesaj = "İyi Geceler";
 console.log(mesaj.includes("geceler"));
 console.log(mesaj.<<< ❓ >>>().includes("geceler"));
 - tests/1/output
 false
 true
+
+- tests/1/require = "toLowerCase"
 
 ---------------------
 - parts/6:
@@ -297,7 +364,12 @@ true
 programı yazar mısın?
 
 - files/main.js/.block
-// değerin hangi yapıdan geldiğini sorar mısın?
+// Görev: liste ve kişi değişkenlerinin Array, kişinin ise Object olup olmadığını instanceof ile sor.
+// Üç boşluğa da instanceof operatörünü yaz: liste instanceof Array, kişi instanceof Object.
+// Beklenen çıktı:
+// true
+// false
+// true
 let liste = [1, 2, 3];
 let kişi = { ad: "Ali" };
 console.log(liste <<< ❓ >>> Array);
@@ -309,9 +381,16 @@ true
 false
 true
 
+- tests/0/require = "instanceof"
+
 ---------------------
 - tests/1/files/main.js/.block
-// değerin hangi yapıdan geldiğini sorar mısın?
+// Görev: liste ve kitap değişkenlerini Array ve Object ile instanceof kullanarak sorgula.
+// İkinci test aynı kuralı farklı değişkenlerle denetler: instanceof operatörü.
+// Beklenen çıktı:
+// true
+// false
+// true
 let liste = ["a", "b"];
 let kitap = { ad: "Nutuk" };
 console.log(liste <<< ❓ >>> Array);
@@ -321,6 +400,8 @@ console.log(kitap <<< ❓ >>> Object);
 true
 false
 true
+
+- tests/1/require = "instanceof"
 
 ---------------------
 - parts/7:
@@ -351,7 +432,12 @@ false
 ``Map`` olmadığını yazdıran programı yazar mısın?
 
 - files/main.js/.block
-// harita bir Map mi, küme bir Set mi?
+// Görev: harita bir Map mi, küme bir Set mi diye instanceof ile sor.
+// Birinci boşluğa Map, ikinci boşluğa Set yaz; üçüncü satır sabittir.
+// Beklenen çıktı:
+// true
+// true
+// false
 let harita = new Map([["a", 1]]);
 let küme = new Set([1, 2, 2]);
 console.log(harita instanceof <<< ❓ >>>);
@@ -362,6 +448,9 @@ console.log(küme instanceof Map);
 true
 true
 false
+
+- tests/0/require/0 = "Map"
+- tests/0/require/1 = "Set"
 
 ---------------------
 - parts/8:
@@ -391,7 +480,12 @@ true
 dizide bulunduğunu yazdıran programı yazar mısın?
 
 - files/main.js/.block
-// indeks için in, değer için includes kullanır mısın?
+// Görev: Dizide indeks için in, değer için includes kullan.
+// Birinci ve ikinci boşluğa in, üçüncü boşluğa includes yaz.
+// Beklenen çıktı:
+// true
+// false
+// true
 let renkler = ["kırmızı", "mavi", "yeşil"];
 console.log(0 <<< ❓ >>> renkler);
 console.log("mavi" <<< ❓ >>> renkler);
@@ -401,6 +495,9 @@ console.log(renkler.<<< ❓ >>>("mavi"));
 true
 false
 true
+
+- tests/0/require/0 = "in"
+- tests/0/require/1 = "includes"
 
 ---------------------
 - parts/9:
@@ -434,7 +531,14 @@ false
 Yukarıdaki beş cevabı sırayla yazdıran programı tamamlar mısın?
 
 - files/main.js/.block
-// beş soruyu da doğru cevaplar mısın?
+// Görev: Beş soruyu in, includes, Object.hasOwn ve instanceof ile sırayla cevapla.
+// Boşluklara sırasıyla in, in, includes, Object.hasOwn ve instanceof yaz.
+// Beklenen çıktı:
+// true
+// false
+// true
+// true
+// false
 let sepet = { ürün: "Kalem", adet: 3 };
 let renkler = ["mavi", "yeşil"];
 console.log("adet" <<< ❓ >>> sepet);
@@ -449,5 +553,10 @@ false
 true
 true
 false
+
+- tests/0/require/0 = "in"
+- tests/0/require/1 = "includes"
+- tests/0/require/2 = "Object.hasOwn"
+- tests/0/require/3 = "instanceof"
 
 ---------------------

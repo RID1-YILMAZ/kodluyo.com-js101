@@ -31,7 +31,11 @@ console.log(sayılar);
 ``[2, 4, 6, 8]`` olmalı, asıl dizi değişmemeli.
 
 - files/main.js/.block
-// her sayıyı 2 ile çarpar mısın?
+// Görev: sayılar dizisindeki her sayıyı ikiye katla, asıl dizi değişmesin.
+// sayılar.map((sayı) => sayı * 2) yaz; boşluğa çarpma (*) operatörünü koy.
+// Beklenen çıktı:
+// [ 2, 4, 6, 8 ]
+// [ 1, 2, 3, 4 ]
 const sayılar = [1, 2, 3, 4];
 const ikiKatı = sayılar.map((sayı) => sayı <<< ❓ >>> 2);
 console.log(ikiKatı);
@@ -43,7 +47,11 @@ console.log(sayılar);
 
 ---------------------
 - tests/1/files/main.js/.block
-// her sayıyı 2 ile çarpar mısın?
+// Görev: sayılar dizisindeki her sayıyı ikiye katla, asıl dizi değişmesin.
+// İkinci test aynı kuralı farklı sayılarla denetler: boşluğa yine * operatörünü koy.
+// Beklenen çıktı:
+// [ 10, 20, 4 ]
+// [ 5, 10, 2 ]
 const sayılar = [5, 10, 2];
 const ikiKatı = sayılar.map((sayı) => sayı <<< ❓ >>> 2);
 console.log(ikiKatı);
@@ -77,7 +85,10 @@ console.log(etiketler);
 mısın?
 
 - files/main.js/.block
-// sıra numarasını 1'den başlatır mısın?
+// Görev: isimleri 1. ali, 2. ayşe, 3. mehmet biçiminde numaralandır.
+// map() ikinci parametre olarak indexi verir; şablonda ${sıra + 1} yaz, index 0'dan başlar.
+// Beklenen çıktı:
+// [ '1. ali', '2. ayşe', '3. mehmet' ]
 const isimler = ["ali", "ayşe", "mehmet"];
 const etiketler = isimler.map((isim, sıra) => `${<<< ❓ >>>}. ${isim}`);
 console.log(etiketler);
@@ -87,7 +98,10 @@ console.log(etiketler);
 
 ---------------------
 - tests/1/files/main.js/.block
-// sıra numarasını 1'den başlatır mısın?
+// Görev: isimleri 1. zeynep, 2. can biçiminde numaralandır.
+// İkinci test aynı kuralı farklı isimlerle denetler: boşluğa yine sıra + 1 yaz.
+// Beklenen çıktı:
+// [ '1. zeynep', '2. can' ]
 const isimler = ["zeynep", "can"];
 const etiketler = isimler.map((isim, sıra) => `${<<< ❓ >>>}. ${isim}`);
 console.log(etiketler);
@@ -118,7 +132,10 @@ console.log(çiftler);
 ``sayılar`` dizisinden yalnızca çift sayıları seçen programı yazar mısın?
 
 - files/main.js/.block
-// yalnızca çift sayıları seçer misin?
+// Görev: sayılar dizisinden yalnızca çift sayıları seç.
+// Koşul sayı % 2 === 0 biçimindedir; boşluğa kalan (%) operatörünü yaz.
+// Beklenen çıktı:
+// [ 8, 12, 20 ]
 const sayılar = [3, 8, 12, 5, 20];
 const çiftler = sayılar.filter((sayı) => sayı <<< ❓ >>> 2 === 0);
 console.log(çiftler);
@@ -128,7 +145,10 @@ console.log(çiftler);
 
 ---------------------
 - tests/1/files/main.js/.block
-// yalnızca çift sayıları seçer misin?
+// Görev: sayılar dizisinden yalnızca çift sayıları seç.
+// İkinci test aynı kuralı farklı sayılarla denetler: boşluğa yine % operatörünü yaz.
+// Beklenen çıktı:
+// [ 4, 16 ]
 const sayılar = [7, 4, 9, 16];
 const çiftler = sayılar.filter((sayı) => sayı <<< ❓ >>> 2 === 0);
 console.log(çiftler);
@@ -159,7 +179,10 @@ console.log(toplam);
 ``fiyatlar`` dizisindeki tüm fiyatları toplayan programı yazar mısın?
 
 - files/main.js/.block
-// fiyatları toplar mısın?
+// Görev: fiyatlar dizisindeki tüm fiyatları topla.
+// reduce((biriken, fiyat) => biriken + fiyat, 0) yaz; boşluğa toplama (+) operatörünü koy.
+// Beklenen çıktı:
+// 60
 const fiyatlar = [10, 20, 30];
 const toplam = fiyatlar.reduce((biriken, fiyat) => biriken <<< ❓ >>> fiyat, 0);
 console.log(toplam);
@@ -169,7 +192,10 @@ console.log(toplam);
 
 ---------------------
 - tests/1/files/main.js/.block
-// fiyatları toplar mısın?
+// Görev: fiyatlar dizisindeki tüm fiyatları topla.
+// İkinci test aynı kuralı farklı fiyatlarla denetler: boşluğa yine + operatörünü koy.
+// Beklenen çıktı:
+// 62
 const fiyatlar = [5, 15, 40, 2];
 const toplam = fiyatlar.reduce((biriken, fiyat) => biriken <<< ❓ >>> fiyat, 0);
 console.log(toplam);
@@ -204,7 +230,12 @@ undefined
 hiçbir sayı 100'den büyük olmadığı için ``undefined`` yazacak.
 
 - files/main.js/.block
-// 10'dan büyük ilk elemanı bulur musun?
+// Görev: 10'dan büyük ilk sayıyı ve onun indexini bul.
+// find ve findIndex koşulu sağlayan ilk elemanı arar; 10'dan büyük için > operatörünü yaz.
+// Beklenen çıktı:
+// 16
+// 2
+// undefined
 const sayılar = [4, 9, 16, 25];
 console.log(sayılar.find((sayı) => sayı <<< ❓ >>> 10));
 console.log(sayılar.findIndex((sayı) => sayı > 10));
@@ -217,8 +248,13 @@ undefined
 
 ---------------------
 - tests/1/files/main.js/.block
-// 10'dan büyük ilk elemanı bulur musun?
-const sayılar = [2, 5, 8, 40];
+// Görev: 10'dan büyük ilk sayıyı ve onun indexini bul.
+// İkinci testte 10 da var: >= yazarsan ilk eleman 10 olur ve sonuç yanlış çıkar, > kullan.
+// Beklenen çıktı:
+// 40
+// 3
+// undefined
+const sayılar = [2, 5, 10, 40];
 console.log(sayılar.find((sayı) => sayı <<< ❓ >>> 10));
 console.log(sayılar.findIndex((sayı) => sayı > 10));
 console.log(sayılar.find((sayı) => sayı > 100));
@@ -253,7 +289,11 @@ Notlardan en az biri 90'ın üstünde mi, hepsi 60'ın üstünde mi? İki kontro
 programı yazar mısın?
 
 - files/main.js/.block
-// en az biri 90'dan büyük mü, hepsi 60'tan büyük mü?
+// Görev: Notlardan en az biri 90'dan büyük mü, hepsi 60'tan büyük mü kontrol et.
+// some en az bir eleman için, every tüm elemanlar için bakar; iki boşluğa da > yaz.
+// Beklenen çıktı:
+// true
+// true
 const notlar = [70, 85, 92];
 console.log(notlar.some((not) => not <<< ❓ >>> 90));
 console.log(notlar.every((not) => not <<< ❓ >>> 60));
@@ -264,13 +304,17 @@ true
 
 ---------------------
 - tests/1/files/main.js/.block
-// en az biri 90'dan büyük mü, hepsi 60'tan büyük mü?
-const notlar = [55, 65, 100];
+// Görev: Notlardan en az biri 90'dan büyük mü, hepsi 60'tan büyük mü kontrol et.
+// İkinci testte 90 tam sınırda: >= yazarsan some sonucu yanlış çıkar, > kullan.
+// Beklenen çıktı:
+// false
+// true
+const notlar = [70, 90, 80];
 console.log(notlar.some((not) => not <<< ❓ >>> 90));
 console.log(notlar.every((not) => not <<< ❓ >>> 60));
 - tests/1/output
-true
 false
+true
 
 ---------------------
 - parts/6:
@@ -302,7 +346,12 @@ Sayıları küçükten büyüğe doğru sıralayan programı yazar mısın? Kar�
 ``(a, b) => a - b`` biçimindedir.
 
 - files/main.js/.block
-// sayıları küçükten büyüğe sıralar mısın?
+// Görev: Sayıları küçükten büyüğe doğru sırala.
+// sort((a, b) => a - b) sayıları doğru sıralar; boşluğa eksi (-) işareti yaz.
+// Beklenen çıktı:
+// [ 'ali', 'mehmet', 'zeynep' ]
+// [ 10, 100, 9 ]
+// [ 9, 10, 100 ]
 const isimler = ["zeynep", "ali", "mehmet"];
 console.log(isimler.sort());
 const sayılar = [10, 9, 100];
@@ -316,7 +365,12 @@ console.log(sayılar.sort((a, b) => a <<< ❓ >>> b));
 
 ---------------------
 - tests/1/files/main.js/.block
-// sayıları küçükten büyüğe sıralar mısın?
+// Görev: Sayıları küçükten büyüğe doğru sırala.
+// İkinci test farklı sayılarla aynı kuralı denetler: boşluğa yine eksi (-) yaz.
+// Beklenen çıktı:
+// [ 'ahmet', 'veli' ]
+// [ 200, 30, 4 ]
+// [ 4, 30, 200 ]
 const isimler = ["veli", "ahmet"];
 console.log(isimler.sort());
 const sayılar = [30, 4, 200];
@@ -352,7 +406,11 @@ console.log(liste.flat(2));
 ``liste`` dizisini önce bir, sonra iki seviye düzleştiren programı yazar mısın?
 
 - files/main.js/.block
-// önce 1, sonra 2 seviye düzleştirir misin?
+// Görev: liste dizisini önce bir, sonra iki seviye düzleştir.
+// İlk satır için .flat() (varsayılan 1 seviye), ikinci satır için .flat(2) yaz.
+// Beklenen çıktı:
+// [ 1, 2, 3, 4, [ 5, 6 ] ]
+// [ 1, 2, 3, 4, 5, 6 ]
 const liste = [1, [2, 3], [4, [5, 6]]];
 console.log(liste.<<< ❓ >>>());
 console.log(liste.flat(<<< ❓ >>>));
@@ -360,6 +418,8 @@ console.log(liste.flat(<<< ❓ >>>));
 - tests/0/output
 [ 1, 2, 3, 4, [ 5, 6 ] ]
 [ 1, 2, 3, 4, 5, 6 ]
+
+- tests/0/require = "2"
 
 ---------------------
 - parts/8:
@@ -388,7 +448,12 @@ Meyveleri tek tek ``Meyve: …`` biçiminde yazdıran programı yazar mısın? `
 geriye bir şey döndürmediği için son satır ``undefined`` olacak.
 
 - files/main.js/.block
-// her meyveyi yazdırır mısın?
+// Görev: Meyveleri tek tek "Meyve: ..." biçiminde yazdır.
+// meyveler.forEach((meyve) => console.log("Meyve:", meyve)) yaz; geriye undefined döner.
+// Beklenen çıktı:
+// Meyve: elma
+// Meyve: armut
+// undefined
 const meyveler = ["elma", "armut"];
 const dönüş = meyveler.<<< ❓ >>>((meyve) => console.log("Meyve:", meyve));
 console.log(dönüş);
@@ -422,7 +487,10 @@ console.log(sonuç);
 Önce çift sayıları süzüp sonra her birini 10 ile çarpan programı yazar mısın?
 
 - files/main.js/.block
-// çiftleri seç, sonra 10 ile çarp
+// Görev: Önce çift sayıları süz, sonra her birini 10 ile çarp.
+// filter ile çiftleri seç, map ile 10 çarp: .map((sayı) => sayı * 10). Boşluğa * yaz.
+// Beklenen çıktı:
+// [ 20, 40, 60 ]
 const sayılar = [1, 2, 3, 4, 5, 6];
 const sonuç = sayılar
   .filter((sayı) => sayı % 2 === 0)
@@ -434,7 +502,10 @@ console.log(sonuç);
 
 ---------------------
 - tests/1/files/main.js/.block
-// çiftleri seç, sonra 10 ile çarp
+// Görev: Önce çift sayıları süz, sonra her birini 10 ile çarp.
+// İkinci test farklı sayılarla aynı zinciri denetler: boşluğa yine * yaz.
+// Beklenen çıktı:
+// [ 20, 100, 120 ]
 const sayılar = [2, 3, 7, 10, 12];
 const sonuç = sayılar
   .filter((sayı) => sayı % 2 === 0)
@@ -469,7 +540,11 @@ console.log(uzunlar.map((ürün) => ürün.length));
 Adı 5 karakterden uzun ürünleri seçip uzunluklarını yazdıran programı yazar mısın?
 
 - files/main.js/.block
-// 5 karakterden uzun ürünleri seçer misin?
+// Görev: Adı 5 karakterden uzun ürünleri seçip uzunluklarını yazdır.
+// sepet.filter((ürün) => ürün.length > 5) yaz; length karakter sayısıdır, > kullan.
+// Beklenen çıktı:
+// [ 'peynir' ]
+// [ 6 ]
 const sepet = ["ekmek", "süt", "peynir"];
 const uzunlar = sepet.filter((ürün) => ürün.length <<< ❓ >>> 5);
 console.log(uzunlar);
@@ -481,7 +556,11 @@ console.log(uzunlar.map((ürün) => ürün.length));
 
 ---------------------
 - tests/1/files/main.js/.block
-// 5 karakterden uzun ürünleri seçer misin?
+// Görev: Adı 5 karakterden uzun ürünleri seçip uzunluklarını yazdır.
+// İkinci testte "reçel" tam 5 karakter: >= yazarsan sonuç yanlış çıkar, > kullan.
+// Beklenen çıktı:
+// [ 'makarna' ]
+// [ 7 ]
 const sepet = ["bal", "reçel", "makarna"];
 const uzunlar = sepet.filter((ürün) => ürün.length <<< ❓ >>> 5);
 console.log(uzunlar);

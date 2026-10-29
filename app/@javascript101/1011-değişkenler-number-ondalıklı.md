@@ -28,7 +28,11 @@ Terminale ``Pi yaklaşık: 3.14`` yazdıran programı yazar mısın? Değişkene
 ondalık ayracı olarak **nokta** kullanmayı unutma.
 
 - files/main.js/.block
-// pi sayısının yaklaşık değerini yazar mısın?
+// Görev: Terminale "Pi yaklaşık: 3.14" yazdır.
+// piYaklaşık değişkenine 3.14 değerini ver; ondalık ayracı NOKTA olmalı.
+// Ondalıklı sayılar da tam sayılar gibi tırnaksız yazılır.
+// Beklenen çıktı:
+// Pi yaklaşık: 3.14
 let piYaklaşık = <<< ❓ >>>;
 console.log("Pi yaklaşık:", piYaklaşık);
 ---------------------
@@ -58,7 +62,11 @@ console.log("İndirim oranı:", indirimOranı);
 ``İndirim oranı: 0.5`` yazdıran programı yazar mısın? Değişkenin değeri yarım olacak.
 
 - files/main.js/.block
-// yarım oranını ondalıklı yazar mısın?
+// Görev: Terminale "İndirim oranı: 0.5" yazdır.
+// indirimOranı değişkenine yarım değerini ondalıklı yaz: 0.5
+// Sıfırdan büyük, birden küçük sayıların başına 0 yazılır.
+// Beklenen çıktı:
+// İndirim oranı: 0.5
 let indirimOranı = <<< ❓ >>>;
 console.log("İndirim oranı:", indirimOranı);
 ---------------------
@@ -85,11 +93,15 @@ Toplam: 3.75 litre
 
 # 🎯 3. Görev
 
-2,5 litre suya 1,25 litre daha eklersek ``Toplam: 3.75 litre`` yazdıran programı yazar
+``2.5`` litre suya ``1.25`` litre daha eklersek ``Toplam: 3.75 litre`` yazdıran programı yazar
 mısın?
 
 - files/main.js/.block
-// iki ondalıklı sayıyı toplar mısın?
+// Görev: 2.5 litre suya 1.25 litre daha ekleyip "Toplam: 3.75 litre" yazdır.
+// litre = litre + 1.25 yaz; + operatörü ondalıklı sayıları da toplar.
+// Sonuç ondalıklı olabilir; JavaScript virgül yerine nokta ile yazdırır.
+// Beklenen çıktı:
+// Toplam: 3.75 litre
 let litre = 2.5;
 litre = litre <<< ❓ >>> 1.25;
 console.log("Toplam:", litre, "litre");
@@ -99,7 +111,11 @@ Toplam: 3.75 litre
 
 ---------------------
 - tests/1/files/main.js/.block
-// iki ondalıklı sayıyı toplar mısın?
+// Görev: 4.5 litre suya 0.75 litre daha ekleyip "Toplam: 5.25 litre" yazdır.
+// İkinci test aynı kuralı farklı sayılarla denetler: toplama için + operatörü.
+// litre = litre + 0.75 yaz ve sonucu console.log() ile yazdır.
+// Beklenen çıktı:
+// Toplam: 5.25 litre
 let litre = 4.5;
 litre = litre <<< ❓ >>> 0.75;
 console.log("Toplam:", litre, "litre");
@@ -130,12 +146,18 @@ Yarıçapı ``5`` olan dairenin çevresini ``Dairenin çevresi: 31.4159265358979
 yazdıran programı yazar mısın? ``Math.PI`` kullanacaksın.
 
 - files/main.js/.block
-// dairenin çevresini hesaplar mısın?
+// Görev: Yarıçapı 5 olan dairenin çevresini "Dairenin çevresi: 31.41592653589793" şeklinde yazdır.
+// Boşluğa Math.PI yaz; formül 2 * Math.PI * yarıçap şeklindedir.
+// Hazır değeri elle yazmak yerine Math nesnesinden almak daha doğrudur.
+// Beklenen çıktı:
+// Dairenin çevresi: 31.41592653589793
 let yarıçap = 5;
 console.log("Dairenin çevresi:", 2 * <<< ❓ >>> * yarıçap);
 ---------------------
 - tests/0/output
 Dairenin çevresi: 31.41592653589793
+
+- tests/0/require = "Math.PI"
 
 ---------------------
 - parts/4:
@@ -161,7 +183,11 @@ Fiyat: 12.35 TL
 yazar mısın?
 
 - files/main.js/.block
-// fiyatı iki ondalık basamağa yuvarlar mısın?
+// Görev: 12.3456 liralık fiyatı iki basamağa yuvarlayıp "Fiyat: 12.35 TL" yazdır.
+// Boşluğa toFixed metodunun adını yaz; fiyat.toFixed(2) iki ondalık basamak verir.
+// toFixed() sayıyı yuvarlar ve sonucu METİN olarak döner.
+// Beklenen çıktı:
+// Fiyat: 12.35 TL
 let fiyat = 12.3456;
 console.log("Fiyat:", fiyat.<<< ❓ >>>(2), "TL");
 ---------------------
@@ -190,11 +216,18 @@ console.log(Math.round(2.5), Math.round(2.4));
 satırda yazdıran programı yazar mısın?
 
 - files/main.js/.block
-// 2.5 ve 2.4 sayılarını en yakın tam sayıya yuvarlar mısın?
+// Görev: Math.round() ile 2.5 değerini 3, 2.4 değerini 2 yapıp ikisini aynı satırda yazdır.
+// Birinci boşluğa 2.5, ikinci boşluğa 2.4 yaz (iki değer de tırnaksız sayı).
+// Math.round() en yakın tam sayıya yuvarlar; tam ortadaki sayılar yukarı gider.
+// Beklenen çıktı:
+// 3 2
 console.log(Math.round(<<< ❓ >>>), Math.round(<<< ❓ >>>));
 ---------------------
 - tests/0/output
 3 2
+
+- tests/0/require/0 = "2.5"
+- tests/0/require/1 = "2.4"
 
 ---------------------
 - parts/6:
@@ -220,7 +253,11 @@ Aşağı: 21 Yukarı: 22
 yazar mısın?
 
 - files/main.js/.block
-// aşağı ve yukarı yuvarlar mısın?
+// Görev: 21.7 sıcaklığını aşağı ve yukarı yuvarlayıp "Aşağı: 21 Yukarı: 22" yazdır.
+// Birinci boşluğa floor, ikinci boşluğa ceil yaz.
+// Math.floor() aşağıya, Math.ceil() yukarıya yuvarlar.
+// Beklenen çıktı:
+// Aşağı: 21 Yukarı: 22
 let sıcaklık = 21.7;
 console.log("Aşağı:", Math.<<< ❓ >>>(sıcaklık), "Yukarı:", Math.<<< ❓ >>>(sıcaklık));
 ---------------------
@@ -229,7 +266,11 @@ Aşağı: 21 Yukarı: 22
 
 ---------------------
 - tests/1/files/main.js/.block
-// aşağı ve yukarı yuvarlar mısın?
+// Görev: 8.2 sıcaklığını aşağı ve yukarı yuvarlayıp "Aşağı: 8 Yukarı: 9" yazdır.
+// İkinci test aynı kuralı farklı sayıyla denetler: floor ve ceil.
+// Birinci boşluğa floor, ikinci boşluğa ceil yaz.
+// Beklenen çıktı:
+// Aşağı: 8 Yukarı: 9
 let sıcaklık = 8.2;
 console.log("Aşağı:", Math.<<< ❓ >>>(sıcaklık), "Yukarı:", Math.<<< ❓ >>>(sıcaklık));
 - tests/1/output
@@ -259,7 +300,12 @@ true
 ``3.14`` için ``false``, ``7`` için ``true`` yazdıran programı yazar mısın?
 
 - files/main.js/.block
-// 3.14 tam sayı mı, 7 tam sayı mı?
+// Görev: 3.14 için false, 7 için true yazdır.
+// Birinci boşluğa 3.14, ikinci boşluğa 7 yaz (ikisi de tırnaksız sayı).
+// Number.isInteger() tam sayıysa true, küsuratlıysa false döner.
+// Beklenen çıktı:
+// false
+// true
 console.log(Number.isInteger(<<< ❓ >>>));
 console.log(Number.isInteger(<<< ❓ >>>));
 ---------------------
@@ -293,9 +339,14 @@ console.log((0.1 + 0.2).toFixed(2));
 mısın? İki satır da ``0.3`` çıkmayacak; sürprizi göreceksin.
 
 - files/main.js/.block
-// iki ondalıklı sayıyı toplar mısın?
+// Görev: 0.1 ile 0.2 sayılarını topla ve toplamı iki basamağa yuvarla.
+// Birinci boşluğa + operatörünü, ikinci boşluğa 2 sayısını yaz.
+// toFixed(2) toplamı iki ondalık basamağa yuvarlar; sonuç metin olur.
+// Beklenen çıktı:
+// 0.30000000000000004
+// 0.30
 console.log(0.1 <<< ❓ >>> 0.2);
-// toplamı iki basamağa yuvarlar mısın?
+// İkinci satır: toplamı toFixed(2) ile iki basamaklı metne çevir (boşluğa 2 yaz).
 console.log((0.1 + 0.2).toFixed(<<< ❓ >>>));
 ---------------------
 - tests/0/output
@@ -304,9 +355,14 @@ console.log((0.1 + 0.2).toFixed(<<< ❓ >>>));
 
 ---------------------
 - tests/1/files/main.js/.block
-// iki ondalıklı sayıyı toplar mısın?
+// Görev: 0.7 ile 0.1 sayılarını topla ve toplamı iki basamağa yuvarla.
+// İkinci test aynı kuralı farklı sayılarla denetler: toplama ve toFixed(2).
+// Birinci boşluğa + operatörünü, ikinci boşluğa 2 sayısını yaz.
+// Beklenen çıktı:
+// 0.7999999999999999
+// 0.80
 console.log(0.7 <<< ❓ >>> 0.1);
-// toplamı iki basamağa yuvarlar mısın?
+// İkinci satır: toplamı toFixed(2) ile iki basamaklı metne çevir (boşluğa 2 yaz).
 console.log((0.7 + 0.1).toFixed(<<< ❓ >>>));
 - tests/1/output
 0.7999999999999999
@@ -336,7 +392,11 @@ KDV tutarı: 36
 mısın?
 
 - files/main.js/.block
-// yüzdesini hesaplar mısın?
+// Görev: 200 liralık ürünün %18'lik KDV tutarını "KDV tutarı: 36" şeklinde yazdır.
+// fiyat * kdv ifadesini 100'e bölmek için / operatörünü yaz.
+// Yüzde hesabı: önce çarp, sonra 100'e böl.
+// Beklenen çıktı:
+// KDV tutarı: 36
 let fiyat = 200;
 let kdv = 18;
 console.log("KDV tutarı:", fiyat * kdv <<< ❓ >>> 100);
@@ -346,7 +406,11 @@ KDV tutarı: 36
 
 ---------------------
 - tests/1/files/main.js/.block
-// yüzdesini hesaplar mısın?
+// Görev: 500 liralık ürünün %8'lik KDV tutarını "KDV tutarı: 40" şeklinde yazdır.
+// İkinci test aynı kuralı farklı değerlerle denetler: bölme için / operatörü.
+// fiyat * kdv ifadesini 100'e böl.
+// Beklenen çıktı:
+// KDV tutarı: 40
 let fiyat = 500;
 let kdv = 8;
 console.log("KDV tutarı:", fiyat * kdv <<< ❓ >>> 100);
@@ -378,7 +442,11 @@ Vizeden ``70``, finalden ``90`` alan öğrencinin ortalamasını ``Ortalama: 80`
 yazdıran programı yazar mısın?
 
 - files/main.js/.block
-// iki notun ortalamasını alır mısın?
+// Görev: Vizeden 70, finalden 90 alan öğrencinin ortalamasını "Ortalama: 80" şeklinde yazdır.
+// (vize + finalNotu) toplamını 2'ye bölmek için / operatörünü yaz.
+// Parantez olmadan sadece finalNotu bölünür; bu yüzden parantezi koru.
+// Beklenen çıktı:
+// Ortalama: 80
 let vize = 70;
 let finalNotu = 90;
 console.log("Ortalama:", (vize + finalNotu) <<< ❓ >>> 2);
@@ -388,7 +456,11 @@ Ortalama: 80
 
 ---------------------
 - tests/1/files/main.js/.block
-// iki notun ortalamasını alır mısın?
+// Görev: Vizeden 60, finalden 80 alan öğrencinin ortalamasını "Ortalama: 70" şeklinde yazdır.
+// İkinci test aynı kuralı farklı notlarla denetler: bölme için / operatörü.
+// (vize + finalNotu) toplamını 2'ye böl.
+// Beklenen çıktı:
+// Ortalama: 70
 let vize = 60;
 let finalNotu = 80;
 console.log("Ortalama:", (vize + finalNotu) <<< ❓ >>> 2);
@@ -421,7 +493,11 @@ Fiyatı ``250.5`` olan ürüne %20 indirim uygulayıp ``İndirimli fiyat: 200.40
 programı yazar mısın?
 
 - files/main.js/.block
-// indirim tutarını fiyattan çıkarır mısın?
+// Görev: Fiyatı 250.5 olan ürüne %20 indirim uygulayıp "İndirimli fiyat: 200.40 TL" yazdır.
+// sonFiyat = fiyat - fiyat * indirim yaz; indirim tutarını - operatörü ile çıkar.
+// toFixed(2) sonucu iki ondalık basamaklı METİN olarak verir.
+// Beklenen çıktı:
+// İndirimli fiyat: 200.40 TL
 let fiyat = 250.5;
 let indirim = 0.2;
 let sonFiyat = fiyat <<< ❓ >>> fiyat * indirim;
@@ -432,7 +508,11 @@ console.log("İndirimli fiyat:", sonFiyat.toFixed(2), "TL");
 
 ---------------------
 - tests/1/files/main.js/.block
-// indirim tutarını fiyattan çıkarır mısın?
+// Görev: Fiyatı 100 olan ürüne %25 indirim uygulayıp "İndirimli fiyat: 75.00 TL" yazdır.
+// İkinci test aynı kuralı farklı değerlerle denetler: çıkarma için - operatörü.
+// sonFiyat = fiyat - fiyat * indirim yaz; sonucu toFixed(2) ile yazdır.
+// Beklenen çıktı:
+// İndirimli fiyat: 75.00 TL
 let fiyat = 100;
 let indirim = 0.25;
 let sonFiyat = fiyat <<< ❓ >>> fiyat * indirim;

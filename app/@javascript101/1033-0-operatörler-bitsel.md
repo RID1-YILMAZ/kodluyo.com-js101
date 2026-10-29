@@ -29,7 +29,10 @@ console.log((13).toString(2));
 ``6`` sayısının ikili hâlini (``110``) yazdıran programı yazar mısın?
 
 - files/main.js/.block
-// 6 sayısını ikili tabanda gösterir misin?
+// Görev: 6 sayısının ikili (binary) hâlini toString(2) ile ekrana yazdır.
+// console.log() içinde sayı.toString(2) kullan; metoda 2 parametresini ver.
+// Beklenen çıktı:
+// 110
 let sayı = 6;
 console.log(sayı.toString(<<< ❓ >>>));
 ---------------------
@@ -62,7 +65,11 @@ console.log(6 & 5);
 ``2`` ve ``4`` yazdıran programı yazar mısın?
 
 - files/main.js/.block
-// ortak bitleri bulur musun?
+// Görev: & (Ve/AND) operatörüyle iki sayının ortak (1 olan) bitlerini bul.
+// Her iki console.log() boşluğuna & operatörünü yaz: 6 & 3 ve 6 & 5.
+// Beklenen çıktı:
+// 2
+// 4
 console.log(6 <<< ❓ >>> 3);
 console.log(6 <<< ❓ >>> 5);
 ---------------------
@@ -70,14 +77,22 @@ console.log(6 <<< ❓ >>> 5);
 2
 4
 
+- tests/0/require = "&"
+
 ---------------------
 - tests/1/files/main.js/.block
-// ortak bitleri bulur musun?
+// Görev: 12 ile 10'un ve 12 ile 3'ün ortak bitlerini & operatörüyle bul.
+// İkinci test aynı kuralı farklı sayılarla denetler: & operatörü.
+// Beklenen çıktı:
+// 8
+// 0
 console.log(12 <<< ❓ >>> 10);
 console.log(12 <<< ❓ >>> 3);
 - tests/1/output
 8
 0
+
+- tests/1/require = "&"
 
 ---------------------
 - parts/2:
@@ -102,7 +117,11 @@ console.log(4 | 1);
 ``7`` ve ``5`` yazdıran programı yazar mısın?
 
 - files/main.js/.block
-// bitleri birleştirir misin?
+// Görev: | (Veya/OR) operatörüyle bitlerden en az biri 1 ise 1 veren sonucu bul.
+// Her iki console.log() boşluğuna | operatörünü yaz: 6 | 3 ve 4 | 1.
+// Beklenen çıktı:
+// 7
+// 5
 console.log(6 <<< ❓ >>> 3);
 console.log(4 <<< ❓ >>> 1);
 ---------------------
@@ -110,14 +129,22 @@ console.log(4 <<< ❓ >>> 1);
 7
 5
 
+- tests/0/require = "|"
+
 ---------------------
 - tests/1/files/main.js/.block
-// bitleri birleştirir misin?
+// Görev: 12 ile 3'ün ve 8 ile 1'in bitlerini | operatörüyle birleştir.
+// İkinci test aynı kuralı farklı sayılarla denetler: | operatörü.
+// Beklenen çıktı:
+// 15
+// 9
 console.log(12 <<< ❓ >>> 3);
 console.log(8 <<< ❓ >>> 1);
 - tests/1/output
 15
 9
+
+- tests/1/require = "|"
 
 ---------------------
 - parts/3:
@@ -144,7 +171,12 @@ console.log(10 ^ 3);
 ``5``, ``0`` ve ``9`` yazdıran programı yazar mısın?
 
 - files/main.js/.block
-// farklı bitleri bulur musun?
+// Görev: ^ (Özel Veya/XOR) operatörüyle bitler farklıysa 1 veren sonucu bul.
+// Üç console.log() boşluğuna da ^ operatörünü yaz: 6 ^ 3, 5 ^ 5 ve 10 ^ 3.
+// Beklenen çıktı:
+// 5
+// 0
+// 9
 console.log(6 <<< ❓ >>> 3);
 console.log(5 <<< ❓ >>> 5);
 console.log(10 <<< ❓ >>> 3);
@@ -154,9 +186,16 @@ console.log(10 <<< ❓ >>> 3);
 0
 9
 
+- tests/0/require = "^"
+
 ---------------------
 - tests/1/files/main.js/.block
-// farklı bitleri bulur musun?
+// Görev: ^ operatörüyle üç karşılaştırmayı da hesapla.
+// İkinci test aynı kuralı farklı sayılarla denetler: ^ operatörü.
+// Beklenen çıktı:
+// 6
+// 0
+// 14
 console.log(12 <<< ❓ >>> 10);
 console.log(7 <<< ❓ >>> 7);
 console.log(15 <<< ❓ >>> 1);
@@ -164,6 +203,8 @@ console.log(15 <<< ❓ >>> 1);
 6
 0
 14
+
+- tests/1/require = "^"
 
 ---------------------
 - parts/4:
@@ -188,7 +229,11 @@ console.log(~0);
 ``-6`` ve ``-1`` yazdıran programı yazar mısın?
 
 - files/main.js/.block
-// bitleri tersine çevirir misin?
+// Görev: ~ (Değil/NOT) operatörüyle bitleri tersine çevir; sonuç -(sayı + 1) olur.
+// console.log() içinde sayının ÖNÜNE ~ yaz: ~5 ve ~0.
+// Beklenen çıktı:
+// -6
+// -1
 console.log(<<< ❓ >>>5);
 console.log(<<< ❓ >>>0);
 ---------------------
@@ -196,14 +241,22 @@ console.log(<<< ❓ >>>0);
 &minus;6
 &minus;1
 
+- tests/0/require = "~"
+
 ---------------------
 - tests/1/files/main.js/.block
-// bitleri tersine çevirir misin?
+// Görev: ~ operatörüyle 9 ve 1 sayılarının bitlerini tersine çevir.
+// İkinci test aynı kuralı farklı sayılarla denetler: ~ operatörü.
+// Beklenen çıktı:
+// -10
+// -2
 console.log(<<< ❓ >>>9);
 console.log(<<< ❓ >>>1);
 - tests/1/output
 &minus;10
 &minus;2
+
+- tests/1/require = "~"
 
 ---------------------
 - parts/5:
@@ -231,7 +284,12 @@ console.log(sayı * 4);
 ``12``, ``24`` ve ``12`` yazdıran programı yazar mısın?
 
 - files/main.js/.block
-// sola kaydırma ile 4 ve 8 ile çarpar mısın?
+// Görev: << (Sola Kaydırma) operatörüyle sayıyı 4 ve 8 ile çarp.
+// Boşluklara << operatörünü yaz: sayı << 2 ve sayı << 3. Son satır sabittir.
+// Beklenen çıktı:
+// 12
+// 24
+// 12
 let sayı = 3;
 console.log(sayı <<< ❓ >>> 2);
 console.log(sayı <<< ❓ >>> 3);
@@ -242,9 +300,16 @@ console.log(sayı * 4);
 24
 12
 
+- tests/0/require = "<<"
+
 ---------------------
 - tests/1/files/main.js/.block
-// sola kaydırma ile 4 ve 8 ile çarpar mısın?
+// Görev: 5 sayısını << operatörüyle 4 ve 8 ile çarp.
+// İkinci test aynı kuralı farklı sayıyla denetler: << operatörü.
+// Beklenen çıktı:
+// 20
+// 40
+// 20
 let sayı = 5;
 console.log(sayı <<< ❓ >>> 2);
 console.log(sayı <<< ❓ >>> 3);
@@ -253,6 +318,8 @@ console.log(sayı * 4);
 20
 40
 20
+
+- tests/1/require = "<<"
 
 ---------------------
 - parts/6:
@@ -278,7 +345,11 @@ console.log(-8 >> 1);
 ``5`` ve ``-4`` yazdıran programı yazar mısın?
 
 - files/main.js/.block
-// sağa kaydırma ile böler misin?
+// Görev: >> (Sağa Kaydırma) operatörüyle sayıyı 2'nin kuvvetlerine böl.
+// Boşluklara >> operatörünü yaz: sayı >> 2 ve -8 >> 1.
+// Beklenen çıktı:
+// 5
+// -4
 let sayı = 20;
 console.log(sayı <<< ❓ >>> 2);
 console.log(-8 <<< ❓ >>> 1);
@@ -287,15 +358,23 @@ console.log(-8 <<< ❓ >>> 1);
 5
 &minus;4
 
+- tests/0/require = ">>"
+
 ---------------------
 - tests/1/files/main.js/.block
-// sağa kaydırma ile böler misin?
+// Görev: 100 ve -16 sayılarını >> operatörüyle sağa kaydır.
+// İkinci test aynı kuralı farklı sayılarla denetler: >> operatörü.
+// Beklenen çıktı:
+// 25
+// -4
 let sayı = 100;
 console.log(sayı <<< ❓ >>> 2);
 console.log(-16 <<< ❓ >>> 2);
 - tests/1/output
 25
 &minus;4
+
+- tests/1/require = ">>"
 
 ---------------------
 - parts/7:
@@ -321,7 +400,11 @@ console.log(-8 >>> 1);
 ``2147483644`` ve ``4294967295`` yazdıran programı yazar mısın?
 
 - files/main.js/.block
-// işaretsiz sağa kaydırma kullanır mısın?
+// Görev: İşaretsiz sağa kaydırma operatörüyle sonucu işaretsiz sayıya çevir.
+// Boşluklara, üç büyüktür işaretinden oluşan işaretsiz sağa kaydırma operatörünü yaz.
+// Beklenen çıktı:
+// 2147483644
+// 4294967295
 console.log(-8 <<< ❓ >>> 1);
 console.log(-1 <<< ❓ >>> 0);
 ---------------------
@@ -329,14 +412,22 @@ console.log(-1 <<< ❓ >>> 0);
 2147483644
 4294967295
 
+- tests/0/require = ">>>"
+
 ---------------------
 - tests/1/files/main.js/.block
-// işaretsiz sağa kaydırma kullanır mısın?
+// Görev: -16 ve -2 sayılarını işaretsiz sağa kaydırma operatörüyle kaydır.
+// İkinci test aynı kuralı farklı sayılarla denetler: üç büyüktür operatörü.
+// Beklenen çıktı:
+// 1073741820
+// 4294967294
 console.log(-16 <<< ❓ >>> 2);
 console.log(-2 <<< ❓ >>> 0);
 - tests/1/output
 1073741820
 4294967294
+
+- tests/1/require = ">>>"
 
 ---------------------
 - parts/8:
@@ -368,7 +459,12 @@ false
 ``5``, ``true`` ve ``false`` yazdıran programı yazar mısın?
 
 - files/main.js/.block
-// okuma ve silme yetkisini birleştirir misin?
+// Görev: | (Veya) operatörüyle okuma ve silme yetkilerini tek sayıda birleştir.
+// Boşluğa | operatörünü yaz: OKU | SİL. Sonra & ile yetki sorguları yapılır.
+// Beklenen çıktı:
+// 5
+// true
+// false
 const OKU = 4;
 const YAZ = 2;
 const SİL = 1;
@@ -382,9 +478,16 @@ console.log((izin & YAZ) === YAZ);
 true
 false
 
+- tests/0/require = "|"
+
 ---------------------
 - tests/1/files/main.js/.block
-// okuma ve silme yetkisini birleştirir misin?
+// Görev: OKU ve YAZ yetkilerini | operatörüyle tek sayıda birleştir.
+// İkinci test aynı kuralı farklı yetkilerle denetler: | operatörü.
+// Beklenen çıktı:
+// 6
+// true
+// true
 const OKU = 4;
 const YAZ = 2;
 const SİL = 1;
@@ -396,6 +499,8 @@ console.log((izin & YAZ) === YAZ);
 6
 true
 true
+
+- tests/1/require = "|"
 
 ---------------------
 - parts/9:
@@ -424,7 +529,12 @@ console.log(sayı & 1);
 ``1101``, ``6`` ve ``1`` yazdıran programı yazar mısın?
 
 - files/main.js/.block
-// ikili hâlini yaz, yarısını al, tek mi çift mi anla
+// Görev: Sayının ikili hâlini yaz, >> ile yarısını al ve & 1 ile tek mi çift mi anla.
+// Birinci boşluğa >> operatörünü, ikinci boşluğa 1 sayısını yaz.
+// Beklenen çıktı:
+// 1101
+// 6
+// 1
 let sayı = 13;
 console.log(sayı.toString(2));
 console.log(sayı <<< ❓ >>> 1);
@@ -434,5 +544,7 @@ console.log(sayı & <<< ❓ >>>);
 1101
 6
 1
+
+- tests/0/require = ">>"
 
 ---------------------
