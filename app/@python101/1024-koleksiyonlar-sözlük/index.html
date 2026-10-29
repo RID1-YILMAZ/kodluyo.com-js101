@@ -68,6 +68,8 @@
   <script src="./source/editor.js"></script>
   <script src="./source/terminal.js"></script>
   <script src="./source/script.js"></script>
+  <!-- Sayfa yonlendirici: ders/kurs icerigini render eder (Pager) -->
+  <script src="./views/pager.js"></script>
 
 
 
@@ -220,7 +222,10 @@
           }
           
           window.onmessage = function(event) {
-            let response = JSON.parse(event.data)
+            if (typeof event.data !== "string") return;
+            let response;
+            try { response = JSON.parse(event.data) } catch (e) { return }
+            if (!response || typeof response !== "object") return;
             if(response.onData !== undefined){
               program.onData(response.onData)
             }
