@@ -179,7 +179,16 @@ Views.Editor = function (options={},panel=null,code="") {
         _=<svg style="width:24px;height:24px" viewBox="0 0 24 24"><path fill="currentColor" d="M8,5.14V19.14L19,12.14L8,5.14Z" /></svg>
         panel.elements.runCode.onclick=()=>{ panel.saveRun(); }
     panel.elements.editorBody = <div class="panel-body"></div>
+      for(let oldPath in panel.editors){
+        try { panel.editors[oldPath].dispose() } catch(e){}
+      }
       panel.editors = {}
+      panel.editor = null
+      // Her yeni editor kumesi icin bir "nesil" numarasi tutulur. Bolum hizli
+      // gecildiginde onceki kumeden gec cevap gelen editorler yeni bolumun
+      // editorlerini ezmesin.
+      panel.editorGeneration = (panel.editorGeneration || 0) + 1
+      let generation = panel.editorGeneration
       for(let path in panel.options.part.files){
         let editorElement = <div style="display:none;height:100%;padding-top:2px"></div>
         editorElement.setAttribute("path",path);
@@ -189,8 +198,11 @@ Views.Editor = function (options={},panel=null,code="") {
           theme: panel.theme,
           fileName: path,
         }).then(editor=>{
+          if(panel.editorGeneration !== generation){
+            try { editor.dispose() } catch(e){}
+            return
+          }
           panel.editors[path] = editor;
-          console.log(panel.editors[path])
           if(path==Object.keys(panel.options.part.files)[0]){
             panel.editor = editor;
           }

@@ -70,6 +70,7 @@
   <script src="./source/script.js"></script>
   <!-- Sayfa yonlendirici: ders/kurs icerigini render eder (Pager) -->
   <script src="./views/pager.js"></script>
+  <script src="./source/program.js"></script>
 
 
 
@@ -191,56 +192,6 @@
     </div>
     <div class="panel-body" show-content="true" show-editor="true" show-terminal="true" show-preview="undefined" style="opacity: 1; transition: opacity 0.5s ease 0s;">
           <script>
-    function Program(files,options){
-          options = options || {}
-          let language = (options.language=="javascript" || options.language=="js" || options.language=="node" || options.language=="nodejs") ? "javascript" : "python"
-          let runnerUrl = language=="javascript" ? "api-javascript.html" : "api-python-skulpt.html"
-    
-          let program = {
-            response: "",
-            onData  : function(e){console.log("PROGRAM::onData(" +JSON.stringify(e)+")")} ,
-            onError : function(e){console.log("PROGRAM::onError("+JSON.stringify(e)+")")} ,
-            onEnd   : function(e){console.log("PROGRAM::onEnd("  +JSON.stringify(e)+")")} ,
-          }
-    
-          Program.frames = Program.frames || {}
-          let iframe = Program.frames[language]
-          if(!iframe){
-            iframe = Program.frames[language] = document.createElement("iframe")
-            iframe.src = runnerUrl
-            iframe.onload = function(e){
-              iframe.contentWindow.postMessage(JSON.stringify(files), "*");
-            }
-            document.body.append(iframe)
-            iframe.style.display = "none";
-            if(language=="javascript") iframe.setAttribute("sandbox","allow-scripts")
-            
-            
-    
-          }else{
-            iframe.contentWindow.postMessage(JSON.stringify(files), "*");
-          }
-          
-          window.onmessage = function(event) {
-            if (typeof event.data !== "string") return;
-            let response;
-            try { response = JSON.parse(event.data) } catch (e) { return }
-            if (!response || typeof response !== "object") return;
-            if(response.onData !== undefined){
-              program.onData(response.onData)
-            }
-            if(response.onEnd !== undefined){
-              program.onEnd(response.onEnd)
-            }
-            if(response.onError !== undefined){
-              program.onError(response.onError)
-            }
-          };
-          
-          
-          return program
-        }
-
     source = {"data":"- show_content = true\n- show_editor = true\n- show_terminal = true\n- language = \"python\"\n- title = \"🧮 Karşılaştırma Operatörleri\"\n- run = \"py main.py\"\n\n\n- parts/0:\n- text\n### ✅ Eşit Midir ``==``\n\nEşit midir işlecini (operatörünü) kullanmak için ``==`` kullanırız. Eğer iki değer birbirine eşitse, ``True`` değerini döndürür. Aksi takdirde ``False`` değerini döndürür.\n\n\n<code-view name=\"main.py\" language=\"python\">\nx = 3 \ny = 3\nprint( x == y )\n<\/code-view>\n<code-view name=\"Terminal\" language=\"bash\">\nTrue\n<\/code-view>\n\n- files/main.py/.block\n# x ve y değişkenlerinin birbirine eşit midir?\nx = 3\ny = 3\nprint(<<< ❓ >>>)\n- tests/0/files/main.py/.block\n# x ve y değişkenlerinin birbirine eşit midir?\nx = 3\ny = 3\nprint(<<< ❓ >>>)\n- tests/0/output\nTrue\n\n- tests/1/files/main.py/.block\n# x ve y değişkenlerinin birbirine eşit midir?\nx = 8\ny = 2\nprint(<<< ❓ >>>)\n- tests/1/output\nFalse\n\n---------------------\n\n\n\n\n- parts/1:\n- text\n### ✅ Eşit Midir ``==``\n\nEşit midir işlecini (operatörünü) kullanmak için ``==`` kullanırız. Eşit midir işleci, iki değerin birbirine eşit olup olmadığını kontrol eder. Eğer iki değer birbirine eşitse, ``True`` değerini döndürür. Aksi takdirde ``False`` değerini döndürür.\n\n\n<code-view name=\"main.py\" language=\"python\">\nx = 3 \ny = 2\nprint( x == y )\n<\/code-view>\n<code-view name=\"Terminal\" language=\"bash\">\nFalse\n<\/code-view>\n\n- files/main.py/.block\n# x ve y değişkenlerinin birbirine eşit midir?\nx = 3\ny = 2\nprint(<<< ❓ >>>)\n- tests/0/files/main.py/.block\n# x ve y değişkenlerinin birbirine eşit midir?\nx = 3\ny = 2\nprint(<<< ❓ >>>)\n- tests/0/output\nFalse\n\n- tests/1/files/main.py/.block\n# x ve y değişkenlerinin birbirine eşit midir?\nx = 8\ny = 8\nprint(<<< ❓ >>>)\n- tests/1/output\nTrue\n\n---------------------\n\n\n\n\n\n\n\n- parts/2:\n- text\n### ✅ Eşit Midir ``==``\n\nMetinleri kıyaslarken de kullanabiliriz. Eğer iki metin birbirine eşitse, ``True`` değerini döndürür. Aksi takdirde ``False`` değerini döndürür.\n\n\n<code-view name=\"main.py\" language=\"python\">\nx = \"Ankara\"\ny = \"İstanbul\"\nprint( x == y )\n<\/code-view>\n<code-view name=\"Terminal\" language=\"bash\">\nFalse\n<\/code-view>\n\n- files/main.py/.block\n# x ve y değişkenlerinin birbirine eşit midir?\nx = \"Ankara\"\ny = \"İstanbul\"\nprint(<<< ❓ >>>)\n- tests/0/files/main.py/.block\n# x ve y değişkenlerinin birbirine eşit midir?\nx = \"Ankara\"\ny = \"İstanbul\"\nprint(<<< ❓ >>>)\n- tests/0/output\nFalse\n\n- tests/1/files/main.py/.block\n# x ve y değişkenlerinin birbirine eşit midir?\nx = \"İzmir\"\ny = \"İzmir\"\nprint(<<< ❓ >>>)\n- tests/1/output\nTrue\n\n---------------------\n\n\n\n\n\n- parts/3:\n- text\n### ❎ Eşit Değil Midir? ``!=``\n\nİki ifadenin birbirine eşit olmadığını kontrol etmek için ``!=`` kullanırız. Eğer iki ifade birbirine eşit <u>değilse<\/u> , ``True`` değerini döndürür. Aksi takdirde ``False`` değerini döndürür.\n\n<code-view name=\"main.py\" language=\"python\">\nx = 3\ny = 3\nprint( x != y )\n<\/code-view>\n<code-view name=\"Terminal\" language=\"bash\">\nFalse\n<\/code-view>\n\n- files/main.py/.block\n# x ve y değişkenlerinin eşit olmadığını kontrol eder misin?\n# Eğer eşit değilse True değerini döndürür.\n# Eğer eşitlerse False değerini döndürür.\nx = 3\ny = 3\nprint(<<< ❓ >>>)\n- tests/0/files/main.py/.block\n# x ve y değişkenlerinin eşit olmadığını kontrol eder misin?\n# Eğer eşit değilse True değerini döndürür.\n# Eğer eşitlerse False değerini döndürür.\nx = 3\ny = 3\nprint(<<< ❓ >>>)\n- tests/0/output\nFalse\n\n- tests/1/files/main.py/.block\n# x ve y değişkenlerinin eşit olmadığını kontrol eder misin?\n# Eğer eşit değilse True değerini döndürür.\n# Eğer eşitlerse False değerini döndürür.\nx = 12\ny = 11\nprint(<<< ❓ >>>)\n- tests/1/output\nTrue\n\n---------------------\n\n\n\n\n\n\n\n- parts/4:\n- text\n### ❎ Eşit Değil Midir? ``!=``\n\nİki ifadenin birbirine eşit olmadığını kontrol etmek için ``!=`` kullanırız. Eğer iki ifade birbirine eşit değilse, ``True`` değerini döndürür. Aksi takdirde ``False`` değerini döndürür.\n\n<code-view name=\"main.py\" language=\"python\">\nx = 3\ny = 2\nprint( x != y )\n<\/code-view>\n<code-view name=\"Terminal\" language=\"bash\">\nTrue\n<\/code-view>\n\n- files/main.py/.block\n# x ve y değişkenlerinin eşit olmadığını kontrol eder misin?\n# Eğer eşit değilse True değerini döndürür.\n# Eğer eşitlerse False değerini döndürür.\nx = 3\ny = 2\nprint(<<< ❓ >>>)\n- tests/0/files/main.py/.block\n# x ve y değişkenlerinin eşit olmadığını kontrol eder misin?\n# Eğer eşit değilse True değerini döndürür.\n# Eğer eşitlerse False değerini döndürür.\nx = 3\ny = 2\nprint(<<< ❓ >>>)\n- tests/0/output\nTrue\n\n- tests/1/files/main.py/.block\n# x ve y değişkenlerinin eşit olmadığını kontrol eder misin?\n# Eğer eşit değilse True değerini döndürür.\n# Eğer eşitlerse False değerini döndürür.\nx = 12\ny = 12\nprint(<<< ❓ >>>)\n- tests/1/output\nFalse\n\n---------------------\n\n\n\n\n\n\n\n\n\n\n- parts/5:\n- text\n### ▶️ Büyüktür ``>``\n\nBüyük müdür işlecini (operatörünü) kullanmak için ``>`` kullanırız. İlk ifade büyük ise ``True`` değerini değilse ``False`` değerini döndürür.\n\n<code-view name=\"main.py\" language=\"python\">\nx = 3\ny = 2\nprint( x > y )\n<\/code-view>\n<code-view name=\"Terminal\" language=\"bash\">\nTrue\n<\/code-view>\n\n- files/main.py/.block\n# x değişkeni y den büyük müdür?\nx = 3\ny = 2\nprint(<<< ❓ >>>)\n- tests/0/files/main.py/.block\n# x değişkeni y den büyük müdür?\nx = 3\ny = 2\nprint(<<< ❓ >>>)\n- tests/0/output\nTrue\n\n- tests/1/files/main.py/.block\n# x değişkeni y den büyük müdür?\nx = 12\ny = 12\nprint(<<< ❓ >>>)\n- tests/1/output\nFalse\n\n---------------------\n- tests/2/files/main.py/.block\n# x değişkeni y den büyük müdür?\nx = 0\ny = 2\nprint(<<< ❓ >>>)\n- tests/2/output\nFalse\n\n---------------------\n\n\n\n\n\n- parts/6:\n- text\n### ▶️ Büyük Eşit ``>=``\n\nİlk ifade büyük veya eşit ise ``True`` değerini değilse ``False`` değerini döndürür.\n\n<code-view name=\"main.py\" language=\"python\">\nx = 3\ny = 2\nprint( x >= y )\nprint( x >= x )\n<\/code-view>\n<code-view name=\"Terminal\" language=\"bash\">\nTrue\nTrue\n<\/code-view>\n\n- files/main.py/.block\n# x değişkeni y den büyük eşit midir?\nx = 3\ny = 2\nprint(<<< ❓ >>>)\n- tests/0/files/main.py/.block\n# x değişkeni y den büyük eşit midir?\nx = 3\ny = 2\nprint(<<< ❓ >>>)\n- tests/0/output\nTrue\n\n- tests/1/files/main.py/.block\n# x değişkeni y den büyük eşit midir?\nx = 12\ny = 12\nprint(<<< ❓ >>>)\n- tests/1/output\nTrue\n\n---------------------\n- tests/2/files/main.py/.block\n# x değişkeni y den büyük eşit midir?\nx = 0\ny = 2\nprint(<<< ❓ >>>)\n- tests/2/output\nFalse\n\n---------------------\n\n\n\n\n\n\n\n\n- parts/7:\n- text\n### ◀️ Küçüktür ``<``\n\nKüçük müdür işlecini (operatörünü) kullanmak için ``<`` kullanırız. İlk ifade küçük ise ``True`` değerini değilse ``False`` değerini döndürür.\n\n<code-view name=\"main.py\" language=\"python\">\nx = 3\ny = 2\nprint( x < y )\n<\/code-view>\n<code-view name=\"Terminal\" language=\"bash\">\nFalse\n<\/code-view>\n\n- files/main.py/.block\n# x değişkeni y den küçük müdür?\nx = 3\ny = 2\nprint(<<< ❓ >>>)\n- tests/0/files/main.py/.block\n# x değişkeni y den küçük müdür?\nx = 3\ny = 2\nprint(<<< ❓ >>>)\n- tests/0/output\nFalse\n\n- tests/1/files/main.py/.block\n# x değişkeni y den küçük müdür?\nx = 12\ny = 12\nprint(<<< ❓ >>>)\n- tests/1/output\nFalse\n\n---------------------\n- tests/2/files/main.py/.block\n# x değişkeni y den küçük müdür?\nx = 0\ny = 2\nprint(<<< ❓ >>>)\n- tests/2/output\nTrue\n\n---------------------\n\n\n\n\n\n\n- parts/8:\n- text\n### ◀️ Küçük Eşit ``<=``\n\nİlk ifade küçük veya eşit ise ``True`` değerini değilse ``False`` değerini döndürür.\n\n<code-view name=\"main.py\" language=\"python\">\nx = 3\ny = 2\nprint( x <= y )\nprint( x <= x )\n<\/code-view>\n<code-view name=\"Terminal\" language=\"bash\">\nFalse\nTrue\n<\/code-view>\n\n- files/main.py/.block\n# x değişkeni y den küçük eşit midir?\nx = 3\ny = 2\nprint(<<< ❓ >>>)\n- tests/0/files/main.py/.block\n# x değişkeni y den küçük eşit midir?\nx = 3\ny = 2\nprint(<<< ❓ >>>)\n- tests/0/output\nFalse\n\n- tests/1/files/main.py/.block\n# x değişkeni y den küçük eşit midir?\nx = 12\ny = 12\nprint(<<< ❓ >>>)\n- tests/1/output\nTrue\n\n---------------------\n- tests/2/files/main.py/.block\n# x değişkeni y den küçük eşit midir?\nx = 0\ny = 2\nprint(<<< ❓ >>>)\n- tests/2/output\nTrue\n\n---------------------\n\n\n","next":"@python101/1032-0-operatörler-mantıksal"};
     Pager(source);
 

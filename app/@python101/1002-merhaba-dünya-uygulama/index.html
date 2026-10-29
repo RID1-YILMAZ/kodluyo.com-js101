@@ -70,6 +70,7 @@
   <script src="./source/script.js"></script>
   <!-- Sayfa yonlendirici: ders/kurs icerigini render eder (Pager) -->
   <script src="./views/pager.js"></script>
+  <script src="./source/program.js"></script>
 
 
 
@@ -191,56 +192,6 @@
     </div>
     <div class="panel-body" show-content="true" show-editor="true" show-terminal="true" show-preview="undefined" style="opacity: 1; transition: opacity 0.5s ease 0s;">
           <script>
-    function Program(files,options){
-          options = options || {}
-          let language = (options.language=="javascript" || options.language=="js" || options.language=="node" || options.language=="nodejs") ? "javascript" : "python"
-          let runnerUrl = language=="javascript" ? "api-javascript.html" : "api-python-skulpt.html"
-    
-          let program = {
-            response: "",
-            onData  : function(e){console.log("PROGRAM::onData(" +JSON.stringify(e)+")")} ,
-            onError : function(e){console.log("PROGRAM::onError("+JSON.stringify(e)+")")} ,
-            onEnd   : function(e){console.log("PROGRAM::onEnd("  +JSON.stringify(e)+")")} ,
-          }
-    
-          Program.frames = Program.frames || {}
-          let iframe = Program.frames[language]
-          if(!iframe){
-            iframe = Program.frames[language] = document.createElement("iframe")
-            iframe.src = runnerUrl
-            iframe.onload = function(e){
-              iframe.contentWindow.postMessage(JSON.stringify(files), "*");
-            }
-            document.body.append(iframe)
-            iframe.style.display = "none";
-            if(language=="javascript") iframe.setAttribute("sandbox","allow-scripts")
-            
-            
-    
-          }else{
-            iframe.contentWindow.postMessage(JSON.stringify(files), "*");
-          }
-          
-          window.onmessage = function(event) {
-            if (typeof event.data !== "string") return;
-            let response;
-            try { response = JSON.parse(event.data) } catch (e) { return }
-            if (!response || typeof response !== "object") return;
-            if(response.onData !== undefined){
-              program.onData(response.onData)
-            }
-            if(response.onEnd !== undefined){
-              program.onEnd(response.onEnd)
-            }
-            if(response.onError !== undefined){
-              program.onError(response.onError)
-            }
-          };
-          
-          
-          return program
-        }
-
     source = {"data":"- show_content = true\n- show_editor = true\n- show_terminal = true\n- language = \"python\"\n- title = \"🌍 103 Merhaba Dünya (Uygulama)!\"\n- run = \"py merhaba.py\"\n\n- parts/0/text\n# 🌍 Merhaba Uygulama! \nYazdığımız kodu terminalden çalıştırmak için ``python [dosya adı]`` komutunu kullanırız. \n\n<code-view name=\"merhaba.py\" language=\"python\">\nprint(\"Merhaba\")\n<\/code-view>\n\n<code-view name=\"Terminal\" language=\"bash\">\n> python merhaba.py\nMerhaba\n<\/code-view>\n\n> Görev: Terminale ``python merhaba.py`` yaz\n- parts/0/files/merhaba.py\nprint(\"Merhaba\")\n---------------------\n- parts/0/terminal\n> python merhaba.py\nMerhaba\n---------------------\n\n- parts/1/text\n# ✅ Tebrikler\nTerminalden python kodunu çalıştırdın.\n\nPython kodunu uygulamaya çevirmenin yollarından biri ``#!`` ön ekini kullanmaktır. Bu komut dosyanın ilk satırına yazılır. Bu komut ile dosyayı çalıştırdığımızda python yolu belirtilen python sürümü ile dosya çalıştırılır. Örneğin ``#!C:\\Python310\\python.exe``\n\n\n<code-view name=\"merhaba.py\" language=\"python\">\n#!C:\\Python310\\python.exe\nprint(\"Merhaba\")\n<\/code-view>\n<code-view name=\"Terminal\" language=\"python\">\n> ./merhaba.py\nMerhaba\n<\/code-view>\n\n> Görev: Şimdi de terminale ``./merhaba.py`` yazarak, **merhaba** uygulamasını çalıştır.\n- parts/1/files/merhaba.py/.block\n#!C:\\Python310\\python.exe\nprint(\"Merhaba\")\n---------------------\n- parts/1/terminal\n> ./merhaba.py\nMerhaba\n---------------------","next":null};
     Pager(source);
 

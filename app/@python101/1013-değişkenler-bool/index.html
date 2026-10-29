@@ -70,6 +70,7 @@
   <script src="./source/script.js"></script>
   <!-- Sayfa yonlendirici: ders/kurs icerigini render eder (Pager) -->
   <script src="./views/pager.js"></script>
+  <script src="./source/program.js"></script>
 
 
 
@@ -191,56 +192,6 @@
     </div>
     <div class="panel-body" show-content="true" show-editor="true" show-terminal="true" show-preview="undefined" style="opacity: 1; transition: opacity 0.5s ease 0s;">
           <script>
-    function Program(files,options){
-          options = options || {}
-          let language = (options.language=="javascript" || options.language=="js" || options.language=="node" || options.language=="nodejs") ? "javascript" : "python"
-          let runnerUrl = language=="javascript" ? "api-javascript.html" : "api-python-skulpt.html"
-    
-          let program = {
-            response: "",
-            onData  : function(e){console.log("PROGRAM::onData(" +JSON.stringify(e)+")")} ,
-            onError : function(e){console.log("PROGRAM::onError("+JSON.stringify(e)+")")} ,
-            onEnd   : function(e){console.log("PROGRAM::onEnd("  +JSON.stringify(e)+")")} ,
-          }
-    
-          Program.frames = Program.frames || {}
-          let iframe = Program.frames[language]
-          if(!iframe){
-            iframe = Program.frames[language] = document.createElement("iframe")
-            iframe.src = runnerUrl
-            iframe.onload = function(e){
-              iframe.contentWindow.postMessage(JSON.stringify(files), "*");
-            }
-            document.body.append(iframe)
-            iframe.style.display = "none";
-            if(language=="javascript") iframe.setAttribute("sandbox","allow-scripts")
-            
-            
-    
-          }else{
-            iframe.contentWindow.postMessage(JSON.stringify(files), "*");
-          }
-          
-          window.onmessage = function(event) {
-            if (typeof event.data !== "string") return;
-            let response;
-            try { response = JSON.parse(event.data) } catch (e) { return }
-            if (!response || typeof response !== "object") return;
-            if(response.onData !== undefined){
-              program.onData(response.onData)
-            }
-            if(response.onEnd !== undefined){
-              program.onEnd(response.onEnd)
-            }
-            if(response.onError !== undefined){
-              program.onError(response.onError)
-            }
-          };
-          
-          
-          return program
-        }
-
     source = {"data":"- show_content = true\n- show_editor = true\n- show_terminal = true\n- language = \"python\"\n- title = \"🤔 Değişkenler bool : Önerme\"\n- run = \"py main.py\"\n\n- parts/0/text\n# 🤔 **bool** : Önerme\n``bool`` yani önerme, doğrulanabilen yada yanlışlanabilen şeyleri tanımlamak için kullanırız.\n\n* ``True``  : Doğru - Evet\n* ``False`` : Yanlış - Hayır\n\n<code-view name=\"main.py\" language=\"python\">\nankara_başkenttir = True\nprint(ankara_başkenttir)\n<\/code-view>\n<code-view name=\"Terminal\" language=\"bash\">\nTrue\n<\/code-view>\n\n\n\n- parts/0/files/main.py/.block\n# ankara_başkenttir değişkenini doğru yapar mısın?\nankara_başkenttir = <<< ❓ >>>\nprint(ankara_başkenttir)\n---------------------\n- parts/0/tests/0/output\nTrue\n\n---------------------\n\n- parts/1/text\n\n<code-view name=\"main.py\" language=\"python\">\nistanbul_başkenttir = False\nprint(istanbul_başkenttir)\n<\/code-view>\n<code-view name=\"Terminal\" language=\"bash\">\nFalse\n<\/code-view>\n\n- parts/1/files/main.py/.block\n# istanbul_başkenttir değişkenini yanlış yapar mısın?\nistanbul_başkenttir = <<< ❓ >>>\nprint(istanbul_başkenttir)\n---------------------\n- parts/1/tests/0/output\nFalse\n\n---------------------\n\n\n\n- parts/2/text\n<code-view name=\"main.py\" language=\"python\">\nuyuyor_musun = False\nprint( \"Tabikide\", uyuyor_musun , \":)\" )\n<\/code-view>\n<code-view name=\"Terminal\" language=\"shell\">\nTabikide False :)\n<\/code-view>\n\n- parts/2/files/main.py/.block\n# uyuyor_musun değişkeni ne olmalı? 🤔\n<<< ❓ >>>\nprint( \"Tabikide\", uyuyor_musun , \":)\" )\n---------------------\n- parts/2/tests/0/output\nTabikide False :)\n\n---------------------\n\n\n\n- parts/3/text\n<code-view name=\"main.py\" language=\"python\">\nkodluyo_musun = True\nprint( kodluyo_musun )\n<\/code-view>\n<code-view name=\"Terminal\" language=\"shell\">\nTrue\n<\/code-view>\n\n- parts/3/files/main.py/.block\n# ⌨️ + ☕ + 🍪 = <\/Kodluyo>\n# kodluyo_musun değişkeni ne olmalı? 🤔 \n<<< ❓ >>>\nprint( kodluyo_musun )\n---------------------\n- parts/3/tests/0/output\nTrue\n\n---------------------\n","next":"@python101/1014-0-değişkenler-metin"};
     Pager(source);
 

@@ -70,6 +70,7 @@
   <script src="./source/script.js"></script>
   <!-- Sayfa yonlendirici: ders/kurs icerigini render eder (Pager) -->
   <script src="./views/pager.js"></script>
+  <script src="./source/program.js"></script>
 
 
 
@@ -191,56 +192,6 @@
     </div>
     <div class="panel-body" show-content="true" show-editor="true" show-terminal="true" show-preview="undefined" style="opacity: 1; transition: opacity 0.5s ease 0s;">
           <script>
-    function Program(files,options){
-          options = options || {}
-          let language = (options.language=="javascript" || options.language=="js" || options.language=="node" || options.language=="nodejs") ? "javascript" : "python"
-          let runnerUrl = language=="javascript" ? "api-javascript.html" : "api-python-skulpt.html"
-    
-          let program = {
-            response: "",
-            onData  : function(e){console.log("PROGRAM::onData(" +JSON.stringify(e)+")")} ,
-            onError : function(e){console.log("PROGRAM::onError("+JSON.stringify(e)+")")} ,
-            onEnd   : function(e){console.log("PROGRAM::onEnd("  +JSON.stringify(e)+")")} ,
-          }
-    
-          Program.frames = Program.frames || {}
-          let iframe = Program.frames[language]
-          if(!iframe){
-            iframe = Program.frames[language] = document.createElement("iframe")
-            iframe.src = runnerUrl
-            iframe.onload = function(e){
-              iframe.contentWindow.postMessage(JSON.stringify(files), "*");
-            }
-            document.body.append(iframe)
-            iframe.style.display = "none";
-            if(language=="javascript") iframe.setAttribute("sandbox","allow-scripts")
-            
-            
-    
-          }else{
-            iframe.contentWindow.postMessage(JSON.stringify(files), "*");
-          }
-          
-          window.onmessage = function(event) {
-            if (typeof event.data !== "string") return;
-            let response;
-            try { response = JSON.parse(event.data) } catch (e) { return }
-            if (!response || typeof response !== "object") return;
-            if(response.onData !== undefined){
-              program.onData(response.onData)
-            }
-            if(response.onEnd !== undefined){
-              program.onEnd(response.onEnd)
-            }
-            if(response.onError !== undefined){
-              program.onError(response.onError)
-            }
-          };
-          
-          
-          return program
-        }
-
     source = {"data":"- show_content = true\n- show_editor = true\n- show_terminal = true\n- language = \"python\"\n- title = \"🔢 Değişkenler int : Tam Sayılar\"\n- run = \"py main.py\"\n\n- parts/0/text\n# 🔢 **int** : Tam Sayılar \n``int`` yani tam sayıları tanımlamak için ``=`` operatörünü kullanırız.\n\n<code-view name=\"main.py\" language=\"python\">\nyıl = 2023\nprint(yıl)\n<\/code-view>\n<code-view name=\"Terminal\" language=\"bash\">\n2023\n<\/code-view>\n\n\n\n\n- parts/0/files/main.py/.block\n# yıl değişkenini 2023 yapar mısın?\nyıl = <<< ❓ >>>\nprint(yıl)\n---------------------\n- parts/0/tests/0/output\n2023\n\n---------------------\n\n- parts/1/text\n\n<code-view name=\"main.py\" language=\"python\">\nsaat = 24\nprint( 'bir günde', saat, 'saat vardır.' )\n<\/code-view>\n<code-view name=\"Terminal\" language=\"bash\">\nbir günde 24 saat vardır.\n<\/code-view>\n\n- parts/1/files/main.py/.block\n# bir günde kaç saat vardır?\n# saat değişkenini tanımlar mısın?\n<<< ❓ >>>\nprint( 'bir günde', saat, 'saat vardır.' )\n---------------------\n- parts/1/tests/0/output\nbir günde 24 saat vardır.\n\n---------------------\n\n\n\n- parts/2/text\n<code-view name=\"main.py\" language=\"python\">\nyıl = 1919\nprint( yıl, \"yılında Atatürk Samsun'a çıktı.\" )\n<\/code-view>\n<code-view name=\"Terminal\" language=\"shell\">\n1919 yılında Atatürk Samsun'a çıktı.\n<\/code-view>\n\n- parts/2/files/main.py/.block\n# yıl değişkenini tanımlar mısın?\n<<< ❓ >>>\nprint( yıl, \"yılında Atatürk Samsun'a çıktı.\" )\n---------------------\n- parts/2/tests/0/output\n1919 yılında Atatürk Samsun'a çıktı.\n\n---------------------\n\n\n\n- parts/3/text\n<code-view name=\"main.py\" language=\"python\">\nsayı = -5\nprint( sayı, \"sayısı ile 5 sayısını toplarsak 0 yapar.\" )\n<\/code-view>\n<code-view name=\"Terminal\" language=\"shell\">\n&minus;5 sayısı ile 5 sayısını toplarsak 0 yapar.\n<\/code-view>\n\n- parts/3/files/main.py/.block\n# sayı değişkenini tanımlar mısın?\n<<< ❓ >>>\nprint( sayı, \"sayısı ile 5 sayısını toplarsak 0 yapar.\" )\n---------------------\n- parts/3/tests/0/output\n&minus;5 sayısı ile 5 sayısını toplarsak 0 yapar.\n\n---------------------\n","next":"@python101/1011-değişkenler-float"};
     Pager(source);
 

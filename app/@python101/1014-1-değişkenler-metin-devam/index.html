@@ -70,6 +70,7 @@
   <script src="./source/script.js"></script>
   <!-- Sayfa yonlendirici: ders/kurs icerigini render eder (Pager) -->
   <script src="./views/pager.js"></script>
+  <script src="./source/program.js"></script>
 
 
 
@@ -191,56 +192,6 @@
     </div>
     <div class="panel-body" show-content="true" show-editor="true" show-terminal="true" show-preview="undefined" style="opacity: 1; transition: opacity 0.5s ease 0s;">
           <script>
-    function Program(files,options){
-          options = options || {}
-          let language = (options.language=="javascript" || options.language=="js" || options.language=="node" || options.language=="nodejs") ? "javascript" : "python"
-          let runnerUrl = language=="javascript" ? "api-javascript.html" : "api-python-skulpt.html"
-    
-          let program = {
-            response: "",
-            onData  : function(e){console.log("PROGRAM::onData(" +JSON.stringify(e)+")")} ,
-            onError : function(e){console.log("PROGRAM::onError("+JSON.stringify(e)+")")} ,
-            onEnd   : function(e){console.log("PROGRAM::onEnd("  +JSON.stringify(e)+")")} ,
-          }
-    
-          Program.frames = Program.frames || {}
-          let iframe = Program.frames[language]
-          if(!iframe){
-            iframe = Program.frames[language] = document.createElement("iframe")
-            iframe.src = runnerUrl
-            iframe.onload = function(e){
-              iframe.contentWindow.postMessage(JSON.stringify(files), "*");
-            }
-            document.body.append(iframe)
-            iframe.style.display = "none";
-            if(language=="javascript") iframe.setAttribute("sandbox","allow-scripts")
-            
-            
-    
-          }else{
-            iframe.contentWindow.postMessage(JSON.stringify(files), "*");
-          }
-          
-          window.onmessage = function(event) {
-            if (typeof event.data !== "string") return;
-            let response;
-            try { response = JSON.parse(event.data) } catch (e) { return }
-            if (!response || typeof response !== "object") return;
-            if(response.onData !== undefined){
-              program.onData(response.onData)
-            }
-            if(response.onEnd !== undefined){
-              program.onEnd(response.onEnd)
-            }
-            if(response.onError !== undefined){
-              program.onError(response.onError)
-            }
-          };
-          
-          
-          return program
-        }
-
     source = {"data":"- show_content = true\n- show_editor = true\n- show_terminal = true\n- language = \"python\"\n- title = \"💬 Değişkenler str : Metin\"\n- run = \"py main.py\"\n\n- parts/0:\n\n- text\n# upper()\n\nMetindeki tüm harfleri büyük harfe çevirir.\n\n<code-view name=\"main.py\" language=\"python\">\nisim = \"Sultan Mehmet\"\nprint(isim.upper())\n<\/code-view>\n<code-view name=\"Terminal\" language=\"bash\">\nSULTAN MEHMET\n<\/code-view>\n\n\n\n- files/main.py/.block\n# isim değişkeninindeki \n# tüm harfleri büyük harflere çevirir misin?\nisim = \"Sultan Mehmet\"\nprint(<<< ❓ >>>)\n---------------------\n- tests/0/output\nSULTAN MEHMET\n\n- tests/1/files/main.py/.block\nisim = \"Kanuni Sultan\"\nprint(<<< ❓ >>>)\n- tests/1/output\nKANUNI SULTAN\n\n---------------------\n\n- parts/1:\n\n- text\n# lower()\nMetindeki tüm harfleri küçük harfe çevirir.\n\n<code-view name=\"main.py\" language=\"python\">\nuygulama = 'Kodluyo'\nprint( uygulama.lower() )\n<\/code-view>\n<code-view name=\"Terminal\" language=\"bash\">\nkodluyo\n<\/code-view>\n\n- files/main.py/.block\n# uygulama değişkenindeki \n# tüm harfleri küçük harfe çevirir misin?\nuygulama = 'Kodluyo'\nprint(<<< ❓ >>>)\n---------------------\n- tests/0/output\nkodluyo\n\n- tests/1/files/main.py/.block\nuygulama = 'DeneYap'\nprint(<<< ❓ >>>)\n- tests/1/output\ndeneyap\n\n---------------------\n\n\n\n- parts/2:\n- text\n# strip\nMetnin başındaki ve sonundaki boşlukları siler.\n<code-view name=\"main.py\" language=\"python\">\nmetin = '   Ankara Türkiye\\\\'nin başkentidir.   '\nprint( metin.strip() )\n<\/code-view>\n<code-view name=\"Terminal\" language=\"shell\">\nAnkara Türkiye'nin başkentidir.\n<\/code-view>\n\n- files/main.py/.block\n# metin değişkeninin başındaki ve sonundaki\n# boşlukları siler misin?\nmetin = '   Ankara Türkiye\\'nin başkentidir.   '\nprint( <<< ❓ >>> )\n- tests/0/output\nAnkara Türkiye'nin başkentidir.\n\n---------------------\n- tests/1/files/main.py/.block\n# metin değişkeninin başındaki ve sonundaki\n# boşlukları siler misin?\nmetin = '   İstanbul Türkiye\\'nin en büyük şehridir.   '\nprint( <<< ❓ >>> )\n- tests/1/output\nİstanbul Türkiye'nin en büyük şehridir.\n\n---------------------\n\n\n- parts/3:\n- text\n# replace\nMetindeki bir kelimeyi başka bir kelime ile değiştirir.\n\n<code-view name=\"main.py\" language=\"python\">\nmetin = \"Ankara Türkiye'nin en büyük şehridir.\"\nprint( metin.replace('Ankara', 'İstanbul') )\n<\/code-view>\n<code-view name=\"Terminal\" language=\"shell\">\nİstanbul Türkiye'nin en büyük şehridir.\n<\/code-view>\n\n- files/main.py/.block\n# metin değişkeninde 'Ankara' kelimesi yerine\n# 'İstanbul' yapar mısın?\nmetin = \"Ankara Türkiye'nin en büyük şehridir.\"\nprint( <<< ❓ >>> )\n---------------------\n- tests/0/output\nİstanbul Türkiye'nin en büyük şehridir.\n\n- tests/1/files/main.py/.block\n# metin değişkeninde 'Ankara' kelimesi yerine\n# 'İstanbul' yapar mısın?\nmetin = \"Ankara Türkiye'mizin en büyük şehridir.\"\nprint( <<< ❓ >>> )\n---------------------\n- tests/1/output\nİstanbul Türkiye'mizin en büyük şehridir.\n\n---------------------\n\n\n\n- parts/4:\n- text\n# split\nMetni belirtilen karaktere göre parçalar ve bir listeye dönüştürür.\n\n<code-view name=\"main.py\" language=\"python\">\nmetin = \"Ankara, İstanbul, İzmir, Bursa, Antalya\"\nprint( metin.split(',') )\n<\/code-view>\n<code-view name=\"Terminal\" language=\"shell\">\n['Ankara', ' İstanbul', ' İzmir', ' Bursa', ' Antalya']\n<\/code-view>\n\n- files/main.py/.block\n# metin değişkenini virgüle göre parçalar mısın?\nmetin = \"Ankara, İstanbul, İzmir, Bursa, Antalya\"\nprint( <<< ❓ >>> )\n- tests/0/output\n['Ankara', ' İstanbul', ' İzmir', ' Bursa', ' Antalya']\n\n---------------------\n- tests/1/files/main.py/.block\n# metin değişkenini virgüle göre parçalar mısın?\nmetin = \"Ankara, İstanbul, İzmir, Bursa, Antalya, Konya\"\nprint( <<< ❓ >>> )\n- tests/1/output\n['Ankara', ' İstanbul', ' İzmir', ' Bursa', ' Antalya', ' Konya']\n\n---------------------\n\n\n","next":"@python101/1020-koleksiyonlar-kümeler"};
     Pager(source);
 
