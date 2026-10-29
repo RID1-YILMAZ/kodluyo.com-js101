@@ -163,6 +163,8 @@ for (const file of ASSET_FILES) {
 for (const file of ROOT_FILES) {
   copy(path.join(ROOT, file), path.join(OUT, file));
 }
+// GitHub Pages'in Jekyll islemesini kapat (alt cizgi ile baslayan yollar bozulmasin).
+fs.writeFileSync(path.join(OUT, '.nojekyll'), '');
 
 // Online editor (/app/editor/): online.html dizin indeksi olarak da yayinlanir.
 const editorPages = [];
