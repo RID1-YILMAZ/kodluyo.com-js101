@@ -1,0 +1,271 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <base href="../../">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>kodluyo.com @python101/1043-0-fonksiyonlar</title>
+
+  <link rel="icon" href="./source/images/kodluyo.com.svg" type="image/svg+xml">
+
+  <!--Directive-->
+  <!-- <script src="https://cdn.jsdelivr.net/gh/HasanDelibas/dion@v1.0.2/dion.js"></script> -->
+
+  <script src="./library/directive.js/dion.js"></script>
+  <script src="./source/level-fixer.js"></script>
+
+  <script src="./library/jquery.v3.2.1.min.js"></script>
+  <script src="./library/socket-io/socket.io.js"></script>
+
+  <!-- XTerm Lib -->
+  <link rel="stylesheet" href="./library/xterm/css/xterm.css" />
+  <script src="./library/xterm/lib/xterm.js"></script>
+  <script src="./library/xterm/lib/xterm-addon-fit.js"></script>
+
+
+  <!-- MD TO HTML LIBRARY -->
+  <script src="./library/marked.min.js"></script>
+  <!-- <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>   -->
+  <!-- CODE TO HTML LIBRARY -->
+  <script src="./library/highlight.min.js"></script>
+  <link rel="stylesheet" href="./library/monokai-sublime.min.css">
+  <style>
+    .hljs-string {
+      color: #ce9178
+    }
+
+    .hljs-built_in {
+      color: #569cd6;
+    }
+
+    .hljs-keyword {
+      color: #569cd6;
+    }
+  </style>
+  <!-- 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/highlight.min.js"
+    integrity="sha512-IaaKO80nPNs5j+VLxd42eK/7sYuXQmr+fyywCNA0e+C6gtQnuCXNtORe9xR4LqGPz5U9VpH+ff41wKs/ZmC3iA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/styles/monokai-sublime.min.css"
+    integrity="sha512-ade8vHOXH67Cm9z/U2vBpckPD1Enhdxl3N05ChXyFx5xikfqggrK4RrEele+VWY/iaZyfk7Bhk6CyZvlh7+5JQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  -->
+
+
+
+  <!-- READONLY MONACO EDITOR PLUGIN  -->
+  <script src="./library/constrained-editor-plugin/constrainedEditorPlugin.js"></script>
+  <!-- Require JS -->
+  <script src="./library/require.js"></script>
+  <!-- Code Diff Libs -->
+
+  <link rel="stylesheet" href="./views/init.css">
+  <link rel="stylesheet" href="./views/editor.css">
+  <script src="./source/editor.js"></script>
+  <script src="./source/terminal.js"></script>
+  <script src="./source/script.js"></script>
+
+
+
+  <!-- google font ubuntu mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Ubuntu+Mono:wght@400;700&display=swap" rel="stylesheet"
+    crossorigin="anonymous">
+
+  <link rel="stylesheet" href="./views/init.css">
+  <link rel="stylesheet" href="./views/editor.css">
+
+  <!-- DOM TO IMAGE -->
+  <script src="./library/dom-to-image.js"></script>
+  <!-- Asenac View -->
+  <!--
+  <script src="./library/asenac-view.js"></script>
+  -->
+  <script src="https://cdn.jsdelivr.net/gh/HasanDelibas/asenac-view@v1.0.1/asenac.js"></script>
+
+
+  <style>
+    .card {
+      background-color: #0002;
+      backdrop-filter: blur(2px);
+      color: white;
+      border-radius: 10px;
+      padding: 10px;
+      text-align: center;
+      box-shadow: inset 0 0 0px 1px #FFF8;
+      color: white;
+      font-size: 24px;
+      text-decoration: none;
+      cursor: pointer;
+      background-size: 100%;
+      background-position: center;
+      transition: .2s;
+      display: inline-block;
+    }
+
+    .card:hover {
+      background-color: #0004;
+      background-size: 120%;
+    }
+
+    .grid-container {
+      /**
+      * User input values.
+      */
+      --grid-layout-gap: 10px;
+      --grid-column-count: 4;
+      --grid-item--min-width: 400px;
+
+      /**
+      * Calculated values.
+      */
+      --gap-count: calc(var(--grid-column-count) - 1);
+      --total-gap-width: calc(var(--gap-count) * var(--grid-layout-gap));
+      --grid-item--max-width: calc((100% - var(--total-gap-width)) / var(--grid-column-count));
+
+      padding: .5em;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(max(var(--grid-item--min-width), var(--grid-item--max-width)), 1fr));
+      grid-gap: var(--grid-layout-gap);
+    }
+
+
+    body .xterm-dom-renderer-owner-1 .xterm-rows:not(.xterm-focus) .xterm-cursor.xterm-cursor-block {
+      opacity: 0;
+    }
+  </style>
+
+
+</head>
+
+<body theme="dark">
+
+
+  <div class="panel panel-window panel-open-editor panel-open-terminal">
+    <div class="panel-title"><img class="panel-title-icon" src="./source/images/kodluyo.com.svg" style="height:1.6em;width:auto;border-radius:4px;">
+      <div class="panel-title-button" href="./@python101/"><svg
+          style="width:24px;height:24px" viewBox="0 0 24 24">
+          <path fill="currentColor" d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z"></path>
+        </svg></div><a class="panel-title-button" href="./@python101/"><svg
+          style="width:24px;height:24px" viewBox="0 0 24 24">
+          <path fill="currentColor"
+            d="M2 12C2 16.97 6.03 21 11 21C13.39 21 15.68 20.06 17.4 18.4L15.9 16.9C14.63 18.25 12.86 19 11 19C4.76 19 1.64 11.46 6.05 7.05C10.46 2.64 18 5.77 18 12H15L19 16H19.1L23 12H20C20 7.03 15.97 3 11 3C6.03 3 2 7.03 2 12Z">
+          </path>
+        </svg></a>
+      <div class="panel-title-button"><svg style="width:24px;height:24px" viewBox="0 0 24 24">
+          <path fill="currentColor"
+            d="M15.5,14L20.5,19L19,20.5L14,15.5V14.71L13.73,14.43C12.59,15.41 11.11,16 9.5,16A6.5,6.5 0 0,1 3,9.5A6.5,6.5 0 0,1 9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.11 15.41,12.59 14.43,13.73L14.71,14H15.5M9.5,14C12,14 14,12 14,9.5C14,7 12,5 9.5,5C7,5 5,7 5,9.5C5,12 7,14 9.5,14M12,10H10V12H9V10H7V9H9V7H10V9H12V10Z">
+          </path>
+        </svg></div>
+      <div class="panel-title-button"><svg style="width:24px;height:24px" viewBox="0 0 24 24">
+          <path fill="currentColor"
+            d="M15.5,14H14.71L14.43,13.73C15.41,12.59 16,11.11 16,9.5A6.5,6.5 0 0,0 9.5,3A6.5,6.5 0 0,0 3,9.5A6.5,6.5 0 0,0 9.5,16C11.11,16 12.59,15.41 13.73,14.43L14,14.71V15.5L19,20.5L20.5,19L15.5,14M9.5,14C7,14 5,12 5,9.5C5,7 7,5 9.5,5C12,5 14,7 14,9.5C14,12 12,14 9.5,14M7,9H12V10H7V9Z">
+          </path>
+        </svg></div><a class="panel-title-button" href="./@python101/"><svg
+          style="width:24px;height:24px" viewBox="0 0 24 24">
+          <path fill="currentColor" d="M13,20H11V8L5.5,13.5L4.08,12.08L12,4.16L19.92,12.08L18.5,13.5L13,8V20Z"></path>
+        </svg></a>
+      <div class="panel-title-move" style="gap:1em">
+        <div> @python101/1043-0-fonksiyonlar </div>
+      </div>
+      <div class="panel-title-button red-button"><svg style="width:20px;height:20px" viewBox="0 0 24 24">
+          <path fill="currentColor"
+            d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z">
+          </path>
+        </svg></div>
+      <div class="panel-title-button yellow-button"><svg style="width:20px;height:20px" viewBox="0 0 24 24">
+          <path fill="black" d="M19,13H5V11H19V13Z"></path>
+        </svg></div>
+      <div class="panel-title-button green-button" onclick="maximizeWindow()"><svg style="width:20px;height:20px" viewBox="0 0 24 24">
+          <path fill="currentColor"
+            d="M10,21V19H6.41L10.91,14.5L9.5,13.09L5,17.59V14H3V21H10M14.5,10.91L19,6.41V10H21V3H14V5H17.59L13.09,9.5L14.5,10.91Z">
+          </path>
+        </svg></div>
+    </div>
+    <div class="panel-body" show-content="true" show-editor="true" show-terminal="true" show-preview="undefined" style="opacity: 1; transition: opacity 0.5s ease 0s;">
+          <script>
+    function Program(files,options){
+          options = options || {}
+          let language = (options.language=="javascript" || options.language=="js" || options.language=="node" || options.language=="nodejs") ? "javascript" : "python"
+          let runnerUrl = language=="javascript" ? "api-javascript.html" : "api-python-skulpt.html"
+    
+          let program = {
+            response: "",
+            onData  : function(e){console.log("PROGRAM::onData(" +JSON.stringify(e)+")")} ,
+            onError : function(e){console.log("PROGRAM::onError("+JSON.stringify(e)+")")} ,
+            onEnd   : function(e){console.log("PROGRAM::onEnd("  +JSON.stringify(e)+")")} ,
+          }
+    
+          Program.frames = Program.frames || {}
+          let iframe = Program.frames[language]
+          if(!iframe){
+            iframe = Program.frames[language] = document.createElement("iframe")
+            iframe.src = runnerUrl
+            iframe.onload = function(e){
+              iframe.contentWindow.postMessage(JSON.stringify(files), "*");
+            }
+            document.body.append(iframe)
+            iframe.style.display = "none";
+            if(language=="javascript") iframe.setAttribute("sandbox","allow-scripts")
+            
+            
+    
+          }else{
+            iframe.contentWindow.postMessage(JSON.stringify(files), "*");
+          }
+          
+          window.onmessage = function(event) {
+            let response = JSON.parse(event.data)
+            if(response.onData !== undefined){
+              program.onData(response.onData)
+            }
+            if(response.onEnd !== undefined){
+              program.onEnd(response.onEnd)
+            }
+            if(response.onError !== undefined){
+              program.onError(response.onError)
+            }
+          };
+          
+          
+          return program
+        }
+
+    source = {"data":"- show_content = true\n- show_editor = true\n- show_terminal = true\n- language = \"python\"\n- title = \"Fonksiyonlar\"\t\n- run = \"py main.py\"\n\n\n\n\n- parts/0:\n- text\n\n## 🚀 Fonksiyonlar\n\nFonksiyonlar tekrar eden kodları tek bir seferde yazıp. Kolay bir şekilde çağırmamızı sağlan bir şeydir.\n\n`def` anahtar kelimesi ile fonksiyon oluşturabiliriz.\n\n<code-view name=\"main.py\" language=\"python\">\ndef selam_ver():\n  print(\"Merhaba Kodluyo!\")\n&nbsp;\nselam_ver()\n<\/code-view>\n\n<code-view name=\"Terminal\" language=\"md\">\nMerhaba Kodluyo!\n<\/code-view>\n\n\n\n- files/main.py/.block\n# ekrana \"Merhaba Kodluyo!\" yazdıran \n# selam_ver fonksiyonunu tanımlar mısın?\n<<<❓>>>\n\nselam_ver()\n- tests/0/files/main.py/.block\n# ekrana \"Merhaba Kodluyo!\" yazdıran \n# selam_ver fonksiyonunu tanımlar mısın?\n<<<❓>>>\n\nselam_ver()\n- tests/0/execute\npy main.py\n- tests/0/output\nMerhaba Kodluyo!\n\n------------------\n\n\n\n\n\n\n\n\n- parts/1:\n- text\n\n## 🚀 Fonksiyonu Çağırma\n\n\nFonksiyonlar her zaman değer döndürmek zorunda değildir. İşlem de yapabilir. Örneğin:\n\n<code-view name=\"main.py\" language=\"python\">\ndef merhaba():\n  print(\"Merhaba, kodlama nasıl gidiyor?\")\n&nbsp;\nmerhaba()\n<\/code-view>\n\n\n<code-view name=\"Terminal\" language=\"md\">\nMerhaba, kodlama nasıl gidiyor?\n<\/code-view>\n\n\n\n\n- files/main.py/.block\n# merhaba fonksiyonunu çağırır mısın?\ndef merhaba():\n  print(\"Merhaba, kodlama nasıl gidiyor?\")\n\n<<<❓>>>\n- tests/0/files/main.py/.block\n# merhaba fonksiyonunu çağırır mısın?\ndef merhaba():\n  print(\"Merhaba, kodlama nasıl gidiyor?\")\n\n<<<❓>>>\n- tests/0/execute\npy main.py\n- tests/0/output\nMerhaba, kodlama nasıl gidiyor?\n\n------------------\n- tests/1/files/main.py/.block\n# merhaba fonksiyonunu çağırır mısın?\ndef merhaba():\n  print(\"Merhaba\")\n\n<<<❓>>>\n- tests/1/execute\npy main.py\n- tests/1/output\nMerhaba\n\n------------------\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n- parts/2:\n- text\n\n## 🚀 Fonksiyonlara Parametre Gönderme\n\n<drawing style=\"--animation-delay:1s\">\n<svg width=\"100%\" height=\"100%\" viewBox=\"-674.0860998440198 619.1367709064491 42.29601796697966 8.440342781613253\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" version=\"1.1\" style=\"stroke-linecap: round; stroke-linejoin: round; fill: none; background: radial-gradient(rgb(23, 23, 23), rgb(19, 19, 19), rgb(0, 0, 0)) center center / cover; --item-length:45; --total-length:129004;\"><path xmlns=\"http://www.w3.org/2000/svg\" style=\"stroke-width: 166.213; transform: matrix(0.00134137, 0, 0, 0.00134137, -669.763, 623.966); --index:0; --length:2087.17; --start:0;\" d=\"M329 -585C309 -605 293 -654 272 -665,C-329 -1000 20 590 7 774,C4 811 -54 1000 -131 923\" data-hash=\"1.7819\" class=\"selected\" stroke=\"#FFFFFF\"><\/path><path xmlns=\"http://www.w3.org/2000/svg\" style=\"stroke-width: 381.116; transform: matrix(0.000584999, 0, 0, 0.000584999, -669.751, 624.131); --index:1; --length:2055.33; --start:2087.17;\" d=\"M-928 92C-941 78 -1000 70 -980 66,C-822 26 -537 0 -426 -13,C48 -65 523 -92 1000 -92\" data-hash=\"1.7820\" class=\"selected\" stroke=\"#FFFFFF\"><\/path><path xmlns=\"http://www.w3.org/2000/svg\" style=\"stroke-width: 267.215; transform: matrix(0.000818769, 0.000160516, -0.000160516, 0.000818769, -668.403, 623.547); --index:2; --length:2315.05; --start:4142.51;\" d=\"M32 -1000C-439 -292 -332 537 439 1000\" data-hash=\"1.7821\" class=\"selected\" stroke=\"#FFFFFF\"><\/path><path xmlns=\"http://www.w3.org/2000/svg\" style=\"stroke-width: 617.264; transform: matrix(0.000361195, 0, 0, 0.000361195, -667.173, 623.531); --index:3; --length:2510.89; --start:6457.56;\" d=\"M684 -924C684 -1000 609 -839 513 -711,C-300 374 613 -824 -128 187,C-310 435 -587 710 -684 999\" data-hash=\"1.7824\" class=\"selected\" stroke=\"#FFC107\"><\/path><path xmlns=\"http://www.w3.org/2000/svg\" style=\"stroke-width: 759.454; transform: matrix(0.000293569, 0, 0, 0.000293569, -667.111, 623.537); --index:4; --length:2757.03; --start:8968.45;\" d=\"M-947 -1000C-277 -329 213 388 947 1000\" data-hash=\"1.7825\" class=\"selected\" stroke=\"#FFC107\"><\/path><path xmlns=\"http://www.w3.org/2000/svg\" data-hash=\"1.7827\" d=\"M32 -1000C-439 -292 -332 537 439 1000\" class=\"selected\" style=\"stroke-width: 267.215; transform: matrix(-0.000808689, -0.000205354, 0.000205354, -0.000808689, -665.848, 623.689); --index:5; --length:2315.05; --start:11725.5;\" stroke=\"#FFFFFF\"><\/path><path xmlns=\"http://www.w3.org/2000/svg\" style=\"stroke-width: 534.431; transform: matrix(0.000417177, 0, 0, 0.000417177, -664.238, 623.441); --index:6; --length:2000.08; --start:14040.5;\" d=\"M-1000 -30C-330 -30 328 30 999 -30\" data-hash=\"1.7833\" class=\"selected\" stroke=\"#FFFFFF\"><\/path><path xmlns=\"http://www.w3.org/2000/svg\" style=\"stroke-width: 458.083; transform: matrix(0.000486707, 0, 0, 0.000486707, -664.137, 623.814); --index:7; --length:2003.43; --start:16040.6;\" d=\"M-1000 -31C-358 -31 370 62 999 -62\" data-hash=\"1.7834\" class=\"selected\" stroke=\"#FFFFFF\"><\/path><path xmlns=\"http://www.w3.org/2000/svg\" style=\"stroke-width: 296.751; transform: matrix(0.000751312, 0, 0, 0.000751312, -662.293, 623.347); --index:8; --length:5580.82; --start:18044;\" d=\"M-736 -179C-736 -296 -759 -437 -716 -549,C-542 -1000 179 -980 394 -569,C603 -169 -13 408 -284 622,C-443 749 -697 850 -839 993,C-846 1000 -827 977 -819 972,C-752 928 -671 908 -592 890,C-136 781 378 849 846 849\" data-hash=\"1.7835\" class=\"selected\" stroke=\"#FFFFFF\"><\/path><path xmlns=\"http://www.w3.org/2000/svg\" data-hash=\"1.7836\" d=\"M684 -924C684 -1000 609 -839 513 -711,C-300 374 613 -824 -128 187,C-310 435 -587 710 -684 999\" class=\"selected\" style=\"stroke-width: 617.264; transform: matrix(0.000361195, 0, 0, 0.000361195, -660.931, 623.654); --index:9; --length:2510.89; --start:23624.9;\" stroke=\"#FFC107\"><\/path><path xmlns=\"http://www.w3.org/2000/svg\" data-hash=\"1.7837\" d=\"M-947 -1000C-277 -329 213 388 947 1000\" class=\"selected\" style=\"stroke-width: 759.454; transform: matrix(0.000293569, 0, 0, 0.000293569, -660.869, 623.66); --index:10; --length:2757.03; --start:26135.7;\" stroke=\"#FFC107\"><\/path><path xmlns=\"http://www.w3.org/2000/svg\" style=\"stroke-width: 779.979; transform: matrix(0.000285844, 0, 0, 0.000285844, -659.564, 623.355); --index:11; --length:2034.26; --start:28892.8;\" d=\"M-1000 148C-703 -148 648 148 1000 148\" data-hash=\"1.7839\" class=\"selected\" stroke=\"#FFFFFF\"><\/path><path xmlns=\"http://www.w3.org/2000/svg\" style=\"stroke-width: 534.431; transform: matrix(0.000417178, 0, 0, 0.000417178, -659.548, 623.397); --index:12; --length:1999.39; --start:30927;\" d=\"M-18 -999C-18 -343 18 335 18 1000\" data-hash=\"1.7840\" class=\"selected\" stroke=\"#FFFFFF\"><\/path><path xmlns=\"http://www.w3.org/2000/svg\" style=\"stroke-width: 494.354; transform: matrix(0.000450997, 0, 0, 0.000450997, -658.354, 623.127); --index:13; --length:2862.47; --start:32926.4;\" d=\"M109 -976C109 -392 -999 976 1000 976\" data-hash=\"1.7841\" class=\"selected\" stroke=\"#FFFFFF\"><\/path><path xmlns=\"http://www.w3.org/2000/svg\" style=\"stroke-width: 222.952; transform: matrix(0.001, 0, 0, 0.001, -657.856, 623.537); --index:14; --length:956; --start:35788.9;\" d=\"M0 -478C0 -159 0 159 0 478\" data-hash=\"1.7842\" class=\"selected\" stroke=\"#FFFFFF\"><\/path><path xmlns=\"http://www.w3.org/2000/svg\" style=\"stroke-width: 571.249; transform: matrix(0.000390289, 0, 0, 0.000390289, -650.111, 621.856); --index:15; --length:4322.11; --start:36744.9;\" d=\"M876 -509C876 -1000 -995 -648 -746 282,C-555 999 557 809 995 559\" data-hash=\"1.7844\" class=\"selected\" stroke=\"#2196f3\"><\/path><path xmlns=\"http://www.w3.org/2000/svg\" style=\"stroke-width: 407.368; transform: matrix(0.0005473, 0, 0, 0.0005473, -649.756, 621.542); --index:16; --length:2090.55; --start:41067;\" d=\"M89 -919C70 -938 44 -999 32 -976,C-145 -619 31 599 145 1000\" data-hash=\"1.7845\" class=\"selected\" stroke=\"#2196f3\"><\/path><path xmlns=\"http://www.w3.org/2000/svg\" style=\"stroke-width: 624.796; transform: matrix(0.00035684, 0, 0, 0.00035684, -649.245, 621.854); --index:17; --length:4434.67; --start:43157.6;\" d=\"M177 10C869 10 956 -920 177 -725,C-1000 -430 -415 920 999 920\" data-hash=\"1.7846\" class=\"selected\" stroke=\"#2196f3\"><\/path><path xmlns=\"http://www.w3.org/2000/svg\" style=\"stroke-width: 359.407; transform: matrix(0.000620335, 0, 0, 0.000620335, -648.33, 622.118); --index:18; --length:2426.05; --start:47592.2;\" d=\"M294 -718C294 -851 -137 -1000 -178 -793,C-294 -211 186 452 -178 1000\" data-hash=\"1.7847\" class=\"selected\" stroke=\"#2196f3\"><\/path><path xmlns=\"http://www.w3.org/2000/svg\" style=\"stroke-width: 848.803; transform: matrix(0.000262667, 0, 0, 0.000262667, -648.378, 622.095); --index:19; --length:2007.1; --start:50018.3;\" d=\"M-1000 -20C-349 -20 368 78 1000 -78\" data-hash=\"1.7848\" class=\"selected\" stroke=\"#2196f3\"><\/path><path xmlns=\"http://www.w3.org/2000/svg\" data-hash=\"1.7855\" d=\"M329 -585C309 -605 293 -654 272 -665,C-329 -1000 20 590 7 774,C4 811 -54 1000 -131 923\" class=\"selected\" style=\"stroke-width: 166.213; transform: matrix(0.000984452, 0, 0, 0.000984452, -645.736, 621.951); --index:20; --length:2087.17; --start:52025.4;\" stroke=\"#FFFFFF\"><\/path><path xmlns=\"http://www.w3.org/2000/svg\" data-hash=\"1.7856\" d=\"M-928 92C-941 78 -1000 70 -980 66,C-822 26 -537 0 -426 -13,C48 -65 523 -92 1000 -92\" class=\"selected\" style=\"stroke-width: 381.116; transform: matrix(0.000429341, 0, 0, 0.000429341, -645.727, 622.073); --index:21; --length:2055.33; --start:54112.6;\" stroke=\"#FFFFFF\"><\/path><path xmlns=\"http://www.w3.org/2000/svg\" data-hash=\"1.7857\" d=\"M32 -1000C-439 -292 -332 537 439 1000\" class=\"selected\" style=\"stroke-width: 267.215; transform: matrix(0.000600909, 0.000117806, -0.000117806, 0.000600909, -644.738, 621.644); --index:22; --length:2315.05; --start:56167.9;\" stroke=\"#FFFFFF\"><\/path><path xmlns=\"http://www.w3.org/2000/svg\" data-hash=\"1.7858\" d=\"M684 -924C684 -1000 609 -839 513 -711,C-300 374 613 -824 -128 187,C-310 435 -587 710 -684 999\" class=\"selected\" style=\"stroke-width: 617.264; transform: matrix(0.000265087, 0, 0, 0.000265087, -643.835, 621.632); --index:23; --length:2510.89; --start:58482.9;\" stroke=\"#FFC107\"><\/path><path xmlns=\"http://www.w3.org/2000/svg\" data-hash=\"1.7859\" d=\"M-947 -1000C-277 -329 213 388 947 1000\" class=\"selected\" style=\"stroke-width: 759.454; transform: matrix(0.000215456, 0, 0, 0.000215456, -643.79, 621.636); --index:24; --length:2757.03; --start:60993.8;\" stroke=\"#FFC107\"><\/path><path xmlns=\"http://www.w3.org/2000/svg\" data-hash=\"1.7860\" d=\"M32 -1000C-439 -292 -332 537 439 1000\" class=\"selected\" style=\"stroke-width: 267.215; transform: matrix(-0.000593511, -0.000150713, 0.000150713, -0.000593511, -642.863, 621.748); --index:25; --length:2315.05; --start:63750.9;\" stroke=\"#FFFFFF\"><\/path><path xmlns=\"http://www.w3.org/2000/svg\" style=\"stroke-width: 19237.5; transform: matrix(1.15895e-05, 0, 0, 1.15895e-05, -642.179, 621.51); --index:26; --length:3552.14; --start:66065.9;\" d=\"M1000 -666C-999 -666 -1000 666 1000 666\" data-hash=\"1.7861\" class=\"selected\" stroke=\"#FFFFFF\"><\/path><path xmlns=\"http://www.w3.org/2000/svg\" style=\"stroke-width: 8231.45; transform: matrix(2.70854e-05, 0, 0, 2.70854e-05, -642.163, 621.951); --index:27; --length:2543.85; --start:69618.1;\" d=\"M429 -570C-999 -570 -105 570 1000 570\" data-hash=\"1.7862\" class=\"selected\" stroke=\"#FFFFFF\"><\/path><path xmlns=\"http://www.w3.org/2000/svg\" style=\"stroke-width: 577.874; transform: matrix(0.000385815, 0, 0, 0.000385815, -648.062, 624.1); --index:28; --length:4289.18; --start:72161.9;\" d=\"M-660 -243C-660 -318 -741 -306 -700 -163,C-599 188 -420 600 -420 957,C-420 1000 -446 877 -460 837,C-614 374 -715 -177 -460 -604,C-222 -1000 429 -728 741 -604\" data-hash=\"1.7863\" class=\"selected\" stroke=\"#2196f3\"><\/path><path xmlns=\"http://www.w3.org/2000/svg\" style=\"stroke-width: 576.455; transform: matrix(0.000386765, 0, 0, 0.000386765, -647.276, 624.122); --index:29; --length:4414.47; --start:76451.1;\" d=\"M-214 98C900 98 84 -1000 -254 -540,C-442 -287 -580 3 -693 298,C-900 836 413 999 824 897\" data-hash=\"1.7864\" class=\"selected\" stroke=\"#2196f3\"><\/path><path xmlns=\"http://www.w3.org/2000/svg\" style=\"stroke-width: 655.892; transform: matrix(0.000339922, 0, 0, 0.000339922, -646.542, 624.052); --index:30; --length:2495.21; --start:80865.5;\" d=\"M-266 -1000C-266 -281 -552 999 552 999\" data-hash=\"1.7865\" class=\"selected\" stroke=\"#2196f3\"><\/path><path xmlns=\"http://www.w3.org/2000/svg\" style=\"stroke-width: 930.943; transform: matrix(0.000239491, 0, 0, 0.000239491, -646.578, 623.898); --index:31; --length:2015.35; --start:83360.8;\" d=\"M-1000 -65C-1000 65 784 0 999 0\" data-hash=\"1.7866\" class=\"selected\" stroke=\"#2196f3\"><\/path><path xmlns=\"http://www.w3.org/2000/svg\" style=\"stroke-width: 592.069; transform: matrix(0.000376565, 0, 0, 0.000376565, -645.622, 624.137); --index:32; --length:4716.07; --start:85376.1;\" d=\"M-919 -512C-919 -386 -1000 -274 -960 -143,C-814 342 -166 615 311 512,C904 385 999 -635 803 -635,C554 -635 863 531 967 635\" data-hash=\"1.7867\" class=\"selected\" stroke=\"#2196f3\"><\/path><path xmlns=\"http://www.w3.org/2000/svg\" style=\"stroke-width: 828.796; transform: matrix(0.000269007, 0, 0, 0.000269007, -644.809, 624.03); --index:33; --length:3853.35; --start:90092.2;\" d=\"M-631 -148C-631 254 -475 316 -287 655,C-228 761 -51 1000 -172 1000,C-225 1000 -287 115 -287 -33,C-287 -733 32 -1000 631 -550\" data-hash=\"1.7868\" class=\"selected\" stroke=\"#2196f3\"><\/path><path xmlns=\"http://www.w3.org/2000/svg\" style=\"stroke-width: 687.125; transform: matrix(0.000324471, 0, 0, 0.000324471, -643.929, 624.078); --index:34; --length:5146.84; --start:93945.5;\" d=\"M-1000 -365C-1000 0 -915 281 -809 634,C-786 711 -819 929 -761 872,C-560 671 -537 -967 95 -651,C451 -473 1000 580 1000 967\" data-hash=\"1.7869\" class=\"selected\" stroke=\"#2196f3\"><\/path><path xmlns=\"http://www.w3.org/2000/svg\" data-hash=\"1.7870\" d=\"M-736 -179C-736 -296 -759 -437 -716 -549,C-542 -1000 179 -980 394 -569,C603 -169 -13 408 -284 622,C-443 749 -697 850 -839 993,C-846 1000 -827 977 -819 972,C-752 928 -671 908 -592 890,C-136 781 378 849 846 849\" class=\"selected\" style=\"stroke-width: 296.751; transform: matrix(0.000751312, 0, 0, 0.000751312, -641.521, 623.831); --index:35; --length:5580.82; --start:99092.4;\" stroke=\"#FFFFFF\"><\/path><path xmlns=\"http://www.w3.org/2000/svg\" style=\"stroke-width: 632.688; transform: matrix(0.000352389, 0, 0, 0.000352389, -640.075, 623.656); --index:36; --length:6850.01; --start:104673;\" d=\"M419 -454C419 -346 139 -555 -676 -147,C-782 -94 -475 -24 -369 28,C-253 86 566 494 682 379,C782 279 212 -38 156 -103,C-22 -306 -150 -1000 -150 -892,C-150 -441 -92 74 -238 510,C-401 999 -236 552 287 28\" data-hash=\"1.7871\" class=\"selected\" stroke=\"#FFFFFF\"><\/path><path xmlns=\"http://www.w3.org/2000/svg\" data-hash=\"1.7872\" d=\"M684 -924C684 -1000 609 -839 513 -711,C-300 374 613 -824 -128 187,C-310 435 -587 710 -684 999\" class=\"selected\" style=\"stroke-width: 617.264; transform: matrix(0.000365247, 0, 0, 0.000365247, -638.786, 624.05); --index:37; --length:2510.89; --start:111523;\" stroke=\"#FFC107\"><\/path><path xmlns=\"http://www.w3.org/2000/svg\" data-hash=\"1.7873\" d=\"M-947 -1000C-277 -329 213 388 947 1000\" class=\"selected\" style=\"stroke-width: 759.454; transform: matrix(0.000296863, 0, 0, 0.000296863, -638.724, 624.056); --index:38; --length:2757.03; --start:114034;\" stroke=\"#FFC107\"><\/path><path xmlns=\"http://www.w3.org/2000/svg\" data-hash=\"1.7874\" d=\"M-1000 148C-703 -148 648 148 1000 148\" class=\"selected\" style=\"stroke-width: 779.979; transform: matrix(0.000285844, 0, 0, 0.000285844, -637.045, 623.824); --index:39; --length:2034.26; --start:116791;\" stroke=\"#FFFFFF\"><\/path><path xmlns=\"http://www.w3.org/2000/svg\" data-hash=\"1.7875\" d=\"M-18 -999C-18 -343 18 335 18 1000\" class=\"selected\" style=\"stroke-width: 534.431; transform: matrix(0.000417178, 0, 0, 0.000417178, -637.03, 623.867); --index:40; --length:1999.39; --start:118825;\" stroke=\"#FFFFFF\"><\/path><path xmlns=\"http://www.w3.org/2000/svg\" data-hash=\"1.7876\" d=\"M109 -976C109 -392 -999 976 1000 976\" class=\"selected\" style=\"stroke-width: 494.354; transform: matrix(0.000450997, 0, 0, 0.000450997, -635.835, 623.596); --index:41; --length:2862.47; --start:120825;\" stroke=\"#FFFFFF\"><\/path><path xmlns=\"http://www.w3.org/2000/svg\" data-hash=\"1.7877\" d=\"M0 -478C0 -159 0 159 0 478\" class=\"selected\" style=\"stroke-width: 222.952; transform: matrix(0.001, 0, 0, 0.001, -635.338, 624.006); --index:42; --length:956; --start:123687;\" stroke=\"#FFFFFF\"><\/path><path xmlns=\"http://www.w3.org/2000/svg\" style=\"stroke-width: 103.069; transform: matrix(0.00105622, 0, 0, 0.00105622, -654.28, 623.032); --index:43; --length:2002.24; --start:124643;\" d=\"M-1000 42C-332 42 334 8 1000 -42\" data-hash=\"1.7878\" class=\"selected\" stroke=\"#4caf50\"><\/path><path xmlns=\"http://www.w3.org/2000/svg\" style=\"stroke-width: 141.509; transform: matrix(0.000769304, 0, 0, 0.000769304, -652.847, 622.956); --index:44; --length:2358.03; --start:126645;\" d=\"M-999 -706C-880 -706 1000 117 -764 706\" data-hash=\"1.7879\" class=\"selected\" stroke=\"#4caf50\"><\/path><\/svg>\n<\/drawing>\n\n`def` anahtar kelimesi ile fonksiyon oluşturabilir, `return` anahtar kelimesi ile fonksiyonun sonucunu döndürebilirsin.\n\n<code-view name=\"main.py\" language=\"python\">\ndef f(x):\n  return 2 * x + 4\nprint( f(1) )\n<\/code-view>\n\nf(1) fonksiyonunu çağırdığında 2 * 1 + 4 = 6 değerini döndürür.\n\n<code-view name=\"Terminal\" language=\"md\">\n6\n<\/code-view>\n\n\n\n- files/main.py/.block\n# f(x) = 2 * x + 4 fonksiyonunu tanımlar mısın?\n<<<❓>>>\nprint( f(1) )\n- tests/0/files/main.py/.block\n# f(x) = 2 * x + 4 fonksiyonunu tanımlar mısın?\n<<<❓>>>\nprint( f(1) )\n- tests/0/execute\npy main.py\n- tests/0/output\n6\n\n------------------\n- tests/1/files/main.py/.block\n# f(x) = 2 * x + 4 fonksiyonunu tanımlar mısın?\n<<<❓>>>\nprint( f(2) )\n- tests/1/execute\npy main.py\n- tests/1/output\n8\n\n------------------\n\n\n\n\n\n\n\n- parts/3:\n- text\n\n## 🚀 Fonksiyonları Parametre ile çağırma\n\n<code-view name=\"main.py\" language=\"python\">\ndef hesapla(x):\n  return 2 * x + 4\nprint( hesapla(1) )\n<\/code-view>\n\nhesapla(1) fonksiyonunu çağırdığında 2*1 + 4 = 6 değerini döndürür.\n\n<code-view name=\"Terminal\" language=\"md\">\n6\n<\/code-view>\n\n- files/main.py/.block\n# hesapla fonksiyonunu 1 parametresi ile çağırıp\n# sonucunu yazdırır mısın?\ndef hesapla(x):\n  return 2 * x + 4\n\nprint( <<<❓>>> )\n- tests/0/files/main.py/.block\n# hesapla fonksiyonunu 1 parametresi ile çağırıp\n# sonucunu yazdırır mısın?\ndef hesapla(x):\n  return 2 * x + 4\n\nprint( <<<❓>>> )\n- tests/0/execute\npy main.py\n- tests/0/output\n6\n\n------------------\n- tests/1/files/main.py/.block\n# hesapla fonksiyonunu 1 parametresi ile çağırıp\n# sonucunu yazdırır mısın?\ndef hesapla(x):\n  return x + 4\n\nprint( <<<❓>>> )\n- tests/1/execute\npy main.py\n- tests/1/output\n5\n\n------------------\n\n\n\n\n\n\n- parts/3:\n- text\n\n## 🚀 Birden çok parametre\n\nBirden çok parametre ile fonksiyonu çağırmak için virgülle ayırabilirsin.\n\n<code-view name=\"main.py\" language=\"python\">\ndef yazdır( adı, soyadı, meslek ):\n  print(\"Adı     :\" , adı)\n  print(\"Soyadı  :\" , soyadı)\n  print(\"Mesleği :\" , meslek)\n&nbsp;\nyazdır(\"Cahit\", \"Arf\", \"Matematikçi\")\n<\/code-view>\n\n<code-view name=\"Terminal\" language=\"md\">\nAdı     : Cahit\nSoyadı  : Arf\nMesleği : Matematikçi\n<\/code-view>\n\n- files/main.py/.block\n# yazdır fonksiyonunu (\"Cahit\",\"Arf\",\"Matematikçi\") \n# parametreleri ile çağırabilir misin?\ndef yazdır( adı, soyadı, meslek ):\n  print(\"Adı     :\" , adı)\n  print(\"Soyadı  :\" , soyadı)\n  print(\"Mesleği :\" , meslek)\n\n<<<❓>>>\n- tests/0/files/main.py/.block\n# yazdır fonksiyonunu (\"Cahit\",\"Arf\",\"Matematikçi\") \n# parametreleri ile çağırabilir misin?\ndef yazdır( adı, soyadı, meslek ):\n  print(\"Adı     :\" , adı)\n  print(\"Soyadı  :\" , soyadı)\n  print(\"Mesleği :\" , meslek)\n\n<<<❓>>>\n- tests/0/execute\npy main.py\n- tests/0/output\nAdı     : Cahit\nSoyadı  : Arf\nMesleği : Matematikçi\n\n------------------\n- tests/1/files/main.py/.block\n# yazdır fonksiyonunu (\"Cahit\",\"Arf\",\"Matematikçi\") \n# parametreleri ile çağırabilir misin?\ndef yazdır( adı, soyadı, meslek ):\n  print(\"Mesleği :\" , meslek)\n  print(\"Adı     :\" , adı)\n  print(\"Soyadı  :\" , soyadı)\n\n<<<❓>>>\n- tests/1/execute\npy main.py\n- tests/1/output\nMesleği : Matematikçi\nAdı     : Cahit\nSoyadı  : Arf\n\n------------------\n\n\n\n\n\n\n\n\n\n- parts/4:\n- text\n\n## 🚀 Parametre ile çağırma\n\nParametre ile çağırmak için `parametre_adı = değer` şeklinde tanımlama yapabilirsin.\n\n<code-view name=\"main.py\" language=\"python\">\ndef yazdır( adı, soyadı, meslek ):\n  print(\"Adı     :\" , adı)\n  print(\"Soyadı  :\" , soyadı)\n  print(\"Mesleği :\" , meslek)\n&nbsp;\nyazdır( meslek = \"Matematikçi\", adı = \"Cahit\", soyadı = \"Arf\")\n<\/code-view>\n\n<code-view name=\"Terminal\" language=\"md\">\nAdı     : Cahit\nSoyadı  : Arf\nMesleği : Matematikçi\n<\/code-view>\n\n- files/main.py/.block\n# yazdır fonksiyonunu (\"Cahit\",\"Arf\",\"Matematikçi\") \n# parametreleri ile çağırabilir misin?\ndef yazdır( adı, soyadı, meslek ):\n  print(\"Adı     :\" , adı)\n  print(\"Soyadı  :\" , soyadı)\n  print(\"Mesleği :\" , meslek)\n\nyazdır( meslek=<<<\"❓\">>> )\n- tests/0/files/main.py/.block\n# yazdır fonksiyonunu (\"Cahit\",\"Arf\",\"Matematikçi\") \n# parametreleri ile çağırabilir misin?\ndef yazdır( adı, soyadı, meslek ):\n  print(\"Adı     :\" , adı)\n  print(\"Soyadı  :\" , soyadı)\n  print(\"Mesleği :\" , meslek)\n\nyazdır( meslek=<<<\"❓\">>> )\n- tests/0/execute\npy main.py\n- tests/0/output\nAdı     : Cahit\nSoyadı  : Arf\nMesleği : Matematikçi\n\n------------------\n- tests/1/files/main.py/.block\n# yazdır fonksiyonunu (\"Cahit\",\"Arf\",\"Matematikçi\") \n# parametreleri ile çağırabilir misin?\ndef yazdır( adı, soyadı, meslek ):\n  print(\"Mesleği :\" , meslek)\n  print(\"Adı     :\" , adı)\n  print(\"Soyadı  :\" , soyadı)\n\nyazdır( meslek=<<<\"❓\">>> )\n- tests/1/execute\npy main.py\n- tests/1/output\nMesleği : Matematikçi\nAdı     : Cahit\nSoyadı  : Arf\n\n------------------\n\n\n\n\n\n\n- parts/5:\n- text\n\n## 🚀 Varsayılan Parametre Atama\n\nVarsayılan parametre atama için fonksiyonun tanımlandığı satırda `parametre_adı = değer` şeklinde tanımlama yapabilirsin.\n\n<code-view name=\"main.py\" language=\"python\">\ndef yazdır( adı, soyadı, meslek = \"Matematikçi\" ):\n  print( adı, soyadı, meslek , sep = \"\\t\" )\n&nbsp;\nyazdır(\"Ali\",\"Kuşçu\")\nyazdır(\"Aziz\",\"Sancar\",\"Biyokimyager\")\n<\/code-view>\n\n<code-view name=\"Terminal\" language=\"md\">\nAli     Kuşçu   Matematikçi\nAziz    Sancar  Biyokimyager\n<\/code-view>\n\nYukarıdaki örnekte Ali Kuşçu için varsayılan olarak Matematikçi mesleği atanmıştır. \n\n- files/main.py/.block\n# (adı,soyadı,meslek) parametreleri olan \n# yazdır fonksiyonunu oluşturur musun?\n# meslek parametresinin varsayılan değeri \"Matematikçi\" olsun.\n<<<❓>>>\n  print( adı, soyadı, meslek , sep = \"\\t\" )\n\nyazdır(\"Ali\",\"Kuşçu\")\nyazdır(\"Aziz\",\"Sancar\",\"Biyokimyager\")\n- tests/0/files/main.py/.block\n# (adı,soyadı,meslek) parametreleri olan \n# yazdır fonksiyonunu oluşturur musun?\n# meslek parametresinin varsayılan değeri \"Matematikçi\" olsun.\n<<<❓>>>\n  print( adı, soyadı, meslek , sep = \"\\t\" )\n\nyazdır(\"Ali\",\"Kuşçu\")\nyazdır(\"Aziz\",\"Sancar\",\"Biyokimyager\")\n- tests/0/execute\npy main.py\n- tests/0/output=\"Ali\\tKuşçu\\tMatematikçi\\nAziz\\tSancar\\tBiyokimyager\\n\"\n\n------------------\n- tests/1/files/main.py/.block\n# (adı,soyadı,meslek) parametreleri olan \n# yazdır fonksiyonunu oluşturur musun?\n# meslek parametresinin varsayılan değeri \"Matematikçi\" olsun.\n<<<❓>>>\n  print( adı, soyadı, meslek , sep = \"\\t\" )\n\nyazdır(\"Cahit\",\"Arf\")\nyazdır(\"Aziz\",\"Sancar\",\"Biyokimyager\")\n- tests/1/execute\npy main.py\n- tests/1/output=\"Cahit\\tArf\\tMatematikçi\\nAziz\\tSancar\\tBiyokimyager\\n\"\n\n------------------\n\n\n\n\n\n\n\n\n- parts/6:\n- text\n\n## 🚀 Sınırsız `tuple` Parametre Kullanımı\n\nSınırsız parametre kullanımı için `*parametreler` şeklinde, \ndeğişkenin önüne `*` yıldız işareti koyarız.\nAşağıdaki örnekteki `def topla( *sayılar )` daki `sayılar` değişkeni bir `tuple` gibi davranır.\n\n<code-view name=\"main.py\" language=\"python\">\ndef topla( *sayılar ):\n  toplam = 0\n  for sayı in sayılar:\n    toplam += sayı\n  return toplam\n&nbsp;\nprint( topla(1, 2) )\nprint( topla(1, 2, 3) )\n<\/code-view>\n\n<code-view name=\"Terminal\" language=\"md\">\n3\n6\n<\/code-view>\n\n\n\n- files/main.py/.block\n# topla fonksiyonu sınırsız parametre alır\n# ve parametrelerin toplamını döndürür.\n# topla fonksiyonunu tanımlar mısın?\n<<<❓>>>\n  toplam = 0\n  for sayı in sayılar:\n    toplam += sayı\n  return toplam\n\nprint( topla(1, 2) )\nprint( topla(1, 2, 3) )\n- tests/0/files/main.py/.block\n# topla fonksiyonu sınırsız parametre alır\n# ve parametrelerin toplamını döndürür.\n# topla fonksiyonunu tanımlar mısın?\n<<<❓>>>\n  toplam = 0\n  for sayı in sayılar:\n    toplam += sayı\n  return toplam\n\nprint( topla(1, 2) )\nprint( topla(1, 2, 3) )\n- tests/0/execute\npy main.py\n- tests/0/output\n3\n6\n\n------------------\n- tests/1/files/main.py/.block\n# topla fonksiyonu (sayılar) adında sınırsız parametre alır\n# ve parametrelerin toplamını döndürür.\n# topla fonksiyonunu tanımlar mısın?\n<<<❓>>>\n  toplam = 0\n  for sayı in sayılar:\n    toplam += sayı\n  return toplam\n\nprint( topla(2) )\nprint( topla(1, 6, 3) )\n- tests/1/execute\npy main.py\n- tests/1/output\n2\n10\n\n------------------\n\n\n\n\n\n\n\n\n- parts/7:\n- text\n\n## 🚀 Sınırsız `dict` Parametre Kullanımı\n\nSınırsız isimli parametre için için `**parametreler` şeklinde, \ndeğişkenin önüne `**` iki yıldız işareti koyarız.\nAşağıdaki örnekteki `def tablo( **veriler )` deki `veriler` değişkeni bir `dict` gibi davranır.\n\n<code-view name=\"main.py\" language=\"python\">\ndef tablo(**veriler):\n  for anahtar in veriler:\n    print(anahtar,\": \"+veriler[anahtar], sep=\"\\t\")\n&nbsp;\ntablo(adı=\"Yunus\",soyadı=\"Emre\",doğum=\"1239\")\nprint(\"------------------\")\ntablo(element=\"Hidrojen\",numara=\"1\")\n<\/code-view>\n\n<code-view name=\"Terminal\" language=\"shell\">\nadı     : Yunus\nsoyadı  : Emre\ndoğum   : 1239\n&minus;-----------------\nelement : Hidrojen\nnumara  : 1\n<\/code-view>\n\n\n\n- files/main.py/.block\n# tablo fonksiyonu dict tipinde sınırsız parametre alır\n# ve parametreleri tablo şeklinde yazdırır.\n# tablo fonksiyonunu tanımlar mısın?\n<<<❓>>>\n  for anahtar in veriler:\n    print(anahtar,\": \"+veriler[anahtar], sep=\"\\t\")\n\ntablo(adı=\"Yunus\",soyadı=\"Emre\",doğum=\"1239\")\nprint(\"------------------\")\ntablo(element=\"Hidrojen\",numara=\"1\")\n- tests/0/files/main.py/.block\n# tablo fonksiyonu dict tipinde sınırsız parametre alır\n# ve parametreleri tablo şeklinde yazdırır.\n# tablo fonksiyonunu tanımlar mısın?\n<<<❓>>>\n  for anahtar in veriler:\n    print(anahtar,\": \"+veriler[anahtar], sep=\"\\t\")\n\ntablo(adı=\"Yunus\",soyadı=\"Emre\",doğum=\"1239\")\nprint(\"------------------\")\ntablo(element=\"Hidrojen\",numara=\"1\")\n- tests/0/execute\npy main.py\n- tests/0/output=\"adı\\t: Yunus\\nsoyadı\\t: Emre\\ndoğum\\t: 1239\\n------------------\\nelement\\t: Hidrojen\\nnumara\\t: 1\\n\"\n\n- tests/1/files/main.py/.block\n# tablo fonksiyonu dict tipinde sınırsız parametre alır\n# ve parametreleri tablo şeklinde yazdırır.\n# tablo fonksiyonunu tanımlar mısın?\n<<<❓>>>\n  for anahtar in veriler:\n    print(anahtar,\": \"+veriler[anahtar], sep=\"\\t\")\n\ntablo(adı=\"Yunus\",soyadı=\"Emre\",doğum=\"1239\")\nprint(\"------------------\")\ntablo(element=\"Helyum\",numara=\"2\")\n- tests/1/execute\npy main.py\n- tests/1/output=\"adı\\t: Yunus\\nsoyadı\\t: Emre\\ndoğum\\t: 1239\\n------------------\\nelement\\t: Helyum\\nnumara\\t: 2\\n\"\n\n\n\n\n\n\n\n\n- parts/8:\n- text\n\n## 🚀 Boş fonksiyon oluşturma\n\nBoş fonksiyon oluşturmak için `pass` ifadesini kullanabilirsin.\n\n<code-view name=\"main.py\" language=\"python\">\ndef bos_fonksiyon():\n  pass\n<\/code-view>\n\nBoş fonksiyon oluşturmak için `return` anahtar kelimesini de kullanabilirsin.\n\n<code-view name=\"main.py\" language=\"python\">\ndef bos_fonksiyon():\n  return\n<\/code-view>\n\n\nEğerki aşağıdaki gibi bir fonksiyon tanımlarsak <b style=\"color:#F88\">hata<\/b> yapmış oluruz.\n<code-view name=\"main.py\" language=\"python\" error>\ndef bos_fonksiyon():\n&nbsp;\nbos_fonksiyon()\n<\/code-view>\n\n\n\n- files/main.py/.block\n# bos_fonksiyon adında bir fonksiyon tanımla\n# herhangi bir şey yapmasın\ndef bos_fonksiyon():\n  <<<❓>>>\n \nbos_fonksiyon()\n- tests/0/files/main.py/.block\n# bos_fonksiyon adında bir fonksiyon tanımla\n# herhangi bir şey yapmasın\ndef bos_fonksiyon():\n  <<<❓>>>\n \nbos_fonksiyon()\nprint(type(bos_fonksiyon()) , bos_fonksiyon() is None )\n- tests/0/execute\npy main.py\n- tests/0/output\n<class 'NoneType'> True\n\n------------------\n\n\n\n\n\n\n","next":null};
+    Pager(source);
+
+    window.addEventListener('keydown', function (e) {
+      if (e.keyCode == 121) {
+        e.preventDefault();
+        panel.nextPart();
+      }
+    });
+  </script>
+    </div>
+  </div>
+
+  <script>
+    (function(){
+      s = (sel,el=document)=>Array.from(el.querySelectorAll(sel))
+      s("a.star").map(e=>{
+        if(e.href){
+          let pathname = "success:/"+decodeURIComponent( (new URL(e.href)).pathname )
+          if(!pathname.endsWith("/")) pathname += "/"
+          //console.log(pathname)
+          if(localStorage[pathname]==="true"){
+            e.classList.add("success")
+          }
+        }
+      })
+    })()
+  </script>
+
+
+</body>
+
+</html>
