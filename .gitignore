@@ -8,3 +8,6 @@ npm-debug.log*
 # İşletim sistemi
 .DS_Store
 Thumbs.db
+
+# Kullanici ekleri (ekran goruntusu vb.)
+attachments/

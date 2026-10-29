@@ -9,6 +9,8 @@ yardımcı araçları barındırır. Uygulamanın çalışması için gerekli de
 |---|---|
 | `javascript101-spec.md` | Ders yazım şartnamesi (format, üslup, kurallar) |
 | `verify-lessons.js` | Dersleri Dion ile ayrıştırır, örnekleri ve testleri gerçek runner ile çalıştırır |
+| `audit-lessons.js` | Ters yönden denetler: boş/`❓`/anlamsız cevapla geçen test ve eksik yorum kalmış mı? |
+| `build-pages.js` | PHP'siz (GitHub Pages) statik siteyi `docs/` içine üretir ve kendi bağlantılarını denetler |
 | `solutions/<ders>.json` | Her partın `<<< ❓ >>>` alanlarına yazılacak cevaplar |
 
 ## Doğrulama
@@ -37,4 +39,29 @@ Araç şunları denetler:
    `tests/N/output` ile karşılaştırılır. Platformun `Terminal` panelindeki
    (`app/source/terminal.js`) davranışının aynısı taklit edilir.
 
-Hedef: `0 hata`. Değişiklikten sonra bu komutu çalıştırmadan ders dosyalarını gönderme.
+## Senaryo denetimi
+
+```bash
+# tüm kurs
+node tools/audit-lessons.js
+
+# tek ders
+node tools/audit-lessons.js app/@javascript101/1041-0-döngüler-while.md
+```
+
+`verify-lessons.js` "doğru cevap geçiyor mu?" diye bakar; `audit-lessons.js` ise
+"**yanlış** cevap da geçiyor mu?" sorusunu sorar. Her test üç sahte cevapla denenir:
+
+| Cevap | Ne olur |
+|---|---|
+| boş | `<<< ❓ >>>` alanları silinir |
+| `❓` | yer tutucu olduğu gibi bırakılır |
+| `xyz` | alanlara anlamsız metin yazılır |
+
+Bu üçünden biriyle geçen test, öğrenciden hiçbir şey istemiyor demektir; düzeltilmelidir.
+Araç ayrıca (a) her `.js` bloğunun açıklayıcı yorumla başlamasını, (b) `main.js` yorumunun
+1. testin beklenen çıktısını **birebir** (aynı büyük/küçük harf) içermesini ve (c) `require`
+kuralı varsa çözüm cevabının bu kuralı sağlamasını denetler.
+
+Hedef: iki araçta da `0 hata`. Değişiklikten sonra bu komutları çalıştırmadan ders
+dosyalarını gönderme.

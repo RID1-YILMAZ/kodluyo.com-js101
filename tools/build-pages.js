@@ -37,7 +37,7 @@ const OUT = outArg > -1
   : path.join(ROOT, 'docs');
 
 const ASSET_DIRS = ['library', 'views', 'source'];
-const ASSET_FILES = ['skulpt.js', 'api-javascript.html', 'api-python-skulpt.html'];
+const ASSET_FILES = ['skulpt.js', 'api-javascript.html', 'api-javascript-worker.js', 'api-python-skulpt.html'];
 const ROOT_FILES = ['python101.png', 'javascript101.svg', 'terminal.html', 'todo.html'];
 
 // Online editor: PHP yalnizca dili query'den alip dosyayi okuyordu.
@@ -92,19 +92,13 @@ if (/<\?(php|=)/.test(frameHtml)) {
   throw new Error('frame.php icinde cozulemeyen PHP kodu kaldi.');
 }
 
-// app.php: `Program()` fonksiyonu (iframe haberlesmesi). Yorumlu ornek bloklari atilir.
-const appSource = fs.readFileSync(path.join(APP, 'app.php'), 'utf8');
-const programStart = appSource.indexOf('function Program(files,options){');
-const programEnd = appSource.indexOf('source = {"data"');
-if (programStart < 0 || programEnd < 0) {
-  throw new Error('app.php icinde Program() blogu bulunamadi.');
+// `Program()` artik app/source/program.js icinde (kabuk onu <script> ile yukler);
+// burada yeniden uretmeye gerek yok. Yalnizca varliklarin var oldugunu denetle.
+for (const asset of ['source/program.js', 'api-javascript-worker.js', 'api-javascript.html']) {
+  if (!fs.existsSync(path.join(APP, asset))) {
+    throw new Error('Eksik calistirici varligi: app/' + asset);
+  }
 }
-const programCode = appSource
-  .slice(programStart, programEnd)
-  .split('\n')
-  .filter((line) => !line.trim().startsWith('//'))
-  .join('\n')
-  .trimEnd();
 
 function lessonTemplate() {
   // Ders sayfasi: /app/@kurs/<ders>/index.html -> kok varliklar iki seviye yukarida.
@@ -125,8 +119,6 @@ function lessonPage(course, slug, data, next) {
   const json = JSON.stringify({ data, next }).replace(/<\//g, '<\\/');
   const content = [
     '  <script>',
-    '    ' + programCode.split('\n').join('\n    '),
-    '',
     '    source = ' + json + ';',
     '    Pager(source);',
     '',

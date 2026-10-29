@@ -193,6 +193,10 @@ Merhaba Dünya
 Terminale ``Merhaba Dünya`` yazdıran programı yazar mısın?
 
 - files/main.js/.block
+// Görev: Terminale "Merhaba Dünya" yazdır.
+// console.log() parantezinin içine metni ÇİFT TIRNAK ile yaz.
+// Beklenen çıktı:
+// Merhaba Dünya
 console.log("<<< ❓ >>>");
 ---------------------
 - tests/0/output
@@ -204,20 +208,34 @@ Merhaba Dünya
 - `<<< ❓ >>>` → öğrencinin dolduracağı boşluk (düzenlenebilir blok).
 - `tests/N/output` → beklenen terminal çıktısı; platform bunu **birebir** karşılaştırır.
 - `files/<dosya>/.block` → aynı bölümde birden fazla dosya (`main.js`, `selam.js` …) tanımlanabilir.
+- `tests/N/require = "metin"` → çıktı aynı olsa bile öğrencinin cevabında geçmesi **zorunlu** metin.
+  Örneğin `require = "String("` yazılırsa `2024 + " yılı"` gibi kısa yoldan geçiş engellenir
+  (bir dizi hâlinde birden fazla kural da verilebilir: `tests/0/require/0`, `tests/0/require/1`).
+
+Alıştırma şablonunun yorumu iki iş yapar: (1) ne yapılacağını açıklar, (2) beklenen çıktıyı
+**birebir** (aynı büyük/küçük harf, aynı noktalama) yazar. Böylece öğrenci yorumdaki yazımı
+kopyaladığında testi geçer; "Merhaba Dünya" istenen yerde "merhaba dünya" yazmaz.
 
 ## ✅ Doğrulama
 
 Ders dosyalarına dokunduktan sonra testleri çalıştırmadan göndermeyin:
 
 ```bash
-node tools/verify-lessons.js                 # tüm JavaScript 101 kursu
+node tools/verify-lessons.js                 # doğru cevaplar geçiyor mu? (tüm kurs)
 node tools/verify-lessons.js app/@javascript101/1051-node-fs.md   # tek ders
 node tools/verify-lessons.js --structure-only                     # yalnızca şema
+
+node tools/audit-lessons.js                  # yanlış cevap geçiyor mu? (tüm kurs)
+node tools/audit-lessons.js app/@javascript101/1041-0-döngüler-while.md
 ```
 
-Araç (1) Dion şemasını, (2) her örneği gerçek runner ile çalıştırıp `Terminal` çıktısıyla
-karşılaştırmayı, (3) her testi `tools/solutions/*.json` cevaplarıyla doldurup beklenen
-çıktıya karşı denetlemeyi yapar. Hedef: **0 hata**.
+`verify-lessons.js` (1) Dion şemasını, (2) her örneği gerçek runner ile çalıştırıp `Terminal`
+çıktısıyla karşılaştırmayı, (3) her testi `tools/solutions/*.json` cevaplarıyla doldurup beklenen
+çıktıya karşı denetlemeyi yapar.
+
+`audit-lessons.js` tersini denetler: **boş cevap**, `❓` yer tutucusu ve **anlamsız cevap**
+(`xyz`) ile geçen test kalmamalıdır. Ayrıca her şablonun açıklayıcı yorumla başladığını ve
+yorumun beklenen çıktıyı birebir içerdiğini denetler. Hedef: iki araçta da **0 hata**.
 
 ## 🩺 Düzeltilen çalışma zamanı sorunları
 
@@ -230,6 +248,16 @@ Statik (GitHub Pages) sürümde **editörün açılmamasına** yol açan hatalar
    Ses motoru güvenli bir yedeğe alındı; ses yüklenemese de ders ilerler.
 3. **Monaco `postMessage` çakışması** — yeni Monaco sürümleri `window.postMessage` ile nesne
    yolluyor; `JSON.parse` hata fırlatıyordu. Mesaj işleyici artık yalnızca string/JSON işliyor.
+4. **Sonsuz döngü sayfayı kilitliyordu** — öğrenci kodu iframe içinde, sayfayla aynı iş
+   parçacığında koşuyordu; `while (true) {}` yazan öğrenci için site tamamen donuyordu.
+   JavaScript artık **Web Worker** içinde çalışıyor (`app/source/program.js` +
+   `app/api-javascript-worker.js`): 8 saniyelik süre aşımında worker `terminate()` ile
+   öldürülür, sayfa akıcı kalır ve bir sonraki çalıştırma temiz bir worker ile başlar.
+   (Python/Skulpt iframe'de kalır; Worker yoksa JavaScript de iframe'e düşer.)
+5. **Bölümler arasında eski kod kalıyordu** — yeni bölümün editörü oluşmadan F8/F9'a basılırsa
+   önceki bölümün kodu çalışıyordu; editörler bölüm geçişinde kapatılıp sıfırlanıyor, kod
+   henüz hazır değilken bölümün kendi şablonu kullanılıyor. Aynı bölümün iki kez atlanmasını
+   önleyen bir de "tek test" kilidi var.
 
 Ayrıca eksik görsel/font kaynaklarından kaynaklanan 404'ler temizlendi ve `terminal.html`
 içindeki jQuery 4 uyumsuzluğu (jQuery 3.7.1'e sabitlendi) düzeltildi.
@@ -245,12 +273,12 @@ kodu çalıştırma, testin geçmesi ve bir sonraki bölüme geçiş; ayrıca ik
 2. Dosyanın başlığına front matter yazın (`language`, `title`, `run`, `show_*`).
 3. Bölümleri `parts/N`, örnekleri `<code-view>`, görevleri `<<< ❓ >>>`, testleri `tests/N/output` ile tanımlayın.
 4. Kurs sayfasındaki (`app/@<kurs>/index.html`) ilgili gruba kart ekleyin.
-5. `node tools/verify-lessons.js` ile doğrulayın.
+5. `node tools/verify-lessons.js` ve `node tools/audit-lessons.js` ile doğrulayın.
 
 ## 🤝 Katkı
 
 1. Depoyu forklayın, `main`'den bir dal açın: `feature/kisa-ad`.
-2. Değişikliğinizi yapın, `node tools/verify-lessons.js` çalıştırın.
+2. Değişikliğinizi yapın, `node tools/verify-lessons.js` ve `node tools/audit-lessons.js` çalıştırın.
 3. Anlamlı commit mesajlarıyla gönderin ve `main`'e pull request açın.
 
 Kod stili: mevcut dosyaların sadeliğini koruyun; yeni bağımlılık eklemekten kaçının.
